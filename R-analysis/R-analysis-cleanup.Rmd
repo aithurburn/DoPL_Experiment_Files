@@ -100,7 +100,7 @@ experiment_1_Dataset <- experiment_1_Dataset %>%
 
 ```{r Once recoded remove the unnecessary columns}
 experiment_1_Dataset <- experiment_1_Dataset[,-locfunc(experiment_1_Dataset, "StartDate"):-locfunc(experiment_1_Dataset, "Q52")]
-experiment_1_Dataset <- experiment_1_Dataset[,-c(locfunc(experiment_1_Dataset, "PROLIFIC_PID"), locfunc(experiment_1_Dataset, "Q76"), locfunc(experiment_1_Dataset, "Q75"))]
+experiment_1_Dataset <- experiment_1_Dataset[,-c(locfunc(experiment_1_Dataset, "PROLIFIC_PID"), locfunc(experiment_1_Dataset, "Q76"), locfunc(experiment_1_Dataset, "Q75"), locfunc(experiment_1_Dataset, "UMS_10"))]
 ```
 
 ```{r For ease of analysis store the like columns to their corresponding question type}
