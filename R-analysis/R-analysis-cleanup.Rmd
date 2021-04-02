@@ -156,8 +156,8 @@ experiment_1_Dataset$leadershipSum <-
 
 # UMS
 experiment_1_Dataset$UMSSum  <- rowSums(experiment_1_Dataset[, UMSQuestions])
-experiment_1_Dataset$UMSSum  <- rowSums(experiment_1_Dataset[, UMSIntimacyQuestions])
-experiment_1_Dataset$UMSSum  <- rowSums(experiment_1_Dataset[, UMSAffiliationQuestions])
+experiment_1_Dataset$UMSIntimacySum  <- rowSums(experiment_1_Dataset[, UMSIntimacyQuestions])
+experiment_1_Dataset$UMSAffiliationSum  <- rowSums(experiment_1_Dataset[, UMSAffiliationQuestions])
 
 # DOSPERT
 experiment_1_Dataset$riskSum <- rowSums(experiment_1_Dataset[, riskQuestions])
