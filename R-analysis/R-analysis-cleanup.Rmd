@@ -113,9 +113,9 @@ leadershipQuestions <- c('DoPL_1','DoPL_6','DoPL_11','DoPL_13','DoPL_14','DoPL_1
 
 
 # UMS
-UMSQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9','UMS_10','UMS_11', 'UMS_12', 'UMS_13')
+UMSQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9','UMS_11', 'UMS_12', 'UMS_13')
 UMSIntimacyQuestions <- c('UMS_11', 'UMS_12', 'UMS_13')
-UMSAffiliationQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9','UMS_10' )
+UMSAffiliationQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9')
 
 
 # DOSPERT
