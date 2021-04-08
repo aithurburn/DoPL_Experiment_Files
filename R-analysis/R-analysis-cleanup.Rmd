@@ -3,9 +3,9 @@ title: "R Data tutorial"
 author: "Andrew Ithurburn"
 date: "22/03/2021"
 output:
-  word_document: default
-  toc: yes
   html_document: null
+  toc: yes
+  word_document: default
 ---
 
 ```{r loading the necessary files}
@@ -88,11 +88,11 @@ experiment_1_Dataset <- experiment_1_Dataset %>%
    mutate_at(vars(locfunc(experiment_1_Dataset, "risk_1"):locfunc(experiment_1_Dataset, "risk_40")), ~as.numeric(recode(., "Very unlikely" = 1, "Unlikely" = 2, "Not sure" = 3, "Likely" = 4, "Very likely" = 5))) %>%
   mutate_at(vars(locfunc(experiment_1_Dataset, "riskPerception_1"):locfunc(experiment_1_Dataset, "riskPerception_40")), ~as.numeric(recode(., "Not at all risky" = 1, "Somewhat risky" = 2, "Moderately risky" = 3, "Very risky" = 4, "Extremely risky" = 5))) %>%
   mutate_at(vars(locfunc(experiment_1_Dataset, "riskBenefit_1"):locfunc(experiment_1_Dataset, "riskBenefit_40")), ~as.numeric(recode(., "No benefits at all" = 1, "Few benefits" = 2, "Moderate benefits" = 3, "Many benefits" = 4, "Great benefits" = 5))) %>%
-  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_1"):locfunc(experiment_1_Dataset, "DoPL_5")), ~as.numeric(recode(., "Strongly disagree" = 1, "Disagree" = 2, "Somewhat disagree" = 3, "Somewhat agree" = 4, "Agree" = 5, "Strongly agree" = 6)))  %>%
-  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_6"), locfunc(experiment_1_Dataset, "DoPL_14")), ~as.numeric(recode(., "Strongly disagree" = 6, "Disagree" = 5, "Somewhat disagree" = 4, "Somewhat agree" = 3, "Agree" = 2, "Strongly agree" = 1))) %>%
-  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_7"):locfunc(experiment_1_Dataset, "DoPL_13")), ~as.numeric(recode(., "Strongly disagree" = 1, "Disagree" = 2, "Somewhat disagree" = 3, "Somewhat agree" = 4, "Agree" = 5, "Strongly agree" = 6))) %>%
-  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_15"):locfunc(experiment_1_Dataset, "UMS_10")), ~as.numeric(recode(., "Strongly disagree" = 1, "Disagree" = 2, "Somewhat disagree" = 3, "Somewhat agree" = 4, "Agree" = 5, "Strongly agree" = 6))) %>%
-  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_17"):locfunc(experiment_1_Dataset, "DoPL_18")), ~as.numeric(recode(., "Not Important To Me" = 1, "Of Little Importance To me" = 2, "Of Some Importance To Me" = 3, "Important To Me" = 4, "Very Important To me" = 5, "Extremely Important To Me" = 6))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_1"):locfunc(experiment_1_Dataset, "DoPL_5")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5)))  %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_6"), locfunc(experiment_1_Dataset, "DoPL_14")), ~as.numeric(recode(., "Strongly disagree" = 5, "Disagree" = 4, "Somewhat disagree" = 3, "Somewhat agree" = 2, "Agree" = 1, "Strongly agree" = 0))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_7"):locfunc(experiment_1_Dataset, "DoPL_13")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_15"):locfunc(experiment_1_Dataset, "UMS_10")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_17"):locfunc(experiment_1_Dataset, "DoPL_18")), ~as.numeric(recode(., "Not Important To Me" = 0, "Of Little Importance To me" = 1, "Of Some Importance To Me" = 2, "Important To Me" = 3, "Very Important To me" = 4, "Extremely Important To Me" = 5))) %>%
   mutate_at(vars(locfunc(experiment_1_Dataset, "UMS_11"):locfunc(experiment_1_Dataset, "UMS_13")), ~as.numeric(recode(., "Not Important To Me" = 1, "Of Little Importance To me" = 2, "Of Some Importance To Me" = 3, "Important To Me" = 4, "Very Important To me" = 5, "Extremely Important To Me" = 6)))
 
 
@@ -190,6 +190,13 @@ experiment_1_Dataset$socialQuestionsPerceptionSum  <- rowSums(experiment_1_Datas
 ```{r}
 
 datatable(experiment_1_Dataset)
+
+```
+
+
+```{r}
+
+experiment_dataset_analysis <- experiment_1_Dataset[, c(1:5, 157:181)]
 
 ```
 
