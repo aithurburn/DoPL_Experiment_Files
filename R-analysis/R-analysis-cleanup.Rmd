@@ -302,6 +302,8 @@ datatable(experiment_1_Dataset)
 ```{r}
 
 experiment_dataset_analysis <- experiment_1_Dataset[, c(1:5, 157:181)]
+row.names(experiment_dataset_analysis) <- 1:nrow(experiment_dataset_analysis)
+experiment_dataset_analysis <- tibble::rowid_to_column(experiment_dataset_analysis, "subjectID")
 
 ```
 
