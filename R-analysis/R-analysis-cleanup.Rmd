@@ -3,9 +3,8 @@ title: "R Data tutorial"
 author: "Andrew Ithurburn"
 date: "22/03/2021"
 output:
-  html_document: null
-  toc: yes
-  word_document: default
+  html_document:
+    toc: yes
 ---
 
 ```{r loading the necessary files}
@@ -268,6 +267,7 @@ experiment_1_Dataset$UMSAffiliationSum  <- rowSums(experiment_1_Dataset[, UMSAff
 experiment_1_Dataset$riskSum <- rowSums(experiment_1_Dataset[, riskQuestions])
 experiment_1_Dataset$riskPerceptionSum <- rowSums(experiment_1_Dataset[, riskPerceptionQuestions])
 experiment_1_Dataset$riskBenefitSum <- rowSums(experiment_1_Dataset[, riskBenefitQuestions])
+##
 
 experiment_1_Dataset$ethicalQuestionsRiskSum <- rowSums(experiment_1_Dataset[, ethicalQuestionsRisk])
 experiment_1_Dataset$financialQuestionsRiskSum <- rowSums(experiment_1_Dataset[, financialQuestionsRisk])
@@ -304,6 +304,77 @@ datatable(experiment_1_Dataset)
 experiment_dataset_analysis <- experiment_1_Dataset[, c(1:5, 157:181)]
 row.names(experiment_dataset_analysis) <- 1:nrow(experiment_dataset_analysis)
 experiment_dataset_analysis <- tibble::rowid_to_column(experiment_dataset_analysis, "subjectID")
+experiment_1_Dataset <- tibble::rowid_to_column(experiment_1_Dataset, "subjectID")
+row.names(experiment_1_Dataset) <- 1:nrow(experiment_1_Dataset)
 
 ```
+
+```{r}
+
+library(psych)
+
+experiment_dataset_analysis$subjectID <- as.factor(experiment_dataset_analysis$subjectID)
+experiment_dataset_analysis$Age <- as.numeric(experiment_dataset_analysis$Age)
+experiment_dataset_analysis$Ethnicity <- as.factor(experiment_dataset_analysis$Ethnicity)
+experiment_dataset_analysis$Education <- as.factor(experiment_dataset_analysis$Education)
+experiment_dataset_analysis$Gender <- as.factor(experiment_dataset_analysis$Gender)
+describe(experiment_dataset_analysis)
+
+```
+
+```{r}
+#standardizing all variables
+
+experiment_dataset_analysis[, c(2, 7:31)] <- scale(experiment_dataset_analysis[, c(2, 7:31)])
+
+#extracting alphas and beta scores for DOSPERT
+
+ethicala <- lm(ethicalQuestionsBenefitSum ~ ethicalQuestionsRiskSum, data = experiment_dataset_analysis)
+sociala <- lm(socialQuestionsBenefitSum ~ socialQuestionsRiskSum, data = experiment_dataset_analysis)
+recreationala <- lm(recreationalQuestionsBenefitSum ~ recreationalQuestionsRiskSum, data = experiment_dataset_analysis)
+healthAndSafetya <- lm(healthAndSafetyQuestionsBenefitSum ~ healthAndSafetyQuestionsRiskSum, data = experiment_dataset_analysis)
+financiala <- lm(financialQuestionsBenefitSum ~ financialQuestionsRiskSum, data = experiment_dataset_analysis)
+ethicalb <- lm(ethicalQuestionsBenefitSum ~ ethicalQuestionsPerceptionSum, data = experiment_dataset_analysis)
+socialb <- lm(socialQuestionsBenefitSum ~ socialQuestionsPerceptionSum, data = experiment_dataset_analysis)
+recreationalb <- lm(recreationalQuestionsBenefitSum ~ recreationalQuestionsPerceptionSum, data = experiment_dataset_analysis)
+healthAndSafetyb <- lm(healthAndSafetyQuestionsBenefitSum ~ healthAndSafetyQuestionsPerceptionSum, data = experiment_dataset_analysis)
+financialb <- lm(financialQuestionsBenefitSum ~ financialQuestionsPerceptionSum, data = experiment_dataset_analysis)
+
+
+DOSPERT_models <- c("ethicala",
+"sociala",
+"recreationala",
+"healthAndSafetya",
+"financiala", 
+"ethicalb", 
+"socialb", 
+"recreationalb",
+"healthAndSafet",
+"financialb" )
+
+
+ethicalPreference <- (experiment_1_Dataset[, ethicalQuestionsBenefit] * ethicala$coefficients[2]) + (experiment_1_Dataset[, ethicalQuestionsPerception] * ethicalb$coefficients[2])
+experiment_dataset_analysis$ethicalPreference  <- rowSums(ethicalPreference)
+financialPreference <-  (experiment_1_Dataset[, financialQuestionsBenefit] * financiala$coefficients[2]) + (experiment_1_Dataset[, financialQuestionsPerception] * financialb$coefficients[2])
+experiment_dataset_analysis$financialPreference  <- rowSums(financialPreference)
+socialPreference <-  (experiment_1_Dataset[, socialQuestionsBenefit] * sociala$coefficients[2]) + (experiment_1_Dataset[, socialQuestionsPerception] * socialb$coefficients[2])
+experiment_dataset_analysis$socialPreference  <- rowSums(socialPreference)
+healthAndSafetyPreference <-  (experiment_1_Dataset[, healthAndSafetyQuestionsBenefit] * healthAndSafetya$coefficients[2]) + (experiment_1_Dataset[, healthAndSafetyQuestionsPerception] * healthAndSafetyb$coefficients[2])
+experiment_dataset_analysis$healthAndSafetyPreference  <- rowSums(healthAndSafetyPreference)
+recreationalPreference <-  (experiment_1_Dataset[, recreationalQuestionsBenefit] * recreationala$coefficients[2]) + (experiment_1_Dataset[, recreationalQuestionsPerception] * recreationalb$coefficients[2])
+experiment_dataset_analysis$recreationalPreference  <- rowSums(recreationalPreference)
+
+
+```
+
+
+```{r bayesian correlation, message=FALSE, warning=FALSE}
+library(brms)
+corrs <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = "nu"), prior(normal(0, 1), class = "Intercept"), prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), prior(normal(0, 1), class = "sigma", resp = "financialPreference"), prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), prior(normal(0, 1), class = "sigma", resp = "socialPreference")), iter = 8000, warmup = 500)
+
+summary(corrs)
+plot(corrs)
+```
+
+
 
