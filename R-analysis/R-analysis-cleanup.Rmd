@@ -81,7 +81,7 @@ names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Q67_1"):locfunc(exper
 ```{r begin the recoding process}
 
 experiment_1_Dataset <- experiment_1_Dataset %>%
-  mutate_at(vars(locfunc(experiment_1_Dataset, "Gender")), ~as.numeric(recode(.,"Male" = 0, "Female" = 1, "Gender Non-Binary" = 2))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "Gender")), ~as.numeric(recode(.,"Male" = 0, "Female" = 1))) %>%
   mutate_at(vars(locfunc(experiment_1_Dataset, "Education")), ~as.numeric(recode(., "Prefer not to say" = 0, "Primary School" = 1, "GCSEs or equivalent" = 2, "A-levels or equivalent" = 3, "University Undergraduate Program" = 4, "University Postgraduate Program" = 5, "Doctoral Degree" = 6))) %>%
    mutate_at(vars(locfunc(experiment_1_Dataset, 'Ethnicity')), ~as.numeric(recode(., "Prefer not to respond" = 0, "Scottish" = 1, "English" = 2, "European" = 3, "Latin American" = 4, "Asian" = 5, "Arab" = 6, "African" = 7, "Other" = 8))) %>%
    mutate_at(vars(locfunc(experiment_1_Dataset, "risk_1"):locfunc(experiment_1_Dataset, "risk_40")), ~as.numeric(recode(., "Very unlikely" = 1, "Unlikely" = 2, "Not sure" = 3, "Likely" = 4, "Very likely" = 5))) %>%
@@ -365,16 +365,53 @@ recreationalPreference <-  (experiment_1_Dataset[, recreationalQuestionsBenefit]
 experiment_dataset_analysis$recreationalPreference  <- rowSums(recreationalPreference)
 
 
+# General risk perception, benefit sum 
+riska <- lm(riskBenefitSum ~ riskSum, data = experiment_dataset_analysis)
+riskb <- lm(riskBenefitSum ~ riskPerceptionSum, data = experiment_dataset_analysis)
+experiment_dataset_analysis$generalRiskPreference  <- (experiment_1_Dataset[, "riskBenefitSum"] * riska$coefficients[2]) + (experiment_1_Dataset[, "riskPerceptionSum"] * riskb$coefficients[2])
+
+
 ```
 
 
 ```{r bayesian correlation, message=FALSE, warning=FALSE}
 library(brms)
-corrs <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = "nu"), prior(normal(0, 1), class = "Intercept"), prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), prior(normal(0, 1), class = "sigma", resp = "financialPreference"), prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), prior(normal(0, 1), class = "sigma", resp = "socialPreference")), iter = 8000, warmup = 500)
+library(rstan)
+options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
+rstan_options(auto_write = TRUE) # can remove the unnecessary iterations
+corrs <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = "nu"), prior(normal(0, 1), class = "Intercept"), prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), prior(normal(0, 1), class = "sigma", resp = "financialPreference"), prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), prior(normal(0, 1), class = "sigma", resp = "socialPreference")), iter = 2000, warmup = 500)
 
 summary(corrs)
 plot(corrs)
 ```
 
 
+```{r main analysis}
+
+experiment_dataset_analysis <- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != "2")
+
+m_1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, 
+           prior = c(prior(normal(0, 1), class = "Intercept"),
+                     prior(normal(3, 1), class = "b", coef = "dominanceSum"),
+                     prior(normal(0, 1), class = "b", coef = "prestigeSum"), 
+                     prior(normal(-2, 1), class = "b", coef = "leadershipSum"),
+                     prior(normal(-3, 1), class = "b", coef = "Gender1"), 
+                     prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T)
+
+summary(m_1)
+
+
+library(bayestestR)
+m_1.hdi <- hdi(m_1, effects = "fixed", component = "conditional", ci = .95)
+
+m_1.hdi
+
+
+#interaction between gender and each of the DoPL motives
+#m_1_interactions
+#look at the domain specific information. Roughly the same as m_1 use the same correlation matrix
+brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis) 
+
+get_prior()
+```
 
