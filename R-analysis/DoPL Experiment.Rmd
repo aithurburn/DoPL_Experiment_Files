@@ -77,8 +77,12 @@ Once participants consented to participate in the experiment they answered a ser
 
 
 ## Data analysis
+<<<<<<< HEAD
 
 Demographic characteristics were analyzed use lkhds iufhdsiua hfiuds hfiudsa hiuf hdsa fdsiua fiudsa hiuf hdsiua fsdf
+=======
+Demographic characteristics were analyzed using.  
+>>>>>>> origin/overleaf-2021-05-12-1608
 
 # Results
 
