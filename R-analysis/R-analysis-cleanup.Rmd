@@ -477,7 +477,8 @@ m_2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, heal
               prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "socialPreference"),
               prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "socialPreference"),
               prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
-              prior(normal(0, 1), class = "sigma", resp = "socialPreference"))) 
+              prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
+              save_all_pars = T) 
 
 #I didn't include rescor even though it was on the get_prior list, I think it has something to do with the defaults of brm + all resp for coef=dominanceSum normal(2,1); in pre-reg dom said to be correlated with subdomain risk preferences.
 
