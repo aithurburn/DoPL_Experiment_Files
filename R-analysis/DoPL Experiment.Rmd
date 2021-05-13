@@ -31,9 +31,9 @@ abstract: |
   <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "keywords"
-wordcount         : "X"
+wordcount         :  "591"
 
-bibliography      : ["cite_examples.bib"]
+bibliography      : ["cite_examples.bib", "r-references.bib"]
 
 floatsintext      : no
 figurelist        : no
@@ -43,6 +43,7 @@ linenumbers       : yes
 mask              : no
 draft             : no
 mainfont: "Times New Roman"
+always_allow_html: true
 
 documentclass     : "apa6"
 classoption       : "man"
@@ -51,9 +52,34 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 library("papaja")
+library(ggplot2)
+library(sjPlot)
+library(RColorBrewer)
+library(tidyr)
+library(grid)  
+library(gtable)  
+library(DiagrammeR)
+library(lubridate)
+library(DT)
+library(kableExtra)
+library(svgPanZoom)
+library(knitr)
+library(ggmcmc)
+library(ggridges)
+library(rstan)
+library(insight)
+library(shiny)
+library(gridExtra)
+library(ggpubr)
+library(gghighlight)
+library(ggtext)
+library(readr)
 r_refs("cite_examples.bib")
 experiment_1_Dataset <- read.csv("experiment_1_data.csv")
 load(".rData")
+rCitations <- cite_r(file = "r-references.bib", footnote = F)
+demo_table <- read_csv("demo_table.csv", 
+    col_names = FALSE)
 ```
 
 
@@ -68,7 +94,7 @@ Participants were a convenience sample of 111 individuals from Prolific Academic
 
 *Dominance, Prestige, and Leadership Orientation*. The 18-item Dominance, Prestige, and Leadership scale [DoPL; @suessenbach_dominance_2019], is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., "I relish opportunities in which I can lead others" for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is $\alpha$ = `r psych::alpha(experiment_1_Dataset[,DoPLQuestions])$total$std.alpha`. 
 	
-*Domain Specific Risk-taking Scale* (DOSPERT; @weber_domain-specific_2002) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial, social, recreational, health and safety, and ethical situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions])$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions])$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions])$total$std.alpha` respectively. 
+*Domain Specific Risk-taking Scale* (DOSPERT; @weber_domain-specific_2002) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial, social, recreational, health and safety, and ethical situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
 
 ## Procedure
 Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific FAQ, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) they were shown a brief message on study consent. 
@@ -77,14 +103,21 @@ Once participants consented to participate in the experiment they answered a ser
 
 
 ## Data analysis
-<<<<<<< HEAD
+Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@R-base] along with [@rStan] package.
 
-Demographic characteristics were analyzed use lkhds iufhdsiua hfiuds hfiudsa hiuf hdsa fdsiua fiudsa hiuf hdsiua fsdf
-=======
-Demographic characteristics were analyzed using.  
->>>>>>> origin/overleaf-2021-05-12-1608
+```{r}
+
+apa_table(
+ demo_table, stub_indents = list("Age" = c(2:3), "Gender" = c(4:6), "Ethnicity" = c(7:15), "Education" = c(16:21)), col.names = c("Variables", "")
+)
+
+```
+
 
 # Results
+
+One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. 
+
 
 # Discussion
 

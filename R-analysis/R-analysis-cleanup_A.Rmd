@@ -377,12 +377,15 @@ experiment_dataset_analysis$generalRiskPreference  <- (experiment_1_Dataset[, "r
 ```{r bayesian correlation, message=FALSE, warning=FALSE}
 library(brms)
 library(rstan)
+library(sjPlot)
 options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
 rstan_options(auto_write = TRUE) # can remove the unnecessary iterations
 corrs <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = "nu"), prior(normal(0, 1), class = "Intercept"), prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), prior(normal(0, 1), class = "sigma", resp = "financialPreference"), prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), prior(normal(0, 1), class = "sigma", resp = "socialPreference")), iter = 2000, warmup = 500)
 
 summary(corrs)
 plot(corrs)
+
+tab_model(corrs)
 ```
 
 
@@ -399,7 +402,7 @@ m_1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + 
                      prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T)
 
 summary(m_1)
-
+sjPlot::tab_model(m_1)
 
 library(bayestestR)
 m_1.hdi <- hdi(m_1, effects = "fixed", component = "conditional", ci = .95)
