@@ -390,7 +390,7 @@ plot(corrs)
 
 experiment_dataset_analysis <- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != "2")
 
-m_1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, 
+m1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, 
            prior = c(prior(normal(0, 1), class = "Intercept"),
                      prior(normal(3, 1), class = "b", coef = "dominanceSum"),
                      prior(normal(0, 1), class = "b", coef = "prestigeSum"), 
@@ -398,17 +398,17 @@ m_1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + 
                      prior(normal(-3, 1), class = "b", coef = "Gender1"), 
                      prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T)
 
-summary(m_1)
+summary(m1)
 
 
 library(bayestestR)
-m_1.hdi <- hdi(m_1, effects = "fixed", component = "conditional", ci = .95)
+m1_hdi <- hdi(m1, effects = "fixed", component = "conditional", ci = .95)
 
-m_1.hdi
+m1_hdi
 
 
-#interaction between gender and each of the DoPL motives
-m_1.int <- brm(generalRisk ~ dominanceSum*Gender+ prestigeSum*Gender + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
+# interaction between gender and each of the DoPL motives
+m1_int <- brm(generalRisk ~ dominanceSum*Gender+ prestigeSum*Gender + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class="Intercept"),
                       prior(normal(3,1), class="b", coef="dominanceSum"),
                       prior(normal(0,1), class="b", coef="prestigeSum"),
@@ -419,22 +419,69 @@ m_1.int <- brm(generalRisk ~ dominanceSum*Gender+ prestigeSum*Gender + leadershi
                       prior(normal(0,1), class="b", coef="Gender1:leadershipSum"),
                       prior(normal(0,1), class="b", coef="Gender1:prestigeSum")), 
               save_all_pars = T)
-summary(m_1.int)
+summary(m1_int)
 
 # hdi intervals interaction model
-m_1.int.hdi <- hdi(m_1.int, effects = "fixed", component = "conditional", ci = .95)
-m_1.int.hdi
+m1_int_hdi <- hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
+m1_int_hdi
 
 
-#look at the domain specific information. Roughly the same as m_1 use the same correlation matrix
-brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis) 
+# Interaction between gender and dominance
+m1_int_d <- brm(generalRisk ~ dominanceSum*Gender+ prestigeSum + leadershipSum + Age, data=experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(-3,1), class="b", coef="Age"),
+                      prior(normal(0,1), class="b", coef="dominanceSum:Gender1")), 
+              save_all_pars = T)
 
-get_prior()
+summary(m1_int_d)
+
+# HDI
+m1_int_d_hdi <- hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
+m1_int_d_hdi
+
+# Interaction between gender and leadership
+m1_int_l <- brm(generalRisk ~ dominanceSum + prestigeSum + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(-3,1), class="b", coef="Age"),
+                      prior(normal(0,1), class="b", coef="leadershipSum:Gender1")), 
+              save_all_pars = T)
+
+summary(m1_int_l)
+
+# HDI 
+m1_int_l_hdi <- hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
+m1_int_l_hdi
+
+# Interaction between gender and prestige
+m1_int_p <- brm(generalRisk ~ dominanceSum+ prestigeSum*Gender + leadershipSum + Age, data=experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(-3,1), class="b", coef="Age"),
+                      prior(normal(0,1), class="b", coef="prestigeSum:Gender1")), 
+              save_all_pars = T)
+
+summary(m1_int_p)
+
+# HDI
+m1_int_p_hdi <- hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
+m1_int_p_hdi
+
 
 # domain specific model
-# I wasn't sure if the family=student should be carried over from the correlation matrix, nu prior should be deleted.
+# I wasn't sure if the family=student should be carried over from the correlation matrix, if not nu prior should be deleted.
 
-m_2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, family = student, # do we need this?
+m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, family = student, # do we need this?
     prior = c(prior(normal(0, 1), class = "b"),
               prior(gamma(2, .1), class = "nu"), # delete if family != student 
               prior(normal(0, 1), class = "Intercept"),
@@ -482,9 +529,9 @@ m_2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, heal
 
 #I didn't include rescor even though it was on the get_prior list, I think it has something to do with the defaults of brm + all resp for coef=dominanceSum normal(2,1); in pre-reg dom said to be correlated with subdomain risk preferences.
 
-summary(m_2)
+summary(m2)
 
-hdi_m_2 <- hdi(m_2)
-hdi_m_2
+m2_hdi <- hdi(m2)
+m2_hdi
 ```
 
