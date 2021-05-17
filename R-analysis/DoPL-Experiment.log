@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  17 MAY 2021 11:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  17 MAY 2021 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,39 +834,48 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updma
 p/pdftex.map}
 
-] [2] [3]
+] [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[3]
 \openout3 = `DoPL-Experiment.ttt'.
 
-(DoPL-Experiment.ttt) [4] AED endfloat: Processing end Figures and Tables [5] (
-./DoPL-Experiment.ttt
+(DoPL-Experiment.ttt)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+54.
+(c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [4] [5] AED endfloat: Processing end Figures and Tables [6] (./DoPL-Experimen
+t.ttt
 
 LaTeX Warning: Float too large for page by 33.81898pt on input line 45.
 
-) [6] (./DoPL-Experiment.aux)
+) [7] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
-(rerunfilecheck)             Checksum: C129B57EDF8391D51328C3B7CD85A4E4;666.
+(rerunfilecheck)             Checksum: AEB366624F2501DF266CFF3D30B6AA36;1216.
  ) 
 Here is how much of TeX's memory you used:
- 14540 strings out of 480806
- 220773 string characters out of 5903166
- 546819 words of memory out of 5000000
- 31611 multiletter control sequences out of 15000+600000
- 446649 words of font info for 62 fonts, out of 8000000 for 9000
+ 14595 strings out of 480806
+ 221711 string characters out of 5903166
+ 547964 words of memory out of 5000000
+ 31655 multiletter control sequences out of 15000+600000
+ 446967 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  70i,11n,77p,2254b,578s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
-athit.enc}{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
-/lm/lm-ec.enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
+{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
+c.enc}{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
+lm-mathit.enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
 /public/lm/lmbx12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fon
 ts/type1/public/lm/lmmi12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX
 /texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s1932788/AppData/Roaming/T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/s1932788/AppData/R
-oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb>
-Output written on DoPL-Experiment.pdf (6 pages, 119523 bytes).
+oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/s1932788/Ap
+pData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on DoPL-Experiment.pdf (7 pages, 150738 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
- 29 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

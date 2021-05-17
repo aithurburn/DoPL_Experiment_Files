@@ -88,7 +88,7 @@ demo_table <- read_csv("demo_table.csv",
 
 
 # Methods
-Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: ####]. 
+Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: ####]. The present study was pre-registered along with a copy of anonymized data and copy of R code is available at (https://osf.io/s4j7y). 
 
 ## Materials
 
@@ -119,6 +119,21 @@ apa_table(
 # Results
 
 One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. 
+
+
+```{r}
+genderTest <- lm(Age ~ Gender, data = experiment_dataset_analysis)
+summary(genderTest)
+```
+
+## Dominance, Leadership, and Prestige
+
+All participants completed the dominance, leadership, and prestige scale (@suessenbach_dominance_2019). Empirically, men have generally been more dominance oriented in their behavior (citation). Following this we chose for a somewhat larger positive dominance motive prior, when accounting for gender in the Bayesian we chose a somewhat negative correlation relating to men tending to be more dominance motivated. Our results followed this hypotheses () 
+
+## Domain Specific Risk-Taking
+
+
+## Interactions
 
 
 # Discussion

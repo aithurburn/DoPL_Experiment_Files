@@ -179,7 +179,7 @@ Correspondence concerning this article should be addressed to Ithurburn, Andrew,
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
 
-Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures {[}ref: \#\#\#\#{]}.
+Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures {[}ref: \#\#\#\#{]}. The present study was pre-registered along with a copy of anonymized data and copy of R code is available at (\url{https://osf.io/s4j7y}).
 
 \hypertarget{materials}{%
 \subsection{Materials}\label{materials}}
@@ -250,6 +250,39 @@ Education & \\
 \section{Results}\label{results}}
 
 One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants.
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Age ~ Gender, data = experiment_dataset_analysis)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.2299 -0.6219 -0.2961  0.2468  3.4391 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)   
+## (Intercept)  -0.2298     0.1318  -1.744  0.08417 . 
+## Gender1       0.4994     0.1891   2.641  0.00953 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.9777 on 105 degrees of freedom
+##   (2 observations deleted due to missingness)
+## Multiple R-squared:  0.06229,    Adjusted R-squared:  0.05336 
+## F-statistic: 6.975 on 1 and 105 DF,  p-value: 0.009525
+\end{verbatim}
+
+\hypertarget{dominance-leadership-and-prestige}{%
+\subsection{Dominance, Leadership, and Prestige}\label{dominance-leadership-and-prestige}}
+
+All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following this we chose for a somewhat larger positive dominance motive prior, when accounting for gender in the Bayesian we chose a somewhat negative correlation relating to men tending to be more dominance motivated. Our results followed this hypotheses ()
+
+\hypertarget{domain-specific-risk-taking}{%
+\subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking}}
+
+\hypertarget{interactions}{%
+\subsection{Interactions}\label{interactions}}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
