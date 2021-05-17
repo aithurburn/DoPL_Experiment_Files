@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  14 MAY 2021 11:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  17 MAY 2021 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -849,7 +849,7 @@ Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
 Here is how much of TeX's memory you used:
  14540 strings out of 480806
  220773 string characters out of 5903166
- 546696 words of memory out of 5000000
+ 546819 words of memory out of 5000000
  31611 multiletter control sequences out of 15000+600000
  446649 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -863,7 +863,7 @@ dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX
 /texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s1932788/AppData/Roaming/T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/s1932788/AppData/R
 oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb>
-Output written on DoPL-Experiment.pdf (6 pages, 119390 bytes).
+Output written on DoPL-Experiment.pdf (6 pages, 119523 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  98 compressed objects within 1 object stream

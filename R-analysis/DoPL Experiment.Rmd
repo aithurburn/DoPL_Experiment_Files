@@ -12,6 +12,8 @@ author:
       - Conceptualization
       - Writing - Original Draft Preparation
       - Writing - Review & Editing
+  - name          : "Pedersen, Julie"
+    affiliation   : "1"
   - name          : "Moore, Adam"
     affiliation   : "1"
     role:
