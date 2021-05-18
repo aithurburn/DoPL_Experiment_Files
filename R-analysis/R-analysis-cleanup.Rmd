@@ -423,7 +423,8 @@ summary(m1_int)
 
 # hdi intervals interaction model
 m1_int_hdi <- hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
-m1_int_hdi
+m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
 
 
 # Interaction between gender and dominance
@@ -441,7 +442,8 @@ summary(m1_int_d)
 
 # HDI
 m1_int_d_hdi <- hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
-m1_int_d_hdi
+m1_int_d_hdi[m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
 
 # Interaction between gender and leadership
 m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
@@ -458,8 +460,10 @@ summary(m1_int_l)
 
 # HDI 
 m1_int_l_hdi <- hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
-m1_int_l_hdi
-
+m1_int_l_hdi[m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+            
+            
 # Interaction between gender and prestige
 m1_int_p <- brm(generalRiskPreference ~ dominanceSum+ prestigeSum*Gender + leadershipSum + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class="Intercept"),
@@ -475,16 +479,13 @@ summary(m1_int_p)
 
 # HDI
 m1_int_p_hdi <- hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
-m1_int_p_hdi
+m1_int_p_hdi[m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
 
 
-# domain specific model
-# I wasn't sure if the family=student should be carried over from the correlation matrix, if not nu prior should be deleted.
-
-m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, # do we need this?
-    prior = c(prior(normal(0, 1), class = "b"), 
-              prior(normal(0, 1), class = "Intercept"),
-              prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
+# Domain specific model
+m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis,
+    prior = c(prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
               prior(normal(0, 1), class = "b", coef = "Age", resp = "ethicalPreference"),
               prior(normal(0, 1), class = "b", coef = "Gender1", resp = "ethicalPreference"),
               prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "ethicalPreference"),
@@ -526,11 +527,82 @@ m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
               prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
               save_all_pars = T) 
 
-#I didn't include rescor even though it was on the get_prior list, I think it has something to do with the defaults of brm + all resp for coef=dominanceSum normal(2,1); in pre-reg dom said to be correlated with subdomain risk preferences.
 
 summary(m2)
 
-m2_hdi <- hdi(m2)
-m2_hdi
+m2_hdi <- hdi(m2, effects = "fixed", component = "conditional", ci = .95)
+m2_hdi[sign(m2_hdi$CI_low) == sign(m2_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+            
+            
+ # Domain specific model with Gender-DOPL interactions
+m3 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data = experiment_dataset_analysis,
+    prior = c(prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "ethicalPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "ethicalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "ethicalPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), 
+              prior(normal(0, 1), class = "b",resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "financialPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "financialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "financialPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "financialPreference"), 
+              prior(normal(0, 1), class = "b",resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "healthAndSafetyPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), 
+              prior(normal(0, 1), class = "b",resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "recreationalPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "recreationalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), 
+              prior(normal(0, 1), class = "b",resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "socialPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "socialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "socialPreference"))) 
+
+summary(m3)
+
+# HDI
+m3_hdi <- hdi(m3, effects = "fixed", component = "conditional", ci = .95)
+m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+            
+# Model Comparison: M2 and M3
+co <- loo(m2,m3)
+co
+
 ```
 
