@@ -442,7 +442,7 @@ summary(m1_int_d)
 
 # HDI
 m1_int_d_hdi <- hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
-m1_int_d_hdi[m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
+m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 
 # Interaction between gender and leadership
@@ -460,7 +460,7 @@ summary(m1_int_l)
 
 # HDI 
 m1_int_l_hdi <- hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
-m1_int_l_hdi[m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
+m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
             
             
@@ -479,7 +479,7 @@ summary(m1_int_p)
 
 # HDI
 m1_int_p_hdi <- hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
-m1_int_p_hdi[m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
+m1_int_p_hdi[sign(m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 
 
@@ -602,7 +602,12 @@ m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
             
 # Model Comparison: M2 and M3
 co <- loo(m2,m3)
-co
+
+co$loos$m2$looic
+co$loos$m2$elpd_loo
+
+co$loos$m3$looic
+co$loos$m3$elpd_loo
 
 ```
 
