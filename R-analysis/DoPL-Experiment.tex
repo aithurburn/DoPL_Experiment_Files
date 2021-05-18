@@ -124,6 +124,7 @@
 
 \linenumbers
 \usepackage{csquotes}
+\raggedbottom
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
@@ -176,6 +177,21 @@ Correspondence concerning this article should be addressed to Ithurburn, Andrew,
 \begin{document}
 \maketitle
 
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\hypertarget{dominance-leadership-and-prestige-orientation}{%
+\subsection{Dominance, Leadership, and Prestige orientation}\label{dominance-leadership-and-prestige-orientation}}
+
+\hypertarget{risk}{%
+\subsection{Risk}\label{risk}}
+
+\hypertarget{domain-specific-risk-taking}{%
+\subsection{Domain Specific Risk-taking}\label{domain-specific-risk-taking}}
+
+\hypertarget{the-present-study}{%
+\subsection{The present study}\label{the-present-study}}
+
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
 
@@ -193,7 +209,7 @@ Participants were a convenience sample of 111 individuals from Prolific Academic
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
 
-Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific FAQ, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) they were shown a brief message on study consent.
+Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific FAQ, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) where they were shown a brief message on study consent.
 
 Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. The two scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic.
 
@@ -201,6 +217,57 @@ Once participants consented to participate in the experiment they answered a ser
 \subsection{Data analysis}\label{data-analysis}}
 
 Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using (R Core Team, 2021) along with (Stan Development Team, 2020) package.
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. Average completion time for participants was 16M 49S(\emph{SD} = 43.79).
+
+\hypertarget{dominance-leadership-and-prestige}{%
+\subsection{Dominance, Leadership, and Prestige}\label{dominance-leadership-and-prestige}}
+
+All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following this we chose for a somewhat larger positive dominance motive prior, when accounting for gender in the Bayesian we chose a somewhat negative correlation relating to men tending to be more dominance motivated. Our results followed this hypotheses ()
+
+\hypertarget{domain-specific-risk-taking-1}{%
+\subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking-1}}
+
+\hypertarget{interactions}{%
+\subsection{Interactions}\label{interactions}}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\hypertarget{ref-R-base}{}%
+R Core Team. (2021). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-rStan}{}%
+Stan Development Team. (2020). {RStan}: The {R} interface to {Stan}. Retrieved from \url{http://mc-stan.org/}
+
+\leavevmode\hypertarget{ref-suessenbach_dominance_2019}{}%
+Suessenbach, F., Loughnan, S., Schönbrodt, F. D., \& Moore, A. B. (2019). The dominance, prestige, and leadership account of social power motives. \emph{European Journal of Personality}, \emph{33}(1), 7--33. \url{https://doi.org/10.1002/per.2184}
+
+\leavevmode\hypertarget{ref-weber_domain-specific_2002}{}%
+Weber, E. U., Blais, A.-R., \& Betz, N. E. (2002). A domain-specific risk-attitude scale: Measuring risk perceptions and risk behaviors. \emph{Journal of Behavioral Decision Making}, \emph{15}(4), 263--290. \url{https://doi.org/10.1002/bdm.414}
+
+\end{CSLReferences}
+
+\endgroup
+
+\newpage
+
+\hypertarget{figures-and-tables}{%
+\section{Figures and Tables}\label{figures-and-tables}}
 
 \begin{table}[tbp]
 
@@ -246,73 +313,9 @@ Education & \\
 
 \end{table}
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf}
 
-One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants.
-
-\begin{verbatim}
-## 
-## Call:
-## lm(formula = Age ~ Gender, data = experiment_dataset_analysis)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -1.2299 -0.6219 -0.2961  0.2468  3.4391 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)   
-## (Intercept)  -0.2298     0.1318  -1.744  0.08417 . 
-## Gender1       0.4994     0.1891   2.641  0.00953 **
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.9777 on 105 degrees of freedom
-##   (2 observations deleted due to missingness)
-## Multiple R-squared:  0.06229,    Adjusted R-squared:  0.05336 
-## F-statistic: 6.975 on 1 and 105 DF,  p-value: 0.009525
-\end{verbatim}
-
-\hypertarget{dominance-leadership-and-prestige}{%
-\subsection{Dominance, Leadership, and Prestige}\label{dominance-leadership-and-prestige}}
-
-All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following this we chose for a somewhat larger positive dominance motive prior, when accounting for gender in the Bayesian we chose a somewhat negative correlation relating to men tending to be more dominance motivated. Our results followed this hypotheses ()
-
-\hypertarget{domain-specific-risk-taking}{%
-\subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking}}
-
-\hypertarget{interactions}{%
-\subsection{Interactions}\label{interactions}}
-
-\hypertarget{discussion}{%
-\section{Discussion}\label{discussion}}
-
-\newpage
-
-\hypertarget{references}{%
-\section{References}\label{references}}
-
-\begingroup
-\setlength{\parindent}{-0.5in}
-\setlength{\leftskip}{0.5in}
-
-\hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
-\leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. (2021). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
-
-\leavevmode\hypertarget{ref-rStan}{}%
-Stan Development Team. (2020). {RStan}: The {R} interface to {Stan}. Retrieved from \url{http://mc-stan.org/}
-
-\leavevmode\hypertarget{ref-suessenbach_dominance_2019}{}%
-Suessenbach, F., Loughnan, S., Schönbrodt, F. D., \& Moore, A. B. (2019). The dominance, prestige, and leadership account of social power motives. \emph{European Journal of Personality}, \emph{33}(1), 7--33. \url{https://doi.org/10.1002/per.2184}
-
-\leavevmode\hypertarget{ref-weber_domain-specific_2002}{}%
-Weber, E. U., Blais, A.-R., \& Betz, N. E. (2002). A domain-specific risk-attitude scale: Measuring risk perceptions and risk behaviors. \emph{Journal of Behavioral Decision Making}, \emph{15}(4), 263--290. \url{https://doi.org/10.1002/bdm.414}
-
-\end{CSLReferences}
-
-\endgroup
+\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf}
 
 
 \end{document}

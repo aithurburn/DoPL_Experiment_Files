@@ -46,11 +46,14 @@ mask              : no
 draft             : no
 mainfont: "Times New Roman"
 always_allow_html: true
+header-includes:
+  - \raggedbottom
 
 documentclass     : "apa6"
 classoption       : "man"
 output            : papaja::apa6_pdf
 ---
+
 
 ```{r setup, include = FALSE}
 library("papaja")
@@ -76,16 +79,36 @@ library(ggpubr)
 library(gghighlight)
 library(ggtext)
 library(readr)
+library(ggcorrplot)
+library(ggprism)
 r_refs("cite_examples.bib")
 experiment_1_Dataset <- read.csv("experiment_1_data.csv")
 load(".rData")
 rCitations <- cite_r(file = "r-references.bib", footnote = F)
 demo_table <- read_csv("demo_table.csv", 
     col_names = FALSE)
+theme_set(theme_apa(base_size = 12))
+
+time_df <- read.csv("DoPL_DOSPERT.csv")
+time_df <- time_df[-1:-2,]
+library(lubridate) 
+average_completion <- median(as.numeric(time_df$Duration..in.seconds.)) 
+stdv_DF <- sd(as.numeric(time_df$Duration..in.seconds.)) 
+average_completion <- seconds_to_period(average_completion) 
+stdv_DF <- seconds_to_period(stdv_DF)
+
 ```
 
 
+# Introduction
 
+## Dominance, Leadership, and Prestige orientation
+
+## Risk
+
+## Domain Specific Risk-taking
+
+## The present study
 
 # Methods
 Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: ####]. The present study was pre-registered along with a copy of anonymized data and copy of R code is available at (https://osf.io/s4j7y). 
@@ -99,32 +122,16 @@ Participants were a convenience sample of 111 individuals from Prolific Academic
 *Domain Specific Risk-taking Scale* (DOSPERT; @weber_domain-specific_2002) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial, social, recreational, health and safety, and ethical situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
 
 ## Procedure
-Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific FAQ, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) they were shown a brief message on study consent. 
+Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific FAQ, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) where they were shown a brief message on study consent. 
 
 Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. The two scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic. 
-
 
 ## Data analysis
 Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@R-base] along with [@rStan] package.
 
-```{r}
-
-apa_table(
- demo_table, stub_indents = list("Age" = c(2:3), "Gender" = c(4:6), "Ethnicity" = c(7:15), "Education" = c(16:21)), col.names = c("Variables", "")
-)
-
-```
-
-
 # Results
 
-One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. 
-
-
-```{r}
-genderTest <- lm(Age ~ Gender, data = experiment_dataset_analysis)
-summary(genderTest)
-```
+One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. Average completion time for participants was `r (average_completion)`(*SD* = `r (stdv_DF)`).
 
 ## Dominance, Leadership, and Prestige
 
@@ -132,12 +139,9 @@ All participants completed the dominance, leadership, and prestige scale (@suess
 
 ## Domain Specific Risk-Taking
 
-
 ## Interactions
 
-
 # Discussion
-
 
 \newpage
 
@@ -149,3 +153,35 @@ All participants completed the dominance, leadership, and prestige scale (@suess
 
 <div id="refs" custom-style="Bibliography"></div>
 \endgroup
+
+\newpage
+
+# Figures and Tables
+
+```{r}
+
+apa_table(
+ demo_table, stub_indents = list("Age" = c(2:3), "Gender" = c(4:6), "Ethnicity" = c(7:15), "Education" = c(16:21)), col.names = c("Variables", "")
+)
+
+```
+
+```{r}
+dopl_domains_df <- experiment_1_Dataset
+dopl_domains_df <- dopl_domains_df %>%
+  gather(key = DoPL_domain, value = value, "dominanceSum":"leadershipSum")
+dopl_domains_df <- dopl_domains_df[, -2:-179]
+dopl_domains_ggplot <- ggplot(dopl_domains_df, aes(DoPL_domain, value, fill = DoPL_domain)) + 
+  geom_violin() 
+dopl_domains_ggplot + scale_fill_brewer(palette = "Dark2") + scale_shape_prism() + scale_y_continuous(limits = c(0, 40), guide = "prism_minor") + scale_x_discrete(guide = "prism_bracket")
+```
+
+```{r}
+
+age_dom_df <- subset(experiment_1_Dataset, Age!= "")
+gender_experiment_data <- subset(experiment_1_Dataset, Gender != "2")
+gender_and_dominance <- ggplot(gender_experiment_data, aes(x = as.factor(Gender), y = dominanceSum, group = Gender, fill = as.factor(Gender))) + 
+  geom_boxplot()  
+gender_and_dominance  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket") + scale_fill_brewer(palette = "Dark2")
+```
+

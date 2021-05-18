@@ -408,7 +408,7 @@ m1_hdi
 
 
 # interaction between gender and each of the DoPL motives
-m1_int <- brm(generalRisk ~ dominanceSum*Gender+ prestigeSum*Gender + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
+m1_int <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class="Intercept"),
                       prior(normal(3,1), class="b", coef="dominanceSum"),
                       prior(normal(0,1), class="b", coef="prestigeSum"),
@@ -427,7 +427,7 @@ m1_int_hdi
 
 
 # Interaction between gender and dominance
-m1_int_d <- brm(generalRisk ~ dominanceSum*Gender+ prestigeSum + leadershipSum + Age, data=experiment_dataset_analysis,
+m1_int_d <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leadershipSum + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class="Intercept"),
                       prior(normal(3,1), class="b", coef="dominanceSum"),
                       prior(normal(0,1), class="b", coef="prestigeSum"),
@@ -444,7 +444,7 @@ m1_int_d_hdi <- hdi(m1_int_d, effects = "fixed", component = "conditional", ci =
 m1_int_d_hdi
 
 # Interaction between gender and leadership
-m1_int_l <- brm(generalRisk ~ dominanceSum + prestigeSum + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
+m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class="Intercept"),
                       prior(normal(3,1), class="b", coef="dominanceSum"),
                       prior(normal(0,1), class="b", coef="prestigeSum"),
@@ -461,7 +461,7 @@ m1_int_l_hdi <- hdi(m1_int_l, effects = "fixed", component = "conditional", ci =
 m1_int_l_hdi
 
 # Interaction between gender and prestige
-m1_int_p <- brm(generalRisk ~ dominanceSum+ prestigeSum*Gender + leadershipSum + Age, data=experiment_dataset_analysis,
+m1_int_p <- brm(generalRiskPreference ~ dominanceSum+ prestigeSum*Gender + leadershipSum + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class="Intercept"),
                       prior(normal(3,1), class="b", coef="dominanceSum"),
                       prior(normal(0,1), class="b", coef="prestigeSum"),
@@ -481,9 +481,8 @@ m1_int_p_hdi
 # domain specific model
 # I wasn't sure if the family=student should be carried over from the correlation matrix, if not nu prior should be deleted.
 
-m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, family = student, # do we need this?
-    prior = c(prior(normal(0, 1), class = "b"),
-              prior(gamma(2, .1), class = "nu"), # delete if family != student 
+m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, # do we need this?
+    prior = c(prior(normal(0, 1), class = "b"), 
               prior(normal(0, 1), class = "Intercept"),
               prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
               prior(normal(0, 1), class = "b", coef = "Age", resp = "ethicalPreference"),
