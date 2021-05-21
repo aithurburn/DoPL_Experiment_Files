@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  18 MAY 2021 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  21 MAY 2021 11:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,10 +844,10 @@ File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
-df  used on input line 316.
+df  used on input line 318.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 316--317
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 318--319
 [][]  
  []
 
@@ -857,10 +857,10 @@ File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
-df  used on input line 318.
+df  used on input line 320.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 318--319
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 320--321
 [][]  
  []
 
@@ -872,12 +872,12 @@ LaTeX Warning: Float too large for page by 33.81898pt on input line 45.
 
 ) [9] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
-(rerunfilecheck)             Checksum: FFEF85A62875E6B54764A512D0D64B9D;2190.
+(rerunfilecheck)             Checksum: 91DEA3287EA2ED19F7782F785859E041;2119.
  ) 
 Here is how much of TeX's memory you used:
  14594 strings out of 480806
- 222277 string characters out of 5903166
- 548246 words of memory out of 5000000
+ 222255 string characters out of 5903166
+ 548233 words of memory out of 5000000
  31641 multiletter control sequences out of 15000+600000
  446649 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -891,7 +891,7 @@ dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX
 /texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s1932788/AppData/Roaming/T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/s1932788/AppData/R
 oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb>
-Output written on DoPL-Experiment.pdf (9 pages, 148405 bytes).
+Output written on DoPL-Experiment.pdf (9 pages, 148584 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  169 compressed objects within 2 object streams

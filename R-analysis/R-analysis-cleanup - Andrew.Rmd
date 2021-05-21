@@ -698,3 +698,24 @@ priorTest <- c(prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
 
 ```
 
+
+```{r}
+
+m1_int_2<- brm(generalRiskPreference ~ dominanceSum*Education + prestigeSum + leadershipSum + Gender, data=experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(0,1), class="b", coef="dominanceSum:Education1"),
+                      prior(normal(0, 1), class = "b", coef = "dominanceSum:Education2"),
+prior(normal(0, 1), class = "b", coef = "dominanceSum:Education3"),
+prior(normal(0, 1), class = "b", coef = "dominanceSum:Education4"),
+prior(normal(0, 1), class = "b", coef = "dominanceSum:Education5"),
+prior(normal(0, 1), class = "b", coef = "dominanceSum:Education6")), 
+              save_all_pars = T)
+summary(m1_int_2)
+
+
+```
+

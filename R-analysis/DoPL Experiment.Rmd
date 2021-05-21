@@ -131,13 +131,18 @@ Demographic characteristics were analyzed using a multiple regression for contin
 
 # Results
 
-One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. Average completion time for participants was `r (average_completion)`(*SD* = `r (stdv_DF)`).
+One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. Average completion time for participants was `r (average_completion)`(*SD* = `r (stdv_DF)`). 
 
-## Dominance, Leadership, and Prestige
 
-All participants completed the dominance, leadership, and prestige scale (@suessenbach_dominance_2019). Empirically, men have generally been more dominance oriented in their behavior (citation). Following this we chose for a somewhat larger positive dominance motive prior, when accounting for gender in the Bayesian we chose a somewhat negative correlation relating to men tending to be more dominance motivated. Our results followed this hypotheses () 
+
+## Preregistered Analyses
+
+We first DoPL orientation on general risk preference (Figure 1). General risk preference was 
+
+All participants completed the dominance, leadership, and prestige scale (@suessenbach_dominance_2019). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominance oriented than women ()
 
 ## Domain Specific Risk-Taking
+
 
 ## Interactions
 
