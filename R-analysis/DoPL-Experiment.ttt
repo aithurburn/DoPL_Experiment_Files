@@ -43,3 +43,53 @@ Education & \\
 \end{center}
 
 \end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-4}}
+
+\begin{tabular}{llll}
+\toprule
+Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
+\midrule
+b\_Intercept & 0.95 & 1.43 & 5.82\\
+b\_dominanceSum & 0.95 & 0.98 & 4.85\\
+b\_Gender1 & 0.95 & -4.84 & -1.10\\
+b\_Age & 0.95 & -4.74 & -0.82\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-5}}
+
+\begin{tabular}{lllll}
+\toprule
+ & \multicolumn{1}{c}{Estimate} & \multicolumn{1}{c}{Est.Error} & \multicolumn{1}{c}{Q2.5} & \multicolumn{1}{c}{Q97.5}\\
+\midrule
+Intercept & 3.62 & 1.12 & 1.43 & 5.81\\
+dominanceSum & 2.98 & 0.99 & 1.04 & 4.96\\
+prestigeSum & 0.10 & 0.99 & -1.84 & 2.04\\
+leadershipSum & -1.88 & 0.99 & -3.83 & 0.08\\
+Gender1 & -3.00 & 0.98 & -4.87 & -1.12\\
+Age & -2.85 & 0.99 & -4.83 & -0.89\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}

@@ -180,8 +180,12 @@ Correspondence concerning this article should be addressed to Ithurburn, Andrew,
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
+Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals are how they wield their great power, often through dominant tactics such as threats and political subversions. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.
+
 \hypertarget{dominance-leadership-and-prestige-orientation}{%
 \subsection{Dominance, Leadership, and Prestige orientation}\label{dominance-leadership-and-prestige-orientation}}
+
+Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige (Suessenbach, Loughnan, Schönbrodt, \& Moore, 2019).
 
 \hypertarget{risk}{%
 \subsection{Risk}\label{risk}}
@@ -204,7 +208,7 @@ Participants were a convenience sample of 111 individuals from Prolific Academic
 
 \emph{Dominance, Prestige, and Leadership Orientation}. The 18-item Dominance, Prestige, and Leadership scale {[}DoPL; Suessenbach, Loughnan, Schönbrodt, and Moore (2019){]}, is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., ``I relish opportunities in which I can lead others'' for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is \(\alpha\) = 0.86.
 
-\emph{Domain Specific Risk-taking Scale} (DOSPERT; Weber, Blais, and Betz (2002)) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial, social, recreational, health and safety, and ethical situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are ``Admitting that your tastes are different from those of a friend'' and ``Drinking heavily at a social function.'' Internal consistency reliability for the current samples for the 3 sub-domains are \(\alpha\) = 0.85, \(\alpha\) = 0.90, \(\alpha\) = 0.92 respectively.
+\emph{Domain Specific Risk-taking Scale} (DOSPERT; Weber, Blais, and Betz (2002)) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial (``Gambling a week's income at a casino.''), social (``Admitting that your tastes are different from those of your friends''), recreational (``Trying out bungeeing jumpng at least once''), health and safety (``Engaging in unprotected sex''), and ethical (``Cheating on an exam'') situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are ``Admitting that your tastes are different from those of a friend'' and ``Drinking heavily at a social function.'' Internal consistency reliability for the current samples for the 3 sub-domains are \(\alpha\) = 0.85, \(\alpha\) = 0.90, \(\alpha\) = 0.92 respectively.
 
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
@@ -218,6 +222,8 @@ Once participants consented to participate in the experiment they answered a ser
 
 Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using (R Core Team, 2021) along with (Stan Development Team, 2020) package.
 
+*Note: discuss and explain the use of Bayesian Statistics
+
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
@@ -226,7 +232,7 @@ One hundred and eleven individuals completed the main survey. Of these individua
 \hypertarget{preregistered-analyses}{%
 \subsection{Preregistered Analyses}\label{preregistered-analyses}}
 
-We first DoPL orientation on general risk preference (Figure 1). General risk preference was
+We first investigated DoPL orientation on general risk preference (Figure 1). General risk preference was anecdotally explained by dominance orientation, participant gender, and participant age (see table 2).
 
 All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominance oriented than women ()
 
@@ -238,6 +244,12 @@ All participants completed the dominance, leadership, and prestige scale (Suesse
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
+
+\hypertarget{limitations}{%
+\subsection{Limitations}\label{limitations}}
+
+\hypertarget{future-implications}{%
+\subsection{Future Implications}\label{future-implications}}
 
 \newpage
 
@@ -318,6 +330,54 @@ Education & \\
 \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf}
 
 \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-4}}
+
+\begin{tabular}{llll}
+\toprule
+Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
+\midrule
+b\_Intercept & 0.95 & 1.43 & 5.82\\
+b\_dominanceSum & 0.95 & 0.98 & 4.85\\
+b\_Gender1 & 0.95 & -4.84 & -1.10\\
+b\_Age & 0.95 & -4.74 & -0.82\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-5}}
+
+\begin{tabular}{lllll}
+\toprule
+ & \multicolumn{1}{c}{Estimate} & \multicolumn{1}{c}{Est.Error} & \multicolumn{1}{c}{Q2.5} & \multicolumn{1}{c}{Q97.5}\\
+\midrule
+Intercept & 3.62 & 1.12 & 1.43 & 5.81\\
+dominanceSum & 2.98 & 0.99 & 1.04 & 4.96\\
+prestigeSum & 0.10 & 0.99 & -1.84 & 2.04\\
+leadershipSum & -1.88 & 0.99 & -3.83 & 0.08\\
+Gender1 & -3.00 & 0.98 & -4.87 & -1.12\\
+Age & -2.85 & 0.99 & -4.83 & -0.89\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
 
 
 \end{document}

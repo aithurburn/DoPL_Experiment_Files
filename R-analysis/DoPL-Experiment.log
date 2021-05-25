@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  21 MAY 2021 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  25 MAY 2021 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -838,29 +838,29 @@ p/pdftex.map}
 \openout3 = `DoPL-Experiment.ttt'.
 
 (DoPL-Experiment.ttt)
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=126, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=137, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
-df  used on input line 318.
+df  used on input line 330.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 318--319
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 330--331
 [][]  
  []
 
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=127, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=138, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
-df  used on input line 320.
+df  used on input line 332.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 320--321
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 332--333
 [][]  
  []
 
@@ -870,18 +870,18 @@ med-chunk-3-1.pdf>] (./DoPL-Experiment.ttt
 
 LaTeX Warning: Float too large for page by 33.81898pt on input line 45.
 
-) [9] (./DoPL-Experiment.aux)
+) [9] [10] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
-(rerunfilecheck)             Checksum: 91DEA3287EA2ED19F7782F785859E041;2119.
+(rerunfilecheck)             Checksum: 9D478AA041489198B054216A3C000C7C;2386.
  ) 
 Here is how much of TeX's memory you used:
- 14594 strings out of 480806
- 222255 string characters out of 5903166
- 548233 words of memory out of 5000000
- 31641 multiletter control sequences out of 15000+600000
+ 14609 strings out of 480806
+ 222480 string characters out of 5903166
+ 550377 words of memory out of 5000000
+ 31647 multiletter control sequences out of 15000+600000
  446649 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,11n,77p,2254b,576s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,11n,77p,2254b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
 athit.enc}{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
 /lm/lm-ec.enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
@@ -891,10 +891,10 @@ dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX
 /texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s1932788/AppData/Roaming/T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/s1932788/AppData/R
 oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb>
-Output written on DoPL-Experiment.pdf (9 pages, 148584 bytes).
+Output written on DoPL-Experiment.pdf (10 pages, 150668 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
- 50 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
