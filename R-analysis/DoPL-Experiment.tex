@@ -185,7 +185,9 @@ Throughout political history tyrants and despots have influenced great power ove
 \hypertarget{dominance-leadership-and-prestige-orientation}{%
 \subsection{Dominance, Leadership, and Prestige orientation}\label{dominance-leadership-and-prestige-orientation}}
 
-Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige (Suessenbach, Loughnan, Schönbrodt, \& Moore, 2019).
+Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige (Suessenbach, Loughnan, Schönbrodt, \& Moore, 2019). Each of these thre different power motives are explanations as to different ways or methods that individuals in power sought power or were bestowed upon them.
+
+The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting one's dominance, control over resources, or physically assaulting someone (Johnson, Leedom, \& Muhtadie, 2012; Winter, 1993). The method of attaining this power and status may not always be as direct as a physical confrontation. Use of nonverbal communication is often very common amongst humans such as body posture, facial expressions, and
 
 \hypertarget{risk}{%
 \subsection{Risk}\label{risk}}
@@ -223,6 +225,8 @@ Once participants consented to participate in the experiment they answered a ser
 Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using (R Core Team, 2021) along with (Stan Development Team, 2020) package.
 
 *Note: discuss and explain the use of Bayesian Statistics
+
+All relevant analyses were conducted in a Bayesian framework. (Bürkner, 2017)
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -262,6 +266,12 @@ All participants completed the dominance, leadership, and prestige scale (Suesse
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
+\leavevmode\hypertarget{ref-brms-2021}{}%
+Bürkner, P.-C. (2017). {brms}: An {R} package for {Bayesian} multilevel models using {Stan}. \emph{Journal of Statistical Software}, \emph{80}(1), 1--28. \url{https://doi.org/10.18637/jss.v080.i01}
+
+\leavevmode\hypertarget{ref-johnson_dominance_2012}{}%
+Johnson, S. L., Leedom, L. J., \& Muhtadie, L. (2012). The {Dominance} {Behavioral} {System} and {Psychopathology}: {Evidence} from {Self}-{Report}, {Observational}, and {Biological} {Studies}. \emph{Psychological Bulletin}, \emph{138}(4), 692--743. \url{https://doi.org/10.1037/a0027503}
+
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2021). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
@@ -273,6 +283,9 @@ Suessenbach, F., Loughnan, S., Schönbrodt, F. D., \& Moore, A. B. (2019). The d
 
 \leavevmode\hypertarget{ref-weber_domain-specific_2002}{}%
 Weber, E. U., Blais, A.-R., \& Betz, N. E. (2002). A domain-specific risk-attitude scale: Measuring risk perceptions and risk behaviors. \emph{Journal of Behavioral Decision Making}, \emph{15}(4), 263--290. \url{https://doi.org/10.1002/bdm.414}
+
+\leavevmode\hypertarget{ref-winter_power_1993}{}%
+Winter, D. G. (1993). Power, affiliation, and war: {Three} tests of a motivational model. \emph{Journal of Personality and Social Psychology}, \emph{65}(3), 532--545. \url{https://doi.org/10.1037/0022-3514.65.3.532}
 
 \end{CSLReferences}
 
@@ -342,10 +355,11 @@ Education & \\
 \toprule
 Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
 \midrule
-b\_Intercept & 0.95 & 1.43 & 5.82\\
-b\_dominanceSum & 0.95 & 0.98 & 4.85\\
-b\_Gender1 & 0.95 & -4.84 & -1.10\\
-b\_Age & 0.95 & -4.74 & -0.82\\
+b\_Intercept & 0.95 & 1.37 & 5.81\\
+b\_dominanceSum & 0.95 & 1.07 & 4.91\\
+b\_leadershipSum & 0.95 & -3.88 & -0.02\\
+b\_Gender1 & 0.95 & -4.95 & -1.09\\
+b\_Age & 0.95 & -4.80 & -0.96\\
 \bottomrule
 \end{tabular}
 
@@ -365,12 +379,12 @@ b\_Age & 0.95 & -4.74 & -0.82\\
 \toprule
  & \multicolumn{1}{c}{Estimate} & \multicolumn{1}{c}{Est.Error} & \multicolumn{1}{c}{Q2.5} & \multicolumn{1}{c}{Q97.5}\\
 \midrule
-Intercept & 3.62 & 1.12 & 1.43 & 5.81\\
-dominanceSum & 2.98 & 0.99 & 1.04 & 4.96\\
-prestigeSum & 0.10 & 0.99 & -1.84 & 2.04\\
-leadershipSum & -1.88 & 0.99 & -3.83 & 0.08\\
-Gender1 & -3.00 & 0.98 & -4.87 & -1.12\\
-Age & -2.85 & 0.99 & -4.83 & -0.89\\
+Intercept & 3.62 & 1.13 & 1.41 & 5.86\\
+dominanceSum & 3.00 & 0.99 & 1.08 & 4.93\\
+prestigeSum & 0.09 & 0.99 & -1.84 & 2.02\\
+leadershipSum & -1.91 & 0.98 & -3.85 & 0.02\\
+Gender1 & -3.02 & 0.99 & -4.95 & -1.08\\
+Age & -2.86 & 0.99 & -4.78 & -0.93\\
 \bottomrule
 \end{tabular}
 
