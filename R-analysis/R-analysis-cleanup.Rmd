@@ -396,7 +396,7 @@ m1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + G
                      prior(normal(0, 1), class = "b", coef = "prestigeSum"), 
                      prior(normal(-2, 1), class = "b", coef = "leadershipSum"),
                      prior(normal(-3, 1), class = "b", coef = "Gender1"), 
-                     prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T)
+                     prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T, iter = 5000)
 
 summary(m1)
 
@@ -420,7 +420,7 @@ m1_int <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender + 
                       prior(normal(0,1), class="b", coef="dominanceSum:Gender1"),
                       prior(normal(0,1), class="b", coef="Gender1:leadershipSum"),
                       prior(normal(0,1), class="b", coef="Gender1:prestigeSum")), 
-              save_all_pars = T)
+              save_all_pars = T, iter = 5000)
 summary(m1_int)
 
 # hdi intervals interaction model
@@ -438,7 +438,7 @@ m1_int_d <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leade
                       prior(normal(-3,1), class="b", coef="Gender1"),
                       prior(normal(-3,1), class="b", coef="Age"),
                       prior(normal(0,1), class="b", coef="dominanceSum:Gender1")), 
-              save_all_pars = T)
+              save_all_pars = T, iter = 5000)
 
 summary(m1_int_d)
 
@@ -456,7 +456,7 @@ m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipS
                       prior(normal(-3,1), class="b", coef="Gender1"),
                       prior(normal(-3,1), class="b", coef="Age"),
                       prior(normal(0,1), class="b", coef="leadershipSum:Gender1")), 
-              save_all_pars = T)
+              save_all_pars = T, iter = 5000)
 
 summary(m1_int_l)
 
@@ -475,7 +475,7 @@ m1_int_p <- brm(generalRiskPreference ~ dominanceSum+ prestigeSum*Gender + leade
                       prior(normal(-3,1), class="b", coef="Gender1"),
                       prior(normal(-3,1), class="b", coef="Age"),
                       prior(normal(0,1), class="b", coef="prestigeSum:Gender1")), 
-              save_all_pars = T)
+              save_all_pars = T, iter = 5000)
 
 summary(m1_int_p)
 
@@ -527,7 +527,7 @@ m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
               prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "socialPreference"),
               prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
               prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
-              save_all_pars = T) 
+              save_all_pars = T, iter = 10000) 
 
 
 summary(m2)
@@ -593,7 +593,7 @@ m3 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
               prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "socialPreference"),
               prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "socialPreference"),
               prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
-              prior(normal(0, 1), class = "sigma", resp = "socialPreference"))) 
+              prior(normal(0, 1), class = "sigma", resp = "socialPreference")), save_all_pars = 10000) 
 
 summary(m3)
 
@@ -611,6 +611,102 @@ co$loos$m2$elpd_loo
 co$loos$m3$looic
 co$loos$m3$elpd_loo
 
+# Benefit, perception and risk taking across subdomains for DOPL motives
+m4 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum + prestigeSum + leadershipSum + Age + Gender, data= experiment_dataset_analysis,
+          prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
+              prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
+              prior(normal(-3, 1),  coef = "Age", resp = "riskSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "riskSum"),
+              prior(normal(3, 1),  coef = "dominanceSum", resp = "riskSum"),
+              prior(normal(-2, 1),  coef = "leadershipSum", resp = "riskSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskSum"),
+              #
+              prior(normal(0, 1), class = "Intercept", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskPerceptionSum"), 
+              prior(normal(3, 1),  coef = "Age", resp = "riskPerceptionSum"),
+              prior(normal(3, 1),  coef = "Gender1", resp = "riskPerceptionSum"),
+              prior(normal(-3, 1),  coef = "dominanceSum", resp = "riskPerceptionSum"),
+              prior(normal(2, 1),  coef = "leadershipSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskPerceptionSum"),
+              #
+              prior(normal(0, 1), class = "Intercept", resp = "riskBenefitSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age", resp = "riskBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "riskBenefitSum"),
+              prior(normal(3, 1),  coef = "dominanceSum", resp = "riskBenefitSum"),
+              prior(normal(-2, 1),  coef = "leadershipSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskBenefitSum")), save_all_pars = T, iter = 5000)
+              
+summary(m4) 
+
+# HDI
+m4_hdi <- hdi(m4, effects = "fixed", component = "conditional", ci = .95)
+m4_hdi[sign(m4_hdi$CI_low) == sign(m4_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+     
+     
+# Benefit, perception and risk taking across subdomains for DOPL motives and interactions
+m5 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data= experiment_dataset_analysis, iter = 6000,
+          prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
+              prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
+              prior(normal(-3, 1), coef = "Age", resp = "riskSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "riskSum"),
+              prior(normal(3, 1), coef = "dominanceSum", resp = "riskSum"),
+              prior(normal(-2, 1), coef = "leadershipSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskPerceptionSum"), 
+              prior(normal(3, 1), coef = "Age", resp = "riskPerceptionSum"),
+              prior(normal(3, 1), coef = "Gender1", resp = "riskPerceptionSum"),
+              prior(normal(-3, 1), coef = "dominanceSum", resp = "riskPerceptionSum"),
+              prior(normal(2, 1), coef = "leadershipSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "riskBenefitSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskBenefitSum"),
+              prior(normal(0, 1), resp = "riskBenefitSum"),
+              prior(normal(-3, 1), coef = "Age", resp = "riskBenefitSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "riskBenefitSum"),
+              prior(normal(3, 1), coef = "dominanceSum", resp = "riskBenefitSum"),
+              prior(normal(-2, 1), coef = "leadershipSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskBenefitSum")), save_all_pars = T)
+
+summary(m5) 
+
+# HDI
+m5_hdi <- hdi(m5, effects = "fixed", component = "conditional", ci = .95)
+m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+# checking interaction slopes
+plot(conditional_effects(m5), points=T)
+
+# Model comparison
+co2 <- loo(m4,m5)
+
+co2$loos$m4$looic
+co2$loos$m4$se_looic
+co2$loos$m5$looic
+co2$loos$m5$se_looic
+
+co2$loos$m4$elpd_loo
+co2$loos$m4$se_elpd_loo
+co2$loos$m5$elpd_loo
+co2$loos$m5$se_elpd_loo
+
+bayes_R2(m4)
+bayes_R2(m5)
+
+pp_check(m5, resp="riskSum", nsamples = 1000)
+pp_check(m5, resp="riskPerceptionSum", nsamples = 1000)
+pp_check(m5, resp="riskBenefitSum", nsamples = 1000)
 ```
 
 
