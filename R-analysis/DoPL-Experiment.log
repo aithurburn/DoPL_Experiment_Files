@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  26 MAY 2021 12:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.11)  27 MAY 2021 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,24 +684,24 @@ File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 ) (./DoPL-Experiment.aux)
 \openout1 = `DoPL-Experiment.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -761,7 +761,7 @@ on.sty
 Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 177.
+Package hyperref Info: Link coloring OFF on input line 191.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -777,9 +777,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count317
 )
-LaTeX Info: Redefining \ref on input line 177.
-LaTeX Info: Redefining \pageref on input line 177.
-LaTeX Info: Redefining \nameref on input line 177.
+LaTeX Info: Redefining \ref on input line 191.
+LaTeX Info: Redefining \pageref on input line 191.
+LaTeX Info: Redefining \nameref on input line 191.
 (./DoPL-Experiment.out) (./DoPL-Experiment.out)
 \@outlinefile=\write5
 \openout5 = `DoPL-Experiment.out'.
@@ -788,44 +788,44 @@ LaTeX Info: Redefining \nameref on input line 177.
 Class apa6 Warning: Abstract not defined.
 
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-79.
+93.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-79.
+93.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-79.
+93.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-179.
+193.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-179.
+193.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 179.
+(Font)              <12> on input line 193.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 179.
+(Font)              <8> on input line 193.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 179.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 179
+(Font)              <6> on input line 193.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 193
 .
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.f
 d
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 179
+LaTeX Font Info:    Trying to load font information for U+msb on input line 193
 .
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.f
@@ -844,10 +844,10 @@ File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
-df  used on input line 343.
+df  used on input line 359.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 343--344
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 359--360
 [][]  
  []
 
@@ -857,31 +857,49 @@ File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
-df  used on input line 345.
+df  used on input line 361.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=150, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.p
+df  used on input line 361.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=151, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.p
+df  used on input line 361.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 345--346
-[][]  
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 361--362
+[][] 
  []
 
-[8 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>] AED endfloat: 
-Processing end Figures and Tables [9 <./DoPL-Experiment_files/figure-latex/unna
-med-chunk-3-1.pdf>] (./DoPL-Experiment.ttt
+[8 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>] [9 <./DoPL-Exp
+eriment_files/figure-latex/unnamed-chunk-3-1.pdf>] [10 <./DoPL-Experiment_files
+/figure-latex/unnamed-chunk-3-2.pdf>] AED endfloat: Processing end Figures and 
+Tables [11 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf>] (./DoP
+L-Experiment.ttt
 
 LaTeX Warning: Float too large for page by 33.81898pt on input line 45.
 
-) [10] [11] (./DoPL-Experiment.aux)
+) [12] [13] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
 (rerunfilecheck)             Checksum: 9D478AA041489198B054216A3C000C7C;2386.
  ) 
 Here is how much of TeX's memory you used:
- 14613 strings out of 480806
- 222547 string characters out of 5903166
- 550378 words of memory out of 5000000
- 31647 multiletter control sequences out of 15000+600000
+ 14629 strings out of 480806
+ 223385 string characters out of 5903166
+ 550475 words of memory out of 5000000
+ 31659 multiletter control sequences out of 15000+600000
  446649 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,12n,77p,2254b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,11n,77p,2254b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
 athit.enc}{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
 /lm/lm-ec.enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
@@ -891,10 +909,10 @@ dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX
 /texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s1932788/AppData/Roaming/T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/s1932788/AppData/R
 oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb>
-Output written on DoPL-Experiment.pdf (11 pages, 153546 bytes).
+Output written on DoPL-Experiment.pdf (13 pages, 163030 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
- 63 named destinations out of 1000 (max. 500000)
- 155 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

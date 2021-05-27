@@ -146,15 +146,17 @@ All relevant analyses were conducted in a Bayesian framework using the brms pack
 One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. Average completion time for participants was `r (average_completion)`(*SD* = `r (stdv_DF)`). 
 
 
-
-
 ## Preregistered Analyses
 
 We first investigated DoPL orientation on general risk preference (Figure 1). General risk preference was anecdotally explained by dominance orientation, participant gender, and participant age (see table 2). 
 
-All participants completed the dominance, leadership, and prestige scale (@suessenbach_dominance_2019). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. 
+*Demographic and DoPL*
+
+All participants completed the dominance, leadership, and prestige scale (@suessenbach_dominance_2019). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominant oriented than younger individuals. 
 
 ## Domain Specific Risk-Taking
+
+
 
 ## Interactions
 
@@ -194,7 +196,7 @@ dopl_domains_df <- dopl_domains_df %>%
 dopl_domains_df <- dopl_domains_df[, -2:-179]
 dopl_domains_ggplot <- ggplot(dopl_domains_df, aes(DoPL_domain, value, fill = DoPL_domain)) + 
   geom_violin() 
-dopl_domains_ggplot + scale_fill_brewer(palette = "Dark2") + scale_shape_prism() + scale_y_continuous(limits = c(0, 40), guide = "prism_minor") + scale_x_discrete(guide = "prism_bracket")
+dopl_domains_ggplot + scale_fill_brewer(name = "DoPL Domain", palette = "Dark2", labels = c("Dominance", "Leadership", "Prestige")) + scale_shape_prism() + scale_y_continuous(limits = c(0, 40), guide = "prism_minor") + scale_x_discrete(name = "DoPL Domain", guide = "prism_bracket", labels = c("Dominance", "Leadership", "Prestige"))
 ```
 
 ```{r}
@@ -203,15 +205,15 @@ age_dom_df <- subset(experiment_1_Dataset, Age!= "")
 gender_experiment_data <- subset(experiment_1_Dataset, Gender != "2")
 gender_and_dominance <- ggplot(gender_experiment_data, aes(x = as.factor(Gender), y = dominanceSum, group = Gender, fill = as.factor(Gender))) + 
   geom_boxplot()  
-gender_and_dominance  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket", name = "Gender") + labs(fill = "Gender")
+gender_and_dominance  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset", name = "Dominance") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket", name = "Gender") + labs(fill = "Gender") + scale_fill_manual(name = "Gender", labels = c("Male", "Female"), values = c("#A6CEE3", "#FF7F00"))
 
 gender_and_prestige <- ggplot(gender_experiment_data, aes(x = as.factor(Gender), y = prestigeSum, group = Gender, fill = as.factor(Gender))) + 
   geom_boxplot()  
-gender_and_prestige  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket", name = "Gender")
+gender_and_prestige  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset", name = "Prestige") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket", name = "Gender") + scale_fill_manual(name = "Gender", labels = c("Male", "Female"), values = c("#A6CEE3", "#FF7F00"))
 
 gender_and_leadership <- ggplot(gender_experiment_data, aes(x = as.factor(Gender), y = leadershipSum, group = Gender, fill = as.factor(Gender))) + 
   geom_boxplot()  
-gender_and_leadership  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket", name = "Gender")
+gender_and_leadership  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset", name = "Leadership") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket", name = "Gender")+ scale_fill_manual(name = "Gender", labels = c("Male", "Female"), values = c("#A6CEE3", "#FF7F00"))
 ```
 ```{r}
 hdi_table <- m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),

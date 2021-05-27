@@ -101,6 +101,20 @@
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
 % \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\HyOrg@maketitle}
@@ -226,7 +240,7 @@ Demographic characteristics were analyzed using a multiple regression for contin
 
 *Note: discuss and explain the use of Bayesian Statistics
 
-All relevant analyses were conducted in a Bayesian framework. (Bürkner, 2017)
+All relevant analyses were conducted in a Bayesian framework using the brms package (Bürkner, 2017) along with the rstan package (Stan Development Team, 2020)
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -238,7 +252,9 @@ One hundred and eleven individuals completed the main survey. Of these individua
 
 We first investigated DoPL orientation on general risk preference (Figure 1). General risk preference was anecdotally explained by dominance orientation, participant gender, and participant age (see table 2).
 
-All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominance oriented than women ()
+\emph{Demographic and DoPL}
+
+All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be
 
 \hypertarget{domain-specific-risk-taking-1}{%
 \subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking-1}}
@@ -276,7 +292,7 @@ Johnson, S. L., Leedom, L. J., \& Muhtadie, L. (2012). The {Dominance} {Behavior
 R Core Team. (2021). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
 \leavevmode\hypertarget{ref-rStan}{}%
-Stan Development Team. (2020). {RStan}: The {R} interface to {Stan}. Retrieved from \url{http://mc-stan.org/}
+Stan Development Team. (2020). \emph{{RStan}: The {R} interface to {Stan}}. Retrieved from \url{http://mc-stan.org/}
 
 \leavevmode\hypertarget{ref-suessenbach_dominance_2019}{}%
 Suessenbach, F., Loughnan, S., Schönbrodt, F. D., \& Moore, A. B. (2019). The dominance, prestige, and leadership account of social power motives. \emph{European Journal of Personality}, \emph{33}(1), 7--33. \url{https://doi.org/10.1002/per.2184}
@@ -342,7 +358,7 @@ Education & \\
 
 \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf}
 
-\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf}
+\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf}
 
 \begin{table}[tbp]
 
