@@ -160,6 +160,9 @@ All participants completed the dominance, leadership, and prestige scale (@suess
 
 ## Interactions
 
+When investigating dominance, prestige, and leadership motivations with domain specific risk-taking findings supported the common expectations in the literature. Table 5 shows the interactions with like CI values. Dominance overall explained the relationship of DoPL orientation and preference, specifically for ethical, financial, social, health and safety, and recreational preference. Participant age and gender also appeared to affect recreational preference. 
+
+Following these findings we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5). 
 # Discussion
 
 ## Limitations
@@ -224,5 +227,11 @@ apa_table(hdi_table)
 ```{r}
 fixed_effects_table <- fixef(m1)
 apa_table(fixed_effects_table)
+```
+
+```{r}
+ m3_hdi <- hdi(m3, effects = "fixed", component = "conditional", ci = .95)
+apa_table(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
+      c('Parameter', 'CI','CI_low', 'CI_high')])
 ```
 
