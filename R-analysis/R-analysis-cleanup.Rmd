@@ -626,13 +626,18 @@ m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
             
 # Model Comparison: M2 and M3
-co <- loo(m2,m3, moment_match = T)
+co <- loo(m2,m3)
 
-co$loos$m2$looic
-co$loos$m2$elpd_loo
+looic_ <- c(co$loos$m2$looic, co$loos$m3$looic)
+looic_se <- c(co$loos$m2$se_looic, co$loos$m3$se_looic)
+looic_elpd <- c(co$loos$m2$elpd_loo, co$loos$m3$elpd_loo)
+looic_elpd_se <- c(co$loos$m2$se_elpd_loo, co$loos$m3$se_elpd_loo)
 
-co$loos$m3$looic
-co$loos$m3$elpd_loo
+loo_table <- data.frame(looic, looic_se, looic_elpd,looic_elpd_se, row.names = c("m2", "m3"))
+loo_table
+
+bayes_R2(m2)
+bayes_R2(m3)
 
 ```
 
@@ -782,21 +787,14 @@ plot(conditional_effects(m5), points=T)
 
 # Model comparison
 co2 <- loo(m4,m5)
-co2
-comparisonm4 <- loo(m4)
-comparisonm5 <- loo(m5)
-loocomparison4_5 <- loo_compare(comparisonm4, comparisonm5)
-loocomparison4_5
 
-co2$loos$m4$looic
-co2$loos$m4$se_looic
-co2$loos$m5$looic
-co2$loos$m5$se_looic
+looic_2 <- c(co2$loos$m4$looic, co2$loos$m5$looic)
+looic_2_se <- c(co2$loos$m4$se_looic, co2$loos$m5$se_looic)
+looic_elpd_2 <- c(co2$loos$m4$elpd_loo, co2$loos$m5$elpd_loo)
+looic_elpd_2_se <- c(co2$loos$m4$se_elpd_loo, co2$loos$m5$se_elpd_loo)
 
-co2$loos$m4$elpd_loo
-co2$loos$m4$se_elpd_loo
-co2$loos$m5$elpd_loo
-co2$loos$m5$se_elpd_loo
+loo_table2 <- data.frame(looic_2, looic_2_se, looic_elpd_2,looic_elpd_2_se, row.names = c("m4", "m5"))
+loo_table2
 
 bayes_R2(m4)
 bayes_R2(m5)
