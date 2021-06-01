@@ -414,7 +414,7 @@ summary(m1)
 h1 <- hypothesis(m1, "dominanceSum > prestigeSum" )
 h1
 library(bayestestR)
-m1_hdi <- hdi(m1, effects = "fixed", component = "conditional", ci = .95)
+m1_hdi <- bayestestR::hdi(m1, effects = "fixed", component = "conditional", ci = .95)
 
 m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
@@ -437,7 +437,7 @@ m1_int <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender + 
 summary(m1_int)
 
 # hdi intervals interaction model
-m1_int_hdi <- hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
+m1_int_hdi <- bayestestR::hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
 m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
@@ -458,7 +458,7 @@ m1_int_d <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leade
 summary(m1_int_d)
 
 # HDI
-m1_int_d_hdi <- hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
+m1_int_d_hdi <- bayestestR::hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
 m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
@@ -479,7 +479,7 @@ m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipS
 summary(m1_int_l)
 
 # HDI 
-m1_int_l_hdi <- hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
+m1_int_l_hdi <- bayestestR::hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
 m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
@@ -500,7 +500,7 @@ m1_int_p <- brm(generalRiskPreference ~ dominanceSum+ prestigeSum*Gender + leade
 summary(m1_int_p)
 
 # HDI
-m1_int_p_hdi <- hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
+m1_int_p_hdi <- bayestestR::hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
 m1_int_p_hdi[sign(m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
@@ -553,7 +553,7 @@ m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
 
 summary(m2)
 
-m2_hdi <- hdi(m2, effects = "fixed", component = "conditional", ci = .95)
+m2_hdi <- bayestestR::hdi(m2, effects = "fixed", component = "conditional", ci = .95)
 m2_hdi[sign(m2_hdi$CI_low) == sign(m2_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
@@ -621,7 +621,7 @@ save_all_pars = 10000)
 summary(m3)
 
 # HDI
-m3_hdi <- hdi(m3, effects = "fixed", component = "conditional", ci = .95)
+m3_hdi <- bayestestR::hdi(m3, effects = "fixed", component = "conditional", ci = .95)
 m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
             
@@ -695,7 +695,7 @@ m6 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
 save_all_pars = 10000) 
 
 summary(m6)
-m6_hdi <- hdi(m6, effects = "fixed", component = "conditional", ci = .95)
+m6_hdi <- bayestestR::hdi(m6, effects = "fixed", component = "conditional", ci = .95)
 m6_hdi[sign(m6_hdi$CI_low) == sign(m6_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 
@@ -733,7 +733,7 @@ m4 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum + p
 summary(m4) 
 
 # HDI
-m4_hdi <- hdi(m4, effects = "fixed", component = "conditional", ci = .95)
+m4_hdi <- bayestestR::hdi(m4, effects = "fixed", component = "conditional", ci = .95)
 m4_hdi[sign(m4_hdi$CI_low) == sign(m4_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
    
@@ -779,7 +779,7 @@ m5 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Gen
 summary(m5) 
 
 # HDI
-m5_hdi <- hdi(m5, effects = "fixed", component = "conditional", ci = .95)
+m5_hdi <- bayestestR::hdi(m5, effects = "fixed", component = "conditional", ci = .95)
 m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 # checking interaction slopes
@@ -842,7 +842,7 @@ m7 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Age
 summary(m7) 
 
 # HDI
-m7_hdi <- hdi(m7, effects = "fixed", component = "conditional", ci = .95)
+m7_hdi <- bayestestR::hdi(m7, effects = "fixed", component = "conditional", ci = .95)
 m7_hdi[sign(m7_hdi$CI_low) == sign(m7_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
@@ -859,7 +859,7 @@ demo_m1 <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ Gender + Age +
                       prior(normal(-2,1), coef="Gender1", resp = "prestigeSum")))
 summary(demo_m1)
 
-demo_m1_hdi <- hdi(demo_m1, effects = "fixed", component = "conditional", ci = .95)
+demo_m1_hdi <- bayestestR::hdi(demo_m1, effects = "fixed", component = "conditional", ci = .95)
 demo_m1_hdi[sign(demo_m1_hdi$CI_low) == sign(demo_m1_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 

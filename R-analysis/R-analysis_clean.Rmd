@@ -5,11 +5,84 @@ date: "01/06/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r loading the necessary files}
+library(DT)
+library(ggplot2)
+library(ggthemes)
+library(tidyverse)
+library(papaja)
+library(brms)
+library(cmdstanr)
+library(rstan)
+library(bayestestR)
+library(sjPlot)
+library(psych)
+library(rstanarm)
+library(BayesFactor)
+library(bayesplot)
+library(kableExtra)
+options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
+rstan_options(auto_write = TRUE)
+bayesplot::bayesplot_theme_set(theme_apa())
+experiment_1_Dataset <- read.csv("DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
+experiment_dataset_analysis <- read.csv("experiment_dataset_analysis.csv")
+locfunc <- function(data, to){
+  which(colnames({{data}})=={{to}})
+}
+locfunc(experiment_1_Dataset, "DoPL_1")
+lfunc <- function(dataset, to, from) {
+  loc1 <- which(colnames({{dataset}}) == {{to}})
+  loc2 <- which(colnames({{dataset}}) == {{from}})
+  length({{dataset}}[loc1:loc2])
+}
+theme_set(theme_apa(base_size = 12))
+co2 <- readRDS("co2.rds")
+m1 <- readRDS("m1.rds")
+m2 <- readRDS("m2.rds")
+m3 <- readRDS("m3.rds")
+m4 <- readRDS("m4.rds")
+m5 <- readRDS("m5.rds")
+m6 <- readRDS("m6.rds")
+m7 <- readRDS("m7.rds")
+m1_hdi <- readRDS("m1_hdi.rds")
+m2_hdi <- readRDS("m2_hdi.rds")
+m3_hdi <- readRDS("m3_hdi.rds")
+m4_hdi <- readRDS("m4_hdi.rds")
+m5_hdi <- readRDS("m5_hdi.rds")
+m6_hdi <- readRDS("m6_hdi.rds")
+m7_hdi <- readRDS("m7_hdi.rds")
+m1_hdi <- readRDS("m1_hdi.rds")
+m1_int <- readRDS("m1_int.rds")
+m1_int_d <- readRDS("m1_int_d.rds")
+m1_int_l <- readRDS("m1_int_l.rds")
+m1_int_p <- readRDS("m1_int_p.rds")
+m1_int_d_hdi <- readRDS("m1_int_d_hdi.rds")
+m1_int_l_hdi <- readRDS("m1_int_l_hdi.rds")
+m1_int_p_hdi <- readRDS("m1_int_p_hdi.rds")
+demo_m1 <- readRDS("demo_m1.rds")
+m7_DoPL_DOSPERT <- readRDS("m7_DoPL_DOSPERT.rds")
+m4_perceivedRisk_Age <- readRDS("m4_perceivedRisk_Age.rds")
+m5_generalRiskPreference <- readRDS("m5_generalRiskPreference.rds")
+m5_benefitRisk_Age <- readRDS("m5_benefitRisk_Age.rds")
+m4_perceivedRisk_Gender <- readRDS("m4_perceivedRisk_Gender.rds")
+m5_benefitRisk_Gender <- readRDS("m5_benefitRisk_Gender.rds")
+demo_m1_hdi <- readRDS("demo_m1_hdi.rds")
+m7_DoPL_DOSPERT_hdi <- readRDS("m7_DoPL_DOSPERT_hdi.rds")
+m4_perceivedRisk_Age_hdi <- readRDS("m4_perceivedRisk_Age_hdi.rds")
+m5_generalRiskPreference_hdi <- readRDS("m5_generalRiskPreference_hdi.rds")
+m5_benefitRisk_Age_hdi <- readRDS("m5_benefitRisk_Age_hdi.rds")
+m4_perceivedRisk_Gender_hdi <- readRDS("m4_perceivedRisk_Gender_hdi.rds")
+m5_benefitRisk_Gender_hdi <- readRDS("m5_benefitRisk_Gender_hdi.rds")
+
+
 ```
 
-```{r bayesian correlation, message=FALSE, warning=FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{ bayesian correlation, message=FALSE, warning=FALSE}
 library(brms)
 library(rstan)
  # can remove the unnecessary iterations
@@ -20,7 +93,7 @@ plot(corrs)
 ```
 
 
-```{r main analysis}
+```{ main analysis, echo=TRUE}
 
 experiment_dataset_analysis <- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != "2")
 
@@ -33,17 +106,19 @@ m1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + G
                      prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T, iter = 4000)
 
 summary(m1)
-
-h1 <- hypothesis(m1, "dominanceSum > prestigeSum" )
-h1
-library(bayestestR)
-m1_hdi <- hdi(m1, effects = "fixed", component = "conditional", ci = .95)
-
-m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
 
 ```{r}
+
+
+library(bayestestR)
+m1_hdi <- bayestestR::hdi(m1, effects = "fixed", component = "conditional", ci = .95)
+
+kable(m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+```
+
+```{, echo = T, results = 'hide'}
 
 # interaction between gender and each of the DoPL motives
 m1_int <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
@@ -58,14 +133,16 @@ m1_int <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender + 
                       prior(normal(0,1), class="b", coef="Gender1:prestigeSum")), 
               save_all_pars = T, iter = 4000, warmup = 500)
 summary(m1_int)
-
-# hdi intervals interaction model
-m1_int_hdi <- hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
-m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
 
 ```{r}
+# hdi intervals interaction model
+m1_int_hdi <- bayestestR::hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
+kable(m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+```
+
+```{, echo = T, results = 'hide'}
 
 # Interaction between gender and dominance
 m1_int_d <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leadershipSum + Age, data =experiment_dataset_analysis,
@@ -79,14 +156,16 @@ m1_int_d <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leade
               save_all_pars = T, iter = 4000, warmup = 500)
 
 summary(m1_int_d)
-
-# HDI
-m1_int_d_hdi <- hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
-m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
 
 ```{r}
+# HDI
+m1_int_d_hdi <- bayestestR::hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
+kable(m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+```
+
+```{, echo = T, results = 'hide'}
 
 # Interaction between gender and leadership
 m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
@@ -100,14 +179,16 @@ m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipS
               save_all_pars = T, iter = 4000, warmup = 500)
 
 summary(m1_int_l)
-
-# HDI 
-m1_int_l_hdi <- hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
-m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
 
-```{r}            
+```{r}
+# HDI 
+m1_int_l_hdi <- bayestestR::hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
+kable(m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+```
+
+```{, echo = T, results = 'hide'}            
             
 # Interaction between gender and prestige
 m1_int_p <- brm(generalRiskPreference ~ dominanceSum+ prestigeSum*Gender + leadershipSum + Age, data=experiment_dataset_analysis,
@@ -121,14 +202,16 @@ m1_int_p <- brm(generalRiskPreference ~ dominanceSum+ prestigeSum*Gender + leade
               save_all_pars = T, iter = 4000)
 
 summary(m1_int_p)
-
-# HDI
-m1_int_p_hdi <- hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
-m1_int_p_hdi[sign(m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
 
 ```{r}
+# HDI
+m1_int_p_hdi <- bayestestR::hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
+kable(m1_int_p_hdi[sign(m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+```
+
+```{, echo = T, results = 'hide'}
 
 # Domain specific model
 m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis,
@@ -175,13 +258,15 @@ m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
 
 
 summary(m2)
-
-m2_hdi <- hdi(m2, effects = "fixed", component = "conditional", ci = .95)
-m2_hdi[sign(m2_hdi$CI_low) == sign(m2_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
 ```
 
-```{r}            
+```{r}
+m2_hdi <- bayestestR::hdi(m2, effects = "fixed", component = "conditional", ci = .95)
+kable(m2_hdi[sign(m2_hdi$CI_low) == sign(m2_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+```
+
+```{, echo = T, results = 'hide'}            
             
  # Domain specific model with Gender-DOPL interactions
 m3 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data = experiment_dataset_analysis, cores = 6,
@@ -242,24 +327,26 @@ m3 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
 save_all_pars = 10000) 
 
 summary(m3)
-
-# HDI
-m3_hdi <- hdi(m3, effects = "fixed", component = "conditional", ci = .95)
-m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
-            
-# Model Comparison: M2 and M3
-co <- loo(m2,m3, moment_match = T)
-
-co$loos$m2$looic
-co$loos$m2$elpd_loo
-
-co$loos$m3$looic
-co$loos$m3$elpd_loo
-
 ```
 
 ```{r}
+# HDI
+m3_hdi <- bayestestR::hdi(m3, effects = "fixed", component = "conditional", ci = .95)
+kable(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            
+# Model Comparison: M2 and M3
+#co <- loo(m2,m3, moment_match = T)
+
+#co$loos$m2$looic
+#co$loos$m2$elpd_loo
+
+#co$loos$m3$looic
+#co$loos$m3$elpd_loo
+
+```
+
+```{, echo = T, results = 'hide'}
 m6 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Age, data = experiment_dataset_analysis, cores = 6,
               prior = c(prior(normal(0, 1),  coef = "Age", resp = "ethicalPreference"),
               prior(normal(2, 1),  coef = "dominanceSum", resp = "ethicalPreference"),
@@ -311,16 +398,18 @@ m6 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
               prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
               prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
 save_all_pars = 10000) 
+```
 
+```{r}
 summary(m6)
-m6_hdi <- hdi(m6, effects = "fixed", component = "conditional", ci = .95)
-m6_hdi[sign(m6_hdi$CI_low) == sign(m6_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
+m6_hdi <- bayestestR::hdi(m6, effects = "fixed", component = "conditional", ci = .95)
+kable(m6_hdi[sign(m6_hdi$CI_low) == sign(m6_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
 
 ```
 
 
-```{r}
+```{, echo = T, results = 'hide'}
 
 # Benefit, perception and risk taking across subdomains for DOPL motives
 m4 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum + prestigeSum + leadershipSum + Age + Gender, data= experiment_dataset_analysis,
@@ -349,15 +438,17 @@ m4 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum + p
               prior(normal(0, 1),  coef = "prestigeSum", resp = "riskBenefitSum")), save_all_pars = T, iter = 4000, cores = 6)
               
 summary(m4) 
-
-# HDI
-m4_hdi <- hdi(m4, effects = "fixed", component = "conditional", ci = .95)
-m4_hdi[sign(m4_hdi$CI_low) == sign(m4_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
-   
 ```
 
 ```{r}
+# HDI
+m4_hdi <- bayestestR::hdi(m4, effects = "fixed", component = "conditional", ci = .95)
+kable(m4_hdi[sign(m4_hdi$CI_low) == sign(m4_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+   
+```
+
+```{, echo = T, results = 'hide'}
      
 # Benefit, perception and risk taking across subdomains for DOPL motives and interactions
 m5 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data= experiment_dataset_analysis, iter = 4000, cores = 6, 
@@ -395,31 +486,33 @@ m5 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Gen
               prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskBenefitSum")), save_all_pars = T)
 
 summary(m5) 
+```
 
+```{r}
 # HDI
-m5_hdi <- hdi(m5, effects = "fixed", component = "conditional", ci = .95)
-m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
+m5_hdi <- bayestestR::hdi(m5, effects = "fixed", component = "conditional", ci = .95)
+kable(m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
 # checking interaction slopes
-plot(conditional_effects(m5), points=T)
+# plot(conditional_effects(m5), points=T)
 
 # Model comparison
-co2 <- loo(m4,m5)
-co2
-comparisonm4 <- loo(m4)
-comparisonm5 <- loo(m5)
-loocomparison4_5 <- loo_compare(comparisonm4, comparisonm5)
-loocomparison4_5
-
-co2$loos$m4$looic
-co2$loos$m4$se_looic
-co2$loos$m5$looic
-co2$loos$m5$se_looic
-
-co2$loos$m4$elpd_loo
-co2$loos$m4$se_elpd_loo
-co2$loos$m5$elpd_loo
-co2$loos$m5$se_elpd_loo
+# co2 <- loo(m4,m5)
+# co2
+# comparisonm4 <- loo(m4)
+# comparisonm5 <- loo(m5)
+# loocomparison4_5 <- loo_compare(comparisonm4, comparisonm5)
+# loocomparison4_5
+# 
+# co2$loos$m4$looic
+# co2$loos$m4$se_looic
+# co2$loos$m5$looic
+# co2$loos$m5$se_looic
+# 
+# co2$loos$m4$elpd_loo
+# co2$loos$m4$se_elpd_loo
+# co2$loos$m5$elpd_loo
+# co2$loos$m5$se_elpd_loo
 
 looic_2 <- c(co2$loos$m4$looic, co2$loos$m5$looic)
 looic_2_se <- c(co2$loos$m4$se_looic, co2$loos$m5$se_looic)
@@ -429,15 +522,15 @@ looic_elpd_2_se <- c(co2$loos$m4$se_elpd_loo, co2$loos$m5$se_elpd_loo)
 loo_table2 <- data.frame(looic_2, looic_2_se, looic_elpd_2,looic_elpd_2_se, row.names = c("m4", "m5"))
 loo_table2
 
-bayes_R2(m4)
-bayes_R2(m5)
-
-pp_check(m5, resp="riskSum", nsamples = 1000)
-pp_check(m5, resp="riskPerceptionSum", nsamples = 1000)
-pp_check(m5, resp="riskBenefitSum", nsamples = 1000)
+# bayes_R2(m4)
+# bayes_R2(m5)
+# 
+# pp_check(m5, resp="riskSum", nsamples = 1000)
+# pp_check(m5, resp="riskPerceptionSum", nsamples = 1000)
+# pp_check(m5, resp="riskBenefitSum", nsamples = 1000)
 ```
 
-```{r}
+```{, echo = T, results = 'hide'}
 m7 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Gender, data= experiment_dataset_analysis, iter = 4000, cores = 6, 
           prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
               prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
@@ -473,15 +566,17 @@ m7 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Age
               prior(normal(0, 1), coef = "Age:leadershipSum", resp = "riskBenefitSum")), save_all_pars = T)
 
 summary(m7) 
+```
 
+```{r}
 # HDI
-m7_hdi <- hdi(m7, effects = "fixed", component = "conditional", ci = .95)
-m7_hdi[sign(m7_hdi$CI_low) == sign(m7_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
+m7_hdi <- bayestestR::hdi(m7, effects = "fixed", component = "conditional", ci = .95)
+kable(m7_hdi[sign(m7_hdi$CI_low) == sign(m7_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
 ```
 
 
-```{r}
+```{, echo = T, results = 'hide'}
 library(brms)
 
 demo_m1 <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ Gender + Age + Ethnicity + Education, 
@@ -491,14 +586,16 @@ demo_m1 <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ Gender + Age +
                       prior(normal(0,1), coef="Gender1", resp = "leadershipSum"),
                       prior(normal(-2,1), coef="Gender1", resp = "prestigeSum")))
 summary(demo_m1)
+```
 
-demo_m1_hdi <- hdi(demo_m1, effects = "fixed", component = "conditional", ci = .95)
-demo_m1_hdi[sign(demo_m1_hdi$CI_low) == sign(demo_m1_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
+```{r}
+# demo_m1_hdi <- bayestestR::hdi(demo_m1, effects = "fixed", component = "conditional", ci = .95)
+# demo_m1_hdi[sign(demo_m1_hdi$CI_low) == sign(demo_m1_hdi$CI_high),
+#             c('Parameter', 'CI','CI_low', 'CI_high')]
 
 ```
 
-```{r visualization}
+```{ visualization, echo = T, results = 'hide'}
 
 experiment_dataset_analysis %>%
   data_grid(generalRiskPreference = seq_range(generalRiskPreference, n = 111)) %>%
@@ -509,7 +606,7 @@ experiment_dataset_analysis %>%
   scale_fill_brewer()
 ```
 
-```{r}
+```{, echo = T, results = 'hide'}
 priorTest <- c(prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
               prior(normal(0, 1), class = "b", coef = "Age", resp = "ethicalPreference"),
               prior(normal(0, 1), class = "b", coef = "Gender1", resp = "ethicalPreference"),
@@ -568,7 +665,7 @@ priorTest <- c(prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
 
 ```
 
-```{r m7_DoPL and DOSPERT}
+```{ m7_DoPL and DOSPERT, echo = T, results = 'hide'}
 m7_DoPL_DOSPERT <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ ethicalPreference + financialPreference + socialPreference + healthAndSafetyPreference + recreationalPreference, data = experiment_dataset_analysis,
                        iter = 4000, warmup = 500,
                      prior = c(prior(normal(0, 1), class = "Intercept"),
@@ -596,14 +693,22 @@ summary(m7_DoPL_DOSPERT)
 
 ```
 
+
 ```{r}
+m7_DoPL_DOSPERT_hdi <- bayestestR::hdi(m7_DoPL_DOSPERT, effects = "fixed", component = "conditional", ci = .95)
+kable(m7_DoPL_DOSPERT_hdi[sign(m7_DoPL_DOSPERT_hdi$CI_low) == sign(m7_DoPL_DOSPERT_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+```
+
+
+```{, echo = T, results = 'hide'}
 
 bayes_R2(m1)
 
 ```
 
 
-```{r Perceived risk and age}
+```{ Perceived risk and age, echo = T, results = 'hide'}
 m4_perceivedRisk_Age <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Gender + Age, iter = 4000, warmup = 500,
                            data = experiment_dataset_analysis, 
                            prior =  
@@ -660,16 +765,19 @@ m4_perceivedRisk_Age <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuest
               prior(normal(0, 1), coef = "Age:prestigeSum", resp = "socialQuestionsPerceptionSum"),
               prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsPerceptionSum")), 
               save_all_pars = T)
+              summary(m4_perceivedRisk_Age)
+```
 
+```{r}
 m4_perceivedRisk_Age_hdi <- bayestestR::hdi(m4_perceivedRisk_Age, effects = "fixed", component = "conditional", ci = .95)
 
-m4_perceivedRisk_Age_hdi[sign(m4_perceivedRisk_Age_hdi$CI_low) == sign(m4_perceivedRisk_Age_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
-summary(m4_perceivedRisk_Age)
+kable(m4_perceivedRisk_Age_hdi[sign(m4_perceivedRisk_Age_hdi$CI_low) == sign(m4_perceivedRisk_Age_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+
 ```
 
 
-```{r Benefit risk and age}
+```{ Benefit risk and age, echo = T, results = 'hide'}
 
 m5_generalRiskPreference <- brm(generalRiskPreference ~ ethicalPreference + socialPreference + financialPreference + healthAndSafetyPreference + recreationalPreference, data = experiment_dataset_analysis,iter = 4000, warmup = 500,
                                 prior = c(prior(normal(0, 1), class = "Intercept"),
@@ -732,17 +840,22 @@ m5_benefitRisk_Age <- brm(mvbind(ethicalQuestionsBenefitSum, financialQuestionsB
               prior(normal(-3, 1),  coef = "Age:leadershipSum", resp = "socialQuestionsBenefitSum"),
               prior(normal(-3, 1),  coef = "Age:prestigeSum", resp = "socialQuestionsBenefitSum"),
               prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsBenefitSum")), 
-              save_all_pars = T)
+              save_all_pars = T)summary(m5_benefitRisk_Age)
+```
+
+```{r}
+m5_generalRiskPreference_hdi <- bayestestR::hdi(m5_generalRiskPreference, effects = "fixed", component = "conditional", ci = .95)
+
 
 m5_benefitRisk_Age_hdi <- bayestestR::hdi(m5_benefitRisk_Age, effects = "fixed", component = "conditional", ci = .95)
 
-m5_benefitRisk_Age_hdi[sign(m5_benefitRisk_Age_hdi$CI_low) == sign(m5_benefitRisk_Age_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
-summary(m5_benefitRisk_Age)
+kable(m5_benefitRisk_Age_hdi[sign(m5_benefitRisk_Age_hdi$CI_low) == sign(m5_benefitRisk_Age_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+
 ```
 
 
-```{r}
+```{, echo = T, results = 'hide'}
 m4_perceivedRisk_Gender <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, iter = 4000, warmup = 500,
                            data = experiment_dataset_analysis, 
                            prior =  
@@ -798,17 +911,19 @@ m4_perceivedRisk_Gender <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQu
               prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "socialQuestionsPerceptionSum"),
               prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "socialQuestionsPerceptionSum"),
               prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsPerceptionSum")), 
-              save_all_pars = T)
+              save_all_pars = T)summary(m4_perceivedRisk_Gender)
+```
 
+```{r}
 m4_perceivedRisk_Gender_hdi <- bayestestR::hdi(m4_perceivedRisk_Gender, effects = "fixed", component = "conditional", ci = .95)
 
-m4_perceivedRisk_Gender_hdi[sign(m4_perceivedRisk_Gender_hdi$CI_low) == sign(m4_perceivedRisk_Gender_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
-summary(m4_perceivedRisk_Gender)
+kable(m4_perceivedRisk_Gender_hdi[sign(m4_perceivedRisk_Gender_hdi$CI_low) == sign(m4_perceivedRisk_Gender_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+
 ```
 
 
-```{r Benefit risk and Gender}
+```{ Benefit risk and Gender, echo = T, results = 'hide'}
 
 m5_generalRiskPreference <- brm(generalRiskPreference ~ ethicalPreference + socialPreference + financialPreference + healthAndSafetyPreference + recreationalPreference, data = experiment_dataset_analysis,iter = 4000, warmup = 500,
                                 prior = c(prior(normal(0, 1), class = "Intercept"),
@@ -871,17 +986,19 @@ m5_benefitRisk_Gender <- brm(mvbind(ethicalQuestionsBenefitSum, financialQuestio
               prior(normal(-3, 1),  coef = "Gender1:leadershipSum", resp = "socialQuestionsBenefitSum"),
               prior(normal(-3, 1),  coef = "Gender1:prestigeSum", resp = "socialQuestionsBenefitSum"),
               prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsBenefitSum")), 
-              save_all_pars = T)
+              save_all_pars = T)summary(m5_benefitRisk_Gender)
+```
 
+```{r}
 m5_benefitRisk_Gender_hdi <- bayestestR::hdi(m5_benefitRisk_Gender, effects = "fixed", component = "conditional", ci = .95)
 
-m5_benefitRisk_Gender_hdi[sign(m5_benefitRisk_Gender_hdi$CI_low) == sign(m5_benefitRisk_Gender_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
-summary(m5_benefitRisk_Gender)
+kable(m5_benefitRisk_Gender_hdi[sign(m5_benefitRisk_Gender_hdi$CI_low) == sign(m5_benefitRisk_Gender_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+
 ```
 
 
-```{r Visualizations}
+```{ Visualizations, echo = T, results = 'hide'}
 
 mcmc_areas_m1 <- mcmc_areas(m1, pars = c("b_dominanceSum", "b_prestigeSum", "b_leadershipSum", "b_Gender1"))
 

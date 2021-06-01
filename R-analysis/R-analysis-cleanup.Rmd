@@ -42,6 +42,8 @@ theme_set(theme_apa(base_size = 12))
 
 ```
 
+
+
 ```{r Look at the data}
 
 datatable(experiment_1_Dataset)
@@ -1250,7 +1252,7 @@ m8 <- brm(mvbind(ethicalQuestionsRiskSum, ethicalQuestionsPerceptionSum, ethical
                  financialQuestionsRiskSum, financialQuestionsPerceptionSum, financialQuestionsBenefitSum,
                  healthAndSafetyQuestionsRiskSum, healthAndSafetyQuestionsPerceptionSum, healthAndSafetyQuestionsBenefitSum,
                  recreationalQuestionsRiskSum, recreationalQuestionsPerceptionSum, recreationalQuestionsBenefitSum,
-                 socialQuestionsRiskSum, socialQuestionsPerceptionSum, socialQuestionsBenefitSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data= experiment_dataset_analysis, iter = 6000, save_all_pars = T,
+                 socialQuestionsRiskSum, socialQuestionsPerceptionSum, socialQuestionsBenefitSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data= experiment_dataset_analysis, iter = 6000, save_all_pars = T, cores = 6, 
           #----
           prior = c(prior(normal(0, 1), class = "Intercept", resp = "ethicalQuestionsRiskSum"), 
               prior(normal(0, 1), class = "sigma", resp = "ethicalQuestionsRiskSum"), 
