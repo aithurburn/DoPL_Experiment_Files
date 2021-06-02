@@ -174,13 +174,308 @@ pre code {
 </div>
 
 
-<p>```{ bayesian correlation, message=FALSE, warning=FALSE} library(brms) library(rstan) # can remove the unnecessary iterations corrs &lt;- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = “nu”), prior(normal(0, 1), class = “Intercept”), prior(normal(0, 1), class = “sigma”, resp = “ethicalPreference”), prior(normal(0, 1), class = “sigma”, resp = “financialPreference”), prior(normal(0, 1), class = “sigma”, resp = “healthAndSafetyPreference”), prior(normal(0, 1), class = “sigma”, resp = “recreationalPreference”), prior(normal(0, 1), class = “sigma”, resp = “socialPreference”)), iter = 2000, warmup = 500)</p>
-<p>summary(corrs) plot(corrs)</p>
-<pre><code>
+<pre class="r"><code>library(brms)
+library(rstan)
+ # can remove the unnecessary iterations
+corrs &lt;- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = &quot;nu&quot;), prior(normal(0, 1), class = &quot;Intercept&quot;), prior(normal(0, 1), class = &quot;sigma&quot;, resp = &quot;ethicalPreference&quot;), prior(normal(0, 1), class = &quot;sigma&quot;, resp = &quot;financialPreference&quot;), prior(normal(0, 1), class = &quot;sigma&quot;, resp = &quot;healthAndSafetyPreference&quot;), prior(normal(0, 1), class = &quot;sigma&quot;, resp = &quot;recreationalPreference&quot;), prior(normal(0, 1), class = &quot;sigma&quot;, resp = &quot;socialPreference&quot;)), iter = 2000, warmup = 500)
 
-```{ main analysis, echo=TRUE}
-
-experiment_dataset_analysis &lt;- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != &quot;2&quot;)
+summary(corrs)
+plot(corrs)</code></pre>
+<pre class="r"><code>kable(correlation_table, format = &quot;html&quot;, booktabs = T, escape = F, longtabe = F, digits = 2) %&gt;%
+  kable_styling(full_width = F)</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+X
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Est.Error
+</th>
+<th style="text-align:right;">
+l.95..CI
+</th>
+<th style="text-align:right;">
+u.95..CI
+</th>
+<th style="text-align:right;">
+Rhat
+</th>
+<th style="text-align:right;">
+Bulk_ESS
+</th>
+<th style="text-align:right;">
+Tail_ESS
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+rescor(ethicalPreference,financialPreference)
+</td>
+<td style="text-align:right;">
+0.80
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.72
+</td>
+<td style="text-align:right;">
+0.87
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6592
+</td>
+<td style="text-align:right;">
+11232
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(ethicalPreference,socialPreference)
+</td>
+<td style="text-align:right;">
+0.80
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+<td style="text-align:right;">
+0.87
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6930
+</td>
+<td style="text-align:right;">
+10919
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(financialPreference,socialPreference)
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.73
+</td>
+<td style="text-align:right;">
+0.87
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7792
+</td>
+<td style="text-align:right;">
+11703
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(ethicalPreference,healthAndSafetyPreference)
+</td>
+<td style="text-align:right;">
+0.83
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+<td style="text-align:right;">
+0.89
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6976
+</td>
+<td style="text-align:right;">
+10829
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(financialPreference,healthAndSafetyPreference)
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.72
+</td>
+<td style="text-align:right;">
+0.87
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7675
+</td>
+<td style="text-align:right;">
+11399
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(socialPreference,healthAndSafetyPreference)
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.73
+</td>
+<td style="text-align:right;">
+0.88
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7962
+</td>
+<td style="text-align:right;">
+11921
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(ethicalPreference,recreationalPreference)
+</td>
+<td style="text-align:right;">
+0.83
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+<td style="text-align:right;">
+0.89
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8220
+</td>
+<td style="text-align:right;">
+12133
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(financialPreference,recreationalPreference)
+</td>
+<td style="text-align:right;">
+0.78
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8022
+</td>
+<td style="text-align:right;">
+11702
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(socialPreference,recreationalPreference)
+</td>
+<td style="text-align:right;">
+0.74
+</td>
+<td style="text-align:right;">
+0.05
+</td>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:right;">
+0.83
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8081
+</td>
+<td style="text-align:right;">
+11897
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rescor(healthAndSafetyPreference,recreationalPreference)
+</td>
+<td style="text-align:right;">
+0.78
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8133
+</td>
+<td style="text-align:right;">
+11982
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>experiment_dataset_analysis &lt;- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != &quot;2&quot;)
 
 m1 &lt;- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, 
            prior = c(prior(normal(0, 1), class = &quot;Intercept&quot;),
@@ -195,7 +490,7 @@ summary(m1)</code></pre>
 m1_hdi &lt;- bayestestR::hdi(m1, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 
 kable(m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)], format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)], format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -319,7 +614,7 @@ summary(m1_int)</code></pre>
 <pre class="r"><code># hdi intervals interaction model
 m1_int_hdi &lt;- bayestestR::hdi(m1_int, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -425,7 +720,7 @@ summary(m1_int_d)</code></pre>
 <pre class="r"><code># HDI
 m1_int_d_hdi &lt;- bayestestR::hdi(m1_int_d, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -531,7 +826,7 @@ summary(m1_int_l)</code></pre>
 <pre class="r"><code># HDI 
 m1_int_l_hdi &lt;- bayestestR::hdi(m1_int_l, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -637,7 +932,7 @@ summary(m1_int_p)</code></pre>
 <pre class="r"><code># HDI
 m1_int_p_hdi &lt;- bayestestR::hdi(m1_int_p, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m1_int_p_hdi[sign(m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)], format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)], format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -775,7 +1070,7 @@ m2 &lt;- brm(mvbind(ethicalPreference, financialPreference, socialPreference, he
 summary(m2)</code></pre>
 <pre class="r"><code>m2_hdi &lt;- bayestestR::hdi(m2, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m2_hdi[sign(m2_hdi$CI_low) == sign(m2_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1064,7 +1359,7 @@ summary(m3)</code></pre>
 <pre class="r"><code># HDI
 m3_hdi &lt;- bayestestR::hdi(m3, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1337,10 +1632,64 @@ co &lt;- loo(m2,m3)</code></pre>
 ## a future release. Please extract the se_elpd_loo estimate from the &#39;estimates&#39;
 ## component instead.</code></pre>
 <pre class="r"><code>loo_table &lt;- data.frame(looic_, looic_se, looic_elpd,looic_elpd_se, row.names = c(&quot;m2&quot;, &quot;m3&quot;))
-loo_table</code></pre>
-<pre><code>##      looic_ looic_se looic_elpd looic_elpd_se
-## m2 2407.757 48.03215  -1203.878      24.01608
-## m3 2422.230 47.54759  -1211.115      23.77380</code></pre>
+kable(loo_table, format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;%
+  kable_styling(full_width = F)</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+looic_
+</th>
+<th style="text-align:right;">
+looic_se
+</th>
+<th style="text-align:right;">
+looic_elpd
+</th>
+<th style="text-align:right;">
+looic_elpd_se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+m2
+</td>
+<td style="text-align:right;">
+2407.757
+</td>
+<td style="text-align:right;">
+48.03215
+</td>
+<td style="text-align:right;">
+-1203.878
+</td>
+<td style="text-align:right;">
+24.01608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+m3
+</td>
+<td style="text-align:right;">
+2422.230
+</td>
+<td style="text-align:right;">
+47.54759
+</td>
+<td style="text-align:right;">
+-1211.115
+</td>
+<td style="text-align:right;">
+23.77380
+</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>bayes_R2(m2)</code></pre>
 <pre><code>##                              Estimate  Est.Error       Q2.5     Q97.5
 ## R2ethicalPreference         0.2071334 0.05646771 0.09796155 0.3177184
@@ -1405,14 +1754,12 @@ loo_table</code></pre>
               prior(normal(0, 1), coef = &quot;Age:leadershipSum&quot;, resp = &quot;socialPreference&quot;),
               prior(normal(0, 1), class = &quot;Intercept&quot;, resp = &quot;socialPreference&quot;), 
               prior(normal(0, 1), class = &quot;sigma&quot;, resp = &quot;socialPreference&quot;)), 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-save_all_pars = 10000) </code></pre>
-<p>======= save_all_pars = T, iter = 6000, warmup = 500) &gt;&gt;&gt;&gt;&gt;&gt;&gt; 87394a431454d6208890b59ae88ce79ea8396dd3</p>
+save_all_pars = T, iter = 6000, warmup = 500) </code></pre>
 <pre class="r"><code># summary(m6)
 
 m6_hdi &lt;- bayestestR::hdi(m6, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m6_hdi[sign(m6_hdi$CI_low) == sign(m6_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1639,7 +1986,7 @@ summary(m4) </code></pre>
 <pre class="r"><code># HDI
 m4_hdi &lt;- bayestestR::hdi(m4, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m4_hdi[sign(m4_hdi$CI_low) == sign(m4_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1838,7 +2185,7 @@ summary(m5) </code></pre>
 
 m5_hdi &lt;- bayestestR::hdi(m5, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2063,10 +2410,64 @@ looic_2 &lt;- c(co2$loos$m4$looic, co2$loos$m5$looic)</code></pre>
 ## a future release. Please extract the se_elpd_loo estimate from the &#39;estimates&#39;
 ## component instead.</code></pre>
 <pre class="r"><code>loo_table2 &lt;- data.frame(looic_2, looic_2_se, looic_elpd_2,looic_elpd_2_se, row.names = c(&quot;m4&quot;, &quot;m5&quot;))
-loo_table2</code></pre>
-<pre><code>##     looic_2 looic_2_se looic_elpd_2 looic_elpd_2_se
-## m4 862.5947   32.32524    -431.2973        16.16262
-## m5 867.6303   31.27822    -433.8151        15.63911</code></pre>
+kable(loo_table2, format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;%
+  kable_styling(full_width = F)</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+looic_2
+</th>
+<th style="text-align:right;">
+looic_2_se
+</th>
+<th style="text-align:right;">
+looic_elpd_2
+</th>
+<th style="text-align:right;">
+looic_elpd_2_se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+m4
+</td>
+<td style="text-align:right;">
+862.5947
+</td>
+<td style="text-align:right;">
+32.32524
+</td>
+<td style="text-align:right;">
+-431.2973
+</td>
+<td style="text-align:right;">
+16.16262
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+m5
+</td>
+<td style="text-align:right;">
+867.6303
+</td>
+<td style="text-align:right;">
+31.27822
+</td>
+<td style="text-align:right;">
+-433.8151
+</td>
+<td style="text-align:right;">
+15.63911
+</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code># bayes_R2(m4)
 # bayes_R2(m5)
 # 
@@ -2111,7 +2512,7 @@ summary(m7) </code></pre>
 <pre class="r"><code># HDI
 m7_hdi &lt;- bayestestR::hdi(m7, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m7_hdi[sign(m7_hdi$CI_low) == sign(m7_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)], format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)], format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2368,7 +2769,7 @@ priorTest &lt;- c(prior(normal(0, 1), class = &quot;b&quot;,resp = &quot;ethical
 summary(m7_DoPL_DOSPERT)</code></pre>
 <pre class="r"><code>m7_DoPL_DOSPERT_hdi &lt;- bayestestR::hdi(m7_DoPL_DOSPERT, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m7_DoPL_DOSPERT_hdi[sign(m7_DoPL_DOSPERT_hdi$CI_low) == sign(m7_DoPL_DOSPERT_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2487,7 +2888,7 @@ b_prestigeSum_Intercept
 <pre><code>## Warning: Identical densities found along different segments of the distribution,
 ## choosing rightmost.</code></pre>
 <pre class="r"><code>kable(m4_perceivedRisk_Age_hdi[sign(m4_perceivedRisk_Age_hdi$CI_low) == sign(m4_perceivedRisk_Age_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2663,7 +3064,7 @@ m5_benefitRisk_Age &lt;- brm(mvbind(ethicalQuestionsBenefitSum, financialQuestio
 m5_benefitRisk_Age_hdi &lt;- bayestestR::hdi(m5_benefitRisk_Age, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 
 kable(m5_benefitRisk_Age_hdi[sign(m5_benefitRisk_Age_hdi$CI_low) == sign(m5_benefitRisk_Age_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2890,10 +3291,8 @@ b_healthAndSafetyQuestionsBenefitSum_Gender1
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>m4_perceivedRisk_Gender &lt;- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, iter = 4000, warmup = 500,
+<pre class="r"><code>m4_perceivedRisk_Gender &lt;- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, iter = 6000, warmup = 500,
 
-m4_perceivedRisk_Gender &lt;- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, iter = 6000, warmup = 500,
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 87394a431454d6208890b59ae88ce79ea8396dd3
                            data = experiment_dataset_analysis, 
                            prior =  
                           c(prior(normal(0, 1), class = &quot;Intercept&quot;,resp = &quot;ethicalQuestionsPerceptionSum&quot;),
@@ -2952,7 +3351,7 @@ m4_perceivedRisk_Gender &lt;- brm(mvbind(ethicalQuestionsPerceptionSum, financia
 <pre class="r"><code>m4_perceivedRisk_Gender_hdi &lt;- bayestestR::hdi(m4_perceivedRisk_Gender, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 
 kable(m4_perceivedRisk_Gender_hdi[sign(m4_perceivedRisk_Gender_hdi$CI_low) == sign(m4_perceivedRisk_Gender_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -3142,7 +3541,7 @@ m5_benefitRisk_Gender &lt;- brm(mvbind(ethicalQuestionsBenefitSum, financialQues
 <pre class="r"><code>m5_benefitRisk_Gender_hdi &lt;- bayestestR::hdi(m5_benefitRisk_Gender, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 
 kable(m5_benefitRisk_Gender_hdi[sign(m5_benefitRisk_Gender_hdi$CI_low) == sign(m5_benefitRisk_Gender_hdi$CI_high),
-            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = T) %&gt;% kable_styling(full_width = T)</code></pre>
+            c(&#39;Parameter&#39;, &#39;CI&#39;,&#39;CI_low&#39;, &#39;CI_high&#39;)] , format = &quot;html&quot;, booktabs = T, escape = F, longtable = F) %&gt;% kable_styling(full_width = T)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>

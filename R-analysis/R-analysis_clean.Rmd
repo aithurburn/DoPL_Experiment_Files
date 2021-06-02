@@ -2,7 +2,10 @@
 title: "R-analysis_cleaning"
 author: "Andrew Ithurburn"
 date: "01/06/2021"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
 ---
 
 ```{r loading the necessary files, message=FALSE, warning=FALSE, include=FALSE}
@@ -27,6 +30,7 @@ rstan_options(auto_write = TRUE)
 bayesplot::bayesplot_theme_set(theme_apa())
 experiment_1_Dataset <- read.csv("DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
 experiment_dataset_analysis <- read.csv("experiment_dataset_analysis.csv")
+correlation_table <- read.csv("table_attempt.csv")
 locfunc <- function(data, to){
   which(colnames({{data}})=={{to}})
 }
@@ -83,7 +87,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-```{ bayesian correlation, message=FALSE, warning=FALSE}
+```{r bayesian correlation, eval = F}
 library(brms)
 library(rstan)
  # can remove the unnecessary iterations
@@ -93,8 +97,13 @@ summary(corrs)
 plot(corrs)
 ```
 
+```{r}
+kable(correlation_table, format = "html", booktabs = T, escape = F, longtabe = F, digits = 2) %>%
+  kable_styling(full_width = F)
+```
 
-```{ main analysis, echo=TRUE}
+
+```{r main analysis, eval = F}
 
 experiment_dataset_analysis <- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != "2")
 
@@ -116,7 +125,7 @@ library(bayestestR)
 m1_hdi <- bayestestR::hdi(m1, effects = "fixed", component = "conditional", ci = .95)
 
 kable(m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 ```{r, eval = F, echo = T, results = 'hide'}
@@ -140,7 +149,7 @@ summary(m1_int)
 # hdi intervals interaction model
 m1_int_hdi <- bayestestR::hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
 kable(m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 ```{r, eval = F, echo = T, results = 'hide'}
@@ -163,7 +172,7 @@ summary(m1_int_d)
 # HDI
 m1_int_d_hdi <- bayestestR::hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
 kable(m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 ```{r, eval = F, echo = T, results = 'hide'}
@@ -186,7 +195,7 @@ summary(m1_int_l)
 # HDI 
 m1_int_l_hdi <- bayestestR::hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
 kable(m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 ```{r, eval = F, echo = T, results = 'hide'}            
@@ -209,7 +218,7 @@ summary(m1_int_p)
 # HDI
 m1_int_p_hdi <- bayestestR::hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
 kable(m1_int_p_hdi[sign(m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 ```{r, eval=FALSE}
@@ -264,7 +273,7 @@ summary(m2)
 ```{r}
 m2_hdi <- bayestestR::hdi(m2, effects = "fixed", component = "conditional", ci = .95)
 kable(m2_hdi[sign(m2_hdi$CI_low) == sign(m2_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 ```{r, eval = F, echo = T, results = 'hide'}            
@@ -334,7 +343,7 @@ summary(m3)
 # HDI
 m3_hdi <- bayestestR::hdi(m3, effects = "fixed", component = "conditional", ci = .95)
 kable(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
             
 
 # Model Comparison: M2 and M3
@@ -355,7 +364,8 @@ looic_elpd <- c(co$loos$m2$elpd_loo, co$loos$m3$elpd_loo)
 looic_elpd_se <- c(co$loos$m2$se_elpd_loo, co$loos$m3$se_elpd_loo)
 
 loo_table <- data.frame(looic_, looic_se, looic_elpd,looic_elpd_se, row.names = c("m2", "m3"))
-loo_table
+kable(loo_table, format = "html", booktabs = T, escape = F, longtable = F) %>%
+  kable_styling(full_width = F)
 
 bayes_R2(m2)
 bayes_R2(m3)
@@ -414,19 +424,16 @@ m6 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
               prior(normal(0, 1), coef = "Age:leadershipSum", resp = "socialPreference"),
               prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
               prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
-<<<<<<< HEAD
-save_all_pars = 10000) 
-```
-=======
 save_all_pars = T, iter = 6000, warmup = 500) 
->>>>>>> 87394a431454d6208890b59ae88ce79ea8396dd3
+```
+
 
 ```{r}
 # summary(m6)
 
 m6_hdi <- bayestestR::hdi(m6, effects = "fixed", component = "conditional", ci = .95)
 kable(m6_hdi[sign(m6_hdi$CI_low) == sign(m6_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 
 ```
 
@@ -474,7 +481,7 @@ summary(m4)
 # HDI
 m4_hdi <- bayestestR::hdi(m4, effects = "fixed", component = "conditional", ci = .95)
 kable(m4_hdi[sign(m4_hdi$CI_low) == sign(m4_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
    
 ```
 
@@ -523,7 +530,7 @@ summary(m5)
 
 m5_hdi <- bayestestR::hdi(m5, effects = "fixed", component = "conditional", ci = .95)
 kable(m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 
 m5_hdi <- hdi(m5, effects = "fixed", component = "conditional", ci = .95)
 m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
@@ -557,7 +564,8 @@ looic_elpd_2 <- c(co2$loos$m4$elpd_loo, co2$loos$m5$elpd_loo)
 looic_elpd_2_se <- c(co2$loos$m4$se_elpd_loo, co2$loos$m5$se_elpd_loo)
 
 loo_table2 <- data.frame(looic_2, looic_2_se, looic_elpd_2,looic_elpd_2_se, row.names = c("m4", "m5"))
-loo_table2
+kable(loo_table2, format = "html", booktabs = T, escape = F, longtable = F) %>%
+  kable_styling(full_width = F)
 
 # bayes_R2(m4)
 # bayes_R2(m5)
@@ -609,7 +617,7 @@ summary(m7)
 # HDI
 m7_hdi <- bayestestR::hdi(m7, effects = "fixed", component = "conditional", ci = .95)
 kable(m7_hdi[sign(m7_hdi$CI_low) == sign(m7_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 
@@ -734,7 +742,7 @@ summary(m7_DoPL_DOSPERT)
 ```{r}
 m7_DoPL_DOSPERT_hdi <- bayestestR::hdi(m7_DoPL_DOSPERT, effects = "fixed", component = "conditional", ci = .95)
 kable(m7_DoPL_DOSPERT_hdi[sign(m7_DoPL_DOSPERT_hdi$CI_low) == sign(m7_DoPL_DOSPERT_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 ```
 
 
@@ -809,7 +817,7 @@ m4_perceivedRisk_Age <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuest
 m4_perceivedRisk_Age_hdi <- bayestestR::hdi(m4_perceivedRisk_Age, effects = "fixed", component = "conditional", ci = .95)
 
 kable(m4_perceivedRisk_Age_hdi[sign(m4_perceivedRisk_Age_hdi$CI_low) == sign(m4_perceivedRisk_Age_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 
 ```
 
@@ -887,17 +895,16 @@ m5_generalRiskPreference_hdi <- bayestestR::hdi(m5_generalRiskPreference, effect
 m5_benefitRisk_Age_hdi <- bayestestR::hdi(m5_benefitRisk_Age, effects = "fixed", component = "conditional", ci = .95)
 
 kable(m5_benefitRisk_Age_hdi[sign(m5_benefitRisk_Age_hdi$CI_low) == sign(m5_benefitRisk_Age_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 
 ```
 
 
 
 ```{r, eval = F, echo = T, results = 'hide'}
-m4_perceivedRisk_Gender <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, iter = 4000, warmup = 500,
 
 m4_perceivedRisk_Gender <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, iter = 6000, warmup = 500,
->>>>>>> 87394a431454d6208890b59ae88ce79ea8396dd3
+
                            data = experiment_dataset_analysis, 
                            prior =  
                           c(prior(normal(0, 1), class = "Intercept",resp = "ethicalQuestionsPerceptionSum"),
@@ -959,7 +966,7 @@ m4_perceivedRisk_Gender <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQu
 m4_perceivedRisk_Gender_hdi <- bayestestR::hdi(m4_perceivedRisk_Gender, effects = "fixed", component = "conditional", ci = .95)
 
 kable(m4_perceivedRisk_Gender_hdi[sign(m4_perceivedRisk_Gender_hdi$CI_low) == sign(m4_perceivedRisk_Gender_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 
 ```
 
@@ -1034,7 +1041,7 @@ m5_benefitRisk_Gender <- brm(mvbind(ethicalQuestionsBenefitSum, financialQuestio
 m5_benefitRisk_Gender_hdi <- bayestestR::hdi(m5_benefitRisk_Gender, effects = "fixed", component = "conditional", ci = .95)
 
 kable(m5_benefitRisk_Gender_hdi[sign(m5_benefitRisk_Gender_hdi$CI_low) == sign(m5_benefitRisk_Gender_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = T) %>% kable_styling(full_width = T)
+            c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F) %>% kable_styling(full_width = T)
 
 ```
 
