@@ -262,8 +262,8 @@ div.tocify {
 </div>
 
 
-<div id="bayesian-correlation" class="section level1">
-<h1>bayesian correlation</h1>
+<div id="bayesian-correlation" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> bayesian correlation</h1>
 <pre class="r"><code>library(brms)
 library(rstan)
  # can remove the unnecessary iterations
@@ -566,8 +566,8 @@ rescor(healthAndSafetyPreference,recreationalPreference)
 </tbody>
 </table>
 </div>
-<div id="dopl-and-general-risk-preference" class="section level1">
-<h1>DoPL and General Risk preference</h1>
+<div id="dopl-and-general-risk-preference" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> DoPL and General Risk preference</h1>
 <pre class="r"><code>experiment_dataset_analysis &lt;- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != &quot;2&quot;)
 
 m1 &lt;- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, 
@@ -579,8 +579,8 @@ m1 &lt;- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum 
                      prior(normal(-3, 1), class = &quot;b&quot;, coef = &quot;Age&quot;)), save_all_pars = T, iter = 4000)
 
 summary(m1)</code></pre>
-<div id="dopl-and-general-risk-preference-hdi" class="section level2">
-<h2>DoPL and General Risk Preference HDI</h2>
+<div id="dopl-and-general-risk-preference-hdi" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> DoPL and General Risk Preference HDI</h2>
 <pre class="r"><code>library(bayestestR)
 m1_hdi &lt;- bayestestR::hdi(m1, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 
@@ -695,8 +695,8 @@ b_Age
 </table>
 </div>
 </div>
-<div id="interaction-between-gender-and-each-of-the-dopl-motives" class="section level1">
-<h1>Interaction between gender and each of the DoPL motives</h1>
+<div id="interaction-between-gender-and-each-of-the-dopl-motives" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Interaction between gender and each of the DoPL motives</h1>
 <pre class="r"><code># interaction between gender and each of the DoPL motives
 m1_int &lt;- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class=&quot;Intercept&quot;),
@@ -710,8 +710,8 @@ m1_int &lt;- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender
                       prior(normal(0,1), class=&quot;b&quot;, coef=&quot;Gender1:prestigeSum&quot;)), 
               save_all_pars = T, iter = 4000, warmup = 500)
 summary(m1_int)</code></pre>
-<div id="hdi-interval-for-interaction-between-gender-and-the-dopl-motives." class="section level2">
-<h2>HDI interval for interaction between gender and the DoPL motives.</h2>
+<div id="hdi-interval-for-interaction-between-gender-and-the-dopl-motives." class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> HDI interval for interaction between gender and the DoPL motives.</h2>
 <pre class="r"><code># hdi intervals interaction model
 m1_int_hdi &lt;- bayestestR::hdi(m1_int, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
@@ -806,8 +806,10 @@ b_Age
 </tr>
 </tbody>
 </table>
-<div id="specific-interaction-between-gender-and-dominance-orientation." class="section level3">
-<h3>Specific interaction between gender and dominance orientation.</h3>
+</div>
+</div>
+<div id="specific-interaction-between-gender-and-dominance-orientation." class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Specific interaction between gender and dominance orientation.</h1>
 <pre class="r"><code># Interaction between gender and dominance
 m1_int_d &lt;- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leadershipSum + Age, data =experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class=&quot;Intercept&quot;),
@@ -820,9 +822,8 @@ m1_int_d &lt;- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + le
               save_all_pars = T, iter = 4000, warmup = 500)
 
 summary(m1_int_d)</code></pre>
-</div>
-<div id="hdi-interval-for-interaction-for-gender-and-dominance-orientation" class="section level3">
-<h3>HDI interval for interaction for gender and dominance orientation</h3>
+<div id="hdi-interval-for-interaction-for-gender-and-dominance-orientation" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> HDI interval for interaction for gender and dominance orientation</h2>
 <pre class="r"><code># HDI
 m1_int_d_hdi &lt;- bayestestR::hdi(m1_int_d, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
@@ -917,9 +918,8 @@ b_Age
 </tr>
 </tbody>
 </table>
-</div>
-<div id="specific-interaction-between-gender-and-leadership" class="section level3">
-<h3>Specific interaction between gender and leadership</h3>
+<div id="specific-interaction-between-gender-and-leadership" class="section level3" number="4.1.1">
+<h3 number="4.1.1"><span class="header-section-number">4.1.1</span> Specific interaction between gender and leadership</h3>
 <pre class="r"><code># Interaction between gender and leadership
 m1_int_l &lt;- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
               prior=c(prior(normal(0,1), class=&quot;Intercept&quot;),
@@ -933,8 +933,9 @@ m1_int_l &lt;- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadersh
 
 summary(m1_int_l)</code></pre>
 </div>
-<div id="hdi-intervales-for-specific-interaction-between-gender-and-leadership" class="section level3">
-<h3>HDI intervales for specific interaction between gender and leadership</h3>
+</div>
+<div id="hdi-intervales-for-specific-interaction-between-gender-and-leadership" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> HDI intervales for specific interaction between gender and leadership</h2>
 <pre class="r"><code># HDI 
 m1_int_l_hdi &lt;- bayestestR::hdi(m1_int_l, effects = &quot;fixed&quot;, component = &quot;conditional&quot;, ci = .95)
 kable(m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
@@ -1774,20 +1775,116 @@ m3
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>bayes_R2(m2)</code></pre>
-<pre><code>##                              Estimate  Est.Error       Q2.5     Q97.5
-## R2ethicalPreference         0.2071334 0.05646771 0.09796155 0.3177184
-## R2financialPreference       0.1224480 0.05096161 0.03549810 0.2293635
-## R2socialPreference          0.1577488 0.05722508 0.05357572 0.2743127
-## R2healthAndSafetyPreference 0.1680706 0.05352237 0.06771464 0.2772435
-## R2recreationalPreference    0.2813428 0.05394466 0.16850325 0.3820789</code></pre>
-<pre class="r"><code>bayes_R2(m3)</code></pre>
-<pre><code>##                              Estimate  Est.Error       Q2.5     Q97.5
-## R2ethicalPreference         0.2144861 0.05441270 0.10947013 0.3175798
-## R2financialPreference       0.1347447 0.04947782 0.04963008 0.2408403
-## R2socialPreference          0.1676845 0.05432479 0.06832930 0.2757898
-## R2healthAndSafetyPreference 0.1725145 0.05265279 0.07262912 0.2769540
-## R2recreationalPreference    0.2899456 0.05379196 0.18263642 0.3897881</code></pre>
+<pre class="r"><code>apa_table(bayes_R2(m2))</code></pre>
+<caption>
+(#tab:unnamed-chunk-14)
+</caption>
+<div custom-style="Table Caption">
+**
+</div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">Estimate</th>
+<th align="left">Est.Error</th>
+<th align="left">Q2.5</th>
+<th align="left">Q97.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R2ethicalPreference</td>
+<td align="left">0.21</td>
+<td align="left">0.06</td>
+<td align="left">0.10</td>
+<td align="left">0.32</td>
+</tr>
+<tr class="even">
+<td>R2financialPreference</td>
+<td align="left">0.12</td>
+<td align="left">0.05</td>
+<td align="left">0.04</td>
+<td align="left">0.23</td>
+</tr>
+<tr class="odd">
+<td>R2socialPreference</td>
+<td align="left">0.16</td>
+<td align="left">0.06</td>
+<td align="left">0.05</td>
+<td align="left">0.27</td>
+</tr>
+<tr class="even">
+<td>R2healthAndSafetyPreference</td>
+<td align="left">0.17</td>
+<td align="left">0.05</td>
+<td align="left">0.07</td>
+<td align="left">0.28</td>
+</tr>
+<tr class="odd">
+<td>R2recreationalPreference</td>
+<td align="left">0.28</td>
+<td align="left">0.05</td>
+<td align="left">0.17</td>
+<td align="left">0.38</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>apa_table(bayes_R2(m3))</code></pre>
+<caption>
+(#tab:unnamed-chunk-14)
+</caption>
+<div custom-style="Table Caption">
+**
+</div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">Estimate</th>
+<th align="left">Est.Error</th>
+<th align="left">Q2.5</th>
+<th align="left">Q97.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R2ethicalPreference</td>
+<td align="left">0.21</td>
+<td align="left">0.05</td>
+<td align="left">0.11</td>
+<td align="left">0.32</td>
+</tr>
+<tr class="even">
+<td>R2financialPreference</td>
+<td align="left">0.13</td>
+<td align="left">0.05</td>
+<td align="left">0.05</td>
+<td align="left">0.24</td>
+</tr>
+<tr class="odd">
+<td>R2socialPreference</td>
+<td align="left">0.17</td>
+<td align="left">0.05</td>
+<td align="left">0.07</td>
+<td align="left">0.28</td>
+</tr>
+<tr class="even">
+<td>R2healthAndSafetyPreference</td>
+<td align="left">0.17</td>
+<td align="left">0.05</td>
+<td align="left">0.07</td>
+<td align="left">0.28</td>
+</tr>
+<tr class="odd">
+<td>R2recreationalPreference</td>
+<td align="left">0.29</td>
+<td align="left">0.05</td>
+<td align="left">0.18</td>
+<td align="left">0.39</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>m6 &lt;- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Age, data = experiment_dataset_analysis, cores = 6,
               prior = c(prior(normal(0, 1),  coef = &quot;Age&quot;, resp = &quot;ethicalPreference&quot;),
               prior(normal(2, 1),  coef = &quot;dominanceSum&quot;, resp = &quot;ethicalPreference&quot;),
@@ -4042,7 +4139,6 @@ mcmc_areas_m4 &lt;- mcmc_areas(m4, pars = c(&quot;b_dominanceSum&quot;, &quot;b_
 mcmc_dens_m4 &lt;- mcmc_dens_overlay(m4, pars = c(&quot;b_dominanceSum&quot;, &quot;b_prestigeSum&quot;, &quot;b_leadershipSum&quot;, &quot;b_Gender1&quot;))
 
 m4_plot &lt;- mcmc_plot(m4, pars = c(&quot;b_dominanceSum&quot;, &quot;b_prestigeSum&quot;, &quot;b_leadershipSum&quot;, &quot;b_Gender1&quot;))</code></pre>
-</div>
 </div>
 </div>
 

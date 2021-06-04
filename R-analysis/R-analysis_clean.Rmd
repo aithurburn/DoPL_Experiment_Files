@@ -4,12 +4,16 @@ author: "Andrew Ithurburn"
 date: "01/06/2021"
 output: 
   html_document:
-    toc: true
+
+    toc: yes
     toc_float:
-      smooth_scroll: true
+      smooth_scroll: yes
     code_folding: hide
-    
+    fig_caption: yes
+    number_sections: yes
 ---
+
+
 
 ```{r loading the necessary files, message=FALSE, warning=FALSE, include=FALSE}
 library(DT)
@@ -107,7 +111,7 @@ kable(correlation_table, format = "html", booktabs = T, escape = F, longtabe = F
   kable_styling(full_width = F)
 ```
 
-# DoPL and General Risk preference
+# DoPL and General Risk preference 
 
 ```{r main analysis, eval = F, message=FALSE, warning=FALSE}
 
@@ -125,7 +129,7 @@ summary(m1)
 ```
 
 
-## DoPL and General Risk Preference HDI
+## DoPL and General Risk Preference HDI 
 
 ```{r, message=FALSE, warning=FALSE}
 
@@ -137,7 +141,7 @@ kable(m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')], format = "html", booktabs = T, escape = F, longtable = F, digits = 2) %>% kable_styling(full_width = T)
 ```
 
-# Interaction between gender and each of the DoPL motives
+# Interaction between gender and each of the DoPL motives 
 
 ```{r, eval = F, echo = T, results = 'hide', message=FALSE, warning=FALSE}
 # interaction between gender and each of the DoPL motives
@@ -164,7 +168,7 @@ kable(m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')] , format = "html", booktabs = T, escape = F, longtable = F, digits = 2) %>% kable_styling(full_width = T)
 ```
 
-### Specific interaction between gender and dominance orientation. 
+# Specific interaction between gender and dominance orientation. 
 
 ```{r, eval = F, echo = T, results = 'hide', message=FALSE, warning=FALSE}
 
@@ -182,7 +186,7 @@ m1_int_d <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leade
 summary(m1_int_d)
 ```
 
-### HDI interval for interaction for gender and dominance orientation
+## HDI interval for interaction for gender and dominance orientation
 ```{r message=FALSE, warning=FALSE, message=FALSE, warning=FALSE}
 # HDI
 m1_int_d_hdi <- bayestestR::hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
@@ -208,7 +212,7 @@ m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipS
 summary(m1_int_l)
 ```
 
-### HDI intervales for specific interaction between gender and leadership
+## HDI intervales for specific interaction between gender and leadership
 
 ```{r, message=FALSE, warning=FALSE}
 # HDI 
@@ -386,8 +390,8 @@ loo_table <- data.frame(looic_, looic_se, looic_elpd,looic_elpd_se, row.names = 
 kable(loo_table, format = "html", booktabs = T, escape = F, longtable = F, digits = 2) %>%
   kable_styling(full_width = F)
 
-bayes_R2(m2)
-bayes_R2(m3)
+apa_table(bayes_R2(m2))
+apa_table(bayes_R2(m3))
 
 
 ```
