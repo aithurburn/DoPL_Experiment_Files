@@ -28,7 +28,7 @@ library(shinyjs)
 options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
 rstan_options(auto_write = TRUE)
 bayesplot::bayesplot_theme_set(theme_apa())
-experiment_1_Dataset <- read.csv("C:/Users/s1932788/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/Bayesian/DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
+ experiment_1_Dataset <- read.csv("C:/Users/s1932788/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/Bayesian/DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
 experiment_dataset_analysis <- read.csv("C:/Users/s1932788/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/Bayesian/experiment_dataset_analysis.csv")
 correlation_table <- read.csv("C:/Users/s1932788/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/Bayesian/table_attempt.csv")
 locfunc <- function(data, to){
