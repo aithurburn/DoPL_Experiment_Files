@@ -84,8 +84,9 @@ library(ggprism)
 library(brms)
 library(parameters)
 r_refs("cite_examples.bib")
-experiment_1_Dataset <- read.csv("experiment_1_data.csv")
+
 load(".rData")
+experiment_1_Dataset <- read.csv("experiment_1_data.csv")
 rCitations <- cite_r(file = "r-references.bib", footnote = F)
 demo_table <- read_csv("demo_table.csv", 
     col_names = FALSE)
@@ -106,18 +107,23 @@ stdv_DF <- seconds_to_period(stdv_DF)
 
 Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals are how they wield their great power, often through dominant tactics such as threats and political subversions. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence. 
 
-## Dominance, Leadership, and Prestige orientation
+## Dominance, Prestige, and Leadership orientation
 
 Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige [@suessenbach_dominance_2019]. Each of these thre different power motives are explanations as to different ways or methods that individuals in power sought power or were bestowed upon them. 
 
-The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting one's dominance, control over resources, or physically assaulting someone [@johnson_dominance_2012; @winter_power_1993]. The method of attaining this power and status may not always be as direct as a physical confrontation. Use of nonverbal communication is often very common amongst humans such as body posture, facial expressions, and 
+*Dominance*
+The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson_dominance_2012; @winter_power_1993]. High dominance individuals 
+
+*Prestige*
+
+*Leadership*
 
 ## Risk
 
-## Domain Specific Risk-taking
+*DOSPERT*
 
 ## The present study
-
+The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with a prestige or leadership orientation. 
 # Methods
 Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: ####]. The present study was pre-registered along with a copy of anonymized data and copy of R code is available at (https://osf.io/s4j7y). 
 
@@ -230,7 +236,7 @@ apa_table(fixed_effects_table)
 ```
 
 ```{r}
- m3_hdi <- hdi(m3, effects = "fixed", component = "conditional", ci = .95)
+ m3_hdi <- bayestestR::hdi(m3, effects = "fixed", component = "conditional", ci = .95)
 apa_table(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
       c('Parameter', 'CI','CI_low', 'CI_high')])
 ```

@@ -862,7 +862,7 @@ demo_m1 <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ Gender + Age +
                       prior(normal(-2,1), coef="Gender1", resp = "prestigeSum")))
 summary(demo_m1)
 
-demo_m1_hdi <- hdi(demo_m1, effects = "fixed", component = "conditional", ci = .95)
+demo_m1_hdi <- bayestestR::hdi(demo_m1, effects = "fixed", component = "conditional", ci = .95)
 demo_m1_hdi[sign(demo_m1_hdi$CI_low) == sign(demo_m1_hdi$CI_high),
             c('Parameter', 'CI','CI_low', 'CI_high')]
 

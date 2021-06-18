@@ -196,25 +196,28 @@ Correspondence concerning this article should be addressed to Ithurburn, Andrew,
 
 Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals are how they wield their great power, often through dominant tactics such as threats and political subversions. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.
 
-\hypertarget{dominance-leadership-and-prestige-orientation}{%
-\subsection{Dominance, Leadership, and Prestige orientation}\label{dominance-leadership-and-prestige-orientation}}
+\hypertarget{dominance-prestige-and-leadership-orientation}{%
+\subsection{Dominance, Prestige, and Leadership orientation}\label{dominance-prestige-and-leadership-orientation}}
 
 Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige (Suessenbach, Loughnan, Schönbrodt, \& Moore, 2019). Each of these thre different power motives are explanations as to different ways or methods that individuals in power sought power or were bestowed upon them.
 
-The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting one's dominance, control over resources, or physically assaulting someone (Johnson, Leedom, \& Muhtadie, 2012; Winter, 1993). The method of attaining this power and status may not always be as direct as a physical confrontation. Use of nonverbal communication is often very common amongst humans such as body posture, facial expressions, and
+\emph{Dominance}
+The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone (Johnson, Leedom, \& Muhtadie, 2012; Winter, 1993). D
+
+\emph{Prestige}
+
+\emph{Leadership}
 
 \hypertarget{risk}{%
 \subsection{Risk}\label{risk}}
 
-\hypertarget{domain-specific-risk-taking}{%
-\subsection{Domain Specific Risk-taking}\label{domain-specific-risk-taking}}
+\emph{DOSPERT}
 
 \hypertarget{the-present-study}{%
 \subsection{The present study}\label{the-present-study}}
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
-
+The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with a prestige or leadership orientation.
+\# Methods
 Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures {[}ref: \#\#\#\#{]}. The present study was pre-registered along with a copy of anonymized data and copy of R code is available at (\url{https://osf.io/s4j7y}).
 
 \hypertarget{materials}{%
@@ -254,16 +257,18 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 
 \emph{Demographic and DoPL}
 
-All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be
+All participants completed the dominance, leadership, and prestige scale (Suessenbach, Loughnan, Schönbrodt, and Moore (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be more dominant oriented than younger individuals.
 
-\hypertarget{domain-specific-risk-taking-1}{%
-\subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking-1}}
+\hypertarget{domain-specific-risk-taking}{%
+\subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking}}
 
 \hypertarget{interactions}{%
 \subsection{Interactions}\label{interactions}}
 
-\hypertarget{discussion}{%
-\section{Discussion}\label{discussion}}
+When investigating dominance, prestige, and leadership motivations with domain specific risk-taking findings supported the common expectations in the literature. Table 5 shows the interactions with like CI values. Dominance overall explained the relationship of DoPL orientation and preference, specifically for ethical, financial, social, health and safety, and recreational preference. Participant age and gender also appeared to affect recreational preference.
+
+Following these findings we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5).
+\# Discussion
 
 \hypertarget{limitations}{%
 \subsection{Limitations}\label{limitations}}
@@ -401,6 +406,37 @@ prestigeSum & 0.09 & 0.99 & -1.84 & 2.02\\
 leadershipSum & -1.91 & 0.98 & -3.85 & 0.02\\
 Gender1 & -3.02 & 0.99 & -4.95 & -1.08\\
 Age & -2.86 & 0.99 & -4.78 & -0.93\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-6}}
+
+\begin{tabular}{llll}
+\toprule
+Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
+\midrule
+b\_ethicalPreference\_Intercept & 0.95 & 2.85 & 4.42\\
+b\_ethicalPreference\_dominanceSum & 0.95 & 0.61 & 1.71\\
+b\_financialPreference\_Intercept & 0.95 & 7.50 & 9.67\\
+b\_financialPreference\_dominanceSum & 0.95 & 0.14 & 1.59\\
+b\_socialPreference\_Intercept & 0.95 & 8.34 & 11.67\\
+b\_socialPreference\_dominanceSum & 0.95 & 0.60 & 2.87\\
+b\_healthAndSafetyPreference\_Intercept & 0.95 & 4.65 & 6.59\\
+b\_healthAndSafetyPreference\_dominanceSum & 0.95 & 0.41 & 1.77\\
+b\_recreationalPreference\_Intercept & 0.95 & 0.95 & 2.48\\
+b\_recreationalPreference\_dominanceSum & 0.95 & 0.66 & 1.74\\
+b\_recreationalPreference\_Gender1 & 0.95 & -1.83 & -0.47\\
+b\_recreationalPreference\_Age & 0.95 & 0.06 & 0.87\\
 \bottomrule
 \end{tabular}
 

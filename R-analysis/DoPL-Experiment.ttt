@@ -94,3 +94,35 @@ Age & -2.86 & 0.99 & -4.78 & -0.93\\
 \end{center}
 
 \end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-6}}
+
+\begin{tabular}{llll}
+\toprule
+Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
+\midrule
+b\_ethicalPreference\_Intercept & 0.95 & 2.85 & 4.42\\
+b\_ethicalPreference\_dominanceSum & 0.95 & 0.61 & 1.71\\
+b\_financialPreference\_Intercept & 0.95 & 7.50 & 9.67\\
+b\_financialPreference\_dominanceSum & 0.95 & 0.14 & 1.59\\
+b\_socialPreference\_Intercept & 0.95 & 8.34 & 11.67\\
+b\_socialPreference\_dominanceSum & 0.95 & 0.60 & 2.87\\
+b\_healthAndSafetyPreference\_Intercept & 0.95 & 4.65 & 6.59\\
+b\_healthAndSafetyPreference\_dominanceSum & 0.95 & 0.41 & 1.77\\
+b\_recreationalPreference\_Intercept & 0.95 & 0.95 & 2.48\\
+b\_recreationalPreference\_dominanceSum & 0.95 & 0.66 & 1.74\\
+b\_recreationalPreference\_Gender1 & 0.95 & -1.83 & -0.47\\
+b\_recreationalPreference\_Age & 0.95 & 0.06 & 0.87\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
