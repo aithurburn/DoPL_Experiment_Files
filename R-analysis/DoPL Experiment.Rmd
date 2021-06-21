@@ -24,16 +24,33 @@ affiliation:
     institution   : "The University of Edinburgh"
   
 
-authornote: 
+authornote: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
  
 
-abstract:
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  
+  One or two sentences to put the results into a more **general context**.
+  
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
   
   
   <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "keywords"
-wordcount         :  "591"
+wordcount         :  !expr wordcountaddin::word_count("DoPL Experiment.Rmd")
 
 bibliography      : ["cite_examples.bib", "r-references.bib"]
 
@@ -48,15 +65,17 @@ mainfont: "Times New Roman"
 always_allow_html: true
 header-includes:
   - \raggedbottom
-
-documentclass     : "apa6"
+  
+documentclass     : "apa7"
+csl               : "apa-cv.csl"
 classoption       : "a4paper"
 output            : papaja::apa6_pdf
+  
 ---
 
 
 ```{r setup, include = FALSE}
-library("papaja")
+library(papaja)
 library(ggplot2)
 library(sjPlot)
 library(RColorBrewer)
@@ -95,53 +114,61 @@ theme_set(theme_apa(base_size = 12))
 time_df <- read.csv("DoPL_DOSPERT.csv")
 time_df <- time_df[-1:-2,]
 library(lubridate) 
-average_completion <- median(as.numeric(time_df$Duration..in.seconds.)) 
-stdv_DF <- sd(as.numeric(time_df$Duration..in.seconds.)) 
-average_completion <- seconds_to_period(average_completion) 
-stdv_DF <- seconds_to_period(stdv_DF)
+average_completion <- mean(as.numeric(time_df$Duration..in.seconds.))
+stdv_DF <- sd(as.numeric(time_df$Duration..in.seconds.))
 
 ```
 
 
 # Introduction
-
 Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals are how they wield their great power, often through dominant tactics such as threats and political subversions. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence. 
 
 ## Dominance, Prestige, and Leadership orientation
+Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige [@suessenbach_dominance_2019]. Each of these three different power motives are explanations as to different ways or methods that individuals in power sought power or were bestowed upon them. 
 
-Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige [@suessenbach_dominance_2019]. Each of these thre different power motives are explanations as to different ways or methods that individuals in power sought power or were bestowed upon them. 
-
-*Dominance*
+### *Dominance*
 The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson_dominance_2012; @winter_power_1993]. Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans (citation needed). 
-Individuals high in dominance are often high in machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (citation needed). When high dominance individuals assert themselves they are doing so to increase their own individual sense of power (citation needed). Asserting ones own sense of dominance over another can be a dangerous task. In the animal kingdom it can often leader to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (citation needed). Power from a dominance perspective is often never bestowed upon somone. Often, high dominance individuals will take control and hold onto it.
+Individuals high in dominance are often high in machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (citation needed). When high dominance individuals assert themselves they are doing so to increase their own individual sense of power (citation needed). Asserting ones own sense of dominance over another can be a dangerous task. In the animal kingdom it can often leader to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (citation needed). Power from a dominance perspective is often never bestowed upon someone. Often, high dominance individuals will take control and hold onto it.
 
-*Prestige*
-A prestige based motivation for power is interesting in that 
-*Leadership*
+### *Prestige*
+Contrary to the dominance motivation of using intimidation and aggression to gain more power, a prestige motivation or prestige in general is bestowed upon an individual from others in the community (citation needed). Differently from the dominance motivation, a prestige motivation is generally unique to the human species (citation needed). Due in part to ancestral human groups being smaller hunter-gatherer societies, individuals that displayed and used important behaviors beneficial to the larger group were often valued and admired by the group. Therein, the social group bestows the authority onto the individual. Generally, this type of behavior can be passively achieved by the prestigious individual. However, this does not remove the intent of the actor in that they too can see prestige from the group, but method of achieving that social status greatly differs from that of dominance seeking individuals. 
+Apart from dominance motivated individuals that continually have to fight for their right to have power over others, individuals that seek or were given power through a prestige motivation are not generally challenged in the same sense as dominant individuals. Displaying behaviors that the community would see as beneficial would indere them into the community making the survival of the community as a whole better (citation needed). Evolutionarily this would increase viability of the prestigious individual and their genes. Similar to the dominance perspective, the prestige perspect overall increases the power and future survivability of the individual. However, due to the natural difference between prestige and dominance, dominance seeking individuals are challenged more often resulting in more danger to their position (citation). 
+
+### *Leadership*
 
 ## Risk
 
-*DOSPERT*
+### *DOSPERT*
 
 ## The present study
+
 The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with a prestige or leadership orientation. 
 # Methods
+
 Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: ####]. The present study was pre-registered along with a copy of anonymized data and copy of R code is available at (https://osf.io/s4j7y). 
 
 ## Materials
 
-*Demographic Questionnaire*. In a demographic questionnaire administered prior to the main survey, participants were invited to respond to questions about their self-identified demographic characteristics such as gender, ethnicity, and ethnic origin. 
+### *Demographic Questionnaire*. 
 
-*Dominance, Prestige, and Leadership Orientation*. The 18-item Dominance, Prestige, and Leadership scale [DoPL; @suessenbach_dominance_2019], is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., "I relish opportunities in which I can lead others" for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is $\alpha$ = `r psych::alpha(experiment_1_Dataset[,DoPLQuestions])$total$std.alpha`. 
+In a demographic questionnaire administered prior to the main survey, participants were invited to respond to questions about their self-identified demographic characteristics such as gender, ethnicity, and ethnic origin. 
+
+### *Dominance, Prestige, and Leadership Orientation*. 
+
+The 18-item Dominance, Prestige, and Leadership scale [DoPL; @suessenbach_dominance_2019], is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., "I relish opportunities in which I can lead others" for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is $\alpha$ = `r psych::alpha(experiment_1_Dataset[,DoPLQuestions])$total$std.alpha`. 
 	
-*Domain Specific Risk-taking Scale* (DOSPERT; @weber_domain-specific_2002) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungeeing jumpng at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
+### *Domain Specific Risk-taking Scale* 
+
+(DOSPERT; @weber_domain-specific_2002) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungeeing jumpng at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
 
 ## Procedure
+
 Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific FAQ, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) where they were shown a brief message on study consent. 
 
 Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. The two scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic. 
 
 ## Data analysis
+
 Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@R-base] along with [@rStan] package.
 
 *Note: discuss and explain the use of Bayesian Statistics
@@ -150,14 +177,14 @@ All relevant analyses were conducted in a Bayesian framework using the brms pack
 
 # Results
 
-One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. Average completion time for participants was `r (average_completion)`(*SD* = `r (stdv_DF)`). 
+One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (*SD* = 10M 43s). 
 
 
 ## Preregistered Analyses
 
 We first investigated DoPL orientation on general risk preference (Figure 1). General risk preference was anecdotally explained by dominance orientation, participant gender, and participant age (see table 2). 
 
-*Demographic and DoPL*
+### *Demographic and DoPL*
 
 All participants completed the dominance, leadership, and prestige scale (@suessenbach_dominance_2019). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominant oriented than younger individuals. 
 
