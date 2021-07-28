@@ -4,11 +4,11 @@
 %
 \documentclass[
   english,
-  a4paper]{apa7}
+  a4paper,floatsintext]{apa7}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -71,6 +71,29 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -127,13 +150,14 @@
   {}{\typeout{Failed to patch title.}}
 \makeatother
 \shorttitle{Title}
-\keywords{keywords\newline\indent Word count: 1599}
-\usepackage{lineno}
-
-\linenumbers
+\keywords{keywords\newline\indent Word count: 1593}
 \usepackage{csquotes}
 \raggedbottom
-\ifxetex
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0em}
+\usepackage[switch]{lineno}
+\linenumbers
+\ifXeTeX
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
@@ -143,29 +167,9 @@
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 \fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \title{DoPL}
 \author{Ithurburn, Andrew\textsuperscript{1}, Pedersen, Julie\textsuperscript{1}, \& Moore, Adam\textsuperscript{1}}
@@ -257,12 +261,12 @@ In a demographic questionnaire administered prior to the main survey, participan
 \hypertarget{dominance-prestige-and-leadership-orientation.}{%
 \subsubsection{\texorpdfstring{\emph{Dominance, Prestige, and Leadership Orientation}.}{Dominance, Prestige, and Leadership Orientation.}}\label{dominance-prestige-and-leadership-orientation.}}
 
-The 18-item Dominance, Prestige, and Leadership scale {[}DoPL; Suessenbach et al. (2019){]}, is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., ``I relish opportunities in which I can lead others'' for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is \(\alpha\) = 0.86.
+The 18-item Dominance, Prestige, and Leadership scale {[}DoPL; (\textbf{suessenbach\_dominance\_2019?}){]}, is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., ``I relish opportunities in which I can lead others'' for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is \(\alpha\) = 0.86.
 
 \hypertarget{domain-specific-risk-taking-scale}{%
 \subsubsection{\texorpdfstring{\emph{Domain Specific Risk-taking Scale}}{Domain Specific Risk-taking Scale}}\label{domain-specific-risk-taking-scale}}
 
-(DOSPERT; Weber et al. (2002)) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial (``Gambling a week's income at a casino.''), social (``Admitting that your tastes are different from those of your friends''), recreational (``Trying out bungeeing jumpng at least once''), health and safety (``Engaging in unprotected sex''), and ethical (``Cheating on an exam'') situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are ``Admitting that your tastes are different from those of a friend'' and ``Drinking heavily at a social function.'' Internal consistency reliability for the current samples for the 3 sub-domains are \(\alpha\) = 0.85, \(\alpha\) = 0.90, \(\alpha\) = 0.92 respectively.
+(DOSPERT; (\textbf{weber\_domain-specific\_2002?})) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial (``Gambling a week's income at a casino.''), social (``Admitting that your tastes are different from those of your friends''), recreational (``Trying out bungeeing jumpng at least once''), health and safety (``Engaging in unprotected sex''), and ethical (``Cheating on an exam'') situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are ``Admitting that your tastes are different from those of a friend'' and ``Drinking heavily at a social function.'' Internal consistency reliability for the current samples for the 3 sub-domains are \(\alpha\) = 0.85, \(\alpha\) = 0.90, \(\alpha\) = 0.92 respectively.
 
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
@@ -274,11 +278,11 @@ Once participants consented to participate in the experiment they answered a ser
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using (R Core Team, 2021) along with (Stan Development Team, 2020) package.
+Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using (\textbf{R-base?}) along with (\textbf{rStan?}) package.
 
 *Note: discuss and explain the use of Bayesian Statistics
 
-All relevant analyses were conducted in a Bayesian framework using the brms package (Bürkner, 2017) along with the rstan package (Stan Development Team, 2020)
+All relevant analyses were conducted in a Bayesian framework using the brms package (\textbf{brms-2021?}) along with the rstan package (\textbf{rStan?})
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -293,7 +297,7 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 \hypertarget{demographic-and-dopl}{%
 \subsubsection{\texorpdfstring{\emph{Demographic and DoPL}}{Demographic and DoPL}}\label{demographic-and-dopl}}
 
-All participants completed the dominance, leadership, and prestige scale (Suessenbach et al. (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be more dominant oriented than younger individuals.
+All participants completed the dominance, leadership, and prestige scale ((\textbf{suessenbach\_dominance\_2019?})). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be more dominant oriented than younger individuals.
 
 \hypertarget{domain-specific-risk-taking}{%
 \subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking}}
@@ -323,26 +327,14 @@ Following these findings we investigated the effect of DoPL on general risk pref
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\hypertarget{ref-brms-2021}{}%
-Bürkner, P.-C. (2017). {brms}: An {R} package for {Bayesian} multilevel models using {Stan}. \emph{Journal of Statistical Software}, \emph{80}(1), 1--28. \url{https://doi.org/10.18637/jss.v080.i01}
+\leavevmode\vadjust pre{\hypertarget{ref-johnson2012}{}}%
+Johnson, S. L., Leedom, L. J., \& Muhtadie, L. (2012). The dominance behavioral system and psychopathology: evidence from self-report, observational, and biological studies. \emph{Psychological Bulletin}, \emph{138}(4), 692--743. \url{https://doi.org/10.1037/a0027503}
 
-\leavevmode\hypertarget{ref-johnson_dominance_2012}{}%
-Johnson, S. L., Leedom, L. J., \& Muhtadie, L. (2012). The {Dominance} {Behavioral} {System} and {Psychopathology}: {Evidence} from {Self}-{Report}, {Observational}, and {Biological} {Studies}. \emph{Psychological Bulletin}, \emph{138}(4), 692--743. \url{https://doi.org/10.1037/a0027503}
-
-\leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. (2021). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
-
-\leavevmode\hypertarget{ref-rStan}{}%
-Stan Development Team. (2020). \emph{{RStan}: The {R} interface to {Stan}}. \url{http://mc-stan.org/}
-
-\leavevmode\hypertarget{ref-suessenbach_dominance_2019}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-suessenbach2019}{}}%
 Suessenbach, F., Loughnan, S., Schönbrodt, F. D., \& Moore, A. B. (2019). The dominance, prestige, and leadership account of social power motives. \emph{European Journal of Personality}, \emph{33}(1), 7--33. \url{https://doi.org/10.1002/per.2184}
 
-\leavevmode\hypertarget{ref-weber_domain-specific_2002}{}%
-Weber, E. U., Blais, A.-R., \& Betz, N. E. (2002). A domain-specific risk-attitude scale: Measuring risk perceptions and risk behaviors. \emph{Journal of Behavioral Decision Making}, \emph{15}(4), 263--290. \url{https://doi.org/10.1002/bdm.414}
-
-\leavevmode\hypertarget{ref-winter_power_1993}{}%
-Winter, D. G. (1993). Power, affiliation, and war: {Three} tests of a motivational model. \emph{Journal of Personality and Social Psychology}, \emph{65}(3), 532--545. \url{https://doi.org/10.1037/0022-3514.65.3.532}
+\leavevmode\vadjust pre{\hypertarget{ref-winter1993}{}}%
+Winter, D. G. (1993). Power, affiliation, and war: three tests of a motivational model. \emph{Journal of Personality and Social Psychology}, \emph{65}(3), 532--545. \url{https://doi.org/10.1037/0022-3514.65.3.532}
 
 \end{CSLReferences}
 

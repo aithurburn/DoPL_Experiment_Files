@@ -33,7 +33,7 @@ authornote: |
 abstract: |
   One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
   
-  Two to three sentences of **more detailed background**, comprehensible to scientists in related disciplines.
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
   
   One sentence clearly stating the **general problem** being addressed by  this particular study.
   
@@ -50,15 +50,15 @@ abstract: |
   <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "keywords"
-wordcount         :  !expr wordcountaddin::word_count("DoPL Experiment.Rmd")
+wordcount         :  !expr wordcountaddin::word_count("DoPL-Experiment.Rmd")
 
-bibliography      : ["/citations/references.json"]
+bibliography      : ["references.json"]
 
 floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : yes
+linenumbers       : no
 mask              : no
 draft             : no
 mainfont: "Times New Roman"
@@ -89,7 +89,7 @@ Research in power desire motives have focused on three sub-domains: dominance, l
 
 ### *Dominance*
 The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson2012; @winter1993]. Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans (citation needed). 
-Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (citation needed). When high dominance individuals assert themselves they are doing so to increase their own individual sense of power (citation needed). Asserting ones own sense of dominance over another can be a dangerous task. In the animal kingdom it can often leader to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (citation needed). Power from a dominance perspective is often never bestowed upon someone. Often, high dominance individuals will take control and hold onto it.
+Individuals high in dominance are often high in machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (citation needed). When high dominance individuals assert themselves they are doing so to increase their own individual sense of power (citation needed). Asserting ones own sense of dominance over another can be a dangerous task. In the animal kingdom it can often leader to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (citation needed). Power from a dominance perspective is often never bestowed upon someone. Often, high dominance individuals will take control and hold onto it.
 
 ### *Prestige*
 Contrary to the dominance motivation of using intimidation and aggression to gain more power, a prestige motivation or prestige in general is bestowed upon an individual from others in the community (citation needed). Differently from the dominance motivation, a prestige motivation is generally unique to the human species (citation needed). Due in part to ancestral human groups being smaller hunter-gatherer societies, individuals that displayed and used important behaviors beneficial to the larger group were often valued and admired by the group. Therein, the social group bestows the authority onto the individual. Generally, this type of behavior can be passively achieved by the prestigious individual. However, this does not remove the intent of the actor in that they too can see prestige from the group, but method of achieving that social status greatly differs from that of dominance seeking individuals. 
