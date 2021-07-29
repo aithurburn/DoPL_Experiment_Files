@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.28)  28 JUL 2021 18:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.28)  29 JUL 2021 11:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1272,55 +1272,55 @@ Package fancyhdr Warning: \headheight is too small (13.4457pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.93425pt}.
 
 [2] [3]
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=146, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=161, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
-df  used on input line 392.
+df  used on input line 414.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 
-Overfull \hbox (20.0005pt too wide) in paragraph at lines 392--393
+Overfull \hbox (20.0005pt too wide) in paragraph at lines 414--415
 [][] 
  []
 
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=147, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=162, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
-df  used on input line 394.
+df  used on input line 416.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=148, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=163, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.p
-df  used on input line 394.
+df  used on input line 416.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=149, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=164, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.p
-df  used on input line 394.
+df  used on input line 416.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 
-Overfull \hbox (20.0005pt too wide) in paragraph at lines 394--395
+Overfull \hbox (20.0005pt too wide) in paragraph at lines 416--417
 [][]
  []
 
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 394--395
+Overfull \hbox (0.0005pt too wide) in paragraph at lines 416--417
 []
  []
 
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 394--395
+Overfull \hbox (0.0005pt too wide) in paragraph at lines 416--417
 [] 
  []
 
@@ -1333,7 +1333,7 @@ Package fancyhdr Warning: \headheight is too small (13.4457pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.93425pt}.
 
 [4 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>]
-Overfull \hbox (73.46458pt too wide) in paragraph at lines 449--472
+Overfull \hbox (73.46458pt too wide) in paragraph at lines 471--494
  [] 
  []
 
@@ -1341,28 +1341,27 @@ Overfull \hbox (73.46458pt too wide) in paragraph at lines 449--472
 ent_files/figure-latex/unnamed-chunk-3-2.pdf> <./DoPL-Experiment_files/figure-l
 atex/unnamed-chunk-3-3.pdf>] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
-(rerunfilecheck)             Checksum: F9A4974C6E0E66B87088E3BC3A2A933E;3299.
+(rerunfilecheck)             Checksum: 671D55836846FE2146F365B30D7CF599;3469.
  ) 
 Here is how much of TeX's memory you used:
- 25167 strings out of 480502
- 461234 string characters out of 5897829
- 777750 words of memory out of 5000000
- 42267 multiletter control sequences out of 15000+600000
- 465284 words of font info for 117 fonts, out of 8000000 for 9000
+ 25180 strings out of 480502
+ 461424 string characters out of 5897829
+ 779140 words of memory out of 5000000
+ 42271 multiletter control sequences out of 15000+600000
+ 464188 words of font info for 116 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,11n,103p,1141b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,11n,103p,1157b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r
 .enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helv
 etic/uhvr8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/typ
 e1/urw/symbol/usyr.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf
--dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/s1932788/AppData/Roaming/Tiny
-TeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/s1932788/AppData/Roam
-ing/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DoPL-Experiment.pdf (5 pages, 113492 bytes).
+-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyT
+eX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on DoPL-Experiment.pdf (5 pages, 114398 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 272 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

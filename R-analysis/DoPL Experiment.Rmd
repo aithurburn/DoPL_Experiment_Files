@@ -52,7 +52,7 @@ abstract: |
 keywords          : "keywords"
 wordcount         :  !expr wordcountaddin::word_count("DoPL Experiment.Rmd")
 
-bibliography      : ["/citations/references.json"]
+bibliography      : ["C://Users//s1932788//OneDrive//Documents//1_UoE//Research//PhD//LiteratureReview//bibtex//references.json"]
 
 floatsintext      : yes
 figurelist        : no
