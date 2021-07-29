@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.21)  21 JUN 2021 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.28)  29 JUL 2021 11:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **DoPL-Experiment.tex
 (./DoPL-Experiment.tex
 LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-06-18> (c:/Users/s1932788/AppData/Roaming/TinyTeX/te
+L3 programming layer <2021-07-12> (c:/Users/s1932788/AppData/Roaming/TinyTeX/te
 xmf-dist/tex/latex/apa7/apa7.cls
 Document Class: apa7 2021/05/17 v2.13 APA formatting (7th edition)
 Class apa7 Info: Using default mode (jou) on input line 152.
@@ -878,14 +878,6 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex
-.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)
-(c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifluate
-x.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.st
 y
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
@@ -905,6 +897,10 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 ty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
+\cslhangindent=\skip86
+\csllabelwidth=\skip87
+\cslentryspacingunit=\skip88
+
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/was/upgreek.sty
 Package: upgreek 2003/02/12 v2.0 (WaS)
 Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
@@ -915,10 +911,10 @@ LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable
 .sty
 Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
-\LTleft=\skip86
-\LTright=\skip87
-\LTpre=\skip88
-\LTpost=\skip89
+\LTleft=\skip89
+\LTright=\skip90
+\LTpre=\skip91
+\LTpost=\skip92
 \LTchunksize=\count317
 \LTcapwidth=\dimen295
 \LT@head=\box65
@@ -939,9 +935,9 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multir
 ow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip90
+\multirow@colwidth=\skip93
 \multirow@cntb=\count322
-\multirow@dima=\skip91
+\multirow@dima=\skip94
 \bigstrutjot=\dimen296
 )
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.
@@ -954,8 +950,8 @@ Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
 \ar@mcellbox=\box70
 \extrarowheight=\dimen298
 \NC@list=\toks38
-\extratabsurround=\skip92
-\backup@length=\skip93
+\extratabsurround=\skip95
+\backup@length=\skip96
 \ar@cellbox=\box71
 )
 \TX@col@width=\dimen299
@@ -978,41 +974,22 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 spaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip94
+\TPTL@width=\skip97
 )
-\longtablewidth=\skip95
+\longtablewidth=\skip98
 Failed to patch abstract.
 Failed to patch title.
 
-(c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.s
-ty
-Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count324
-\output=\toks40
-\linenoprevgraf=\count325
-\linenumbersep=\dimen304
-\linenumberwidth=\dimen305
-\c@linenumber=\count326
-\c@pagewiselinenumber=\count327
-\c@LN@truepage=\count328
-\c@internallinenumber=\count329
-\c@internallinenumbers=\count330
-\quotelinenumbersep=\dimen306
-\bframerule=\dimen307
-\bframesep=\dimen308
-\bframebox=\box72
-LaTeX Info: Redefining \\ on input line 3056.
-)
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquot
 es.sty
 Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
-\csq@reset=\count331
-\csq@gtype=\count332
-\csq@glevel=\count333
-\csq@qlevel=\count334
-\csq@maxlvl=\count335
-\csq@tshold=\count336
-\csq@ltx@everypar=\toks41
+\csq@reset=\count324
+\csq@gtype=\count325
+\csq@glevel=\count326
+\csq@qlevel=\count327
+\csq@maxlvl=\count328
+\csq@tshold=\count329
+\csq@ltx@everypar=\toks40
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquot
 es.def
@@ -1025,13 +1002,36 @@ Package csquotes Info: ... configuration file loaded successfully.
 es.cfg
 File: csquotes.cfg 
 ))
+(c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.s
+ty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count330
+\output=\toks41
+\linenoprevgraf=\count331
+\linenumbersep=\dimen304
+\linenumberwidth=\dimen305
+\c@linenumber=\count332
+\c@pagewiselinenumber=\count333
+\c@LN@truepage=\count334
+\c@internallinenumber=\count335
+\c@internallinenumbers=\count336
+\quotelinenumbersep=\dimen306
+\bframerule=\dimen307
+\bframesep=\dimen308
+\bframebox=\box72
+
+LaTeX Warning: Command \@parboxrestore  has changed.
+               Check if current package is valid.
+
+LaTeX Info: Redefining \\ on input line 3056.
+)
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.s
 ty
-Package: babel 2021/06/02 3.60 The Babel package
+Package: babel 2021/07/22 3.63 The Babel package
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.d
 ef
-File: babel.def 2021/06/02 3.60 Babel common definitions
+File: babel.def 2021/07/22 3.63 Babel common definitions
 \babel@savecnt=\count337
 \U@D=\dimen309
 \l@unhyphenated=\language3
@@ -1060,13 +1060,11 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@english
 /english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 ))
-\cslhangindent=\skip96
-\csllabelwidth=\skip97
 \c@NumberOfAuthors=\count339
 \c@NumberOfSuperscripts=\count340
 
 Class apa7 Warning: Deprecated: see documentation for \authorsaffiliations on i
-nput line 187.
+nput line 191.
 
 \c@NumberOfAffiliations=\count341
 Package csquotes Info: Checking for multilingual support...
@@ -1076,30 +1074,30 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3bac
 kend-pdftex.def
-File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2021-07-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count342
 \l__pdf_internal_box=\box73
 ) (./DoPL-Experiment.aux)
 \openout1 = `DoPL-Experiment.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 207.
-LaTeX Font Info:    ... okay on input line 207.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1155,7 +1153,7 @@ topdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 207.
+Package hyperref Info: Link coloring OFF on input line 211.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -1171,9 +1169,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count343
 )
-LaTeX Info: Redefining \ref on input line 207.
-LaTeX Info: Redefining \pageref on input line 207.
-LaTeX Info: Redefining \nameref on input line 207.
+LaTeX Info: Redefining \ref on input line 211.
+LaTeX Info: Redefining \pageref on input line 211.
+LaTeX Info: Redefining \nameref on input line 211.
 (./DoPL-Experiment.out) (./DoPL-Experiment.out)
 \@outlinefile=\write4
 \openout4 = `DoPL-Experiment.out'.
@@ -1193,54 +1191,54 @@ Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line
- 208.
+ 212.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptmcm
 .fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ptmcm on input line
- 208.
+ 212.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omlptmcm
 .fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+pzccm on input line
- 208.
+ 212.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omspzccm
 .fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+psycm on input line
- 208.
+ 212.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omxpsycm
 .fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 2
-08.
+12.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.f
 d
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 212.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 212.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 208
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 212.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 212
 .
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.f
 d
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 208
+LaTeX Font Info:    Trying to load font information for U+msb on input line 212
 .
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.f
@@ -1248,15 +1246,15 @@ d
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 212.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 212.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 212.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 212.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 21
-1.
+5.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
@@ -1274,55 +1272,55 @@ Package fancyhdr Warning: \headheight is too small (13.4457pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.93425pt}.
 
 [2] [3]
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=150, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=161, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
-df  used on input line 400.
+df  used on input line 414.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 400--401
+Overfull \hbox (20.0005pt too wide) in paragraph at lines 414--415
 [][] 
  []
 
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=151, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=162, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
-df  used on input line 402.
+df  used on input line 416.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=152, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=163, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.p
-df  used on input line 402.
+df  used on input line 416.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=153, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=164, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.p
-df  used on input line 402.
+df  used on input line 416.
 (pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 402--403
+Overfull \hbox (20.0005pt too wide) in paragraph at lines 416--417
 [][]
  []
 
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 402--403
+Overfull \hbox (0.0005pt too wide) in paragraph at lines 416--417
 []
  []
 
 
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 402--403
+Overfull \hbox (0.0005pt too wide) in paragraph at lines 416--417
 [] 
  []
 
@@ -1335,7 +1333,7 @@ Package fancyhdr Warning: \headheight is too small (13.4457pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.93425pt}.
 
 [4 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>]
-Overfull \hbox (73.46458pt too wide) in paragraph at lines 457--480
+Overfull \hbox (73.46458pt too wide) in paragraph at lines 471--494
  [] 
  []
 
@@ -1343,28 +1341,27 @@ Overfull \hbox (73.46458pt too wide) in paragraph at lines 457--480
 ent_files/figure-latex/unnamed-chunk-3-2.pdf> <./DoPL-Experiment_files/figure-l
 atex/unnamed-chunk-3-3.pdf>] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
-(rerunfilecheck)             Checksum: F9A4974C6E0E66B87088E3BC3A2A933E;3299.
+(rerunfilecheck)             Checksum: 671D55836846FE2146F365B30D7CF599;3469.
  ) 
 Here is how much of TeX's memory you used:
- 25028 strings out of 480470
- 457122 string characters out of 5897013
- 775520 words of memory out of 5000000
- 42153 multiletter control sequences out of 15000+600000
- 465284 words of font info for 117 fonts, out of 8000000 for 9000
+ 25180 strings out of 480502
+ 461424 string characters out of 5897829
+ 779140 words of memory out of 5000000
+ 42271 multiletter control sequences out of 15000+600000
+ 464188 words of font info for 116 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,11n,103p,1111b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,11n,103p,1157b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r
 .enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helv
 etic/uhvr8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/typ
 e1/urw/symbol/usyr.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf
--dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/s1932788/AppData/Roaming/Tiny
-TeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/s1932788/AppData/Roam
-ing/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DoPL-Experiment.pdf (5 pages, 115003 bytes).
+-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyT
+eX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on DoPL-Experiment.pdf (5 pages, 114398 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 69 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 272 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

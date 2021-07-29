@@ -4,11 +4,11 @@
 %
 \documentclass[
   english,
-  a4paper]{apa7}
+  a4paper,floatsintext]{apa7}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -38,6 +38,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
+
   pdftitle={DoPL},
   pdfauthor={Ithurburn, Andrew1, Pedersen, Julie M. E.1, \& Moore, Adam1},
   pdflang={en-EN},
@@ -71,6 +72,29 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -126,14 +150,15 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{Title}
-\keywords{keywords\newline\indent Word count: 1599}
-\usepackage{lineno}
-
-\linenumbers
+\shorttitle{DoPL and DOSPERT}
+\keywords{keywords\newline\indent Word count: 1589}
 \usepackage{csquotes}
 \raggedbottom
-\ifxetex
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0em}
+\usepackage[switch]{lineno}
+\linenumbers
+\ifXeTeX
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
@@ -143,31 +168,11 @@
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 \fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\title{DoPL}
+\title{Power motivations and risky sensitivity and tolerance}
 \author{Ithurburn, Andrew\textsuperscript{1}, Pedersen, Julie\textsuperscript{1}, \& Moore, Adam\textsuperscript{1}}
 \date{}
 
@@ -215,13 +220,13 @@ Throughout political history tyrants and despots have influenced great power ove
 \hypertarget{dominance-prestige-and-leadership-orientation}{%
 \subsection{Dominance, Prestige, and Leadership orientation}\label{dominance-prestige-and-leadership-orientation}}
 
-Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige (Suessenbach et al., 2019). Each of these three different power motives are explanations as to different ways or methods that individuals in power sought power or were bestowed upon them.
+Research in power desire motives have focused on three sub-domains: dominance, leadership, and prestige (Suessenbach et al., 2019). Each of these three different power motives is explanations as to different ways or methods that individuals in power sought power or were bestowed upon them.
 
 \hypertarget{dominance}{%
 \subsubsection{\texorpdfstring{\emph{Dominance}}{Dominance}}\label{dominance}}
 
 The dominance motive is one of the more researched methods and well depicted power motives. Individuals with a dominance orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone (Johnson et al., 2012; Winter, 1993). Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans (citation needed).
-Individuals high in dominance are often high in machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (citation needed). When high dominance individuals assert themselves they are doing so to increase their own individual sense of power (citation needed). Asserting ones own sense of dominance over another can be a dangerous task. In the animal kingdom it can often leader to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (citation needed). Power from a dominance perspective is often never bestowed upon someone. Often, high dominance individuals will take control and hold onto it.
+Individuals high in dominance are often high in machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (citation needed). When high dominance individuals assert themselves they are doing so to increase their own individual sense of power (citation needed). Asserting ones own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (citation needed). Power from a dominant perspective is often never bestowed upon someone. Often, high dominance individuals will take control and hold onto it.
 
 \hypertarget{prestige}{%
 \subsubsection{\texorpdfstring{\emph{Prestige}}{Prestige}}\label{prestige}}
@@ -242,43 +247,45 @@ Apart from dominance motivated individuals that continually have to fight for th
 \subsection{The present study}\label{the-present-study}}
 
 The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with a prestige or leadership orientation.
-\# Methods
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
 
 Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures {[}ref: \#\#\#\#{]}. The present study was pre-registered along with a copy of anonymized data and copy of R code is available at (\url{https://osf.io/s4j7y}).
 
 \hypertarget{materials}{%
 \subsection{Materials}\label{materials}}
 
-\hypertarget{demographic-questionnaire.}{%
-\subsubsection{\texorpdfstring{\emph{Demographic Questionnaire}.}{Demographic Questionnaire.}}\label{demographic-questionnaire.}}
+\hypertarget{demographic-questionnaire}{%
+\subsubsection{\texorpdfstring{\emph{Demographic Questionnaire}}{Demographic Questionnaire}}\label{demographic-questionnaire}}
 
 In a demographic questionnaire administered prior to the main survey, participants were invited to respond to questions about their self-identified demographic characteristics such as gender, ethnicity, and ethnic origin.
 
-\hypertarget{dominance-prestige-and-leadership-orientation.}{%
-\subsubsection{\texorpdfstring{\emph{Dominance, Prestige, and Leadership Orientation}.}{Dominance, Prestige, and Leadership Orientation.}}\label{dominance-prestige-and-leadership-orientation.}}
+\hypertarget{dominance-prestige-and-leadership-orientation-1}{%
+\subsubsection{\texorpdfstring{\emph{Dominance, Prestige, and Leadership Orientation}}{Dominance, Prestige, and Leadership Orientation}}\label{dominance-prestige-and-leadership-orientation-1}}
 
-The 18-item Dominance, Prestige, and Leadership scale {[}DoPL; Suessenbach et al. (2019){]}, is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., ``I relish opportunities in which I can lead others'' for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is \(\alpha\) = 0.86.
+The 18-item Dominance, Prestige, and Leadership scale (DoPL; (Suessenbach et al., 2019)), is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., ``I relish opportunities in which I can lead others'' for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is \(\alpha\) = 0.86.
 
 \hypertarget{domain-specific-risk-taking-scale}{%
 \subsubsection{\texorpdfstring{\emph{Domain Specific Risk-taking Scale}}{Domain Specific Risk-taking Scale}}\label{domain-specific-risk-taking-scale}}
 
-(DOSPERT; Weber et al. (2002)) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain specific risky situations: financial (``Gambling a week's income at a casino.''), social (``Admitting that your tastes are different from those of your friends''), recreational (``Trying out bungeeing jumpng at least once''), health and safety (``Engaging in unprotected sex''), and ethical (``Cheating on an exam'') situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are ``Admitting that your tastes are different from those of a friend'' and ``Drinking heavily at a social function.'' Internal consistency reliability for the current samples for the 3 sub-domains are \(\alpha\) = 0.85, \(\alpha\) = 0.90, \(\alpha\) = 0.92 respectively.
+The 40-item Domain-Specific Risk-taking Scale (DOSPERT;(Weber et al., 2002)) is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial (``Gambling a week's income at a casino.''), social (``Admitting that your tastes are different from those of your friends''), recreational (``Trying out bungeeing jumpng at least once''), health and safety (``Engaging in unprotected sex''), and ethical (``Cheating on an exam'') situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are ``Admitting that your tastes are different from those of a friend'' and ``Drinking heavily at a social function.'' Internal consistency reliability for the current samples for the 3 sub-domains are \(\alpha\) = 0.85, \(\alpha\) = 0.90, \(\alpha\) = 0.92 respectively.
 
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
 
-Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific FAQ, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) where they were shown a brief message on study consent.
+Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants (Prolific Academic, 2018). The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) where they were shown a brief message on study consent.
 
 Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. The two scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic.
 
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using (R Core Team, 2021) along with (Stan Development Team, 2020) package.
+Demographic characteristics were analyzed using a multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using (R Core Team, 2021) along with (Bürkner, 2017) package.
 
 *Note: discuss and explain the use of Bayesian Statistics
 
-All relevant analyses were conducted in a Bayesian framework using the brms package (Bürkner, 2017) along with the rstan package (Stan Development Team, 2020)
+All relevant analyses were conducted in a Bayesian framework using the brms package (Bürkner, 2018) along with the rstan package (Stan Development Team, 2020)
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -293,7 +300,7 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 \hypertarget{demographic-and-dopl}{%
 \subsubsection{\texorpdfstring{\emph{Demographic and DoPL}}{Demographic and DoPL}}\label{demographic-and-dopl}}
 
-All participants completed the dominance, leadership, and prestige scale (Suessenbach et al. (2019)). Empirically, men have generally been more dominance oriented in their behavior (citation). Following the literature, men tended to be more dominant oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be more dominant oriented than younger individuals.
+All participants completed the dominance, leadership, and prestige scale (Suessenbach et al., 2019). Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be more dominant-oriented than younger individuals.
 
 \hypertarget{domain-specific-risk-taking}{%
 \subsection{Domain Specific Risk-Taking}\label{domain-specific-risk-taking}}
@@ -304,7 +311,9 @@ All participants completed the dominance, leadership, and prestige scale (Suesse
 When investigating dominance, prestige, and leadership motivations with domain specific risk-taking findings supported the common expectations in the literature. Table 5 shows the interactions with like CI values. Dominance overall explained the relationship of DoPL orientation and preference, specifically for ethical, financial, social, health and safety, and recreational preference. Participant age and gender also appeared to affect recreational preference.
 
 Following these findings we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5).
-\# Discussion
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 \hypertarget{limitations}{%
 \subsection{Limitations}\label{limitations}}
@@ -323,26 +332,32 @@ Following these findings we investigated the effect of DoPL on general risk pref
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\hypertarget{ref-brms-2021}{}%
-Bürkner, P.-C. (2017). {brms}: An {R} package for {Bayesian} multilevel models using {Stan}. \emph{Journal of Statistical Software}, \emph{80}(1), 1--28. \url{https://doi.org/10.18637/jss.v080.i01}
+\leavevmode\vadjust pre{\hypertarget{ref-burkner2017}{}}%
+Bürkner, P.-C. (2017). brms: an R package for bayesian multilevel models using stan. \emph{Journal of Statistical Software}, \emph{80}(1), 1--28. \url{https://doi.org/10.18637/jss.v080.i01}
 
-\leavevmode\hypertarget{ref-johnson_dominance_2012}{}%
-Johnson, S. L., Leedom, L. J., \& Muhtadie, L. (2012). The {Dominance} {Behavioral} {System} and {Psychopathology}: {Evidence} from {Self}-{Report}, {Observational}, and {Biological} {Studies}. \emph{Psychological Bulletin}, \emph{138}(4), 692--743. \url{https://doi.org/10.1037/a0027503}
+\leavevmode\vadjust pre{\hypertarget{ref-burkner2018}{}}%
+Bürkner, P.-C. (2018). Advanced bayesian multilevel modeling with the R package brms. \emph{The R Journal}, \emph{10}(1), 395--411. \url{https://doi.org/10.32614/RJ-2018-017}
 
-\leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. (2021). \emph{R: A language and environment for statistical computing}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
+\leavevmode\vadjust pre{\hypertarget{ref-johnson2012}{}}%
+Johnson, S. L., Leedom, L. J., \& Muhtadie, L. (2012). The dominance behavioral system and psychopathology: evidence from self-report, observational, and biological studies. \emph{Psychological Bulletin}, \emph{138}(4), 692--743. \url{https://doi.org/10.1037/a0027503}
 
-\leavevmode\hypertarget{ref-rStan}{}%
-Stan Development Team. (2020). \emph{{RStan}: The {R} interface to {Stan}}. \url{http://mc-stan.org/}
+\leavevmode\vadjust pre{\hypertarget{ref-prolificacademic2018}{}}%
+Prolific Academic. (2018). \emph{How do participants find out about my study?} \url{https://researcher-help.prolific.co/hc/en-gb/articles/360009221253-How-do-participants-find-out-about-my-study-}
 
-\leavevmode\hypertarget{ref-suessenbach_dominance_2019}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-rcoreteam2021}{}}%
+R Core Team. (2021). \emph{R: A language and environment for statistical computing} {[}R{]}. R Foundation for Statistical Computing. \url{https://www.R-project.org/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-standevelopmentteam2020}{}}%
+Stan Development Team. (2020). \emph{RStan: the R interface to Stan} (Version 2.26.1) {[}R{]}. \url{https://mc-stan.org/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-suessenbach2019}{}}%
 Suessenbach, F., Loughnan, S., Schönbrodt, F. D., \& Moore, A. B. (2019). The dominance, prestige, and leadership account of social power motives. \emph{European Journal of Personality}, \emph{33}(1), 7--33. \url{https://doi.org/10.1002/per.2184}
 
-\leavevmode\hypertarget{ref-weber_domain-specific_2002}{}%
-Weber, E. U., Blais, A.-R., \& Betz, N. E. (2002). A domain-specific risk-attitude scale: Measuring risk perceptions and risk behaviors. \emph{Journal of Behavioral Decision Making}, \emph{15}(4), 263--290. \url{https://doi.org/10.1002/bdm.414}
+\leavevmode\vadjust pre{\hypertarget{ref-weber2002}{}}%
+Weber, E. U., Blais, A.-R., \& Betz, N. E. (2002). A domain-specific risk-attitude scale: measuring risk perceptions and risk behaviors. \emph{Journal of Behavioral Decision Making}, \emph{15}(4), 263--290. \url{https://doi.org/10.1002/bdm.414}
 
-\leavevmode\hypertarget{ref-winter_power_1993}{}%
-Winter, D. G. (1993). Power, affiliation, and war: {Three} tests of a motivational model. \emph{Journal of Personality and Social Psychology}, \emph{65}(3), 532--545. \url{https://doi.org/10.1037/0022-3514.65.3.532}
+\leavevmode\vadjust pre{\hypertarget{ref-winter1993}{}}%
+Winter, D. G. (1993). Power, affiliation, and war: three tests of a motivational model. \emph{Journal of Personality and Social Psychology}, \emph{65}(3), 532--545. \url{https://doi.org/10.1037/0022-3514.65.3.532}
 
 \end{CSLReferences}
 
