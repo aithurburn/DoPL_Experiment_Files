@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.28)  29 JUL 2021 12:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.28)  29 JUL 2021 15:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1272,58 +1272,6 @@ Package fancyhdr Warning: \headheight is too small (13.4457pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.93425pt}.
 
 [2] [3]
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=161, 469.755pt x 
-325.215pt>
-File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
-pe pdf)
-<use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
-df  used on input line 416.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-
-Overfull \hbox (20.0005pt too wide) in paragraph at lines 416--417
-[][] 
- []
-
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=162, 469.755pt x 
-325.215pt>
-File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
-pe pdf)
-<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
-df  used on input line 418.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=163, 469.755pt x 
-325.215pt>
-File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (ty
-pe pdf)
-<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf>
-Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.p
-df  used on input line 418.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=164, 469.755pt x 
-325.215pt>
-File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (ty
-pe pdf)
-<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf>
-Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.p
-df  used on input line 418.
-(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
-
-Overfull \hbox (20.0005pt too wide) in paragraph at lines 418--419
-[][]
- []
-
-
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 418--419
-[]
- []
-
-
-Overfull \hbox (0.0005pt too wide) in paragraph at lines 418--419
-[] 
- []
-
 
 Package fancyhdr Warning: \headheight is too small (13.4457pt): 
 (fancyhdr)                Make it at least 22.37994pt, for example:
@@ -1332,22 +1280,87 @@ Package fancyhdr Warning: \headheight is too small (13.4457pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-8.93425pt}.
 
-[4 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>]
-Overfull \hbox (73.46458pt too wide) in paragraph at lines 473--496
+[4]
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=195, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
+df  used on input line 423.
+(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
+
+Overfull \hbox (20.0005pt too wide) in paragraph at lines 423--424
+[][] 
+ []
+
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=196, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
+df  used on input line 425.
+(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=197, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.p
+df  used on input line 425.
+(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=198, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.p
+df  used on input line 425.
+(pdftex.def)             Requested size: 241.74374pt x 167.36105pt.
+
+Overfull \hbox (20.0005pt too wide) in paragraph at lines 425--426
+[][]
+ []
+
+
+Overfull \hbox (0.0005pt too wide) in paragraph at lines 425--426
+[]
+ []
+
+
+Overfull \hbox (0.0005pt too wide) in paragraph at lines 425--426
+[] 
+ []
+
+
+Overfull \hbox (73.46458pt too wide) in paragraph at lines 480--503
  [] 
  []
 
-[5 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf> <./DoPL-Experim
-ent_files/figure-latex/unnamed-chunk-3-2.pdf> <./DoPL-Experiment_files/figure-l
-atex/unnamed-chunk-3-3.pdf>] (./DoPL-Experiment.aux)
+[5 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf> <./DoPL-Experim
+ent_files/figure-latex/unnamed-chunk-3-1.pdf> <./DoPL-Experiment_files/figure-l
+atex/unnamed-chunk-3-2.pdf> <./DoPL-Experiment_files/figure-latex/unnamed-chunk
+-3-3.pdf>]
+
+Package fancyhdr Warning: \headheight is too small (13.4457pt): 
+(fancyhdr)                Make it at least 22.37994pt, for example:
+(fancyhdr)                \setlength{\headheight}{22.37994pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-8.93425pt}.
+
+[6
+
+] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
-(rerunfilecheck)             Checksum: 671D55836846FE2146F365B30D7CF599;3469.
+(rerunfilecheck)             Checksum: 4372CFD8D1C353D6BE5E9CF2F04BF61D;3390.
  ) 
 Here is how much of TeX's memory you used:
  25180 strings out of 480502
- 461424 string characters out of 5897829
- 779173 words of memory out of 5000000
- 42271 multiletter control sequences out of 15000+600000
+ 461430 string characters out of 5897829
+ 779170 words of memory out of 5000000
+ 42270 multiletter control sequences out of 15000+600000
  464188 words of font info for 116 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,11n,103p,1156b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1358,10 +1371,10 @@ e1/urw/symbol/usyr.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf
 -dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/s1932788/AppData/Roaming/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DoPL-Experiment.pdf (5 pages, 115033 bytes).
+Output written on DoPL-Experiment.pdf (6 pages, 117384 bytes).
 PDF statistics:
- 272 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
- 75 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 
