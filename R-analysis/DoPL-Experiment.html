@@ -1852,23 +1852,22 @@ hue-6-2: #e6c07b
 shorttitle        : &quot;DoPL and DOSPERT&quot;</p>
 <p>author:</p>
 <ul>
-<li>name          : &quot;Ithurburn, Andrew&quot;<br>
+<li>
+<p>name          : &quot;Ithurburn, Andrew&quot;<br>
 affiliation   : &quot;1&quot;<br>
 corresponding : yes    # Define only one corresponding author<br>
 address       : &quot;7 George Square, Edinburgh, EH8 9JZ&quot;<br>
 email         : &quot;<a href="mailto:a.ithurburn@sms.ed.ac.uk">a.ithurburn@sms.ed.ac.uk</a>&quot;<br>
-role:         # Contributorship roles (e.g., CRediT, <a href="https://casrai.org/credit/">https://casrai.org/credit/</a>)
-<ul>
-<li>Conceptualization</li>
-<li>Writing - Original Draft Preparation</li>
-<li>Writing - Review &amp; Editing</li>
-</ul>
+role:         # Contributorship roles (e.g., CRediT, <a href="https://casrai.org/credit/">https://casrai.org/credit/</a>)</p>
 </li>
-<li>name          : &quot;Pedersen M.E., Julie&quot;<br>
-affiliation   : &quot;1&quot;</li>
-<li>name          : &quot;Moore, Adam&quot;<br>
+<li>
+<p>name          : &quot;Pedersen M.E., Julie&quot;<br>
+affiliation   : &quot;1&quot;</p>
+</li>
+<li>
+<p>name          : &quot;Moore, Adam&quot;<br>
 affiliation   : &quot;1&quot;<br>
-role:
+role:</p>
 <ul>
 <li>Writing - Review &amp; Editing</li>
 </ul>
@@ -1909,18 +1908,21 @@ header-includes:</p>
 <li>\setlength{\parindent}{2em}</li>
 <li>\setlength{\parskip}{0em}</li>
 <li>\usepackage[switch]{lineno}</li>
-<li>\linenumbers<br>
+<li>\linenumbers</li>
+<li>\usepackage{fancyhdr}</li>
+<li>\fancyhead[CE]{}<br>
 documentclass     : &quot;apa7&quot;<br>
-csl               : &quot;apa-cv.csl&quot;<br>
+csl               : &quot;apa7.csl&quot;<br>
 classoption       : &quot;a4paper&quot;<br>
 output            : papaja::apa6_pdf</li>
 </ul>
 <hr>
 <pre><code class="language-{r"><code><div>library(&quot;papaja&quot;)
 source(&quot;libraries.R&quot;)
+
 </div></code></code></pre>
 <h1 id="introduction">Introduction</h1>
-<p>Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversions. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.</p>
+<p>Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.</p>
 <h2 id="dominance-prestige-and-leadership-orientation">Dominance, Prestige, and Leadership orientation</h2>
 <p>Research in power desire motives has focused on three sub-domains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. this</p>
 <h3 id="dominance"><em>Dominance</em></h3>
@@ -1934,19 +1936,18 @@ Apart from dominance-motivated individuals that continually have to fight for th
 An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Originally leadership was seen to be fluid where those that had the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.</p>
 <h2 id="risk">Risk</h2>
 <p>Every time people leave the relative safety of their home, every decision they make they are taking some form of risk. Financial risk is often discussed in the media usually concerning the stock market. However, the risk is not just present in finances but also in social interactions such as social risk, sexual risk, health and safety risk, recreational, and ethical risks. Each individual is different in their likelihood and perception of participating in those risks. Some will be more inclined to be more financially risky while others would risk their health and safety.<br>
-Whether to engage in a risky situation is very complex depending on a cost-benefit analysis. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such am analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in general likelihood to engage in certain</p>
-<h3 id="dospert"><em>DOSPERT</em></h3>
+Whether to engage in a risky situation is very complex depending on a cost-benefit analysis. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such an analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in the general likelihood to engage in risky behavior such that males tend to be more likely to engage in risky behaviors than their female counterparts. Women tended to avoid risky situations except for social risks.</p>
 <h2 id="the-present-study">The present study</h2>
 <p>The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk-taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature, we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with prestige or leadership orientation.</p>
 <h1 id="methods">Methods</h1>
-<p>Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (<a href="http://www.prolific.io">www.prolific.io</a>). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at (<a href="https://osf.io/s4j7y">https://osf.io/s4j7y</a>).</p>
+<p>Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (<a href="http://www.prolific.io">www.prolific.io</a>). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at (<a href="https://osf.io/s4j7y">https://osf.io/s4j7y</a>).</p>
 <h2 id="materials">Materials</h2>
 <h3 id="demographic-questionnaire"><em>Demographic Questionnaire</em></h3>
 <p>In a demographic questionnaire administered prior to the main survey, participants were invited to respond to questions about their self-identified demographic characteristics such as gender, ethnicity, and ethnic origin.</p>
 <h3 id="dominance-prestige-and-leadership-orientation-1"><em>Dominance, Prestige, and Leadership Orientation</em></h3>
 <p>The 18-item Dominance, Prestige, and Leadership scale, DoPL [@suessenbach2019], is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., &quot;I relish opportunities in which I can lead others&quot; for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Internal consistency reliability for the current sample is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> = <code>r psych::alpha(experiment_1_Dataset[,DoPLQuestions])$total$std.alpha</code>.</p>
 <h3 id="domain-specific-risk-taking-scale"><em>Domain Specific Risk-taking Scale</em></h3>
-<p>The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial (&quot;Gambling a week's income at a casino.&quot;), social (&quot;Admitting that your tastes are different from those of your friends&quot;), recreational (&quot;Trying out bungeeing jumpng at least once&quot;), health and safety (&quot;Engaging in unprotected sex&quot;), and ethical (&quot;Cheating on an exam&quot;) situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> = <code>r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha</code>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> = <code>r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha</code>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> = <code>r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha</code> respectively.</p>
+<p>The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial (&quot;Gambling a week's income at a casino.&quot;), social (&quot;Admitting that your tastes are different from those of your friends&quot;), recreational (&quot;Trying out bungee jumping at least once&quot;), health and safety (&quot;Engaging in unprotected sex&quot;), and ethical (&quot;Cheating on an exam&quot;) situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> = <code>r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha</code>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> = <code>r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha</code>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> = <code>r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha</code> respectively.</p>
 <h2 id="procedure">Procedure</h2>
 <p>Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants [@prolificacademic2018]. The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) where they were shown a brief message on study consent.</p>
 <p>Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. The two scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic.</p>
@@ -1956,6 +1957,11 @@ Whether to engage in a risky situation is very complex depending on a cost-benef
 <p>All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the rstan package [@standevelopmentteam2020]</p>
 <h1 id="results">Results</h1>
 <p>One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (<em>SD</em> = 10M 43s).</p>
+<pre><code class="language-{r}"><code><div>demo_table &lt;- demo_table[-1]
+apa_table(
+ demo_table, stub_indents = list(&quot;Age&quot; = c(1:2), &quot;Gender&quot; = c(3:5), &quot;Education&quot; = c(6:12), &quot;Ethnicity&quot; = c(13:19)), font_size = &quot;small&quot;, col.names = c(&quot;Variables&quot;, &quot;*n* = 111&quot;))
+
+</div></code></code></pre>
 <h2 id="preregistered-analyses">Preregistered Analyses</h2>
 <p>We first investigated DoPL orientation on general risk preference (Figure 1). General risk preference was anecdotally explained by dominance orientation, participant gender, and participant age (see table 2).</p>
 <h3 id="demographic-and-dopl"><em>Demographic and DoPL</em></h3>
@@ -1976,10 +1982,6 @@ Whether to engage in a risky situation is very complex depending on a cost-benef
 \endgroup
 <p>\newpage</p>
 <h1 id="figures-and-tables">Figures and Tables</h1>
-<pre><code class="language-{r}"><code><div>apa_table(
- demo_table, stub_indents = list(&quot;Age&quot; = c(2:3), &quot;Gender&quot; = c(4:6), &quot;Ethnicity&quot; = c(7:15), &quot;Education&quot; = c(16:21)), col.names = c(&quot;Variables&quot;, &quot;&quot;)
-)
-</div></code></code></pre>
 <pre><code class="language-{r}"><code><div>dopl_domains_df &lt;- experiment_1_Dataset
 dopl_domains_df &lt;- dopl_domains_df %&gt;%
   gather(key = DoPL_domain, value = value, &quot;dominanceSum&quot;:&quot;leadershipSum&quot;)

@@ -1,6 +1,7 @@
 library(papaja)
 library(ggplot2)
 library(sjPlot)
+library(readr)
 library(RColorBrewer)
 library(tidyr)
 library(grid)  
@@ -29,8 +30,7 @@ library(parameters)
 load(".rData")
 experiment_1_Dataset <- read.csv("experiment_1_data.csv")
 
-demo_table <- read_csv("demo_table.csv", 
-    col_names = FALSE)
+demo_table <- read_csv("demo_table.csv", show_col_types = FALSE)
 theme_set(theme_apa(base_size = 12))
 
 time_df <- read.csv("DoPL_DOSPERT.csv")

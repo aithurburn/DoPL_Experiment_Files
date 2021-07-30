@@ -32,7 +32,7 @@ theme_set(theme_apa(base_size = 12))
 
 ```{r Look at the data}
 
-datatable(experiment_1_Dataset)
+
 
 ```
 
@@ -44,7 +44,7 @@ experiment_1_Dataset <- experiment_1_Dataset[-1:-2,]
 
 ```{r Look again at the data}
 
-datatable(experiment_1_Dataset)
+
 
 ```
 
@@ -81,7 +81,7 @@ names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Q67_1"):locfunc(exper
 ```{r begin the recoding process}
 
 experiment_1_Dataset <- experiment_1_Dataset %>%
-  mutate_at(vars(locfunc(experiment_1_Dataset, "Gender")), ~as.numeric(recode(.,"Male" = 0, "Female" = 1))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "Gender")), ~as.numeric(recode(.,"Male" = 0, "Female" = 1, "Gender Non-Binary" = 2))) %>%
   mutate_at(vars(locfunc(experiment_1_Dataset, "Education")), ~as.numeric(recode(., "Prefer not to say" = 0, "Primary School" = 1, "GCSEs or equivalent" = 2, "A-levels or equivalent" = 3, "University Undergraduate Program" = 4, "University Postgraduate Program" = 5, "Doctoral Degree" = 6))) %>%
    mutate_at(vars(locfunc(experiment_1_Dataset, 'Ethnicity')), ~as.numeric(recode(., "Prefer not to respond" = 0, "Scottish" = 1, "English" = 2, "European" = 3, "Latin American" = 4, "Asian" = 5, "Arab" = 6, "African" = 7, "Other" = 8))) %>%
    mutate_at(vars(locfunc(experiment_1_Dataset, "risk_1"):locfunc(experiment_1_Dataset, "risk_40")), ~as.numeric(recode(., "Very unlikely" = 1, "Unlikely" = 2, "Not sure" = 3, "Likely" = 4, "Very likely" = 5))) %>%

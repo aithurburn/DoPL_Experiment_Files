@@ -9,9 +9,7 @@ author:
     address       : "7 George Square, Edinburgh, EH8 9JZ"
     email         : "a.ithurburn@sms.ed.ac.uk"
     role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
-      - Conceptualization
-      - Writing - Original Draft Preparation
-      - Writing - Review & Editing
+
   - name          : "Pedersen M.E., Julie"
     affiliation   : "1"
   - name          : "Moore, Adam"
@@ -69,19 +67,22 @@ header-includes:
   - \setlength{\parskip}{0em}
   - \usepackage[switch]{lineno}
   - \linenumbers
+  - \usepackage{fancyhdr}
+  - \fancyhead[CE]{}
 documentclass     : "apa7"
-csl               : "apa-cv.csl"
+csl               : "apa7.csl"
 classoption       : "a4paper"
 output            : papaja::apa6_pdf
 ---
 ```{r setup, include = FALSE}
 library("papaja")
 source("libraries.R")
+
 ```
 
 # Introduction
 
-Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversions. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence. 
+Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence. 
 
 ## Dominance, Prestige, and Leadership orientation
 
@@ -105,9 +106,7 @@ An interesting aspect of leadership motivation is the verification of the qualit
 ## Risk
 
 Every time people leave the relative safety of their home, every decision they make they are taking some form of risk. Financial risk is often discussed in the media usually concerning the stock market. However, the risk is not just present in finances but also in social interactions such as social risk, sexual risk, health and safety risk, recreational, and ethical risks. Each individual is different in their likelihood and perception of participating in those risks. Some will be more inclined to be more financially risky while others would risk their health and safety.\
-Whether to engage in a risky situation is very complex depending on a cost-benefit analysis. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such am analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in general likelihood to engage in certain 
-
-### *DOSPERT*
+Whether to engage in a risky situation is very complex depending on a cost-benefit analysis. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such an analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in the general likelihood to engage in risky behavior such that males tend to be more likely to engage in risky behaviors than their female counterparts. Women tended to avoid risky situations except for social risks. 
 
 ## The present study
 
@@ -115,7 +114,7 @@ The present study sought to further our understanding of dominance, prestige, an
 
 # Methods
 
-Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
+Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
 
 ## Materials
 
@@ -129,7 +128,7 @@ The 18-item Dominance, Prestige, and Leadership scale, DoPL [@suessenbach2019], 
 
 ### *Domain Specific Risk-taking Scale*
 
-The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungeeing jumpng at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
+The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungee jumping at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
 
 ## Procedure
 
@@ -148,6 +147,14 @@ All relevant analyses were conducted in a Bayesian framework using the brms pack
 # Results
 
 One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (*SD* = 10M 43s).
+
+
+```{r}
+demo_table <- demo_table[-1]
+apa_table(
+ demo_table, stub_indents = list("Age" = c(1:2), "Gender" = c(3:5), "Education" = c(6:12), "Ethnicity" = c(13:19)), font_size = "small", col.names = c("Variables", "*n* = 111"))
+
+```
 
 ## Preregistered Analyses
 
@@ -186,11 +193,6 @@ Following these findings, we investigated the effect of DoPL on general risk pre
 
 # Figures and Tables
 
-```{r}
-apa_table(
- demo_table, stub_indents = list("Age" = c(2:3), "Gender" = c(4:6), "Ethnicity" = c(7:15), "Education" = c(16:21)), col.names = c("Variables", "")
-)
-```
 
 ```{r}
 dopl_domains_df <- experiment_1_Dataset
