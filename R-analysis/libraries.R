@@ -27,7 +27,7 @@ library(ggprism)
 library(brms)
 library(parameters)
 
-load(".rData")
+load("C:\\Users\\s1932788\\OneDrive\\Documents\\1_UoE\\Overflow\\.RData")
 experiment_1_Dataset <- read.csv("experiment_1_data.csv")
 
 demo_table <- read_csv("demo_table.csv", show_col_types = FALSE)
