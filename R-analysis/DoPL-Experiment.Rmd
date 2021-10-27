@@ -48,7 +48,7 @@ abstract: |
   <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "keywords"
-wordcount         :  !expr wordcountaddin::word_count("DoPL-Experiment.Rmd")
+wordcount         :  "2004"
 
 bibliography      : ["references.json"]
 
@@ -62,21 +62,37 @@ draft             : no
 mainfont          : "Times New Roman"
 always_allow_html: true
 header-includes:
-  - \raggedbottom
-  - \setlength{\parindent}{2em}
-  - \setlength{\parskip}{0em}
-  - \usepackage[switch]{lineno}
-  - \linenumbers
-  - \usepackage{fancyhdr}
-  - \fancyhead[CE]{}
+  - \setcounter{tocdepth}{3}
+  - \addtolength\oddsidemargin {0.5cm}
+  - \addtolength\evensidemargin {-0.5cm}
+  - \linespread{1.2} 
+  - \usepackage{setspace} 
+  - \shorttitle{}
+  - \fancyheadoffset[L]{0pt}  
+  - \fancyhf{}
+  - \fancyhead[RO,LE]{\small\thepage} 
+  - \renewcommand{\headrulewidth}{0pt}
+  - \interfootnotelinepenalty=10000
+  - \usepackage{atbegshi}
+  - \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+  - \usepackage{setspace}
+  - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+ 
 documentclass     : "apa7"
 csl               : "apa7.csl"
-classoption       : "a4paper"
+class             : doc, 12pt, a4paper
 output            : papaja::apa6_pdf
 ---
+
 ```{r setup, include = FALSE}
 library("papaja")
 source("libraries.R")
+
+```
+
+\newpage 
+
+```{r child = "front.Rmd"}
 
 ```
 

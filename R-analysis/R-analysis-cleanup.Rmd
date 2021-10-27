@@ -24,13 +24,14 @@ library(BayesFactor)
 library(bayesplot)
 options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
 rstan_options(auto_write = TRUE)
-bayesplot::bayesplot_theme_set(theme_apa())
-experiment_1_Dataset <- read.csv("DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
+options(control = list(adapt_delta = 0.99999))
+options(brms.backend = "cmdstanr")
 
+bayesplot::bayesplot_theme_set(theme_apa())
 locfunc <- function(data, to){
   which(colnames({{data}})=={{to}})
 }
-locfunc(experiment_1_Dataset, "DoPL_1")
+
 lfunc <- function(dataset, to, from) {
   loc1 <- which(colnames({{dataset}}) == {{to}})
   loc2 <- which(colnames({{dataset}}) == {{from}})
