@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.26)  28 OCT 2021 09:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.26)  28 OCT 2021 10:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,16 +834,35 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 Failed to patch abstract.
 Failed to patch title.
 
+(c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.s
+ty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count312
+\output=\toks34
+\linenoprevgraf=\count313
+\linenumbersep=\dimen294
+\linenumberwidth=\dimen295
+\c@linenumber=\count314
+\c@pagewiselinenumber=\count315
+\c@LN@truepage=\count316
+\c@internallinenumber=\count317
+\c@internallinenumbers=\count318
+\quotelinenumbersep=\dimen296
+\bframerule=\dimen297
+\bframesep=\dimen298
+\bframebox=\box70
+LaTeX Info: Redefining \\ on input line 3056.
+)
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquot
 es.sty
 Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
-\csq@reset=\count312
-\csq@gtype=\count313
-\csq@glevel=\count314
-\csq@qlevel=\count315
-\csq@maxlvl=\count316
-\csq@tshold=\count317
-\csq@ltx@everypar=\toks34
+\csq@reset=\count319
+\csq@gtype=\count320
+\csq@glevel=\count321
+\csq@qlevel=\count322
+\csq@maxlvl=\count323
+\csq@tshold=\count324
+\csq@ltx@everypar=\toks35
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquot
 es.def
@@ -862,20 +881,20 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 )
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 125.
+less on input line 131.
 
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.s
 ty
 Package: babel 2021/10/19 3.65 The Babel package
-\babel@savecnt=\count318
-\U@D=\dimen294
+\babel@savecnt=\count325
+\U@D=\dimen299
 \l@unhyphenated=\language3
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/txtbabe
 l.def)
 \bbl@readstream=\read3
-\bbl@dirlevel=\count319
+\bbl@dirlevel=\count326
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-english
 /english.ldf
@@ -895,13 +914,13 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@english
 /english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 ))
-\c@NumberOfAuthors=\count320
-\c@NumberOfSuperscripts=\count321
+\c@NumberOfAuthors=\count327
+\c@NumberOfSuperscripts=\count328
 
 Class apa7 Warning: Deprecated: see documentation for \authorsaffiliations on i
-nput line 161.
+nput line 168.
 
-\c@NumberOfAffiliations=\count322
+\c@NumberOfAffiliations=\count329
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -910,29 +929,29 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3bac
 kend-pdftex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count323
-\l__pdf_internal_box=\box70
+\l__color_backend_stack_int=\count330
+\l__pdf_internal_box=\box71
 ) (./DoPL-Experiment.aux)
 \openout1 = `DoPL-Experiment.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 181.
-LaTeX Font Info:    ... okay on input line 181.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -988,7 +1007,7 @@ topdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 181.
+Package hyperref Info: Link coloring OFF on input line 188.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -1002,11 +1021,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 g/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count324
+\c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 181.
-LaTeX Info: Redefining \pageref on input line 181.
-LaTeX Info: Redefining \nameref on input line 181.
+LaTeX Info: Redefining \ref on input line 188.
+LaTeX Info: Redefining \pageref on input line 188.
+LaTeX Info: Redefining \nameref on input line 188.
 (./DoPL-Experiment.out) (./DoPL-Experiment.out)
 \@outlinefile=\write4
 \openout4 = `DoPL-Experiment.out'.
@@ -1026,86 +1045,71 @@ Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 Using title for running head
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
+89.
+(c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-82.
+89.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-82.
+89.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-182.
+189.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-182.
+189.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 182.
+(Font)              <17.28> on input line 189.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 182.
+(Font)              <12> on input line 189.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 182.
+(Font)              <10> on input line 189.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 182.
+(Font)              <8> on input line 189.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 182.
+(Font)              <6> on input line 189.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-82.
+89.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 182.
+(Font)              <7> on input line 189.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 182.
+(Font)              <5> on input line 189.
 [1
 
 {c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
-ftex.map}] [2
+ftex.map}] (./DoPL-Experiment.toc)
+\tf@toc=\write5
+\openout5 = `DoPL-Experiment.toc'.
 
-]
-<EdUniCrest.jpg, id=121, 501.875pt x 507.8975pt>
-File: EdUniCrest.jpg Graphic file (type jpg)
-<use EdUniCrest.jpg>
-Package pdftex.def Info: EdUniCrest.jpg  used on input line 203.
-(pdftex.def)             Requested size: 125.46843pt x 126.97406pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.214 \clearpage
-                 [1
-
- <./EdUniCrest.jpg>]pdfTeX warning (ext4): destination with the same identifier
- (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.216 \mbox{}\thispagestyle{empty}\clearpage
-                                             [2
-
-] [3
-
-] [4]
+[2] [3] [4]
 Underfull \vbox (badness 3049) has occurred while \output is active []
 
 [5] [6] [7]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 311.
+(Font)              <10.95> on input line 289.
 
-Underfull \hbox (badness 1052) in paragraph at lines 356--357
+Underfull \hbox (badness 1052) in paragraph at lines 334--335
 []\T1/lmr/m/n/12 All par-tic-i-pants com-pleted the dom-i-nance, lead-er-ship, 
 and pres-tige
  []
 
 [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 412--414
+Underfull \hbox (badness 10000) in paragraph at lines 390--392
  []$\T1/lmtt/m/n/12 https : / / researcher -[] help . prolific . co / hc / en -
 [] gb / articles /
  []
@@ -1114,88 +1118,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 412--414
 Underfull \vbox (badness 4205) has occurred while \output is active []
 
 [10] [11]
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf, id=248, 469.755pt x 
-325.215pt>
-File: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (ty
-pe pdf)
-<use DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.p
-df  used on input line 454.
-(pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
-
-Overfull \hbox (36.1314pt too wide) in paragraph at lines 454--455
-[][] 
- []
-
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=249, 469.755pt x 
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf, id=277, 469.755pt x 
 325.215pt>
 File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (ty
 pe pdf)
 <use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.p
-df  used on input line 456.
-(pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf, id=250, 469.755pt x 
-325.215pt>
-File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (ty
-pe pdf)
-<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf>
-Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.p
-df  used on input line 456.
-(pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
-<DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf, id=251, 469.755pt x 
-325.215pt>
-File: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (ty
-pe pdf)
-<use DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf>
-Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.p
-df  used on input line 456.
+df  used on input line 432.
 (pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
 
-Overfull \hbox (36.1314pt too wide) in paragraph at lines 456--457
+Overfull \hbox (36.1314pt too wide) in paragraph at lines 432--433
+[][] 
+ []
+
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.pdf, id=278, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.p
+df  used on input line 434.
+(pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-4-2.pdf, id=279, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-4-2.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-4-2.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-4-2.p
+df  used on input line 434.
+(pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
+<DoPL-Experiment_files/figure-latex/unnamed-chunk-4-3.pdf, id=280, 469.755pt x 
+325.215pt>
+File: DoPL-Experiment_files/figure-latex/unnamed-chunk-4-3.pdf Graphic file (ty
+pe pdf)
+<use DoPL-Experiment_files/figure-latex/unnamed-chunk-4-3.pdf>
+Package pdftex.def Info: DoPL-Experiment_files/figure-latex/unnamed-chunk-4-3.p
+df  used on input line 434.
+(pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
+
+Overfull \hbox (36.1314pt too wide) in paragraph at lines 434--435
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
 []
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[12 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf> <./DoPL-Experi
-ment_files/figure-latex/unnamed-chunk-3-1.pdf>] [13 <./DoPL-Experiment_files/fi
-gure-latex/unnamed-chunk-3-2.pdf> <./DoPL-Experiment_files/figure-latex/unnamed
--chunk-3-3.pdf>] [14] (./DoPL-Experiment.aux)
+[12 <./DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf> <./DoPL-Experi
+ment_files/figure-latex/unnamed-chunk-4-1.pdf>] [13 <./DoPL-Experiment_files/fi
+gure-latex/unnamed-chunk-4-2.pdf> <./DoPL-Experiment_files/figure-latex/unnamed
+-chunk-4-3.pdf>] [14] (./DoPL-Experiment.aux)
 Package rerunfilecheck Info: File `DoPL-Experiment.out' has not changed.
-(rerunfilecheck)             Checksum: 46CF20B56F4E4322C146CE0C193D4876;3379.
+(rerunfilecheck)             Checksum: 168F0D452FC76BB97A9C7AC5BC266A25;3468.
  ) 
 Here is how much of TeX's memory you used:
- 23783 strings out of 480539
- 443579 string characters out of 5900884
- 746021 words of memory out of 5000000
- 40863 multiletter control sequences out of 15000+600000
- 497000 words of font info for 97 fonts, out of 8000000 for 9000
+ 24031 strings out of 480539
+ 447821 string characters out of 5900884
+ 748808 words of memory out of 5000000
+ 41099 multiletter control sequences out of 15000+600000
+ 499761 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,103p,1154b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,11n,103p,1154b,594s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
 athit.enc}{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
 /lm/lm-ec.enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
 /public/lm/lmbx12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fon
-ts/type1/public/lm/lmmi12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-
-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX
-/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData/Roaming/
-TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/s1932788/AppData/R
-oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s1932788/App
-Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/s193
-2788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Us
-ers/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pf
-b>
-Output written on DoPL-Experiment.pdf (16 pages, 343760 bytes).
+ts/type1/public/lm/lmbxi10.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf
+-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/s1932788/AppData/Roaming/TinyT
+eX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/s1932788/AppData/Roamin
+g/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData
+/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/s1932788/
+AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s19
+32788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/U
+sers/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pf
+b><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
+mtt10.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
+lic/lm/lmtt12.pfb>
+Output written on DoPL-Experiment.pdf (14 pages, 314280 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 307 compressed objects within 4 object streams
+ 393 PDF objects out of 1000 (max. 8388607)
+ 343 compressed objects within 4 object streams
  93 named destinations out of 1000 (max. 500000)
- 230 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

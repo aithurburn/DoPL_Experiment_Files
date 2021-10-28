@@ -53,20 +53,24 @@ wordcount         :  "2004"
 bibliography      : ["references.json"]
 
 floatsintext      : yes
+numbersections    : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : no
+linenumbers       : yes
 mask              : no
 draft             : no
 mainfont          : "Times New Roman"
 geometry          :  a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm
 always_allow_html: true
 header-includes:
+  - \pagestyle{plain}
   - \setcounter{tocdepth}{3}
   - \linespread{1.2} 
   - \usepackage{setspace} 
   - \shorttitle{}
+  - \usepackage{fancyhdr}
+  - \cfoot{\thepage}
   - \fancyheadoffset[L]{0pt}  
   - \fancyhf{}
   - \fancyhead[RO,LE]{\small\thepage} 
@@ -74,10 +78,13 @@ header-includes:
   - \interfootnotelinepenalty=10000
   - \usepackage{setspace}
   - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+  - \let\cleardoublepage=\clearpage
+  
  
 documentclass     : "apa7"
 csl               : "apa7.csl"
 class             : doc, 12pt, a4paper
+classoption       : "donotrepeattitle"
 output            : papaja::apa6_pdf
 ---
 
@@ -87,35 +94,15 @@ source("libraries.R")
 
 ```
 
-\newpage 
+```{r child = "front.Rmd", include = FALSE, eval = FALSE}
 
-\clearpage\mbox{}\thispagestyle{empty}\clearpage
-\setcounter{page}{1}
-\thispagestyle{empty}
-\begin{center}
-\vspace*{10mm}
-\HRule\\
-\textbf{\Large An example document using RMarkdown and papaja to write your dissertation}\\
-\HRule\\
-\vspace*{10mm}
-\textbf{Andrew Ithurburn}\\
-\textbf{Julie Pedersen}\\
-\textbf{Adam Moore}\\
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=!,totalheight=!,scale=0.25]{EdUniCrest.jpg}
-\end{center}
-\end{figure}
-{\setstretch{1.7} 
-Doctor of Philosophy\\
-\smallskip
-\smallskip
-THE UNIVERSITY OF EDINBURGH\\
-\smallskip
-}
-\end{center}
-\clearpage\mbox{}\thispagestyle{empty}\clearpage
-\bigskip
+```
+
+\newpage
+
+\tableofcontents
+
+\newpage
 
 # Introduction
 

@@ -1942,10 +1942,11 @@ One or two sentences providing a <strong>basic introduction</strong> to the fiel
 wordcount         :  &quot;2004&quot;</p>
 <p>bibliography      : [&quot;references.json&quot;]</p>
 <p>floatsintext      : yes<br>
+numbersections    : yes<br>
 figurelist        : no<br>
 tablelist         : no<br>
 footnotelist      : no<br>
-linenumbers       : no<br>
+linenumbers       : yes<br>
 mask              : no<br>
 draft             : no<br>
 mainfont          : &quot;Times New Roman&quot;<br>
@@ -1953,10 +1954,13 @@ geometry          :  a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm
 always_allow_html: true<br>
 header-includes:</p>
 <ul>
+<li>\pagestyle{plain}</li>
 <li>\setcounter{tocdepth}{3}</li>
 <li>\linespread{1.2}</li>
 <li>\usepackage{setspace}</li>
 <li>\shorttitle{}</li>
+<li>\usepackage{fancyhdr}</li>
+<li>\cfoot{\thepage}</li>
 <li>\fancyheadoffset[L]{0pt}</li>
 <li>\fancyhf{}</li>
 <li>\fancyhead[RO,LE]{\small\thepage}</li>
@@ -1964,43 +1968,22 @@ header-includes:</p>
 <li>\interfootnotelinepenalty=10000</li>
 <li>\usepackage{setspace}</li>
 <li>\newcommand{\HRule}{\rule{\linewidth}{0.25mm}}</li>
+<li>\let\cleardoublepage=\clearpage</li>
 </ul>
-<h2 id="documentclass------apa7csl----------------apa7cslclass--------------doc-12pt-a4paperoutput-------------papajaapa6_pdf">documentclass     : &quot;apa7&quot;<br>
+<h2 id="documentclass------apa7csl----------------apa7cslclass--------------doc-12pt-a4paperclassoption--------donotrepeattitleoutput-------------papajaapa6_pdf">documentclass     : &quot;apa7&quot;<br>
 csl               : &quot;apa7.csl&quot;<br>
 class             : doc, 12pt, a4paper<br>
+classoption       : &quot;donotrepeattitle&quot;<br>
 output            : papaja::apa6_pdf</h2>
 <pre><code class="language-{r"><code><div>library(&quot;papaja&quot;)
 source(&quot;libraries.R&quot;)
 
 </div></code></code></pre>
+<pre><code class="language-{r"><code><div>
+</div></code></code></pre>
 <p>\newpage</p>
-<p>\clearpage\mbox{}\thispagestyle{empty}\clearpage<br>
-\setcounter{page}{1}<br>
-\thispagestyle{empty}<br>
-\begin{center}<br>
-\vspace*{10mm}<br>
-\HRule\<br>
-\textbf{\Large An example document using RMarkdown and papaja to write your dissertation}\<br>
-\HRule\<br>
-\vspace*{10mm}<br>
-\textbf{Andrew Ithurburn}\<br>
-\textbf{Julie Pedersen}\<br>
-\textbf{Adam Moore}\<br>
-\begin{figure}[ht]<br>
-\begin{center}<br>
-\includegraphics[width=!,totalheight=!,scale=0.25]{EdUniCrest.jpg}<br>
-\end{center}<br>
-\end{figure}<br>
-{\setstretch{1.7}<br>
-Doctor of Philosophy\<br>
-\smallskip<br>
-\smallskip<br>
-THE UNIVERSITY OF EDINBURGH\<br>
-\smallskip<br>
-}<br>
-\end{center}<br>
-\clearpage\mbox{}\thispagestyle{empty}\clearpage<br>
-\bigskip</p>
+<p>\tableofcontents</p>
+<p>\newpage</p>
 <h1 id="introduction">Introduction</h1>
 <p>Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.</p>
 <h2 id="dominance-prestige-and-leadership-orientation">Dominance, Prestige, and Leadership orientation</h2>

@@ -24,4 +24,3 @@ THE UNIVERSITY OF EDINBURGH\\
 }
 \end{center}
 \clearpage\mbox{}\thispagestyle{empty}\clearpage
-\bigskip

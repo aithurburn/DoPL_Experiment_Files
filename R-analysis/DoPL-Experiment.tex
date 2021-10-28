@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  ,doc, 12pt, a4paper,floatsintext]{apa7}
+  donotrepeattitle,doc, 12pt, a4paper,floatsintext]{apa7}
 
 \usepackage{graphicx}
 \makeatletter
@@ -22,7 +22,7 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
@@ -112,14 +112,20 @@
 \makeatother
 \shorttitle{DoPL and DOSPERT}
 \keywords{keywords\newline\indent Word count: 2004}
+\usepackage{lineno}
+
+\linenumbers
 \usepackage{csquotes}
 \geometry{a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm}
 
 
+\pagestyle{plain}
 \setcounter{tocdepth}{3}
 \linespread{1.2}
 \usepackage{setspace}
 \shorttitle{}
+\usepackage{fancyhdr}
+\cfoot{\thepage}
 \fancyheadoffset[L]{0pt}
 \fancyhf{}
 \fancyhead[RO,LE]{\small\thepage}
@@ -127,6 +133,7 @@
 \interfootnotelinepenalty=10000
 \usepackage{setspace}
 \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+\let\cleardoublepage=\clearpage
 \ifXeTeX
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
@@ -183,38 +190,9 @@ Two or three sentences to provide a \textbf{broader perspective}, readily compre
 
 \newpage
 
-\clearpage
+\tableofcontents
 
-\mbox{}\thispagestyle{empty}\clearpage
-\setcounter{page}{1}
-\thispagestyle{empty}
-
-\begin{center}
-\vspace*{10mm}
-\rule{\linewidth}{0.25mm}\\
-\textbf{\Large An example document using RMarkdown and papaja to write your dissertation}\\
-\rule{\linewidth}{0.25mm}\\
-\vspace*{10mm}
-\textbf{Andrew Ithurburn}\\
-\textbf{Julie Pedersen}\\
-\textbf{Adam Moore}\\
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=!,totalheight=!,scale=0.25]{EdUniCrest.jpg}
-\end{center}
-\end{figure}
-{\setstretch{1.7} 
-Doctor of Philosophy\\
-\smallskip
-\smallskip
-THE UNIVERSITY OF EDINBURGH\\
-\smallskip
-}
-\end{center}
-\clearpage
-
-\mbox{}\thispagestyle{empty}\clearpage
-\bigskip
+\newpage
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -304,7 +282,7 @@ One hundred and eleven individuals completed the main survey. Of these individua
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-1}}
+\caption{\label{tab:unnamed-chunk-2}}
 
 \small{
 
@@ -451,16 +429,16 @@ Witkower, Z., Tracy, J. L., Cheng, J. T., \& Henrich, J. (2020). Two signals of 
 \hypertarget{figures-and-tables}{%
 \section{Figures and Tables}\label{figures-and-tables}}
 
-\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf}
+\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf}
 
-\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf}
+\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-4-2.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-4-3.pdf}
 
 \begin{table}[tbp]
 
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-4}}
+\caption{\label{tab:unnamed-chunk-5}}
 
 \begin{tabular}{llll}
 \toprule
@@ -484,7 +462,7 @@ b\_Age & 0.95 & -4.80 & -0.96\\
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-5}}
+\caption{\label{tab:unnamed-chunk-6}}
 
 \begin{tabular}{lllll}
 \toprule
@@ -509,7 +487,7 @@ Age & -2.86 & 0.99 & -4.78 & -0.93\\
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-6}}
+\caption{\label{tab:unnamed-chunk-7}}
 
 \begin{tabular}{llll}
 \toprule
