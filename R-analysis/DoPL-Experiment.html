@@ -1949,12 +1949,11 @@ linenumbers       : no<br>
 mask              : no<br>
 draft             : no<br>
 mainfont          : &quot;Times New Roman&quot;<br>
+geometry          :  a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm<br>
 always_allow_html: true<br>
 header-includes:</p>
 <ul>
 <li>\setcounter{tocdepth}{3}</li>
-<li>\addtolength\oddsidemargin {0.5cm}</li>
-<li>\addtolength\evensidemargin {-0.5cm}</li>
 <li>\linespread{1.2}</li>
 <li>\usepackage{setspace}</li>
 <li>\shorttitle{}</li>
@@ -1963,8 +1962,6 @@ header-includes:</p>
 <li>\fancyhead[RO,LE]{\small\thepage}</li>
 <li>\renewcommand{\headrulewidth}{0pt}</li>
 <li>\interfootnotelinepenalty=10000</li>
-<li>\usepackage{atbegshi}</li>
-<li>\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}</li>
 <li>\usepackage{setspace}</li>
 <li>\newcommand{\HRule}{\rule{\linewidth}{0.25mm}}</li>
 </ul>
@@ -1977,8 +1974,33 @@ source(&quot;libraries.R&quot;)
 
 </div></code></code></pre>
 <p>\newpage</p>
-<pre><code class="language-{r"><code><div>
-</div></code></code></pre>
+<p>\clearpage\mbox{}\thispagestyle{empty}\clearpage<br>
+\setcounter{page}{1}<br>
+\thispagestyle{empty}<br>
+\begin{center}<br>
+\vspace*{10mm}<br>
+\HRule\<br>
+\textbf{\Large An example document using RMarkdown and papaja to write your dissertation}\<br>
+\HRule\<br>
+\vspace*{10mm}<br>
+\textbf{Andrew Ithurburn}\<br>
+\textbf{Julie Pedersen}\<br>
+\textbf{Adam Moore}\<br>
+\begin{figure}[ht]<br>
+\begin{center}<br>
+\includegraphics[width=!,totalheight=!,scale=0.25]{EdUniCrest.jpg}<br>
+\end{center}<br>
+\end{figure}<br>
+{\setstretch{1.7}<br>
+Doctor of Philosophy\<br>
+\smallskip<br>
+\smallskip<br>
+THE UNIVERSITY OF EDINBURGH\<br>
+\smallskip<br>
+}<br>
+\end{center}<br>
+\clearpage\mbox{}\thispagestyle{empty}\clearpage<br>
+\bigskip</p>
 <h1 id="introduction">Introduction</h1>
 <p>Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.</p>
 <h2 id="dominance-prestige-and-leadership-orientation">Dominance, Prestige, and Leadership orientation</h2>

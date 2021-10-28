@@ -60,11 +60,10 @@ linenumbers       : no
 mask              : no
 draft             : no
 mainfont          : "Times New Roman"
+geometry          :  a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm
 always_allow_html: true
 header-includes:
   - \setcounter{tocdepth}{3}
-  - \addtolength\oddsidemargin {0.5cm}
-  - \addtolength\evensidemargin {-0.5cm}
   - \linespread{1.2} 
   - \usepackage{setspace} 
   - \shorttitle{}
@@ -73,8 +72,6 @@ header-includes:
   - \fancyhead[RO,LE]{\small\thepage} 
   - \renewcommand{\headrulewidth}{0pt}
   - \interfootnotelinepenalty=10000
-  - \usepackage{atbegshi}
-  - \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
   - \usepackage{setspace}
   - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
  
@@ -92,9 +89,33 @@ source("libraries.R")
 
 \newpage 
 
-```{r child = "front.Rmd"}
-
-```
+\clearpage\mbox{}\thispagestyle{empty}\clearpage
+\setcounter{page}{1}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{10mm}
+\HRule\\
+\textbf{\Large An example document using RMarkdown and papaja to write your dissertation}\\
+\HRule\\
+\vspace*{10mm}
+\textbf{Andrew Ithurburn}\\
+\textbf{Julie Pedersen}\\
+\textbf{Adam Moore}\\
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=!,totalheight=!,scale=0.25]{EdUniCrest.jpg}
+\end{center}
+\end{figure}
+{\setstretch{1.7} 
+Doctor of Philosophy\\
+\smallskip
+\smallskip
+THE UNIVERSITY OF EDINBURGH\\
+\smallskip
+}
+\end{center}
+\clearpage\mbox{}\thispagestyle{empty}\clearpage
+\bigskip
 
 # Introduction
 

@@ -5,46 +5,7 @@
 \documentclass[
   english,
   ,doc, 12pt, a4paper,floatsintext]{apa7}
-\usepackage{amsmath,amssymb}
-\usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-  \setmainfont[]{Times New Roman}
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Power motivations and risky sensitivity and tolerance},
-  pdfauthor={Ithurburn, Andrew1, Pedersen, Julie M.E.1, \& Moore, Adam1},
-  pdflang={en-EN},
-  pdfkeywords={keywords},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -152,9 +113,10 @@
 \shorttitle{DoPL and DOSPERT}
 \keywords{keywords\newline\indent Word count: 2004}
 \usepackage{csquotes}
+\geometry{a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm}
+
+
 \setcounter{tocdepth}{3}
-\addtolength\oddsidemargin {0.5cm}
-\addtolength\evensidemargin {-0.5cm}
 \linespread{1.2}
 \usepackage{setspace}
 \shorttitle{}
@@ -163,8 +125,6 @@
 \fancyhead[RO,LE]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \interfootnotelinepenalty=10000
-\usepackage{atbegshi}
-\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 \usepackage{setspace}
 \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
 \ifXeTeX
@@ -344,7 +304,7 @@ One hundred and eleven individuals completed the main survey. Of these individua
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-2}}
+\caption{\label{tab:unnamed-chunk-1}}
 
 \small{
 
@@ -491,16 +451,16 @@ Witkower, Z., Tracy, J. L., Cheng, J. T., \& Henrich, J. (2020). Two signals of 
 \hypertarget{figures-and-tables}{%
 \section{Figures and Tables}\label{figures-and-tables}}
 
-\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf}
+\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-2-1.pdf}
 
-\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-4-2.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-4-3.pdf}
+\includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-2.pdf} \includegraphics{DoPL-Experiment_files/figure-latex/unnamed-chunk-3-3.pdf}
 
 \begin{table}[tbp]
 
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-5}}
+\caption{\label{tab:unnamed-chunk-4}}
 
 \begin{tabular}{llll}
 \toprule
@@ -524,7 +484,7 @@ b\_Age & 0.95 & -4.80 & -0.96\\
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-6}}
+\caption{\label{tab:unnamed-chunk-5}}
 
 \begin{tabular}{lllll}
 \toprule
@@ -549,7 +509,7 @@ Age & -2.86 & 0.99 & -4.78 & -0.93\\
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:unnamed-chunk-7}}
+\caption{\label{tab:unnamed-chunk-6}}
 
 \begin{tabular}{llll}
 \toprule
