@@ -73,6 +73,8 @@ header-includes:
   - \usepackage{setspace}
   - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
   - \let\cleardoublepage=\clearpage
+  - \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+  - \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
   
  
 documentclass     : "apa7"

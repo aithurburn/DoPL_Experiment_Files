@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.26)  28 OCT 2021 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.26)  28 OCT 2021 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -918,7 +918,7 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 \c@NumberOfSuperscripts=\count328
 
 Class apa7 Warning: Deprecated: see documentation for \authorsaffiliations on i
-nput line 169.
+nput line 171.
 
 \c@NumberOfAffiliations=\count329
 Package csquotes Info: Checking for multilingual support...
@@ -934,24 +934,24 @@ File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
 ) (./Dissertation.aux)
 \openout1 = `Dissertation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 189.
-LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1007,7 +1007,7 @@ topdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 189.
+Package hyperref Info: Link coloring OFF on input line 191.
 
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -1023,9 +1023,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 189.
-LaTeX Info: Redefining \pageref on input line 189.
-LaTeX Info: Redefining \nameref on input line 189.
+LaTeX Info: Redefining \ref on input line 191.
+LaTeX Info: Redefining \pageref on input line 191.
+LaTeX Info: Redefining \nameref on input line 191.
 (./Dissertation.out) (./Dissertation.out)
 \@outlinefile=\write4
 \openout4 = `Dissertation.out'.
@@ -1046,66 +1046,60 @@ Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 Package caption Info: End \AtBeginDocument code.
 Using title for running head
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-90.
+92.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-90.
+92.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-90.
+92.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-190.
+192.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-190.
+192.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 190.
+(Font)              <17.28> on input line 192.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 190.
+(Font)              <12> on input line 192.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 190.
+(Font)              <10> on input line 192.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 190.
+(Font)              <8> on input line 192.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 190.
+(Font)              <6> on input line 192.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-90.
+92.
 (c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 190.
+(Font)              <7> on input line 192.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 190.
-[1
+(Font)              <5> on input line 192.
+LaTeX Info: Completed page discarded.
+[2
 
 {c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
-ftex.map}] [2
-
-]
-<EdUniCrest.jpg, id=98, 501.875pt x 507.8975pt>
+ftex.map}]
+<EdUniCrest.jpg, id=85, 501.875pt x 507.8975pt>
 File: EdUniCrest.jpg Graphic file (type jpg)
 <use EdUniCrest.jpg>
 Package pdftex.def Info: EdUniCrest.jpg  used on input line 209.
 (pdftex.def)             Requested size: 125.46843pt x 126.97406pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.220 \clearpage
-                 [1
+[1
 
  <./EdUniCrest.jpg>]pdfTeX warning (ext4): destination with the same identifier
  (name{page.2}) has been already used, duplicate ignored
@@ -1127,88 +1121,98 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ] [23] [24] [25] [26] [27]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 383.
+(hyperref)                than one, level fixed on input line 384.
 
 [28]
-Underfull \hbox (badness 1178) in paragraph at lines 392--393
+Underfull \hbox (badness 1178) in paragraph at lines 393--394
 []\T1/lmr/m/it/12 Sexuality Self-Esteem Sub-scale\T1/lmr/m/n/12 : The Sex-u-al-
 ity Self-Esteem sub-scale
  []
 
-[29]
-Overfull \hbox (2952.81169pt too wide) in paragraph at lines 404--404
-[]\T1/lmtt/m/n/12 _Scenario Realism Question_: Following Worley and Samp in the
-ir 2014 paper on using vignettes/scenarios in psychological studies, a question
- asking the participant how realistic or how much they can visualize the scenar
-io is. The 1-item question is ^^PThis type of situation is realistic.^^Q The it
-em is scored on a 5-point scale of the participants agreement with the above st
-atement, 1 (^^PStrongly agree^^Q) to 5 (^^PStrongly disagree^^Q). Higher scores
- indicate disagreement with the statement and reflects the belief that the scen
-ario is not realistic.[] 
- []
+[29] [30] [31]
+Underfull \vbox (badness 4205) has occurred while \output is active []
 
+[32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (1625.18604pt too wide) in paragraph at lines 404--404
-[]\T1/lmtt/m/n/12 _Spiteful Vignettes_: After participants complete the above s
-cales, they are presented with 10-hypothetical vignettes. Each vignette was wri
-tten to reflect a dyadic or triadic relationship with androgynous names to cont
-rol for gender. Five vignettes have a sexual component while five are sexually 
-neutral. An example vignette is,[] 
- []
-
-
-Overfull \hbox (1631.35403pt too wide) in paragraph at lines 404--404
-[]\T1/lmtt/m/n/12 ^^PCasey and Cole have been dating for 6 years. A year ago, t
-hey both moved into a new flat together just outside of the city. Casey had an 
-affair with Cole's best-friend. Casey had recently found out that they had an S
-TI that they had gotten from Cole's best-friend. Casey and Cole had sex and lat
-er Cole found out they had an STI.^^Q[] 
- []
-
-[30] [31]
-Underfull \hbox (badness 1033) in paragraph at lines 468--470
+[33]
+Underfull \hbox (badness 1033) in paragraph at lines 530--532
  \T1/lmr/m/it/12 cho-log-i-cal Sci-ence\T1/lmr/m/n/12 , \T1/lmr/m/it/12 22\T1/l
 mr/m/n/12 (3), 295--299. []$\T1/lmtt/m/n/12 https : / / doi . org / 10 . 1177 /
 
  []
 
 
-Underfull \vbox (badness 4205) has occurred while \output is active []
-
-[32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[33] [34] (./Dissertation.aux)
+[34]
+Underfull \hbox (badness 6396) in paragraph at lines 536--538
+ []\T1/lmr/m/n/12 Finucane, M. L., Al-hakami, A., Slovic, P., & John-son, S.
+ []
+
+
+Underfull \hbox (badness 2884) in paragraph at lines 536--538
+ \T1/lmr/m/n/12 M. (2000). The af-fect heuris-tic in judg-ments of risks and
+ []
+
+
+Underfull \hbox (badness 2922) in paragraph at lines 536--538
+ \T1/lmr/m/n/12 ben-e-fits. \T1/lmr/m/it/12 Jour-nal of Be-hav-ioral De-ci-sion
+ Mak-ing\T1/lmr/m/n/12 , \T1/lmr/m/it/12 13\T1/lmr/m/n/12 (1), 1--
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[36]
+Underfull \hbox (badness 8075) in paragraph at lines 626--628
+ []\T1/lmr/m/n/12 Papanek, H. (1972). Pathol-ogy of power striv-ing and its
+ []
+
+
+Underfull \hbox (badness 4569) in paragraph at lines 626--628
+ \T1/lmr/m/n/12 treat-ment. \T1/lmr/m/it/12 Jour-nal of In-di-vid-ual Psy-chol-
+ogy; Chicago, Ill.\T1/lmr/m/n/12 ,
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[38]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[39] [40] (./Dissertation.aux)
 Package rerunfilecheck Info: File `Dissertation.out' has not changed.
 (rerunfilecheck)             Checksum: D2956154BDB442CCE698667682DB2931;2521.
  ) 
 Here is how much of TeX's memory you used:
- 23995 strings out of 480539
- 445640 string characters out of 5900884
- 749109 words of memory out of 5000000
+ 24059 strings out of 480539
+ 446595 string characters out of 5900884
+ 756113 words of memory out of 5000000
  41053 multiletter control sequences out of 15000+600000
  492276 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,7n,103p,2720b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
-athit.enc}{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
-/lm/lm-ec.enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
+{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
+c.enc}{c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
+lm-mathit.enc}<c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
 /public/lm/lmbx12.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fon
 ts/type1/public/lm/lmbxi10.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf
 -dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/s1932788/AppData/Roaming/TinyT
-eX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/s1932788/AppData/Roamin
-g/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData
-/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/s1932788/
-AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/s19
-32788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/U
-sers/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pf
-b><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
-mtt10.pfb><c:/Users/s1932788/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
-lic/lm/lmtt12.pfb>
-Output written on Dissertation.pdf (36 pages, 409398 bytes).
+eX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/s1932788/AppData/Roamin
+g/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/s1932788/AppDat
+a/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/s1932788
+/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on Dissertation.pdf (41 pages, 336546 bytes).
 PDF statistics:
- 453 PDF objects out of 1000 (max. 8388607)
- 388 compressed objects within 4 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 663 PDF objects out of 1000 (max. 8388607)
+ 598 compressed objects within 6 object streams
+ 170 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 

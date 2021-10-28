@@ -4,12 +4,10 @@
 \begin{center}
 \vspace*{10mm}
 \HRule\\
-\textbf{\Large An example document using RMarkdown and papaja to write your dissertation}\\
+\textbf{\Large The psychology of risk and power: Power desires and sexual choices}\\
 \HRule\\
 \vspace*{10mm}
 \textbf{Andrew Ithurburn}\\
-\textbf{Julie Pedersen}\\
-\textbf{Adam Moore}\\
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=!,totalheight=!,scale=0.25]{EdUniCrest.jpg}

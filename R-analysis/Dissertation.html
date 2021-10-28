@@ -1955,6 +1955,8 @@ header-includes:</p>
 <li>\usepackage{setspace}</li>
 <li>\newcommand{\HRule}{\rule{\linewidth}{0.25mm}}</li>
 <li>\let\cleardoublepage=\clearpage</li>
+<li>\usepackage{atbegshi}% <a href="http://ctan.org/pkg/atbegshi">http://ctan.org/pkg/atbegshi</a></li>
+<li>\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}</li>
 </ul>
 <h2 id="documentclass------apa7csl----------------apa7cslclass--------------doc-12pt-a4paperclassoption--------donotrepeattitleoutput-------------papajaapa6_pdf">documentclass     : &quot;apa7&quot;<br>
 csl               : &quot;apa7.csl&quot;<br>
