@@ -105,3 +105,5 @@ kable(demographic_table, format = "html", bootabs = T, escape = F, longtable = T
 6	~	Arab
 7	~	African
 8	~	Other
+
+saveRDS(corr, "corr.rds")
