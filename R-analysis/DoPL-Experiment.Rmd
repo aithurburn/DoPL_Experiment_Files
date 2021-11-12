@@ -106,7 +106,7 @@ source("libraries.R")
 
 # Introduction
 
-Throughout political history tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence. 
+Throughout political history, tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence. 
 
 ## Dominance, Prestige, and Leadership orientation
 
@@ -139,7 +139,7 @@ The present study sought to further our understanding of dominance, prestige, an
 # Experiment 1
 ## Methods
 
-Participants were a convenience sample of 111 individuals from Prolific Academic’s crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
+Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
 
 ## Materials
 
@@ -153,7 +153,7 @@ The 18-item Dominance, Prestige, and Leadership scale, DoPL [@suessenbach2019], 
 
 ### *Domain Specific Risk-taking Scale*
 
-The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungee jumping at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are “Admitting that your tastes are different from those of a friend” and “Drinking heavily at a social function.” Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
+The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungee jumping at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are "Admitting that your tastes are different from those of a friend" and "Drinking heavily at a social function." Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
 
 ## Procedure
 
@@ -165,7 +165,7 @@ Once participants consented to participate in the experiment they answered a ser
 
 Demographic characteristics were analyzed using multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@rcoreteam2021] along with [@burkner2017] package.
 
-*Note: discuss and explain the use of Bayesian Statistics
+The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distutations for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence the data is the data without the interpretatoin of the scientist. 
 
 All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the rstan package [@standevelopmentteam2020]
 
@@ -189,7 +189,7 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 
 All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominant-oriented than younger individuals.
 
-## Domain Specific Risk-Taking
+## Domain-Specific Risk-Taking
 
 ## Interactions
 
@@ -201,6 +201,30 @@ Following these findings, we investigated the effect of DoPL on general risk pre
 
 # Experiment 2
 
+## Procedure
+
+
+## Data analysis
+
+
+
+# Results
+
+
+## Preregistered Analyses
+
+
+
+### *Demographic and DoPL*
+
+
+
+## Domain-Specific Risk-Taking
+
+## Interactions
+
+
+## Discussion
 ## Limitations
 
 ## Future Implications
