@@ -27,10 +27,10 @@ library(ggprism)
 library(brms)
 library(parameters)
 
-load("C:\\Users\\s1932788\\OneDrive\\Documents\\1_UoE\\Overflow\\.RData")
+load(".RData")
 experiment_1_Dataset <- read.csv("experiment_1_data.csv")
 
-demo_table <- read_csv("demo_table.csv", show_col_types = FALSE)
+demo_table <- read.csv("demo_table.csv")
 theme_set(theme_apa(base_size = 12))
 
 time_df <- read.csv("DoPL_DOSPERT.csv")
@@ -38,3 +38,4 @@ time_df <- time_df[-1:-2,]
 library(lubridate) 
 average_completion <- mean(as.numeric(time_df$Duration..in.seconds.))
 stdv_DF <- sd(as.numeric(time_df$Duration..in.seconds.))
+

@@ -206,5 +206,6 @@
 "cSpell.words": [
     "figurelist",
     "rstan"
-]
+],
+"cmake.configureOnOpen": true
 }
