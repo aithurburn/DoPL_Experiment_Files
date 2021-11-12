@@ -49,7 +49,7 @@ abstract: |
   
 keywords          : "keywords"
 wordcount         :  "2004"
-
+bibliography      : "references.json"
 
 floatsintext      : yes
 numbersections    : yes
