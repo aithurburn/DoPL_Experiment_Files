@@ -49,7 +49,7 @@ abstract: |
   
 keywords          : "keywords"
 wordcount         :  "2004"
-bibliography      : "references.json"
+bibliography      : "references.bib"
 
 floatsintext      : yes
 numbersections    : yes
@@ -106,16 +106,16 @@ source("libraries.R")
 
 # Introduction
 
-Throughout political history, tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence. 
+Throughout political history, tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.
 
 ## Dominance, Prestige, and Leadership orientation
 
-Research in power desire motives has focused on three sub-domains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. this 
+Research in power desire motives has focused on three sub-domains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. thi
 
 ### *Dominance*
 
 The dominance motive is one of the more researched methods and well-depicted power motives. Individuals with a dominant orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson2012; @winter1993]. Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans [@petersen2018; @rosenthal2012].
-Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females [@sidanius2000; @bareket2020]. When high dominance individuals assert themselves they are doing so to increase their own individual sense of power [@anderson2012; @bierstedt1950]. Asserting one's own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance [@petersen2018; @witkower2020]. Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it. 
+Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females [@sidanius2000; @bareket2020]. When high dominance individuals assert themselves they are doing so to increase their own individual sense of power [@anderson2012; @bierstedt1950]. Asserting one's own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance [@petersen2018; @witkower2020]. Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it. [@]
 
 ### *Prestige*
 
@@ -134,7 +134,7 @@ Whether to engage in a risky situation is very complex depending on a cost-benef
 
 ## The present study
 
-The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk-taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature, we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with prestige or leadership orientation.
+The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk-taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature, we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with prestige or leadership orientation. 
 
 # Experiment 1
 ## Methods
@@ -187,7 +187,7 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 
 ### *Demographic and DoPL*
 
-All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominant-oriented than younger individuals.
+All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominant-oriented than younger individuals. 
 
 ## Domain-Specific Risk-Taking
 
@@ -195,19 +195,30 @@ All participants completed the dominance, leadership, and prestige scale [@suess
 
 When investigating dominance, prestige, and leadership motivations with domain-specific risk-taking findings supported the common expectations in the literature. Table 5 shows the interactions with like CI values. Dominance overall explained the relationship of DoPL orientation and preference, specifically for ethical, financial, social, health and safety, and recreational preference. Participant age and gender also appeared to affect recreational preference.
 
-Following these findings, we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5).
+Following these findings, we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5). 
 
 ## Discussion
 
 # Experiment 2
 
+## Methods
+
+## Participants
+
+Following experiment 1, participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)). 
+
 ## Procedure
 
+Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants [@prolificacademic2018]. The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey on pavlovia.org (an online JavaScript hosting website similar to Qualtrics) where they were shown a brief message on study consent.
 
+Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. An additional survey was added (the novel aspect of experiment 2) where participants, in addition to the two previous surveys, were asked to complete the brief-pathological narcissism inventory. The three scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic. 
 ## Data analysis
 
+Demographic characteristics were analyzed using multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@rcoreteam2021] along with [@burkner2017] package.
 
+The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distributions for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence the data is the data without the interpretatoin of the scientist. 
 
+All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes 
 # Results
 
 
