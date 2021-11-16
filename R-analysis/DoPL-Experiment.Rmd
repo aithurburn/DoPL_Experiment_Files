@@ -1,5 +1,5 @@
 ---
-title             : "Power motivations and risky sensitivity and tolerance"
+title             : "Power motivations and risk sensitivity and tolerance"
 shorttitle        : "DoPL and DOSPERT"
 
 author: 
@@ -16,40 +16,20 @@ author:
     affiliation   : "1"
     role:
       - Writing - Review & Editing
+      - Supervision
 
 affiliation:
   - id            : "1"
     institution   : "The University of Edinburgh"
-  
 
-authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
- 
 
 abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
-  
-  
-  
-  <!-- https://tinyurl.com/ybremelq -->
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any  discipline.
   
 keywords          : "keywords"
-wordcount         :  "2004"
-bibliography      : "references.bib"
+wordcount         :  !expr wordcountaddin::word_count("DoPL-Experiment.Rmd")
+
+bibliography      : ["references.json"]
 
 floatsintext      : yes
 numbersections    : yes
@@ -78,8 +58,7 @@ header-includes:
   - \interfootnotelinepenalty=10000
   - \usepackage{setspace}
   - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
-  - \let\cleardoublepage=\clearpage
-  
+
  
 documentclass     : "apa7"
 csl               : "apa7.csl"
@@ -106,11 +85,11 @@ source("libraries.R")
 
 # Introduction
 
-Throughout political history, tyrants and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.
+Throughout political history, tyrants, and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.
 
 ## Dominance, Prestige, and Leadership orientation
 
-Research in power desire motives has focused on three sub-domains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. thi
+Research in power desire motives has focused on three subdomains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. thi
 
 ### *Dominance*
 
@@ -125,7 +104,8 @@ Apart from dominance-motivated individuals that continually have to fight for th
 ### *Leadership*
 
 With a shared goal a leader is someone that takes initiative and attracting followers for that shared goal [@vanvugt2006]. Leadership is an interesting aspect of behavior in that it is almost exclusive to human interaction. Discussions by evolutionary psychologists point to the formation of early human hunter-gatherer groups where the close interconnectedness created a breeding ground for leadership roles. As early humans began to evolve it would become advantageous for individuals to work together for a common goal. In the case of some situations, an individual with more knowledge of a situation would take charge.  Multiple explanations of the evolution of leadership exist such as coordination strategies, safety, along with evidence for growth in social intelligence in humans.\
-An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Originally leadership was seen to be fluid where those that had the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.
+
+An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Traditionally, leadership was thought to be fluid in that those with the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.
 
 ## Risk
 
@@ -165,11 +145,11 @@ Once participants consented to participate in the experiment they answered a ser
 
 Demographic characteristics were analyzed using multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@rcoreteam2021] along with [@burkner2017] package.
 
-The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distutations for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence the data is the data without the interpretatoin of the scientist. 
+The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distutations for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence, the data is the data without the interpretation of the scientist. 
 
-All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the rstan package [@standevelopmentteam2020]
+All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @standevelopmentteam2020; @aust2020].
 
-# Results
+## Results
 
 One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (*SD* = 10M 43s).
 
@@ -181,7 +161,7 @@ apa_table(
 
 ```
 
-## Preregistered Analyses
+### Preregistered Analyses
 
 We first investigated DoPL orientation on general risk preference (Figure 1). General risk preference was anecdotally explained by dominance orientation, participant gender, and participant age (see table 2).
 
@@ -207,6 +187,14 @@ Following these findings, we investigated the effect of DoPL on general risk pre
 
 Following experiment 1, participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)). 
 
+## Materials
+
+Materials remain the same in terms of the demographic questionnaire, dominance, prestige, a
+
+### *Brief-Pathological Narcissism Inventory* 
+
+The 28 item Brief Pathological Narcissism Inventory (B-PNI; Schoenleber et al., 2015) is a modified scale of the original 52-item Pathological Narcissism Inventory (PNI; Pincus et al., 2009). Like the PNI the B-PNI is a scale measuring individuals' pathological narcissism. Items in the B-PNI retained all 7 pathological narcissism facets from the original PNI (e.g., exploitativeness, self-sacrificing self-enhancement, grandiose fantasy, contingent self-esteem, hiding the self, devaluing, and entitlement rage). Each item is rated on a 5 point Likert scale ranging from 1 (not at all like me) to 5 (very much like me). Example items are "I find it easy to manipulate people" and "I can read people like a book." 
+
 ## Procedure
 
 Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants [@prolificacademic2018]. The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey on pavlovia.org (an online JavaScript hosting website similar to Qualtrics) where they were shown a brief message on study consent.
@@ -216,10 +204,10 @@ Once participants consented to participate in the experiment they answered a ser
 
 Demographic characteristics were analyzed using multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@rcoreteam2021] along with [@burkner2017] package.
 
-The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distributions for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence the data is the data without the interpretatoin of the scientist. 
+The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distributions for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence, the data is the data without the interpretation of the scientist. 
 
-All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes 
-# Results
+All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @standevelopmentteam2020; @aust2020].
+## Results
 
 
 ## Preregistered Analyses
