@@ -1,0 +1,212 @@
+{
+    
+    "python.pythonPath": "c:\\Users\\s1932788\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "grammarly.overrides": [
+      {
+        "files": [
+          "**/DoPL_and_Spite.Rmd"
+        ],
+        "config": {
+          "audience": "expert",
+          "dialect": "american",
+          "domain": "academic",
+          "emotions": [
+            "neutral",
+            "respectful"
+          ],
+          "goals": [
+            "inform"
+          ]
+        }
+      },
+      {
+        "files": [
+          "**/DoPL-Experiment.Rmd"
+        ],
+        "config": {
+          "audience": "expert",
+          "dialect": "american",
+          "domain": "academic",
+          "emotions": [
+            "neutral",
+            "confident",
+            "analytical"
+          ],
+          "goals": [
+            "inform"
+          ]
+        }
+      }
+    ],
+"todohighlight.keywords": [
+    {
+      "text": "\"",
+      "color": "#C74DCF",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "readRDS",
+      "color": "#54EB00",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "read.csv",
+      "color": "#54EB00",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": ".rds",
+      "color": "#54EB00",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "library",
+      "color": "#54EB00",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "experimenttwoDStime",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "experimenttwoDS",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "df1 ",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "corrtable",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "m4",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "m5",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "gen",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "m7",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "m8",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "gen",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "Age",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "dm0",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "dm1",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "dm2",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "dm3",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "dm4",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "dm5",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "bayes.dm5",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "corr.mod",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "demographictable",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "m2prior",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "dopl1prior",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "prior",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "m1intPrior",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+    {
+      "text": "analysisDF",
+      "color": "#ADD8E6",
+      "backgroundColor": "rgb(0,0,0,0)"
+    },
+  ],
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**",
+    "C://Users//s1932788//AppData//Roaming//Code-Insiders//User//**"
+],
+"cSpell.words": [
+  "figurelist",
+  "rstan",
+  "shorttitle"
+],
+"cmake.configureOnOpen": true
+}

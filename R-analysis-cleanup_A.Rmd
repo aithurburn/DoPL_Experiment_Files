@@ -1,0 +1,420 @@
+---
+title: "R Data tutorial"
+author: "Andrew Ithurburn"
+date: "22/03/2021"
+output:
+  html_document:
+    toc: yes
+---
+
+```{r loading the necessary files}
+library(DT)
+library(ggplot2)
+library(ggthemes)
+library(tidyverse)
+library(papaja)
+experiment_1_Dataset <- read.csv("DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
+
+locfunc <- function(data, to){
+  which(colnames({{data}})=={{to}})
+}
+locfunc(experiment_1_Dataset, "DoPL_1")
+lfunc <- function(dataset, to, from) {
+  loc1 <- which(colnames({{dataset}}) == {{to}})
+  loc2 <- which(colnames({{dataset}}) == {{from}})
+  length({{dataset}}[loc1:loc2])
+}
+theme_set(theme_apa(base_size = 12))
+
+
+
+```
+
+```{r Look at the data}
+
+datatable(experiment_1_Dataset)
+
+```
+
+
+```{r}
+
+experiment_1_Dataset <- experiment_1_Dataset[-1:-2,]
+```
+
+```{r Look again at the data}
+
+datatable(experiment_1_Dataset)
+
+```
+
+
+```{r rename the demographic columns, include=FALSE}
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q1"] <- "Gender"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q78"] <- "Age"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q35"] <- "Occupation"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q49"] <- "Education"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q50"] <- "Ethnicity"
+
+
+```
+
+```{r locate the the necessary columns and rename to the corresponding datatype}
+
+varname <- "risk"
+varname2 <- "riskPerception"
+varname3 <- "riskBenefit"
+
+
+
+n <- lfunc(experiment_1_Dataset,"Q55_1", "Yes.Q57_10")
+n2 <- lfunc(experiment_1_Dataset, "Yes.Q65_1", "Q62_10")
+n3 <- lfunc(experiment_1_Dataset, "Q67_1", "Q70_10")
+
+
+names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Q55_1"):locfunc(experiment_1_Dataset, "Yes.Q57_10")] <- unlist(mapply(function(x,y) paste(x, seq(1,y), sep="_"), varname, n))
+names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Yes.Q65_1"):locfunc(experiment_1_Dataset, "Q62_10")] <- unlist(mapply(function(x,y) paste(x, seq(1,y), sep="_"), varname2, n2))
+names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Q67_1"):locfunc(experiment_1_Dataset, "Q70_10")] <- unlist(mapply(function(x,y) paste(x, seq(1,y), sep="_"), varname3, n3))
+
+```
+
+```{r begin the recoding process}
+
+experiment_1_Dataset <- experiment_1_Dataset %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "Gender")), ~as.numeric(recode(.,"Male" = 0, "Female" = 1))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "Education")), ~as.numeric(recode(., "Prefer not to say" = 0, "Primary School" = 1, "GCSEs or equivalent" = 2, "A-levels or equivalent" = 3, "University Undergraduate Program" = 4, "University Postgraduate Program" = 5, "Doctoral Degree" = 6))) %>%
+   mutate_at(vars(locfunc(experiment_1_Dataset, 'Ethnicity')), ~as.numeric(recode(., "Prefer not to respond" = 0, "Scottish" = 1, "English" = 2, "European" = 3, "Latin American" = 4, "Asian" = 5, "Arab" = 6, "African" = 7, "Other" = 8))) %>%
+   mutate_at(vars(locfunc(experiment_1_Dataset, "risk_1"):locfunc(experiment_1_Dataset, "risk_40")), ~as.numeric(recode(., "Very unlikely" = 1, "Unlikely" = 2, "Not sure" = 3, "Likely" = 4, "Very likely" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "riskPerception_1"):locfunc(experiment_1_Dataset, "riskPerception_40")), ~as.numeric(recode(., "Not at all risky" = 1, "Somewhat risky" = 2, "Moderately risky" = 3, "Very risky" = 4, "Extremely risky" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "riskBenefit_1"):locfunc(experiment_1_Dataset, "riskBenefit_40")), ~as.numeric(recode(., "No benefits at all" = 1, "Few benefits" = 2, "Moderate benefits" = 3, "Many benefits" = 4, "Great benefits" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_1"):locfunc(experiment_1_Dataset, "DoPL_5")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5)))  %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_6"), locfunc(experiment_1_Dataset, "DoPL_14")), ~as.numeric(recode(., "Strongly disagree" = 5, "Disagree" = 4, "Somewhat disagree" = 3, "Somewhat agree" = 2, "Agree" = 1, "Strongly agree" = 0))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_7"):locfunc(experiment_1_Dataset, "DoPL_13")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_15"):locfunc(experiment_1_Dataset, "UMS_10")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_17"):locfunc(experiment_1_Dataset, "DoPL_18")), ~as.numeric(recode(., "Not Important To Me" = 0, "Of Little Importance To me" = 1, "Of Some Importance To Me" = 2, "Important To Me" = 3, "Very Important To me" = 4, "Extremely Important To Me" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "UMS_11"):locfunc(experiment_1_Dataset, "UMS_13")), ~as.numeric(recode(., "Not Important To Me" = 1, "Of Little Importance To me" = 2, "Of Some Importance To Me" = 3, "Important To Me" = 4, "Very Important To me" = 5, "Extremely Important To Me" = 6)))
+
+
+```
+
+```{r Once recoded remove the unnecessary columns}
+experiment_1_Dataset <- experiment_1_Dataset[,-locfunc(experiment_1_Dataset, "StartDate"):-locfunc(experiment_1_Dataset, "Q52")]
+experiment_1_Dataset <- experiment_1_Dataset[,-c(locfunc(experiment_1_Dataset, "PROLIFIC_PID"), locfunc(experiment_1_Dataset, "Q76"), locfunc(experiment_1_Dataset, "Q75"), locfunc(experiment_1_Dataset, "UMS_10"))]
+```
+
+```{r For ease of analysis store the like columns to their corresponding question type}
+# DOPL
+DoPLQuestions <- c('DoPL_1', 'DoPL_6', 'DoPL_11', 'DoPL_13', 'DoPL_14', 'DoPL_16', 'DoPL_5', 'DoPL_7', 'DoPL_8', 'DoPL_12', 'DoPL_17', 'DoPL_18', 'DoPL_2', 'DoPL_3', 'DoPL_4', 'DoPL_9', 'DoPL_10', 'DoPL_15')
+
+dominanceQuestions <- c('DoPL_2','DoPL_3','DoPL_4','DoPL_9','DoPL_10','DoPL_15')
+prestigeQuestions <- c('DoPL_5','DoPL_7','DoPL_8','DoPL_12','DoPL_17','DoPL_18')
+leadershipQuestions <- c('DoPL_1','DoPL_6','DoPL_11','DoPL_13','DoPL_14','DoPL_16')
+
+
+# UMS
+UMSQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9','UMS_11', 'UMS_12', 'UMS_13')
+UMSIntimacyQuestions <- c('UMS_11', 'UMS_12', 'UMS_13')
+UMSAffiliationQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9')
+
+
+# DOSPERT
+riskQuestions <- c('risk_1', 'risk_2', 'risk_3', 'risk_4', 'risk_5', 'risk_6', 'risk_7', 'risk_8', 'risk_9', 'risk_10', 'risk_11', 'risk_12', 'risk_13', 'risk_14', 'risk_15', 'risk_16', 'risk_17', 'risk_18', 'risk_19', 'risk_20', 'risk_21', 'risk_22', 'risk_23', 'risk_24', 'risk_25', 'risk_26', 'risk_27', 'risk_28', 'risk_29', 'risk_30', 'risk_31', 'risk_32', 'risk_33', 'risk_34', 'risk_35', 'risk_36', 'risk_37', 'risk_38', 'risk_39', 'risk_40')
+
+ethicalQuestionsRisk <- c('risk_7',    
+'risk_10',	
+'risk_11',	
+'risk_21',	
+'risk_28',	
+'risk_29',	
+'risk_39',	
+'risk_40'	)
+financialQuestionsRisk <- c('risk_3',	
+'risk_5',	
+'risk_9',	
+'risk_15',	
+'risk_18',	
+'risk_23',	
+'risk_26',	
+'risk_19'	)
+healthAndSafetyQuestionsRisk <- c('risk_6',	
+'risk_20',	
+'risk_22',	
+'risk_25',	
+'risk_31',	
+'risk_34',	
+'risk_35',	
+'risk_36'	)
+recreationalQuestionsRisk <- c('risk_2',	
+'risk_4',	
+'risk_12',	
+'risk_14',	
+'risk_17',	
+'risk_24',	
+'risk_32',	
+'risk_33'	)
+socialQuestionsRisk <- c('risk_1',	
+'risk_8',	
+'risk_13',	
+'risk_16',	
+'risk_27',	
+'risk_30',	
+'risk_37',	
+'risk_38')
+
+riskPerceptionQuestions <- c('riskPerception_1', 'riskPerception_2', 'riskPerception_3', 'riskPerception_4', 'riskPerception_5', 'riskPerception_6', 'riskPerception_7', 'riskPerception_8', 'riskPerception_9', 'riskPerception_10', 'riskPerception_11', 'riskPerception_12', 'riskPerception_13', 'riskPerception_14', 'riskPerception_15', 'riskPerception_16', 'riskPerception_17', 'riskPerception_18', 'riskPerception_19', 'riskPerception_20', 'riskPerception_21', 'riskPerception_22', 'riskPerception_23', 'riskPerception_24', 'riskPerception_25', 'riskPerception_26', 'riskPerception_27', 'riskPerception_28', 'riskPerception_29', 'riskPerception_30', 'riskPerception_31', 'riskPerception_32', 'riskPerception_33', 'riskPerception_34', 'riskPerception_35', 'riskPerception_36', 'riskPerception_37', 'riskPerception_38', 'riskPerception_39', 'riskPerception_40')
+
+ethicalQuestionsPerception <- c('riskPerception_7', 
+'riskPerception_10',
+'riskPerception_11',
+'riskPerception_21',
+'riskPerception_28',
+'riskPerception_29',
+'riskPerception_39',
+'riskPerception_40')
+financialQuestionsPerception <- c('riskPerception_3',	
+'riskPerception_5',	
+'riskPerception_9',	
+'riskPerception_15',
+'riskPerception_18',
+'riskPerception_23',
+'riskPerception_26',
+'riskPerception_19'	)
+healthAndSafetyQuestionsPerception <- c('riskPerception_6',	
+'riskPerception_20',
+'riskPerception_22',
+'riskPerception_25',
+'riskPerception_31',
+'riskPerception_34',
+'riskPerception_35',
+'riskPerception_36'	)
+recreationalQuestionsPerception <- c('riskPerception_2',	
+'riskPerception_4',	
+'riskPerception_12',
+'riskPerception_14',
+'riskPerception_17',
+'riskPerception_24',
+'riskPerception_32',
+'riskPerception_33'	)
+socialQuestionsPerception <- c('riskPerception_1',	
+'riskPerception_8',	
+'riskPerception_13',
+'riskPerception_16',
+'riskPerception_27',
+'riskPerception_30',
+'riskPerception_37',
+'riskPerception_38')
+
+riskBenefitQuestions <- c('riskBenefit_1', 'riskBenefit_2', 'riskBenefit_3', 'riskBenefit_4', 'riskBenefit_5', 'riskBenefit_6', 'riskBenefit_7', 'riskBenefit_8', 'riskBenefit_9', 'riskBenefit_10', 'riskBenefit_11', 'riskBenefit_12', 'riskBenefit_13', 'riskBenefit_14', 'riskBenefit_15', 'riskBenefit_16', 'riskBenefit_17', 'riskBenefit_18', 'riskBenefit_19', 'riskBenefit_20', 'riskBenefit_21', 'riskBenefit_22', 'riskBenefit_23', 'riskBenefit_24', 'riskBenefit_25', 'riskBenefit_26', 'riskBenefit_27', 'riskBenefit_28', 'riskBenefit_29', 'riskBenefit_30', 'riskBenefit_31', 'riskBenefit_32', 'riskBenefit_33', 'riskBenefit_34', 'riskBenefit_35', 'riskBenefit_36', 'riskBenefit_37', 'riskBenefit_38', 'riskBenefit_39', 'riskBenefit_40')
+ethicalQuestionsBenefit <- c('riskBenefit_7', 
+'riskBenefit_10',
+'riskBenefit_11',
+'riskBenefit_21',
+'riskBenefit_28',
+'riskBenefit_29',
+'riskBenefit_39',
+'riskBenefit_40')
+financialQuestionsBenefit <- c('riskBenefit_3',	
+'riskBenefit_5',	
+'riskBenefit_9',	
+'riskBenefit_15',
+'riskBenefit_18',
+'riskBenefit_23',
+'riskBenefit_26',
+'riskBenefit_19'	)
+healthAndSafetyQuestionsBenefit <- c('riskBenefit_6',	
+'riskBenefit_20',
+'riskBenefit_22',
+'riskBenefit_25',
+'riskBenefit_31',
+'riskBenefit_34',
+'riskBenefit_35',
+'riskBenefit_36'	)
+recreationalQuestionsBenefit <- c('riskBenefit_2',	
+'riskBenefit_4',	
+'riskBenefit_12',
+'riskBenefit_14',
+'riskBenefit_17',
+'riskBenefit_24',
+'riskBenefit_32',
+'riskBenefit_33'	)
+socialQuestionsBenefit <- c('riskBenefit_1',	
+'riskBenefit_8',	
+'riskBenefit_13',
+'riskBenefit_16',
+'riskBenefit_27',
+'riskBenefit_30',
+'riskBenefit_37',
+'riskBenefit_38')
+
+```
+
+```{r It would be good to get the sums of the some of the data}
+# DOPL
+experiment_1_Dataset$DoPLSum  <- rowSums(experiment_1_Dataset[, DoPLQuestions])
+experiment_1_Dataset$dominanceSum <-
+  rowSums(experiment_1_Dataset[, dominanceQuestions])
+experiment_1_Dataset$prestigeSum <-
+  rowSums(experiment_1_Dataset[, prestigeQuestions])
+experiment_1_Dataset$leadershipSum <-
+  rowSums(experiment_1_Dataset[, leadershipQuestions])
+
+# UMS
+experiment_1_Dataset$UMSSum  <- rowSums(experiment_1_Dataset[, UMSQuestions])
+experiment_1_Dataset$UMSIntimacySum  <- rowSums(experiment_1_Dataset[, UMSIntimacyQuestions])
+experiment_1_Dataset$UMSAffiliationSum  <- rowSums(experiment_1_Dataset[, UMSAffiliationQuestions])
+
+# DOSPERT
+experiment_1_Dataset$riskSum <- rowSums(experiment_1_Dataset[, riskQuestions])
+experiment_1_Dataset$riskPerceptionSum <- rowSums(experiment_1_Dataset[, riskPerceptionQuestions])
+experiment_1_Dataset$riskBenefitSum <- rowSums(experiment_1_Dataset[, riskBenefitQuestions])
+##
+
+experiment_1_Dataset$ethicalQuestionsRiskSum <- rowSums(experiment_1_Dataset[, ethicalQuestionsRisk])
+experiment_1_Dataset$financialQuestionsRiskSum <- rowSums(experiment_1_Dataset[, financialQuestionsRisk])
+experiment_1_Dataset$healthAndSafetyQuestionsRiskSum <- rowSums(experiment_1_Dataset[, healthAndSafetyQuestionsRisk])
+experiment_1_Dataset$recreationalQuestionsRiskSum  <- rowSums(experiment_1_Dataset[, recreationalQuestionsRisk])
+experiment_1_Dataset$socialQuestionsRiskSum  <- rowSums(experiment_1_Dataset[, socialQuestionsBenefit])
+
+experiment_1_Dataset$ethicalQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, ethicalQuestionsBenefit])
+experiment_1_Dataset$financialQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, financialQuestionsBenefit])
+experiment_1_Dataset$healthAndSafetyQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, healthAndSafetyQuestionsBenefit])
+experiment_1_Dataset$recreationalQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, recreationalQuestionsBenefit])
+experiment_1_Dataset$socialQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, socialQuestionsBenefit])
+
+experiment_1_Dataset$ethicalQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, ethicalQuestionsPerception])
+experiment_1_Dataset$financialQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, financialQuestionsPerception])
+experiment_1_Dataset$healthAndSafetyQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, healthAndSafetyQuestionsPerception])
+experiment_1_Dataset$recreationalQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, recreationalQuestionsPerception])
+experiment_1_Dataset$socialQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, socialQuestionsPerception])
+```
+
+```{r Create more like variables with agregate columns}
+
+```
+
+```{r}
+
+datatable(experiment_1_Dataset)
+
+```
+
+
+```{r}
+
+experiment_dataset_analysis <- experiment_1_Dataset[, c(1:5, 157:181)]
+row.names(experiment_dataset_analysis) <- 1:nrow(experiment_dataset_analysis)
+experiment_dataset_analysis <- tibble::rowid_to_column(experiment_dataset_analysis, "subjectID")
+experiment_1_Dataset <- tibble::rowid_to_column(experiment_1_Dataset, "subjectID")
+row.names(experiment_1_Dataset) <- 1:nrow(experiment_1_Dataset)
+
+```
+
+```{r}
+
+library(psych)
+
+experiment_dataset_analysis$subjectID <- as.factor(experiment_dataset_analysis$subjectID)
+experiment_dataset_analysis$Age <- as.numeric(experiment_dataset_analysis$Age)
+experiment_dataset_analysis$Ethnicity <- as.factor(experiment_dataset_analysis$Ethnicity)
+experiment_dataset_analysis$Education <- as.factor(experiment_dataset_analysis$Education)
+experiment_dataset_analysis$Gender <- as.factor(experiment_dataset_analysis$Gender)
+describe(experiment_dataset_analysis)
+
+```
+
+```{r}
+#standardizing all variables
+
+experiment_dataset_analysis[, c(7:31)] <- scale(experiment_dataset_analysis[, c(7:31)])
+
+#extracting alphas and beta scores for DOSPERT
+
+ethicala <- lm(ethicalQuestionsBenefitSum ~ ethicalQuestionsRiskSum, data = experiment_dataset_analysis)
+sociala <- lm(socialQuestionsBenefitSum ~ socialQuestionsRiskSum, data = experiment_dataset_analysis)
+recreationala <- lm(recreationalQuestionsBenefitSum ~ recreationalQuestionsRiskSum, data = experiment_dataset_analysis)
+healthAndSafetya <- lm(healthAndSafetyQuestionsBenefitSum ~ healthAndSafetyQuestionsRiskSum, data = experiment_dataset_analysis)
+financiala <- lm(financialQuestionsBenefitSum ~ financialQuestionsRiskSum, data = experiment_dataset_analysis)
+ethicalb <- lm(ethicalQuestionsBenefitSum ~ ethicalQuestionsPerceptionSum, data = experiment_dataset_analysis)
+socialb <- lm(socialQuestionsBenefitSum ~ socialQuestionsPerceptionSum, data = experiment_dataset_analysis)
+recreationalb <- lm(recreationalQuestionsBenefitSum ~ recreationalQuestionsPerceptionSum, data = experiment_dataset_analysis)
+healthAndSafetyb <- lm(healthAndSafetyQuestionsBenefitSum ~ healthAndSafetyQuestionsPerceptionSum, data = experiment_dataset_analysis)
+financialb <- lm(financialQuestionsBenefitSum ~ financialQuestionsPerceptionSum, data = experiment_dataset_analysis)
+
+
+DOSPERT_models <- c("ethicala",
+"sociala",
+"recreationala",
+"healthAndSafetya",
+"financiala", 
+"ethicalb", 
+"socialb", 
+"recreationalb",
+"healthAndSafet",
+"financialb" )
+
+
+ethicalPreference <- (experiment_1_Dataset[, ethicalQuestionsBenefit] * ethicala$coefficients[2]) + (experiment_1_Dataset[, ethicalQuestionsPerception] * ethicalb$coefficients[2])
+experiment_dataset_analysis$ethicalPreference  <- rowSums(ethicalPreference)
+financialPreference <-  (experiment_1_Dataset[, financialQuestionsBenefit] * financiala$coefficients[2]) + (experiment_1_Dataset[, financialQuestionsPerception] * financialb$coefficients[2])
+experiment_dataset_analysis$financialPreference  <- rowSums(financialPreference)
+socialPreference <-  (experiment_1_Dataset[, socialQuestionsBenefit] * sociala$coefficients[2]) + (experiment_1_Dataset[, socialQuestionsPerception] * socialb$coefficients[2])
+experiment_dataset_analysis$socialPreference  <- rowSums(socialPreference)
+healthAndSafetyPreference <-  (experiment_1_Dataset[, healthAndSafetyQuestionsBenefit] * healthAndSafetya$coefficients[2]) + (experiment_1_Dataset[, healthAndSafetyQuestionsPerception] * healthAndSafetyb$coefficients[2])
+experiment_dataset_analysis$healthAndSafetyPreference  <- rowSums(healthAndSafetyPreference)
+recreationalPreference <-  (experiment_1_Dataset[, recreationalQuestionsBenefit] * recreationala$coefficients[2]) + (experiment_1_Dataset[, recreationalQuestionsPerception] * recreationalb$coefficients[2])
+experiment_dataset_analysis$recreationalPreference  <- rowSums(recreationalPreference)
+
+
+# General risk perception, benefit sum 
+riska <- lm(riskBenefitSum ~ riskSum, data = experiment_dataset_analysis)
+riskb <- lm(riskBenefitSum ~ riskPerceptionSum, data = experiment_dataset_analysis)
+experiment_dataset_analysis$generalRiskPreference  <- (experiment_1_Dataset[, "riskBenefitSum"] * riska$coefficients[2]) + (experiment_1_Dataset[, "riskPerceptionSum"] * riskb$coefficients[2])
+
+
+```
+
+
+```{r bayesian correlation, message=FALSE, warning=FALSE}
+library(brms)
+library(rstan)
+library(sjPlot)
+options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
+rstan_options(auto_write = TRUE) # can remove the unnecessary iterations
+corrs <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = "nu"), prior(normal(0, 1), class = "Intercept"), prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), prior(normal(0, 1), class = "sigma", resp = "financialPreference"), prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), prior(normal(0, 1), class = "sigma", resp = "socialPreference")), iter = 2000, warmup = 500)
+
+summary(corrs)
+plot(corrs)
+
+tab_model(corrs)
+```
+
+
+```{r main analysis}
+
+experiment_dataset_analysis <- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != "2")
+
+m_1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, 
+           prior = c(prior(normal(0, 1), class = "Intercept"),
+                     prior(normal(3, 1), class = "b", coef = "dominanceSum"),
+                     prior(normal(0, 1), class = "b", coef = "prestigeSum"), 
+                     prior(normal(-2, 1), class = "b", coef = "leadershipSum"),
+                     prior(normal(-3, 1), class = "b", coef = "Gender1"), 
+                     prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T)
+
+summary(m_1)
+sjPlot::tab_model(m_1)
+
+library(bayestestR)
+m_1.hdi <- hdi(m_1, effects = "fixed", component = "conditional", ci = .95)
+
+m_1.hdi
+
+
+#interaction between gender and each of the DoPL motives
+#m_1_interactions
+#look at the domain specific information. Roughly the same as m_1 use the same correlation matrix
+brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis) 
+
+get_prior()
+```
+

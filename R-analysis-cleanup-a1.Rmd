@@ -1,0 +1,1259 @@
+---
+title: "R Data tutorial"
+author: "Andrew Ithurburn"
+date: "22/03/2021"
+output:
+  html_document:
+    toc: yes
+---
+
+```{r loading the necessary files}
+library(DT)
+library(ggplot2)
+library(ggthemes)
+library(tidyverse)
+library(papaja)
+library(brms)
+library(cmdstanr)
+library(rstan)
+library(bayestestR)
+library(sjPlot)
+library(psych)
+library(rstanarm)
+library(BayesFactor)
+library(bayesplot)
+options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
+rstan_options(auto_write = TRUE)
+bayesplot::bayesplot_theme_set(theme_apa())
+experiment_1_Dataset <- read.csv("DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
+
+locfunc <- function(data, to){
+  which(colnames({{data}})=={{to}})
+}
+locfunc(experiment_1_Dataset, "DoPL_1")
+lfunc <- function(dataset, to, from) {
+  loc1 <- which(colnames({{dataset}}) == {{to}})
+  loc2 <- which(colnames({{dataset}}) == {{from}})
+  length({{dataset}}[loc1:loc2])
+}
+theme_set(theme_apa(base_size = 12))
+
+
+
+```
+
+```{r Look at the data}
+
+datatable(experiment_1_Dataset)
+
+```
+
+
+```{r}
+
+experiment_1_Dataset <- experiment_1_Dataset[-1:-2,]
+```
+
+```{r Look again at the data}
+
+datatable(experiment_1_Dataset)
+
+```
+
+
+```{r rename the demographic columns, include=FALSE}
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q1"] <- "Gender"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q78"] <- "Age"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q35"] <- "Occupation"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q49"] <- "Education"
+colnames(experiment_1_Dataset)[colnames(experiment_1_Dataset) == "Q50"] <- "Ethnicity"
+
+
+```
+
+```{r locate the the necessary columns and rename to the corresponding datatype}
+
+varname <- "risk"
+varname2 <- "riskPerception"
+varname3 <- "riskBenefit"
+
+
+
+n <- lfunc(experiment_1_Dataset,"Q55_1", "Yes.Q57_10")
+n2 <- lfunc(experiment_1_Dataset, "Yes.Q65_1", "Q62_10")
+n3 <- lfunc(experiment_1_Dataset, "Q67_1", "Q70_10")
+
+
+names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Q55_1"):locfunc(experiment_1_Dataset, "Yes.Q57_10")] <- unlist(mapply(function(x,y) paste(x, seq(1,y), sep="_"), varname, n))
+names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Yes.Q65_1"):locfunc(experiment_1_Dataset, "Q62_10")] <- unlist(mapply(function(x,y) paste(x, seq(1,y), sep="_"), varname2, n2))
+names(experiment_1_Dataset)[locfunc(experiment_1_Dataset, "Q67_1"):locfunc(experiment_1_Dataset, "Q70_10")] <- unlist(mapply(function(x,y) paste(x, seq(1,y), sep="_"), varname3, n3))
+
+```
+
+```{r begin the recoding process}
+
+experiment_1_Dataset <- experiment_1_Dataset %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "Gender")), ~as.numeric(recode(.,"Male" = 0, "Female" = 1))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "Education")), ~as.numeric(recode(., "Prefer not to say" = 0, "Primary School" = 1, "GCSEs or equivalent" = 2, "A-levels or equivalent" = 3, "University Undergraduate Program" = 4, "University Postgraduate Program" = 5, "Doctoral Degree" = 6))) %>%
+   mutate_at(vars(locfunc(experiment_1_Dataset, 'Ethnicity')), ~as.numeric(recode(., "Prefer not to respond" = 0, "Scottish" = 1, "English" = 2, "European" = 3, "Latin American" = 4, "Asian" = 5, "Arab" = 6, "African" = 7, "Other" = 8))) %>%
+   mutate_at(vars(locfunc(experiment_1_Dataset, "risk_1"):locfunc(experiment_1_Dataset, "risk_40")), ~as.numeric(recode(., "Very unlikely" = 1, "Unlikely" = 2, "Not sure" = 3, "Likely" = 4, "Very likely" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "riskPerception_1"):locfunc(experiment_1_Dataset, "riskPerception_40")), ~as.numeric(recode(., "Not at all risky" = 1, "Somewhat risky" = 2, "Moderately risky" = 3, "Very risky" = 4, "Extremely risky" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "riskBenefit_1"):locfunc(experiment_1_Dataset, "riskBenefit_40")), ~as.numeric(recode(., "No benefits at all" = 1, "Few benefits" = 2, "Moderate benefits" = 3, "Many benefits" = 4, "Great benefits" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_1"):locfunc(experiment_1_Dataset, "DoPL_5")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5)))  %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_6"), locfunc(experiment_1_Dataset, "DoPL_14")), ~as.numeric(recode(., "Strongly disagree" = 5, "Disagree" = 4, "Somewhat disagree" = 3, "Somewhat agree" = 2, "Agree" = 1, "Strongly agree" = 0))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_7"):locfunc(experiment_1_Dataset, "DoPL_13")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_15"):locfunc(experiment_1_Dataset, "UMS_10")), ~as.numeric(recode(., "Strongly disagree" = 0, "Disagree" = 1, "Somewhat disagree" = 2, "Somewhat agree" = 3, "Agree" = 4, "Strongly agree" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "DoPL_17"):locfunc(experiment_1_Dataset, "DoPL_18")), ~as.numeric(recode(., "Not Important To Me" = 0, "Of Little Importance To me" = 1, "Of Some Importance To Me" = 2, "Important To Me" = 3, "Very Important To me" = 4, "Extremely Important To Me" = 5))) %>%
+  mutate_at(vars(locfunc(experiment_1_Dataset, "UMS_11"):locfunc(experiment_1_Dataset, "UMS_13")), ~as.numeric(recode(., "Not Important To Me" = 1, "Of Little Importance To me" = 2, "Of Some Importance To Me" = 3, "Important To Me" = 4, "Very Important To me" = 5, "Extremely Important To Me" = 6)))
+
+
+```
+
+```{r Once recoded remove the unnecessary columns}
+experiment_1_Dataset <- experiment_1_Dataset[,-locfunc(experiment_1_Dataset, "StartDate"):-locfunc(experiment_1_Dataset, "Q52")]
+experiment_1_Dataset <- experiment_1_Dataset[,-c(locfunc(experiment_1_Dataset, "PROLIFIC_PID"), locfunc(experiment_1_Dataset, "Q76"), locfunc(experiment_1_Dataset, "Q75"), locfunc(experiment_1_Dataset, "UMS_10"))]
+```
+
+```{r For ease of analysis store the like columns to their corresponding question type}
+# DOPL
+DoPLQuestions <- c('DoPL_1', 'DoPL_6', 'DoPL_11', 'DoPL_13', 'DoPL_14', 'DoPL_16', 'DoPL_5', 'DoPL_7', 'DoPL_8', 'DoPL_12', 'DoPL_17', 'DoPL_18', 'DoPL_2', 'DoPL_3', 'DoPL_4', 'DoPL_9', 'DoPL_10', 'DoPL_15')
+
+dominanceQuestions <- c('DoPL_2','DoPL_3','DoPL_4','DoPL_9','DoPL_10','DoPL_15')
+prestigeQuestions <- c('DoPL_5','DoPL_7','DoPL_8','DoPL_12','DoPL_17','DoPL_18')
+leadershipQuestions <- c('DoPL_1','DoPL_6','DoPL_11','DoPL_13','DoPL_14','DoPL_16')
+
+
+# UMS
+UMSQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9','UMS_11', 'UMS_12', 'UMS_13')
+UMSIntimacyQuestions <- c('UMS_11', 'UMS_12', 'UMS_13')
+UMSAffiliationQuestions <- c('UMS_1', 'UMS_2', 'UMS_3', 'UMS_4','UMS_5','UMS_6','UMS_7','UMS_8','UMS_9')
+
+
+# DOSPERT
+riskQuestions <- c('risk_1', 'risk_2', 'risk_3', 'risk_4', 'risk_5', 'risk_6', 'risk_7', 'risk_8', 'risk_9', 'risk_10', 'risk_11', 'risk_12', 'risk_13', 'risk_14', 'risk_15', 'risk_16', 'risk_17', 'risk_18', 'risk_19', 'risk_20', 'risk_21', 'risk_22', 'risk_23', 'risk_24', 'risk_25', 'risk_26', 'risk_27', 'risk_28', 'risk_29', 'risk_30', 'risk_31', 'risk_32', 'risk_33', 'risk_34', 'risk_35', 'risk_36', 'risk_37', 'risk_38', 'risk_39', 'risk_40')
+
+ethicalQuestionsRisk <- c('risk_7',    
+'risk_10',	
+'risk_11',	
+'risk_21',	
+'risk_28',	
+'risk_29',	
+'risk_39',	
+'risk_40'	)
+financialQuestionsRisk <- c('risk_3',	
+'risk_5',	
+'risk_9',	
+'risk_15',	
+'risk_18',	
+'risk_23',	
+'risk_26',	
+'risk_19'	)
+healthAndSafetyQuestionsRisk <- c('risk_6',	
+'risk_20',	
+'risk_22',	
+'risk_25',	
+'risk_31',	
+'risk_34',	
+'risk_35',	
+'risk_36'	)
+recreationalQuestionsRisk <- c('risk_2',	
+'risk_4',	
+'risk_12',	
+'risk_14',	
+'risk_17',	
+'risk_24',	
+'risk_32',	
+'risk_33'	)
+socialQuestionsRisk <- c('risk_1',	
+'risk_8',	
+'risk_13',	
+'risk_16',	
+'risk_27',	
+'risk_30',	
+'risk_37',	
+'risk_38')
+
+riskPerceptionQuestions <- c('riskPerception_1', 'riskPerception_2', 'riskPerception_3', 'riskPerception_4', 'riskPerception_5', 'riskPerception_6', 'riskPerception_7', 'riskPerception_8', 'riskPerception_9', 'riskPerception_10', 'riskPerception_11', 'riskPerception_12', 'riskPerception_13', 'riskPerception_14', 'riskPerception_15', 'riskPerception_16', 'riskPerception_17', 'riskPerception_18', 'riskPerception_19', 'riskPerception_20', 'riskPerception_21', 'riskPerception_22', 'riskPerception_23', 'riskPerception_24', 'riskPerception_25', 'riskPerception_26', 'riskPerception_27', 'riskPerception_28', 'riskPerception_29', 'riskPerception_30', 'riskPerception_31', 'riskPerception_32', 'riskPerception_33', 'riskPerception_34', 'riskPerception_35', 'riskPerception_36', 'riskPerception_37', 'riskPerception_38', 'riskPerception_39', 'riskPerception_40')
+
+ethicalQuestionsPerception <- c('riskPerception_7', 
+'riskPerception_10',
+'riskPerception_11',
+'riskPerception_21',
+'riskPerception_28',
+'riskPerception_29',
+'riskPerception_39',
+'riskPerception_40')
+financialQuestionsPerception <- c('riskPerception_3',	
+'riskPerception_5',	
+'riskPerception_9',	
+'riskPerception_15',
+'riskPerception_18',
+'riskPerception_23',
+'riskPerception_26',
+'riskPerception_19'	)
+healthAndSafetyQuestionsPerception <- c('riskPerception_6',	
+'riskPerception_20',
+'riskPerception_22',
+'riskPerception_25',
+'riskPerception_31',
+'riskPerception_34',
+'riskPerception_35',
+'riskPerception_36'	)
+recreationalQuestionsPerception <- c('riskPerception_2',	
+'riskPerception_4',	
+'riskPerception_12',
+'riskPerception_14',
+'riskPerception_17',
+'riskPerception_24',
+'riskPerception_32',
+'riskPerception_33'	)
+socialQuestionsPerception <- c('riskPerception_1',	
+'riskPerception_8',	
+'riskPerception_13',
+'riskPerception_16',
+'riskPerception_27',
+'riskPerception_30',
+'riskPerception_37',
+'riskPerception_38')
+
+riskBenefitQuestions <- c('riskBenefit_1', 'riskBenefit_2', 'riskBenefit_3', 'riskBenefit_4', 'riskBenefit_5', 'riskBenefit_6', 'riskBenefit_7', 'riskBenefit_8', 'riskBenefit_9', 'riskBenefit_10', 'riskBenefit_11', 'riskBenefit_12', 'riskBenefit_13', 'riskBenefit_14', 'riskBenefit_15', 'riskBenefit_16', 'riskBenefit_17', 'riskBenefit_18', 'riskBenefit_19', 'riskBenefit_20', 'riskBenefit_21', 'riskBenefit_22', 'riskBenefit_23', 'riskBenefit_24', 'riskBenefit_25', 'riskBenefit_26', 'riskBenefit_27', 'riskBenefit_28', 'riskBenefit_29', 'riskBenefit_30', 'riskBenefit_31', 'riskBenefit_32', 'riskBenefit_33', 'riskBenefit_34', 'riskBenefit_35', 'riskBenefit_36', 'riskBenefit_37', 'riskBenefit_38', 'riskBenefit_39', 'riskBenefit_40')
+ethicalQuestionsBenefit <- c('riskBenefit_7', 
+'riskBenefit_10',
+'riskBenefit_11',
+'riskBenefit_21',
+'riskBenefit_28',
+'riskBenefit_29',
+'riskBenefit_39',
+'riskBenefit_40')
+financialQuestionsBenefit <- c('riskBenefit_3',	
+'riskBenefit_5',	
+'riskBenefit_9',	
+'riskBenefit_15',
+'riskBenefit_18',
+'riskBenefit_23',
+'riskBenefit_26',
+'riskBenefit_19'	)
+healthAndSafetyQuestionsBenefit <- c('riskBenefit_6',	
+'riskBenefit_20',
+'riskBenefit_22',
+'riskBenefit_25',
+'riskBenefit_31',
+'riskBenefit_34',
+'riskBenefit_35',
+'riskBenefit_36'	)
+recreationalQuestionsBenefit <- c('riskBenefit_2',	
+'riskBenefit_4',	
+'riskBenefit_12',
+'riskBenefit_14',
+'riskBenefit_17',
+'riskBenefit_24',
+'riskBenefit_32',
+'riskBenefit_33'	)
+socialQuestionsBenefit <- c('riskBenefit_1',	
+'riskBenefit_8',	
+'riskBenefit_13',
+'riskBenefit_16',
+'riskBenefit_27',
+'riskBenefit_30',
+'riskBenefit_37',
+'riskBenefit_38')
+
+```
+
+```{r It would be good to get the sums of the some of the data}
+# DOPL
+experiment_1_Dataset$DoPLSum  <- rowSums(experiment_1_Dataset[, DoPLQuestions])
+experiment_1_Dataset$dominanceSum <-
+  rowSums(experiment_1_Dataset[, dominanceQuestions])
+experiment_1_Dataset$prestigeSum <-
+  rowSums(experiment_1_Dataset[, prestigeQuestions])
+experiment_1_Dataset$leadershipSum <-
+  rowSums(experiment_1_Dataset[, leadershipQuestions])
+
+# UMS
+experiment_1_Dataset$UMSSum  <- rowSums(experiment_1_Dataset[, UMSQuestions])
+experiment_1_Dataset$UMSIntimacySum  <- rowSums(experiment_1_Dataset[, UMSIntimacyQuestions])
+experiment_1_Dataset$UMSAffiliationSum  <- rowSums(experiment_1_Dataset[, UMSAffiliationQuestions])
+
+# DOSPERT
+experiment_1_Dataset$riskSum <- rowSums(experiment_1_Dataset[, riskQuestions])
+experiment_1_Dataset$riskPerceptionSum <- rowSums(experiment_1_Dataset[, riskPerceptionQuestions])
+experiment_1_Dataset$riskBenefitSum <- rowSums(experiment_1_Dataset[, riskBenefitQuestions])
+##
+
+experiment_1_Dataset$ethicalQuestionsRiskSum <- rowSums(experiment_1_Dataset[, ethicalQuestionsRisk])
+experiment_1_Dataset$financialQuestionsRiskSum <- rowSums(experiment_1_Dataset[, financialQuestionsRisk])
+experiment_1_Dataset$healthAndSafetyQuestionsRiskSum <- rowSums(experiment_1_Dataset[, healthAndSafetyQuestionsRisk])
+experiment_1_Dataset$recreationalQuestionsRiskSum  <- rowSums(experiment_1_Dataset[, recreationalQuestionsRisk])
+experiment_1_Dataset$socialQuestionsRiskSum  <- rowSums(experiment_1_Dataset[, socialQuestionsBenefit])
+
+experiment_1_Dataset$ethicalQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, ethicalQuestionsBenefit])
+experiment_1_Dataset$financialQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, financialQuestionsBenefit])
+experiment_1_Dataset$healthAndSafetyQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, healthAndSafetyQuestionsBenefit])
+experiment_1_Dataset$recreationalQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, recreationalQuestionsBenefit])
+experiment_1_Dataset$socialQuestionsBenefitSum  <- rowSums(experiment_1_Dataset[, socialQuestionsBenefit])
+
+experiment_1_Dataset$ethicalQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, ethicalQuestionsPerception])
+experiment_1_Dataset$financialQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, financialQuestionsPerception])
+experiment_1_Dataset$healthAndSafetyQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, healthAndSafetyQuestionsPerception])
+experiment_1_Dataset$recreationalQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, recreationalQuestionsPerception])
+experiment_1_Dataset$socialQuestionsPerceptionSum  <- rowSums(experiment_1_Dataset[, socialQuestionsPerception])
+```
+
+```{r Create more like variables with agregate columns}
+
+```
+
+```{r}
+
+datatable(experiment_1_Dataset)
+
+```
+
+
+```{r}
+
+experiment_dataset_analysis <- experiment_1_Dataset[, c(1:5, 157:181)]
+row.names(experiment_dataset_analysis) <- 1:nrow(experiment_dataset_analysis)
+experiment_dataset_analysis <- tibble::rowid_to_column(experiment_dataset_analysis, "subjectID")
+experiment_1_Dataset <- tibble::rowid_to_column(experiment_1_Dataset, "subjectID")
+row.names(experiment_1_Dataset) <- 1:nrow(experiment_1_Dataset)
+
+```
+
+```{r}
+
+
+
+experiment_dataset_analysis$subjectID <- as.factor(experiment_dataset_analysis$subjectID)
+experiment_dataset_analysis$Age <- as.numeric(experiment_dataset_analysis$Age)
+experiment_dataset_analysis$Ethnicity <- as.factor(experiment_dataset_analysis$Ethnicity)
+experiment_dataset_analysis$Education <- as.factor(experiment_dataset_analysis$Education)
+experiment_dataset_analysis$Gender <- as.factor(experiment_dataset_analysis$Gender)
+describe(experiment_dataset_analysis)
+
+```
+
+```{r}
+#standardizing all variables
+
+experiment_dataset_analysis[, c(7:31)] <- scale(experiment_dataset_analysis[, c(7:31)])
+
+#extracting alphas and beta scores for DOSPERT
+
+ethicala <- lm(ethicalQuestionsBenefitSum ~ ethicalQuestionsRiskSum, data = experiment_dataset_analysis)
+sociala <- lm(socialQuestionsBenefitSum ~ socialQuestionsRiskSum, data = experiment_dataset_analysis)
+recreationala <- lm(recreationalQuestionsBenefitSum ~ recreationalQuestionsRiskSum, data = experiment_dataset_analysis)
+healthAndSafetya <- lm(healthAndSafetyQuestionsBenefitSum ~ healthAndSafetyQuestionsRiskSum, data = experiment_dataset_analysis)
+financiala <- lm(financialQuestionsBenefitSum ~ financialQuestionsRiskSum, data = experiment_dataset_analysis)
+ethicalb <- lm(ethicalQuestionsBenefitSum ~ ethicalQuestionsPerceptionSum, data = experiment_dataset_analysis)
+socialb <- lm(socialQuestionsBenefitSum ~ socialQuestionsPerceptionSum, data = experiment_dataset_analysis)
+recreationalb <- lm(recreationalQuestionsBenefitSum ~ recreationalQuestionsPerceptionSum, data = experiment_dataset_analysis)
+healthAndSafetyb <- lm(healthAndSafetyQuestionsBenefitSum ~ healthAndSafetyQuestionsPerceptionSum, data = experiment_dataset_analysis)
+financialb <- lm(financialQuestionsBenefitSum ~ financialQuestionsPerceptionSum, data = experiment_dataset_analysis)
+
+
+DOSPERT_models <- c("ethicala",
+"sociala",
+"recreationala",
+"healthAndSafetya",
+"financiala", 
+"ethicalb", 
+"socialb", 
+"recreationalb",
+"healthAndSafet",
+"financialb" )
+
+
+ethicalPreference <- (experiment_1_Dataset[, ethicalQuestionsBenefit] * ethicala$coefficients[2]) + (experiment_1_Dataset[, ethicalQuestionsPerception] * ethicalb$coefficients[2])
+experiment_dataset_analysis$ethicalPreference  <- rowSums(ethicalPreference)
+financialPreference <-  (experiment_1_Dataset[, financialQuestionsBenefit] * financiala$coefficients[2]) + (experiment_1_Dataset[, financialQuestionsPerception] * financialb$coefficients[2])
+experiment_dataset_analysis$financialPreference  <- rowSums(financialPreference)
+socialPreference <-  (experiment_1_Dataset[, socialQuestionsBenefit] * sociala$coefficients[2]) + (experiment_1_Dataset[, socialQuestionsPerception] * socialb$coefficients[2])
+experiment_dataset_analysis$socialPreference  <- rowSums(socialPreference)
+healthAndSafetyPreference <-  (experiment_1_Dataset[, healthAndSafetyQuestionsBenefit] * healthAndSafetya$coefficients[2]) + (experiment_1_Dataset[, healthAndSafetyQuestionsPerception] * healthAndSafetyb$coefficients[2])
+experiment_dataset_analysis$healthAndSafetyPreference  <- rowSums(healthAndSafetyPreference)
+recreationalPreference <-  (experiment_1_Dataset[, recreationalQuestionsBenefit] * recreationala$coefficients[2]) + (experiment_1_Dataset[, recreationalQuestionsPerception] * recreationalb$coefficients[2])
+experiment_dataset_analysis$recreationalPreference  <- rowSums(recreationalPreference)
+
+
+# General risk perception, benefit sum 
+riska <- lm(riskBenefitSum ~ riskSum, data = experiment_dataset_analysis)
+riskb <- lm(riskBenefitSum ~ riskPerceptionSum, data = experiment_dataset_analysis)
+experiment_dataset_analysis$generalRiskPreference  <- (experiment_1_Dataset[, "riskBenefitSum"] * riska$coefficients[2]) + (experiment_1_Dataset[, "riskPerceptionSum"] * riskb$coefficients[2])
+
+
+```
+
+
+```{r bayesian correlation, message=FALSE, warning=FALSE}
+library(brms)
+library(rstan)
+ # can remove the unnecessary iterations
+corrs <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ 1, data = experiment_dataset_analysis, family = student, prior = c(prior(gamma(2, .1), class = "nu"), prior(normal(0, 1), class = "Intercept"), prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), prior(normal(0, 1), class = "sigma", resp = "financialPreference"), prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), prior(normal(0, 1), class = "sigma", resp = "socialPreference")), iter = 2000, warmup = 500)
+
+summary(corrs)
+plot(corrs)
+```
+
+
+```{r main analysis}
+
+experiment_dataset_analysis <- subset(experiment_dataset_analysis, experiment_dataset_analysis$Gender != "2")
+
+m1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis, 
+           prior = c(prior(normal(0, 1), class = "Intercept"),
+                     prior(normal(3, 1), class = "b", coef = "dominanceSum"),
+                     prior(normal(0, 1), class = "b", coef = "prestigeSum"), 
+                     prior(normal(-2, 1), class = "b", coef = "leadershipSum"),
+                     prior(normal(-3, 1), class = "b", coef = "Gender1"), 
+                     prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T, iter = 5000)
+
+summary(m1)
+
+h1 <- hypothesis(m1, "dominanceSum > prestigeSum" )
+h1
+library(bayestestR)
+m1_hdi <- bayestestR::hdi(m1, effects = "fixed", component = "conditional", ci = .95)
+
+m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+```
+
+```{r}
+
+# interaction between gender and each of the DoPL motives
+m1_int <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum*Gender + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(-3,1), class="b", coef="Age"),
+                      prior(normal(0,1), class="b", coef="dominanceSum:Gender1"),
+                      prior(normal(0,1), class="b", coef="Gender1:leadershipSum"),
+                      prior(normal(0,1), class="b", coef="Gender1:prestigeSum")), 
+              save_all_pars = T, iter = 5000)
+summary(m1_int)
+
+# hdi intervals interaction model
+m1_int_hdi <- bayestestR::hdi(m1_int, effects = "fixed", component = "conditional", ci = .95)
+m1_int_hdi[sign(m1_int_hdi$CI_low) == sign(m1_int_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+```
+
+```{r}
+
+# Interaction between gender and dominance
+m1_int_d <- brm(generalRiskPreference ~ dominanceSum*Gender+ prestigeSum + leadershipSum + Age, data =experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(-3,1), class="b", coef="Age"),
+                      prior(normal(0,1), class="b", coef="dominanceSum:Gender1")), 
+              save_all_pars = T, iter = 5000)
+
+summary(m1_int_d)
+
+# HDI
+m1_int_d_hdi <- bayestestR::hdi(m1_int_d, effects = "fixed", component = "conditional", ci = .95)
+m1_int_d_hdi[sign(m1_int_d_hdi$CI_low) == sign(m1_int_d_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+```
+
+```{r}
+
+# Interaction between gender and leadership
+m1_int_l <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum*Gender + Age, data=experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(-3,1), class="b", coef="Age"),
+                      prior(normal(0,1), class="b", coef="leadershipSum:Gender1")), 
+              save_all_pars = T, iter = 5000)
+
+summary(m1_int_l)
+
+# HDI 
+m1_int_l_hdi <- bayestestR::hdi(m1_int_l, effects = "fixed", component = "conditional", ci = .95)
+m1_int_l_hdi[sign(m1_int_l_hdi$CI_low) == sign(m1_int_l_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+```
+
+```{r}            
+            
+# Interaction between gender and prestige
+m1_int_p <- brm(generalRiskPreference ~ dominanceSum+ prestigeSum*Gender + leadershipSum + Age, data=experiment_dataset_analysis,
+              prior=c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), class="b", coef="dominanceSum"),
+                      prior(normal(0,1), class="b", coef="prestigeSum"),
+                      prior(normal(-2,1), class="b", coef="leadershipSum"),
+                      prior(normal(-3,1), class="b", coef="Gender1"),
+                      prior(normal(-3,1), class="b", coef="Age"),
+                      prior(normal(0,1), class="b", coef="prestigeSum:Gender1")), 
+              save_all_pars = T, iter = 5000)
+
+summary(m1_int_p)
+
+# HDI
+m1_int_p_hdi <- bayestestR::hdi(m1_int_p, effects = "fixed", component = "conditional", ci = .95)
+m1_int_p_hdi[sign(m1_int_p_hdi$CI_low) == sign(m1_int_p_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+```
+
+```{r}
+
+# Domain specific model
+m2 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum + prestigeSum + leadershipSum + Gender + Age, data = experiment_dataset_analysis,
+    prior = c(prior(normal(0, 1),  coef = "Age", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "ethicalPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "ethicalPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "financialPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "financialPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "financialPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "healthAndSafetyPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"),
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "recreationalPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "socialPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
+              save_all_pars = T, iter = 6000, warmup = 500) 
+
+
+summary(m2)
+
+m2_hdi <- bayestestR::hdi(m2, effects = "fixed", component = "conditional", ci = .95)
+m2_hdi[sign(m2_hdi$CI_low) == sign(m2_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+```
+
+```{r}            
+            
+ # Domain specific model with Gender-DOPL interactions
+m3 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data = experiment_dataset_analysis, cores = 6,
+              prior = c(prior(normal(0, 1),  coef = "Age", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "ethicalPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "ethicalPreference"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "ethicalPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "financialPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "financialPreference"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "financialPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "financialPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "healthAndSafetyPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "recreationalPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "recreationalPreference"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"),
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "socialPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "socialPreference"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
+save_all_pars = 10000) 
+
+summary(m3)
+
+# HDI
+m3_hdi <- bayestestR::hdi(m3, effects = "fixed", component = "conditional", ci = .95)
+m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+            
+# Model Comparison: M2 and M3
+co <- loo(m2,m3)
+
+looic_ <- c(co$loos$m2$looic, co$loos$m3$looic)
+looic_se <- c(co$loos$m2$se_looic, co$loos$m3$se_looic)
+looic_elpd <- c(co$loos$m2$elpd_loo, co$loos$m3$elpd_loo)
+looic_elpd_se <- c(co$loos$m2$se_elpd_loo, co$loos$m3$se_elpd_loo)
+
+loo_table <- data.frame(looic, looic_se, looic_elpd,looic_elpd_se, row.names = c("m2", "m3"))
+loo_table
+
+bayes_R2(m2)
+bayes_R2(m3)
+
+```
+
+```{r}
+m6 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healthAndSafetyPreference, recreationalPreference) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Age, data = experiment_dataset_analysis, cores = 6,
+              prior = c(prior(normal(0, 1),  coef = "Age", resp = "ethicalPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "ethicalPreference"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "ethicalPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "financialPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "financialPreference"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "financialPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "financialPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "healthAndSafetyPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), 
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "recreationalPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "recreationalPreference"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"),
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "socialPreference"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "socialPreference"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
+save_all_pars = 10000) 
+
+summary(m6)
+m6_hdi <- bayestestR::hdi(m6, effects = "fixed", component = "conditional", ci = .95)
+m6_hdi[sign(m6_hdi$CI_low) == sign(m6_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+
+```
+
+
+```{r}
+
+# Benefit, perception and risk taking across subdomains for DOPL motives
+m4 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum + prestigeSum + leadershipSum + Age + Gender, data= experiment_dataset_analysis,
+          prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
+              prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
+              prior(normal(-3, 1),  coef = "Age", resp = "riskSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "riskSum"),
+              prior(normal(3, 1),  coef = "dominanceSum", resp = "riskSum"),
+              prior(normal(-2, 1),  coef = "leadershipSum", resp = "riskSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskSum"),
+              #----
+              prior(normal(0, 1), class = "Intercept", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskPerceptionSum"), 
+              prior(normal(3, 1),  coef = "Age", resp = "riskPerceptionSum"),
+              prior(normal(3, 1),  coef = "Gender1", resp = "riskPerceptionSum"),
+              prior(normal(-3, 1),  coef = "dominanceSum", resp = "riskPerceptionSum"),
+              prior(normal(2, 1),  coef = "leadershipSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskPerceptionSum"),
+              #----
+              prior(normal(0, 1), class = "Intercept", resp = "riskBenefitSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age", resp = "riskBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "riskBenefitSum"),
+              prior(normal(3, 1),  coef = "dominanceSum", resp = "riskBenefitSum"),
+              prior(normal(-2, 1),  coef = "leadershipSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskBenefitSum")), save_all_pars = T, iter = 5000, cores = 6)
+              
+summary(m4) 
+
+# HDI
+m4_hdi <- bayestestR::hdi(m4, effects = "fixed", component = "conditional", ci = .95)
+m4_hdi[sign(m4_hdi$CI_low) == sign(m4_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+   
+```
+
+```{r}
+     
+# Benefit, perception and risk taking across subdomains for DOPL motives and interactions
+m5 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Age, data= experiment_dataset_analysis, iter = 6000, cores = 6, 
+          prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
+              prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
+              prior(normal(-3, 1), coef = "Age", resp = "riskSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "riskSum"),
+              prior(normal(3, 1), coef = "dominanceSum", resp = "riskSum"),
+              prior(normal(-2, 1), coef = "leadershipSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskSum"),
+              #----
+              prior(normal(0, 1), class = "Intercept", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskPerceptionSum"), 
+              prior(normal(3, 1), coef = "Age", resp = "riskPerceptionSum"),
+              prior(normal(3, 1), coef = "Gender1", resp = "riskPerceptionSum"),
+              prior(normal(-3, 1), coef = "dominanceSum", resp = "riskPerceptionSum"),
+              prior(normal(2, 1), coef = "leadershipSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskPerceptionSum"),
+              #----
+              prior(normal(0, 1), class = "Intercept", resp = "riskBenefitSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskBenefitSum"),
+              prior(normal(-3, 1), coef = "Age", resp = "riskBenefitSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "riskBenefitSum"),
+              prior(normal(3, 1), coef = "dominanceSum", resp = "riskBenefitSum"),
+              prior(normal(-2, 1), coef = "leadershipSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskBenefitSum")), save_all_pars = T)
+
+summary(m5) 
+
+# HDI
+m5_hdi <- bayestestR::hdi(m5, effects = "fixed", component = "conditional", ci = .95)
+m5_hdi[sign(m5_hdi$CI_low) == sign(m5_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+# checking interaction slopes
+plot(conditional_effects(m5), points=T)
+
+# Model comparison
+co2 <- loo(m4,m5)
+
+looic_2 <- c(co2$loos$m4$looic, co2$loos$m5$looic)
+looic_2_se <- c(co2$loos$m4$se_looic, co2$loos$m5$se_looic)
+looic_elpd_2 <- c(co2$loos$m4$elpd_loo, co2$loos$m5$elpd_loo)
+looic_elpd_2_se <- c(co2$loos$m4$se_elpd_loo, co2$loos$m5$se_elpd_loo)
+
+loo_table2 <- data.frame(looic_2, looic_2_se, looic_elpd_2,looic_elpd_2_se, row.names = c("m4", "m5"))
+loo_table2
+
+bayes_R2(m4)
+bayes_R2(m5)
+
+pp_check(m5, resp="riskSum", nsamples = 1000)
+pp_check(m5, resp="riskPerceptionSum", nsamples = 1000)
+pp_check(m5, resp="riskBenefitSum", nsamples = 1000)
+```
+
+```{r}
+m7 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Gender, data= experiment_dataset_analysis, iter = 6000, cores = 6, 
+          prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
+              prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
+              prior(normal(-3, 1), coef = "Age", resp = "riskSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "riskSum"),
+              prior(normal(3, 1), coef = "dominanceSum", resp = "riskSum"),
+              prior(normal(-2, 1), coef = "leadershipSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "riskSum"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "riskSum"),
+              #----
+              prior(normal(0, 1), class = "Intercept", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskPerceptionSum"), 
+              prior(normal(3, 1), coef = "Age", resp = "riskPerceptionSum"),
+              prior(normal(3, 1), coef = "Gender1", resp = "riskPerceptionSum"),
+              prior(normal(-3, 1), coef = "dominanceSum", resp = "riskPerceptionSum"),
+              prior(normal(2, 1), coef = "leadershipSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "riskPerceptionSum"),
+              #----
+              prior(normal(0, 1), class = "Intercept", resp = "riskBenefitSum"),
+              prior(normal(0, 1), class = "sigma", resp = "riskBenefitSum"),
+              prior(normal(-3, 1), coef = "Age", resp = "riskBenefitSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "riskBenefitSum"),
+              prior(normal(3, 1), coef = "dominanceSum", resp = "riskBenefitSum"),
+              prior(normal(-2, 1), coef = "leadershipSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "dominanceSum:Age", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "riskBenefitSum")), save_all_pars = T)
+
+summary(m7) 
+
+# HDI
+m7_hdi <- bayestestR::hdi(m7, effects = "fixed", component = "conditional", ci = .95)
+m7_hdi[sign(m7_hdi$CI_low) == sign(m7_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+```
+
+
+```{r}
+library(brms)
+
+demo_m1 <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ Gender + Age + Ethnicity + Education, 
+              data = experiment_dataset_analysis, iter = 5000, cores = 6,
+              prior = c(prior(normal(0,1), class="Intercept"),
+                      prior(normal(3,1), coef="Gender1", resp = "dominanceSum"),
+                      prior(normal(0,1), coef="Gender1", resp = "leadershipSum"),
+                      prior(normal(-2,1), coef="Gender1", resp = "prestigeSum")))
+summary(demo_m1)
+
+demo_m1_hdi <- bayestestR::hdi(demo_m1, effects = "fixed", component = "conditional", ci = .95)
+demo_m1_hdi[sign(demo_m1_hdi$CI_low) == sign(demo_m1_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+
+```
+
+```{r visualization}
+
+experiment_dataset_analysis %>%
+  data_grid(generalRiskPreference = seq_range(generalRiskPreference, n = 111)) %>%
+  add_predicted_draws(m2) %>%
+  ggplot(aes(x = generalRiskPreference, y = dominanceSum)) +
+  stat_lineribbon(aes(y = .prediction), .width = c(.99, .95, .8, .5), color = "#08519C") +
+  geom_point(data = experiment_1_Dataset, size = 2) +
+  scale_fill_brewer()
+```
+
+```{r}
+priorTest <- c(prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "ethicalPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "ethicalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "ethicalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "ethicalPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "ethicalPreference"), 
+              prior(normal(0, 1), class = "b",resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "financialPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "financialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "financialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "financialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "financialPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "financialPreference"), 
+              prior(normal(0, 1), class = "b",resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "healthAndSafetyPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyPreference"), 
+              prior(normal(0, 1), class = "b",resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "recreationalPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "recreationalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalPreference"),
+              prior(normal(0, 1), class = "sigma", resp = "recreationalPreference"), 
+              prior(normal(0, 1), class = "b",resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Age", resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "Gender1", resp = "socialPreference"),
+              prior(normal(2, 1), class = "b", coef = "dominanceSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "b", coef = "prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), class= "b", coef = "dominanceSum:Gender1", resp = "socialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:prestigeSum", resp = "socialPreference"),
+              prior(normal(0, 1), class= "b", coef = "Gender1:leadershipSum", resp = "socialPreference"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
+              prior(normal(0, 1), class = "sigma", resp = "socialPreference"))
+
+```
+
+```{r DoPL and DOSPERT}
+m7_DoPL_DOSPERT <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ ethicalPreference + financialPreference + socialPreference + healthAndSafetyPreference + recreationalPreference, data = experiment_dataset_analysis,
+                       iter = 5000, warmup = 500,
+                     prior = c(prior(normal(0, 1), class = "Intercept"),
+                               prior(normal(0, 1), class = "sigma", resp = "dominanceSum"),
+                               prior(normal(0, 1), class = "sigma", resp = "prestigeSum"),
+                               prior(normal(0, 1), class = "sigma", resp = "leadershipSum"),
+                               prior(normal(0, 1), coef = "ethicalPreference", resp = "dominanceSum"),
+                               prior(normal(0, 1), coef = "financialPreference", resp = "dominanceSum"),
+                               prior(normal(0, 1), coef = "healthAndSafetyPreference", resp = "dominanceSum"), 
+                               prior(normal(0, 1), coef = "recreationalPreference", resp = "dominanceSum"), 
+                               prior(normal(0, 1), coef = "socialPreference", resp = "dominanceSum"),
+                               prior(normal(0, 1), coef = "ethicalPreference", resp = "prestigeSum"),
+                               prior(normal(0, 1), coef = "financialPreference", resp = "prestigeSum"),
+                               prior(normal(0, 1), coef = "healthAndSafetyPreference", resp = "prestigeSum"), 
+                               prior(normal(0, 1), coef = "recreationalPreference", resp = "prestigeSum"), 
+                               prior(normal(0, 1), coef = "socialPreference", resp = "prestigeSum"),
+                               prior(normal(0, 1), coef = "ethicalPreference", resp = "leadershipSum"),
+                               prior(normal(0, 1), coef = "financialPreference", resp = "leadershipSum"),
+                               prior(normal(0, 1), coef = "healthAndSafetyPreference", resp = "leadershipSum"), 
+                               prior(normal(0, 1), coef = "recreationalPreference", resp = "leadershipSum"), 
+                               prior(normal(0, 1), coef = "socialPreference", resp = "leadershipSum")),
+                               save_all_pars = T)
+
+summary(m7_DoPL_DOSPERT)
+
+```
+
+```{r}
+
+bayes_R2(m1)
+
+```
+
+
+```{r Perceived risk and age}
+m4_perceivedRisk_Age <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Gender + Age, iter = 5000, warmup = 500,
+                           data = experiment_dataset_analysis, 
+                           prior =  
+                          c(prior(normal(0, 1), class = "Intercept",resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-3, 1), coef = "dominanceSum:Age", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-2, 1), coef = "Age:leadershipSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-2, 1), coef = "Age:prestigeSum", resp = "ethicalQuestionsPerceptionSum"), 
+              #---- Perception of financial risk taking
+              prior(normal(0, 1), coef = "Age", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Age", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "financialQuestionsPerceptionSum"),
+              #---- Perception of risk in health and safety
+              prior(normal(0, 1), coef = "Age", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Age", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              #---- Perception of risky recreational settings
+              prior(normal(0, 1), coef = "Age", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Age", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "recreationalQuestionsPerceptionSum"),
+              #---- Perception of social risk
+              prior(normal(0, 1), coef = "Age", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Age", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:leadershipSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age:prestigeSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsPerceptionSum")), 
+              save_all_pars = T)
+
+m4_perceivedRisk_Age_hdi <- bayestestR::hdi(m4_perceivedRisk_Age, effects = "fixed", component = "conditional", ci = .95)
+
+m4_perceivedRisk_Age_hdi[sign(m4_perceivedRisk_Age_hdi$CI_low) == sign(m4_perceivedRisk_Age_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+summary(m4_perceivedRisk_Age)
+```
+
+
+```{r Benefit risk and age}
+
+m5_generalRiskPreference <- brm(generalRiskPreference ~ ethicalPreference + socialPreference + financialPreference + healthAndSafetyPreference + recreationalPreference, data = experiment_dataset_analysis,iter = 5000, warmup = 500,
+                                prior = c(prior(normal(0, 1), class = "Intercept"),
+                               prior(normal(0, 1), coef = "ethicalPreference"),
+                               prior(normal(0, 1), coef = "financialPreference"),
+                               prior(normal(0, 1), coef = "healthAndSafetyPreference"), 
+                               prior(normal(0, 1), coef = "recreationalPreference"), 
+                               prior(normal(0, 1), coef = "socialPreference")),
+                                          save_all_pars = T)
+summary(m5_generalRiskPreference)
+# run 5,000 iterations
+m5_benefitRisk_Age <- brm(mvbind(ethicalQuestionsBenefitSum, financialQuestionsBenefitSum, socialQuestionsBenefitSum, recreationalQuestionsBenefitSum, healthAndSafetyQuestionsBenefitSum) ~ dominanceSum*Age + prestigeSum*Age + leadershipSum*Age + Gender + Age, 
+                           data = experiment_dataset_analysis, iter = 5000, warmup = 500,
+                           prior =  c(prior(normal(0, 1), class = "Intercept", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "Age", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Age", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:leadershipSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:prestigeSum", resp = "ethicalQuestionsBenefitSum"),
+              #---- Believed benefit of financial risk 
+              prior(normal(0, 1), class = "Intercept", resp = "financialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "Age", resp = "financialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "financialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Age", resp = "financialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:leadershipSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:prestigeSum", resp = "financialQuestionsBenefitSum"),
+              #---- Believed benefit of health and safety risk
+              prior(normal(0, 1),  coef = "Age", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(3, 1),  coef = "dominanceSum:Age", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:leadershipSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:prestigeSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyQuestionsBenefitSum"),
+              #---- Believed benefit of recreational risk
+              prior(normal(0, 1),  coef = "Age", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Age", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:leadershipSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:prestigeSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalQuestionsBenefitSum"),
+              #---- Believed benefit of social risk
+              prior(normal(0, 1),  coef = "Age", resp = "socialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "socialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Age", resp = "socialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:leadershipSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Age:prestigeSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsBenefitSum")), 
+              save_all_pars = T)
+
+m5_benefitRisk_Age_hdi <- bayestestR::hdi(m5_benefitRisk_Age, effects = "fixed", component = "conditional", ci = .95)
+
+m5_benefitRisk_Age_hdi[sign(m5_benefitRisk_Age_hdi$CI_low) == sign(m5_benefitRisk_Age_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+summary(m5_benefitRisk_Age)
+```
+
+
+```{r}
+m4_perceivedRisk_Gender <- brm(mvbind(ethicalQuestionsPerceptionSum, financialQuestionsPerceptionSum, socialQuestionsPerceptionSum, recreationalQuestionsPerceptionSum, healthAndSafetyQuestionsPerceptionSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, iter = 5000, warmup = 500,
+                           data = experiment_dataset_analysis, 
+                           prior =  
+                          c(prior(normal(0, 1), class = "Intercept",resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Age", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-3, 1), coef = "Gender1", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-3, 1), coef = "dominanceSum:Gender1", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-2, 1), coef = "Gender1:leadershipSum", resp = "ethicalQuestionsPerceptionSum"),
+              prior(normal(-2, 1), coef = "Gender1:prestigeSum", resp = "ethicalQuestionsPerceptionSum"), 
+              #----
+              prior(normal(0, 1), coef = "Age", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Gender1", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "financialQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "financialQuestionsPerceptionSum"),
+              #----
+              prior(normal(0, 1), coef = "Age", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Gender1", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "healthAndSafetyQuestionsPerceptionSum"),
+              #----
+              prior(normal(0, 1), coef = "Age", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Gender1", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "sigma", resp = "recreationalQuestionsPerceptionSum"),
+              #----
+              prior(normal(0, 1), coef = "Age", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "leadershipSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "prestigeSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(2, 1), coef = "dominanceSum:Gender1", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "socialQuestionsPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsPerceptionSum")), 
+              save_all_pars = T)
+
+m4_perceivedRisk_Gender_hdi <- bayestestR::hdi(m4_perceivedRisk_Gender, effects = "fixed", component = "conditional", ci = .95)
+
+m4_perceivedRisk_Gender_hdi[sign(m4_perceivedRisk_Gender_hdi$CI_low) == sign(m4_perceivedRisk_Gender_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+summary(m4_perceivedRisk_Gender)
+```
+
+
+```{r Benefit risk and Gender}
+
+m5_generalRiskPreference <- brm(generalRiskPreference ~ ethicalPreference + socialPreference + financialPreference + healthAndSafetyPreference + recreationalPreference, data = experiment_dataset_analysis,iter = 5000, warmup = 500,
+                                prior = c(prior(normal(0, 1), class = "Intercept"),
+                               prior(normal(0, 1) ,class = "b", coef = "ethicalPreference"),
+                               prior(normal(0, 1) ,class = "b", coef = "financialPreference"),
+                               prior(normal(0, 1) ,class = "b", coef = "healthAndSafetyPreference"), 
+                               prior(normal(0, 1) ,class = "b", coef = "recreationalPreference"), 
+                               prior(normal(0, 1) ,class = "b", coef = "socialPreference")),
+                                          save_all_pars = T)
+summary(m5_generalRiskPreference)
+# run 5,000 iterations
+m5_benefitRisk_Gender <- brm(mvbind(ethicalQuestionsBenefitSum, financialQuestionsBenefitSum, socialQuestionsBenefitSum, recreationalQuestionsBenefitSum, healthAndSafetyQuestionsBenefitSum) ~ dominanceSum*Gender + prestigeSum*Gender + leadershipSum*Gender + Gender + Age, 
+                           data = experiment_dataset_analysis, iter = 5000, warmup = 500, cores = 6, 
+                           prior =  c(prior(normal(0, 1), class = "Intercept", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "Age", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "Gender1", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Gender1", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:leadershipSum", resp = "ethicalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:prestigeSum", resp = "ethicalQuestionsBenefitSum"),
+              #----
+              prior(normal(0, 1), class = "Intercept", resp = "financialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "Age", resp = "financialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "financialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Gender1", resp = "financialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:leadershipSum", resp = "financialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:prestigeSum", resp = "financialQuestionsBenefitSum"),
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(3, 1),  coef = "dominanceSum:Gender1", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:leadershipSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:prestigeSum", resp = "healthAndSafetyQuestionsBenefitSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "healthAndSafetyQuestionsBenefitSum"),
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Gender1", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:leadershipSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:prestigeSum", resp = "recreationalQuestionsBenefitSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "recreationalQuestionsBenefitSum"),
+              #----
+              prior(normal(0, 1),  coef = "Age", resp = "socialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1", resp = "socialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "leadershipSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(0, 1),  coef = "prestigeSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(2, 1),  coef = "dominanceSum:Gender1", resp = "socialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:leadershipSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(-3, 1),  coef = "Gender1:prestigeSum", resp = "socialQuestionsBenefitSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsBenefitSum")), 
+              save_all_pars = T)
+
+m5_benefitRisk_Gender_hdi <- bayestestR::hdi(m5_benefitRisk_Gender, effects = "fixed", component = "conditional", ci = .95)
+
+m5_benefitRisk_Gender_hdi[sign(m5_benefitRisk_Gender_hdi$CI_low) == sign(m5_benefitRisk_Gender_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+summary(m5_benefitRisk_Gender)
+```
+
+
+```{r Visualizations}
+
+mcmc_areas_m1 <- mcmc_areas(m1, pars = c("b_dominanceSum", "b_prestigeSum", "b_leadershipSum", "b_Gender1"))
+
+mcmc_dens_m1 <- mcmc_dens_overlay(m1, pars = c("b_dominanceSum", "b_prestigeSum", "b_leadershipSum", "b_Gender1"))
+
+m1_plot <- mcmc_plot(m1, pars = c("b_dominanceSum", "b_prestigeSum", "b_leadershipSum", "b_Gender1"))
+
+```

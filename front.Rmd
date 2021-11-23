@@ -1,0 +1,24 @@
+\clearpage\mbox{}\thispagestyle{empty}\clearpage
+\setcounter{page}{1}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{10mm}
+\HRule\\
+\textbf{\Large The psychology of risk and power: Power desires and sexual choices}\\
+\HRule\\
+\vspace*{10mm}
+\textbf{Andrew Ithurburn}\\
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=!,totalheight=!,scale=0.25]{EdUniCrest.jpg}
+\end{center}
+\end{figure}
+{\setstretch{1.7} 
+Doctor of Philosophy\\
+\smallskip
+\smallskip
+THE UNIVERSITY OF EDINBURGH\\
+\smallskip
+}
+\end{center}
+\clearpage\mbox{}\thispagestyle{empty}\clearpage
