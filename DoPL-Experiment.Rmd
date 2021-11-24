@@ -29,7 +29,7 @@ abstract: |
 keywords          : "keywords"
 wordcount         :  !expr wordcountaddin::word_count("DoPL-Experiment.Rmd")
 
-Bibliography      : ["references.json"]
+bibliography      : ["references.json"]
 
 floatsintext      : yes
 numbersections    : yes
@@ -89,23 +89,24 @@ Throughout political history, tyrants, and despots have influenced great power o
 
 ## Dominance, Prestige, and Leadership orientation
 
-Research in power desire motives has focused on three subdomains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. Often these dominant individuals will wield their power with force and possible risk to themselves to hold onto that power. [@]
+Research in power desire motives has focused on three subdomains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. Often these dominant individuals will wield their power with force and possible risk to themselves to hold onto that power. 
 
 ### *Dominance*
 
-The dominance motive is one of the more researched methods and well-depicted power motives. Individuals with a dominant orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson2012; @winter1993]. Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans [@petersen2018; @rosenthal2012].
+The dominance motive is one of the more researched methods and well-depicted power motives. Individuals with a dominant orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson2012; @winter1993]. Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans [@petersen2018; @rosenthal2012]. 
+
 Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females [@sidanius2000; @bareket2020]. When high dominance individuals assert themselves they are doing so to increase their own individual sense of power [@anderson2012; @bierstedt1950]. Asserting one's own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance [@petersen2018; @witkower2020]. Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it. 
 
 ### *Prestige*
 
 Contrary to the dominant motivation of using intimidation and aggression to gain more power, a prestige motivation or prestige, in general, is bestowed upon an individual from others in the community [@maner2016; @suessenbach2019]. Different from the dominance motivation, a prestige motivation is generally unique to the human species [@maner2016]. Due in part to ancestral human groups being smaller hunter-gatherer societies, individuals that displayed and used important behaviors beneficial to the larger group were often valued and admired by the group. Therein, the social group bestows the authority onto the individual. Generally, this type of behavior can be passively achieved by the prestigious individual. However, this does not remove the intent of the actor in that they too can see prestige from the group, but the method of achieving that social status greatly differs from that of dominance-seeking individuals.\
-Apart from dominance-motivated individuals that continually have to fight for their right to have power over others, individuals that seek or were given power through a prestige motivation are not generally challenged in the same sense as dominant individuals. Displaying behaviors that the community would see as beneficial would endear them into the community making the survival of the community as a whole better [@maner2016]. Evolutionarily this would increase the viability of the prestigious individual and their genes. Similar to the dominance perspective, the prestige perspective overall increases the power and future survivability of the individual. However, due to the natural difference between prestige and dominance, dominance-seeking individuals are challenged more often resulting in more danger to their position [@johnson2012]. 
-[@]
+Apart from dominance-motivated individuals that continually have to fight for their right to have power over others, individuals that seek or were given power through a prestige motivation are not generally challenged in the same sense as dominant individuals. Displaying behaviors that the community would see as beneficial would endear them into the community making the survival of the community as a whole better [@maner2016]. Evolutionarily this would increase the viability of the prestigious individual and their genes. Similar to the dominance perspective, the prestige perspective overall increases the power and future survivability of the individual. However, due to the natural difference between prestige and dominance, dominance-seeking individuals are challenged more often resulting in more danger to their position [@johnson2012].
+
 ### *Leadership*
 
 With a shared goal a leader is someone that takes initiative and attracts followers for that shared goal [@vanvugt2006]. Leadership is an interesting aspect of behavior in that it is almost exclusive to human interaction. Discussions by evolutionary psychologists point to the formation of early human hunter-gatherer groups where the close interconnectedness created a breeding ground for leadership roles. As early humans began to evolve it would become advantageous for individuals to work together for a common goal. In the case of some situations, an individual with more knowledge of a situation would take charge.  Multiple explanations of the evolution of leadership exist such as coordination strategies, safety, along with evidence for growth in social intelligence in humans.\
 
-An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Traditionally, leadership was thought to be fluid in that those with the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status. 
+An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Traditionally, leadership was thought to be fluid in that those with the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.
 
 ## Risk
 
@@ -133,7 +134,7 @@ The 18-item Dominance, Prestige, and Leadership scale, DoPL [@suessenbach2019], 
 
 ### *Domain Specific Risk-taking Scale*
 
-The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungee jumping at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are "Admitting that your tastes are different from those of a friend" and "Drinking heavily at a social function." Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. [@]
+The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungee jumping at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are "Admitting that your tastes are different from those of a friend" and "Drinking heavily at a social function." Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively. 
 
 ## Procedure
 
@@ -147,11 +148,11 @@ Demographic characteristics were analyzed using multiple regression for continuo
 
 The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distutations for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence, the data is the data without the interpretation of the scientist. 
 
-All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @standevelopmentteam2020; @aust2020].
+All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @standevelopmentteam2020; @aust2020]. fdsaf jdsioa fjpod fjdsa jfiosdj fidsafdusiaf udsioa fsa
 
 ## Results
 
-One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (*SD* = 10M 43s).
+One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (*SD* = 10M 43s). 
 
 
 ```{r}
@@ -171,11 +172,11 @@ All participants completed the dominance, leadership, and prestige scale [@suess
 
 ## Domain-Specific Risk-Taking
 
-## Interactions
+## Interactions  
 
 When investigating dominance, prestige, and leadership motivations with domain-specific risk-taking findings supported the common expectations in the literature. Table 5 shows the interactions with like CI values. Dominance overall explained the relationship of DoPL orientation and preference, specifically for ethical, financial, social, health and safety, and recreational preference. Participant age and gender also appeared to affect recreational preference.
 
-Following these findings, we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5). [@]
+Following these findings, we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5). 
 
 ## Discussion
 
@@ -186,7 +187,7 @@ Following these findings, we investigated the effect of DoPL on general risk pre
 Materials remain the same in terms of the (1) Demographic Questionnaire, (2) Dominance, Prestige, and Leadership Questionnaire, and (3) DOSPERT Questionnaire. However, we added the Brief-Pathological Narcissism Inventory to assess possible interactions of dominance and narcissism in risky decision-making. 
 ## Participants
 
-Following experiment 1, participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)). 
+Following experiment 1, participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)). [@] jkdkdkdfdsa fop
 
 ## Materials
 
