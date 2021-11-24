@@ -12,7 +12,7 @@ library(DT)
 library(kableExtra)
 library(svgPanZoom)
 library(knitr)
-library(ggmcmc)``
+library(ggmcmc)
 library(ggridges)
 library(rstan)
 library(insight)
@@ -27,8 +27,10 @@ library(ggprism)
 library(brms)
 library(parameters)
 
-load(".RData")
+# load(".RData")
 experiment_1_Dataset <- read.csv("experiment_1_data.csv")
+experiment_data_analyis <- read.csv("experiment_dataset_analysis1.csv")
+
 
 demo_table <- read.csv("demo_table.csv")
 theme_set(theme_apa(base_size = 12))

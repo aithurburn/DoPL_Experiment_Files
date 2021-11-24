@@ -85,7 +85,7 @@ source("libraries.R")
 
 # Introduction
 
-Throughout political history, tyrants, and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Jair Bolsonaro, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence.
+Throughout political history, tyrants, and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Kim Jong-Un, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence [@bernstein2020; @2018; @kirby2021]. How this power is wielded is often different for each individual. Some individuals such as Duterte and Bolsonaro wielded their power more dramatically than the likes of Trump. Individuals wielding power need not be tyrants such as the former. Individuals like Angela Merkel used her position and leadership skills to be a world leader in most negotiations. While individuals more well known for their status demonstrated their power through prestige motives. To better understand how individuals such as world leaders or opinion makers gain and wield their power over others. Research in this field is often difficult to research yet strides have been made to understand power, namely through research in moral judgment and decision-making such as power orientation. 
 
 ## Dominance, Prestige, and Leadership orientation
 
@@ -104,13 +104,14 @@ Apart from dominance-motivated individuals that continually have to fight for th
 
 ### *Leadership*
 
-With a shared goal a leader is someone that takes initiative and attracts followers for that shared goal [@vanvugt2006]. Leadership is an interesting aspect of behavior in that it is almost exclusive to human interaction. Discussions by evolutionary psychologists point to the formation of early human hunter-gatherer groups where the close interconnectedness created a breeding ground for leadership roles. As early humans began to evolve it would become advantageous for individuals to work together for a common goal. In the case of some situations, an individual with more knowledge of a situation would take charge.  Multiple explanations of the evolution of leadership exist such as coordination strategies, safety, along with evidence for growth in social intelligence in humans.\
+With a shared goal a leader is someone that takes initiative and attracts followers for that shared goal [@vanvugt2006]. Leadership is an interesting aspect of behavior in that it is almost exclusive to human interaction. Discussions by evolutionary psychologists point to the formation of early human hunter-gatherer groups where the close interconnectedness created a breeding ground for leadership roles. As early humans began to evolve it would become advantageous for individuals to work together for a common goal [@king2009]. In the case of some situations, an individual with more knowledge of a situation would take charge.  Multiple explanations of the evolution of leadership exist such as coordination strategies, safety, along with evidence for growth in social intelligence in humans.\
 
 An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Traditionally, leadership was thought to be fluid in that those with the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.
 
 ## Risk
 
-Every time people leave the relative safety of their home, every decision they make they are taking some form of risk. Financial risk is often discussed in the media usually concerning the stock market. However, the risk is not just present in finances but also in social interactions such as social risk, sexual risk, health and safety risk, recreational, and ethical risks. Each individual is different in their likelihood and perception of participating in those risks. Some will be more inclined to be more financially risky while others would risk their health and safety.\
+Every time people leave the relative safety of their home, every decision they make they are taking some form of risk. Financial risk is often discussed in the media usually concerning the stock market. However, the risk is not just present in finances but also in social interactions such as social risk, sexual risk, health and safety risk, recreational, and ethical risks [@weber2002; @shearer2005; @breakwell2007; @kuhberger2009]. Each individual is different in their likelihood and perception of participating in those risks. Some will be more inclined to be more financially risky while others would risk their health and safety.\
+
 Whether to engage in a risky situation is very complex depending on a cost-benefit analysis. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such an analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in the general likelihood to engage in risky behavior such that males tend to be more likely to engage in risky behaviors than their female counterparts. Women tended to avoid risky situations except for social risks. 
 
 ## The present study
@@ -120,7 +121,7 @@ The present study sought to further our understanding of dominance, prestige, an
 # Experiment 1
 ## Methods
 
-Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
+Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data along with a copy of the R code and supplemental materials are available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
 
 ## Materials
 
@@ -146,9 +147,9 @@ Once participants consented to participate in the experiment they answered a ser
 
 Demographic characteristics were analyzed using multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@rcoreteam2021] along with [@burkner2017] package.
 
-The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distutations for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence, the data is the data without the interpretation of the scientist. 
+The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distributions for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence, the data is the data without the interpretation of the scientist. 
 
-All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @standevelopmentteam2020; @aust2020]. fdsaf jdsioa fjpod fjdsa jfiosdj fidsafdusiaf udsioa fsa
+All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @standevelopmentteam2020; @aust2020]. 
 
 ## Results
 
@@ -168,7 +169,7 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 
 ### *Demographic and DoPL*
 
-All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominant-oriented than younger individuals. 
+All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominance-oriented than younger individuals. 
 
 ## Domain-Specific Risk-Taking
 
@@ -184,13 +185,12 @@ Following these findings, we investigated the effect of DoPL on general risk pre
 
 ## Methods
 
-Materials remain the same in terms of the (1) Demographic Questionnaire, (2) Dominance, Prestige, and Leadership Questionnaire, and (3) DOSPERT Questionnaire. However, we added the Brief-Pathological Narcissism Inventory to assess possible interactions of dominance and narcissism in risky decision-making. 
+Materials remain the same in terms of the (1) Demographic Questionnaire, (2) Dominance, Prestige, and Leadership Questionnaire, and (3) DOSPERT Questionnaire. However, we added the Brief-Pathological Narcissism Inventory to assess possible interactions of dominance and narcissism in risky decision-making. Materials and methods were approved by the University of 
 ## Participants
 
-Following experiment 1, participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)). [@] jkdkdkdfdsa fop
+Following experiment 1, participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/2]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
 
 ## Materials
-
 
 
 ### *Brief-Pathological Narcissism Inventory* 
@@ -209,7 +209,7 @@ Demographic characteristics were analyzed using multiple regression for continuo
 
 The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distributions for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence, the data is the data without the interpretation of the scientist. 
 
-All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @standevelopmentteam2020; @aust2020].
+All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja for analysis along with creation of this manuscript [@makowski2019; @standevelopmentteam2020; @aust2020].
 
 ## Results
 
