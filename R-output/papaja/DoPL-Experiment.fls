@@ -1,8 +1,8 @@
-PWD d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output
+PWD d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output/papaja
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf.cnf
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/web2c/texmf.cnf
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output/DoPL-Experiment.tex
+INPUT d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output/papaja/DoPL-Experiment.tex
 OUTPUT DoPL-Experiment.log
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -932,9 +932,6 @@ INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3ba
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./DoPL-Experiment.aux
-INPUT DoPL-Experiment.aux
-INPUT DoPL-Experiment.aux
 OUTPUT DoPL-Experiment.aux
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 INPUT c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty

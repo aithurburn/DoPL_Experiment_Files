@@ -1521,7 +1521,7 @@ ggplot(data = experiment_1_Dataset_analysis,
   theme_classic() +
   labs(title = "Linear Relationship for Risks Domainsfd ",
     col = "Risk Domains")
-ggsave("./ggplotOutput/socialQuestionsBenefitSum.png")
+ggsave("./R-output/ggplot/socialQuestionsBenefitSum.png")
 
 
 ggplot_func <- function(dataset, xcol, ycol){
@@ -1537,7 +1537,7 @@ ggplot_func <- function(dataset, xcol, ycol){
   theme_classic() +
   labs(title = "Linear Relationship for Risk Domains: ", subtitle = titleName,
     col = "Risk Domains")
-ggsave(paste0("./ggplotOutput/", {{i}}, ".png"))
+ggsave(paste0("./R-output/ggplot/", {{i}}, ".png"))
 }
 
 experiment_dataset_analysis <- experiment_1_Dataset_analysis[!(experiment_1_Dataset_analysis$Gender == "NA"),]
@@ -1557,7 +1557,7 @@ for(i in df){
   theme_classic() +
   labs(title = "Linear Relationship for Risk Domains: ", subtitle = paste0({{i}}),
     col = "Participant \n Gender")
-ggsave(paste0("./ggplotOutput/", {{i}}, ".png"))
+ggsave(paste0("./R-output/ggplot/", {{i}}, ".png"))
 }
 for(i in df){ggplot_func(experiment_1_Dataset_analysis, dominanceSum, i)}
 
@@ -1574,7 +1574,7 @@ ggplot(data = experiment_1_Dataset_analysis,
   theme_classic() +
   labs(title = "Linear Relationship for Risk Domains: ", subtitle = paste0({{i}}),
     col = "Participant \n Gender")
-ggsave(paste0("./ggplotOutput/testing.png"))
+ggsave(paste0("./R-output/ggplot/testing.png"))
 
 write.csv(experiment_dataset_analysis, "experiment_dataset_analysis1.csv")
 
@@ -1592,7 +1592,7 @@ for(i in df){
   theme_classic() +
   labs(title = "Linear Relationship for Risk Domains: ", subtitle = paste0({{i}}),
     col = "Participant \n Gender")
-ggsave(paste0("./ggplotOutput/Age_", {{i}}, ".png"))
+ggsave(paste0("./R-output/ggplot/Age_", {{i}}, ".png"))
 }
 
 for(i in df){
@@ -1609,7 +1609,7 @@ for(i in df){
   theme_classic() +
   labs(title = "Linear Relationship for Risk Domains: ", subtitle = paste0({{i}}),
     col = "Participant \n Gender")
-ggsave(paste0("./ggplotOutput/Prestige_", {{i}}, ".png"))
+ggsave(paste0("./R-output/ggplot/Prestige_", {{i}}, ".png"))
 }
 for(i in df){
   testPlot <- ggplot(data = experiment_dataset_analysis,
@@ -1625,7 +1625,7 @@ for(i in df){
   theme_classic() +
   labs(title = "Linear Relationship for Risk Domains: ", subtitle = paste0({{i}}),
     col = "Participant \n Gender")
-ggsave(paste0("./ggplotOutput/Leadership_", {{i}}, ".png"))
+ggsave(paste0("./R-output/ggplot/Leadership_", {{i}}, ".png"))
 }
 head(experiment_dataset_analysis$Education)
 
@@ -1640,25 +1640,25 @@ ggplot(experiment_dataset_analysis, aes(x = Education)) +
   scale_x_discrete(labels = c("Prefer not \nto respond", "Primary \nSchool", "GCSes or \nEquivalent", "A-Levels or \nEquivalent", "University \nUndergraduate \nProgram", "University \nPost-Graduate \nProgram", "Doctoral \nDegree")) + 
   theme_classic()
 
-ggsave("./ggplotOutput/educationGGplot1.png")
+ggsave("./R-output/ggplot/educationGGplot1.png")
 
 ggplot(experiment_dataset_analysis, aes(x = Ethnicity)) + 
   geom_histogram(stat = 'count', fill = c('#fef0d9',	'#fdd49e',	'#fdbb84',	'#fc8d59',	'#e34a33',	'#b30000', '#000000')) +
   scale_x_discrete(labels = c("Prefer not \nto respond", "Primary \nSchool", "GCSes or \nEquivalent", "A-Levels or \nEquivalent", "University \nUndergraduate \nProgram", "University \nPost-Graduate \nProgram", "Doctoral \nDegree")) + 
   theme_classic()
 
-ggsave("./ggplotOutput/ethinicityGGplot1.png")
+ggsave("./R-output/ggplot/ethinicityGGplot1.png")
 
 ggplot(experiment_dataset_analysis, aes(x = Age)) + 
   geom_histogram(color = "black", fill = "#fc8d59") + 
   theme_light() + 
   labs(x = "Age of participants")
 
-ggsave("./ggplotOutput/ageGGPlot.png")
+ggsave("./R-output/ggplot/ageGGPlot.png")
 
 ggplot(data = experiment_dataset_analysis,
     aes(x = dominanceSum,
-      y = ,
+      y = socialQuestionsBenefitSum,
       color = as.factor(Gender),
       group = as.factor(Gender))) +
   geom_point(size = .7,
@@ -1671,4 +1671,4 @@ ggplot(data = experiment_dataset_analysis,
   theme_classic() +
   labs(title = "Linear Relationship for Risks Domainsfd ",
     col = "Risk Domains")
-ggsave("./ggplotOutput/socialQuestionsBenefitSum.png")
+ggsave("./R-output/ggplot/socialQuestionsBenefitSum.png")

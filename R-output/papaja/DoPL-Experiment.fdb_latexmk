@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1637768173 "d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output/DoPL-Experiment.tex" "DoPL-Experiment.pdf" "DoPL-Experiment" 1637768173
-  "DoPL-Experiment.aux" 1637768172 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "DoPL-Experiment.tex" 1637768132 40080 f07fdc9d114bb02583f6c3f55fd19a04 ""
+["pdflatex"] 1637842064 "d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output/papaja/DoPL-Experiment.tex" "DoPL-Experiment.pdf" "DoPL-Experiment" 1637842064
+  "DoPL-Experiment.aux" 1637842064 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "DoPL-Experiment.tex" 1637841992 40203 f7bd97b14718ae631c8c7fa54d344e32 ""
   "c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1637071273 1288 655e228510b4c2a1abe905c368440826 ""
   "c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm" 1637071274 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
   "c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1637071278 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -145,9 +145,9 @@
   "c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-dist/web2c/texmf.cnf" 1637071283 40042 fe981136cbb5f3715ab1b0e46e3d3892 ""
   "c:/Users/vulca/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1637072605 1428406 8fc4b62854596239772119508365580c ""
   "c:/Users/vulca/AppData/Roaming/TinyTeX/texmf.cnf" 1637071305 956 29179b62e451d793da4ed5feea428426 ""
-  "d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output/DoPL-Experiment.tex" 1637768132 40080 f07fdc9d114bb02583f6c3f55fd19a04 ""
+  "d:/Andrew/OneDrive/Documents/1_UoE/Research/PhD/Experiments/DoPL_DOSPERT/R-analysis/R-output/papaja/DoPL-Experiment.tex" 1637841992 40203 f7bd97b14718ae631c8c7fa54d344e32 ""
   "grfext.sty" 0 -1 0 ""
   (generated)
-  "DoPL-Experiment.log"
   "DoPL-Experiment.pdf"
   "DoPL-Experiment.aux"
+  "DoPL-Experiment.log"
