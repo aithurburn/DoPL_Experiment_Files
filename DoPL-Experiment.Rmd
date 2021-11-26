@@ -8,7 +8,7 @@ author:
     corresponding : yes    # Define only one corresponding author
     address       : "7 George Square, Edinburgh, EH8 9JZ"
     email         : "a.ithurburn@sms.ed.ac.uk"
-    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+    role:         ""
 
   - name          : "Pedersen M.E., Julie"
     affiliation   : "1"
@@ -43,23 +43,13 @@ mainfont          : "Times New Roman"
 geometry          :  a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm
 always_allow_html: true
 header-includes:
-  - \pagestyle{plain}
   - \setcounter{tocdepth}{3}
-  - \linespread{1.2} 
-  - \usepackage{setspace} 
-  - \shorttitle{}
-  - \rhead{DoPL and DOSPERT}
-  - \usepackage{fancyhdr}
-  - \cfoot{\thepage}
-  - \fancyheadoffset[L]{0pt}  
-  - \fancyhf{}
-  - \fancyhead[RO,LE]{\small\thepage} 
-  - \renewcommand{\headrulewidth}{0pt}
+  - \linespread{1.2}
   - \interfootnotelinepenalty=10000
   - \usepackage{setspace}
   - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
-
- 
+  - \raggedbottom
+  
 documentclass     : "apa7"
 csl               : "apa7.csl"
 class             : doc, 12pt, a4paper
@@ -95,7 +85,7 @@ Research in power desire motives has focused on three subdomains: dominance, lea
 
 The dominance motive is one of the more researched methods and well-depicted power motives. Individuals with a dominant orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson2012; @winter1993]. Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans [@petersen2018; @rosenthal2012]. 
 
-Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females [@sidanius2000; @bareket2020]. When high dominance individuals assert themselves they are doing so to increase their own individual sense of power [@anderson2012; @bierstedt1950]. Asserting one's own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance [@petersen2018; @witkower2020]. Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it. 
+Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females [@sidanius2000; @bareket2020]. When high dominance individuals assert themselves they are doing so to increase their individual sense of power [@anderson2012; @bierstedt1950]. Asserting one's own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance [@petersen2018; @witkower2020]. Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it. 
 
 ### *Prestige*
 
@@ -105,15 +95,15 @@ Apart from dominance-motivated individuals that continually have to fight for th
 
 ### *Leadership*
 
-With a shared goal a leader is someone that takes initiative and attracts followers for that shared goal [@vanvugt2006]. Leadership is an interesting aspect of behavior in that it is almost exclusive to human interaction. Discussions by evolutionary psychologists point to the formation of early human hunter-gatherer groups where the close interconnectedness created a breeding ground for leadership roles. As early humans began to evolve it would become advantageous for individuals to work together for a common goal [@king2009]. In the case of some situations, an individual with more knowledge of a situation would take charge.  Multiple explanations of the evolution of leadership exist such as coordination strategies, safety, along with evidence for growth in social intelligence in humans.\
+With a shared goal a leader is someone that takes initiative and attracts followers for that shared goal [@vanvugt2006]. Leadership is an interesting aspect of behavior in that it is almost exclusive to human interaction. Discussions by evolutionary psychologists point to the formation of early human hunter-gatherer groups where the close interconnectedness created a breeding ground for leadership roles. As early humans began to evolve it would become advantageous for individuals to work together for a common goal [@king2009]. Often, individuals with more knowledge of a given problem would demonstrate leadership and take charege or be given power.  Multiple explanations of the evolution of leadership exist such as coordination strategies, safety, along with evidence for growth in social intelligence in humans [@vanvugt2006; @king2009].\
 
-An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Traditionally, leadership was thought to be fluid in that those with the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.
+An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Traditionally, leadership was thought to be fluid in that those with the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.  <!-- This sentence is weird and should be changed. -->
 
 ## Risk
 
 Every time people leave the relative safety of their home, every decision they make they are taking some form of risk. Financial risk is often discussed in the media usually concerning the stock market. However, the risk is not just present in finances but also in social interactions such as social risk, sexual risk, health and safety risk, recreational, and ethical risks [@weber2002; @shearer2005; @breakwell2007; @kuhberger2009]. Each individual is different in their likelihood and perception of participating in those risks. Some will be more inclined to be more financially risky while others would risk their health and safety.\
 
-Whether to engage in a risky situation is very complex depending on a cost-benefit analysis. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such an analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in the general likelihood to engage in risky behavior such that males tend to be more likely to engage in risky behaviors than their female counterparts. Women tended to avoid risky situations except for social risks. 
+Whether to engage in a risky situation is very complex depending on a cost-benefit analysis [@johnson2015a]. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such an analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in the general likelihood to engage in risky behavior such that males tend to be more likely to engage in risky behaviors than their female counterparts [@desiderato1995; @chen2021]. Women tended to avoid risky situations except for social risks. 
 
 ## The present study
 
@@ -160,7 +150,7 @@ One hundred and eleven individuals completed the main survey. Of these individua
 ```{r}
 demo_table <- demo_table[-1]
 apa_table(
- demo_table, caption = "Participant demographic information (Experiment 1)", stub_indents = list("Age" = c(1:2), "Gender" = c(3:5), "Education" = c(6:12), "Ethnicity" = c(13:19)), font_size = "small", col.names = c("Variables", " *n* = 111"))
+ demo_table, caption = "Participant demographic information (Experiment 1)", stub_indents = list("Age" = c(1:2), "Gender" = c(3:5), "Education" = c(6:12), "Ethnicity" = c(13:19)), font_size = "small", col.names = c("Variables", expression("*n* = 111")))
 
 ```
 
@@ -170,9 +160,17 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 
 ### *Demographic and DoPL*
 
-All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominance-oriented than younger individuals. 
+All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior [@rosenthal2012]. Following the literature, men tended to be more dominance orientated than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominance-oriented than younger individuals. 
+
+```{r}
+hdi_table <- m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
+apa_table(hdi_table)
+```
 
 ## Domain-Specific Risk-Taking
+
+As predicted individuals that identified as male were more likely 
 
 ## Interactions  
 
@@ -276,11 +274,7 @@ gender_and_leadership <- ggplot(gender_experiment_data, aes(x = as.factor(Gender
 gender_and_leadership  + scale_shape_prism() + scale_y_continuous(limits = c(0, 30), guide = "prism_offset", name = "Leadership") + scale_x_discrete(labels = c("Male", "Female"), guide = "prism_bracket", name = "Gender")+ scale_fill_manual(name = "Gender", labels = c("Male", "Female"), values = c("#A6CEE3", "#FF7F00"))
 ```
 
-```{r}
-hdi_table <- m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
-            c('Parameter', 'CI','CI_low', 'CI_high')]
-apa_table(hdi_table)
-```
+
 
 ```{r}
 fixed_effects_table <- fixef(m1)
@@ -292,4 +286,3 @@ apa_table(fixed_effects_table)
 apa_table(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
       c('Parameter', 'CI','CI_low', 'CI_high')])
 ```
-

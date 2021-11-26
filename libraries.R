@@ -26,6 +26,7 @@ library(ggcorrplot)
 library(ggprism)
 library(brms)
 library(parameters)
+library(rmarkdown)
 
 # load(".RData")
 experiment_1_Dataset <- read.csv("experiment_1_data.csv")

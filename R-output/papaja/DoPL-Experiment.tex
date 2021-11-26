@@ -85,21 +85,12 @@
 \geometry{a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm}
 
 
-\pagestyle{plain}
 \setcounter{tocdepth}{3}
 \linespread{1.2}
-\usepackage{setspace}
-\shorttitle{}
-\rhead{DoPL and DOSPERT}
-\usepackage{fancyhdr}
-\cfoot{\thepage}
-\fancyheadoffset[L]{0pt}
-\fancyhf{}
-\fancyhead[RO,LE]{\small\thepage}
-\renewcommand{\headrulewidth}{0pt}
 \interfootnotelinepenalty=10000
 \usepackage{setspace}
 \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+\raggedbottom
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[shorthands=off,main=english]{babel}
 \else
@@ -155,7 +146,7 @@ Research in power desire motives has focused on three subdomains: dominance, lea
 
 The dominance motive is one of the more researched methods and well-depicted power motives. Individuals with a dominant orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone (Johnson \& Bruner, 2012; Winter, 1993). Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans (Petersen et al., 2018; Rosenthal et al., 2012).
 
-Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (Bareket \& Shnabel, 2020; Sidanius et al., 2000). When high dominance individuals assert themselves they are doing so to increase their own individual sense of power (Anderson et al., 2012; Bierstedt, 1950). Asserting one's own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (Petersen et al., 2018; Witkower et al., 2020). Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it.
+Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females (Bareket \& Shnabel, 2020; Sidanius et al., 2000). When high dominance individuals assert themselves they are doing so to increase their individual sense of power (Anderson et al., 2012; Bierstedt, 1950). Asserting one's own sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance (Petersen et al., 2018; Witkower et al., 2020). Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it.
 
 \hypertarget{prestige}{%
 \subsubsection{\texorpdfstring{\emph{Prestige}}{Prestige}}\label{prestige}}
@@ -241,7 +232,7 @@ One hundred and eleven individuals completed the main survey. Of these individua
 
 \begin{tabular}{ll}
 \toprule
-Variables & expression(italic(n)) = 111\\
+Variables & *n* = 111\\
 \midrule
 Age & \\
 \ \ \ Mean (SD) & 26.84 (9.21)\\
@@ -284,7 +275,31 @@ We first investigated DoPL orientation on general risk preference (Figure 1). Ge
 \hypertarget{demographic-and-dopl}{%
 \subsubsection{\texorpdfstring{\emph{Demographic and DoPL}}{Demographic and DoPL}}\label{demographic-and-dopl}}
 
-All participants completed the dominance, leadership, and prestige scale (Suessenbach et al., 2019). Empirically, men have generally been more dominance-oriented in their behavior (citation). Following the literature, men tended to be more dominant-oriented than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be more dominance-oriented than younger individuals.
+All participants completed the dominance, leadership, and prestige scale (Suessenbach et al., 2019). Empirically, men have generally been more dominance-oriented in their behavior (Rosenthal et al., 2012). Following the literature, men tended to be more dominance orientated than women. The marginal posterior distribution of each parameter is summarized in Table \#. Interestingly, older individuals tended to be more dominance-oriented than younger individuals.
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-3}}
+
+\begin{tabular}{llll}
+\toprule
+Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
+\midrule
+b\_Intercept & 0.95 & 1.37 & 5.81\\
+b\_dominanceSum & 0.95 & 1.07 & 4.91\\
+b\_leadershipSum & 0.95 & -3.88 & -0.02\\
+b\_Gender1 & 0.95 & -4.95 & -1.09\\
+b\_Age & 0.95 & -4.80 & -0.96\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
 
 \hypertarget{domain-specific-risk-taking}{%
 \subsection{Domain-Specific Risk-Taking}\label{domain-specific-risk-taking}}
@@ -462,33 +477,9 @@ Witkower, Z., Tracy, J. L., Cheng, J. T., \& Henrich, J. (2020). Two signals of 
 \hypertarget{figures-and-tables}{%
 \section{Figures and Tables}\label{figures-and-tables}}
 
-\includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-3-1.pdf}
+\includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.pdf}
 
-\includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-4-1.pdf} \includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-4-2.pdf} \includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-4-3.pdf}
-
-\begin{table}[tbp]
-
-\begin{center}
-\begin{threeparttable}
-
-\caption{\label{tab:unnamed-chunk-5}}
-
-\begin{tabular}{llll}
-\toprule
-Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
-\midrule
-b\_Intercept & 0.95 & 1.37 & 5.81\\
-b\_dominanceSum & 0.95 & 1.07 & 4.91\\
-b\_leadershipSum & 0.95 & -3.88 & -0.02\\
-b\_Gender1 & 0.95 & -4.95 & -1.09\\
-b\_Age & 0.95 & -4.80 & -0.96\\
-\bottomrule
-\end{tabular}
-
-\end{threeparttable}
-\end{center}
-
-\end{table}
+\includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-5-1.pdf} \includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-5-2.pdf} \includegraphics{/exports/chss/eddie/ppls/groups/Moorehdmlab/Andrew/Documents/R-analysis/R-output/papaja/DoPL-Experiment_files/figure-latex/unnamed-chunk-5-3.pdf}
 
 \begin{table}[tbp]
 
