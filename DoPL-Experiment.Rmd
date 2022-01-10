@@ -1,5 +1,5 @@
 ---
-title             : "Power motivations and risk sensitivity and tolerance"
+title             : "Power motivations and risk sensitivity and tolerance. Testing purposes"
 shorttitle        : "DoPL and DOSPERT"
 
 author: 
@@ -66,6 +66,7 @@ source("libraries.R")
 ```{r child = "front.Rmd", include = FALSE, eval = FALSE}
 
 ```
+
 
 \newpage
 
