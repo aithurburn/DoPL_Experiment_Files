@@ -285,3 +285,4 @@ apa_table(fixed_effects_table)
 apa_table(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
       c('Parameter', 'CI','CI_low', 'CI_high')])
 ```
+

@@ -14,10 +14,10 @@ library(BayesFactor)
 library(bayesplot)
 library(kableExtra)
 library(tidyverse)
-options(mc.corrs = parallel::detectCores()) # can run chains in parallel with each other
+options(mc.corrs = parallel::detectCores(), backend = "cmdstanr") # can run chains in parallel with each other
 rstan_options(auto_write = TRUE)
 experiment_1_Dataset <- read.csv("DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
-experiment_dataset_analysis <- read.csv("experiment_dataset_analysis.csv")
+experiment_dataset_analysis <- read.csv("experiment_dataset_analysis1.csv")
 correlation_table <- read.csv("table_attempt.csv")
 locfunc <- function(data, to){
   which(colnames({{data}})=={{to}})
@@ -32,43 +32,43 @@ lfunc <- function(dataset, to, from) {
 
 
 dRDS("co2.rds")
-m1 <- readRDS("m1.rds")
-m2 <- readRDS("m2.rds")
-m3 <- readRDS("m3.rds")
-m5 <- readRDS("m5.rds")
-m6 <- readRDS("m6.rds")
-m7 <- readRDS("m7.rds")
+m1 <- readRDS("./R-analysis/m1.rds")
+m2 <- readRDS("./R-analysis/m2.rds")
+m3 <- readRDS("./R-analysis/m3.rds")
+m5 <- readRDS("./R-analysis/m5.rds")
+m6 <- readRDS("./R-analysis/m6.rds")
+m7 <- readRDS("./R-analysis/m7.rds")
 
 
-m1_hdi <- readRDS("m1_hdi.rds")
-m2_hdi <- readRDS("m2_hdi.rds")
-m3_hdi <- readRDS("m3_hdi.rds")
-m4_hdi <- readRDS("m4_hdi.rds")
-m5_hdi <- readRDS("m5_hdi.rds")
-m6_hdi <- readRDS("m6_hdi.rds")
-m7_hdi <- readRDS("m7_hdi.rds")
-m1_hdi <- readRDS("m1_hdi.rds")
-m1_int <- readRDS("m1_int.rds")
-m1_int_d <- readRDS("m1_int_d.rds")
-m1_int_l <- readRDS("m1_int_l.rds")
-m1_int_p <- readRDS("m1_int_p.rds")
-m1_int_d_hdi <- readRDS("m1_int_d_hdi.rds")
-m1_int_l_hdi <- readRDS("m1_int_l_hdi.rds")
-m1_int_p_hdi <- readRDS("m1_int_p_hdi.rds")
-demo_m1 <- readRDS("demo_m1.rds")
-m7_DoPL_DOSPERT <- readRDS("m7_DoPL_DOSPERT.rds")
-m4_perceivedRisk_Age <- readRDS("m4_perceivedRisk_Age.rds")
-m5_generalRiskPreference <- readRDS("m5_generalRiskPreference.rds")
-m5_benefitRisk_Age <- readRDS("m5_benefitRisk_Age.rds")
-m4_perceivedRisk_Gender <- readRDS("m4_perceivedRisk_Gender.rds")
-m5_benefitRisk_Gender <- readRDS("m5_benefitRisk_Gender.rds")
-demo_m1_hdi <- readRDS("demo_m1_hdi.rds")
-m7_DoPL_DOSPERT_hdi <- readRDS("m7_DoPL_DOSPERT_hdi.rds")
-m4_perceivedRisk_Age_hdi <- readRDS("m4_perceivedRisk_Age_hdi.rds")
-m5_generalRiskPreference_hdi <- readRDS("m5_generalRiskPreference_hdi.rds")
-m5_benefitRisk_Age_hdi <- readRDS("m5_benefitRisk_Age_hdi.rds")
-m4_perceivedRisk_Gender_hdi <- readRDS("m4_perceivedRisk_Gender_hdi.rds")
-m5_benefitRisk_Gender_hdi <- readRDS("m5_benefitRisk_Gender_hdi.rds")
+m1_hdi <- readRDS("./R-analysis/m1_hdi.rds")
+m2_hdi <- readRDS("./R-analysis/m2_hdi.rds")
+m3_hdi <- readRDS("./R-analysis/m3_hdi.rds")
+m4_hdi <- readRDS("./R-analysis/m4_hdi.rds")
+m5_hdi <- readRDS("./R-analysis/m5_hdi.rds")
+m6_hdi <- readRDS("./R-analysis/m6_hdi.rds")
+m7_hdi <- readRDS("./R-analysis/m7_hdi.rds")
+m1_hdi <- readRDS("./R-analysis/m1_hdi.rds")
+m1_int <- readRDS("./R-analysis/m1_int.rds")
+m1_int_d <- readRDS("./R-analysis/m1_int_d.rds")
+m1_int_l <- readRDS("./R-analysis/m1_int_l.rds")
+m1_int_p <- readRDS("./R-analysis/m1_int_p.rds")
+m1_int_d_hdi <- readRDS("./R-analysis/m1_int_d_hdi.rds")
+m1_int_l_hdi <- readRDS("./R-analysis/m1_int_l_hdi.rds")
+m1_int_p_hdi <- readRDS("./R-analysis/m1_int_p_hdi.rds")
+demo_m1 <- readRDS("./R-analysis/demo_m1.rds")
+m7_DoPL_DOSPERT <- readRDS("./R-analysis/m7_DoPL_DOSPERT.rds")
+m4_perceivedRisk_Age <- readRDS("./R-analysis/m4_perceivedRisk_Age.rds")
+m5_generalRiskPreference <- readRDS("./R-analysis/m5_generalRiskPreference.rds")
+m5_benefitRisk_Age <- readRDS("./R-analysis/m5_benefitRisk_Age.rds")
+m4_perceivedRisk_Gender <- readRDS("./R-analysis/m4_perceivedRisk_Gender.rds")
+m5_benefitRisk_Gender <- readRDS("./R-analysis/m5_benefitRisk_Gender.rds")
+demo_m1_hdi <- readRDS("./R-analysis/demo_m1_hdi.rds")
+m7_DoPL_DOSPERT_hdi <- readRDS("./R-analysis/m7_DoPL_DOSPERT_hdi.rds")
+m4_perceivedRisk_Age_hdi <- readRDS("./R-analysis/m4_perceivedRisk_Age_hdi.rds")
+m5_generalRiskPreference_hdi <- readRDS("./R-analysis/m5_generalRiskPreference_hdi.rds")
+m5_benefitRisk_Age_hdi <- readRDS("./R-analysis/m5_benefitRisk_Age_hdi.rds")
+m4_perceivedRisk_Gender_hdi <- readRDS("./R-analysis/m4_perceivedRisk_Gender_hdi.rds")
+m5_benefitRisk_Gender_hdi <- readRDS("./R-analysis/m5_benefitRisk_Gender_hdi.rds")
 
 
 # bayesian correlation
@@ -455,30 +455,30 @@ kable(m6_hdi[sign(m6_hdi$CI_low) == sign(m6_hdi$CI_high),
 
 
 # Benefit, perception and risk taking across subdomains for DOPL motives
-m4 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum + prestigeSum + leadershipSum + Age + Gender, data= experiment_dataset_analysis,
-          prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
-              prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
-              prior(normal(-3, 1),  coef = "Age", resp = "riskSum"),
-              prior(normal(-3, 1),  coef = "Gender1", resp = "riskSum"),
-              prior(normal(3, 1),  coef = "dominanceSum", resp = "riskSum"),
-              prior(normal(-2, 1),  coef = "leadershipSum", resp = "riskSum"),
-              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskSum"),
+m4 <-  brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ riskSum + riskPerceptionSum + riskBenefitSum + Age + Gender, data= experiment_dataset_analysis,
+          prior = c(prior(normal(0, 1), class = "Intercept", resp = "dominanceSum"), 
+              prior(normal(0, 1), class = "sigma", resp = "dominanceSum"), 
+              prior(normal(-3, 1),  coef = "Age", resp = "dominanceSum"),
+              prior(normal(-3, 1),  coef = "Gender", coef = "riskSum"),
+              prior(normal(3, 1),  resp = "dominanceSum", coef = "riskSum"),
+              prior(normal(-2, 1),  resp = "dominanceSum", coef = "riskPerceptionSum"),
+              prior(normal(0, 1),  resp = "dominanceSum", coef = "riskBenefitSum"),
               #----
-              prior(normal(0, 1), class = "Intercept", resp = "riskPerceptionSum"),
-              prior(normal(0, 1), class = "sigma", resp = "riskPerceptionSum"), 
-              prior(normal(3, 1),  coef = "Age", resp = "riskPerceptionSum"),
-              prior(normal(3, 1),  coef = "Gender1", resp = "riskPerceptionSum"),
-              prior(normal(-3, 1),  coef = "dominanceSum", resp = "riskPerceptionSum"),
-              prior(normal(2, 1),  coef = "leadershipSum", resp = "riskPerceptionSum"),
-              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), class = "Intercept", resp = "prestigeSum"),
+              prior(normal(0, 1), class = "sigma", resp = "prestigeSum"), 
+              prior(normal(3, 1),  coef = "Age", resp = "prestigeSum"),
+              prior(normal(3, 1),  coef = "Gender", resp = "prestigeSum"),
+              prior(normal(-3, 1),  resp = "prestigeSum", coef = "riskSum"),
+              prior(normal(2, 1),  resp = "prestigeSum", coef = "riskPerceptionSum"),
+              prior(normal(0, 1),  resp = "prestigeSum", coef = "riskBenefitSum"),
               #----
-              prior(normal(0, 1), class = "Intercept", resp = "riskBenefitSum"),
-              prior(normal(0, 1), class = "sigma", resp = "riskBenefitSum"),
-              prior(normal(-3, 1),  coef = "Age", resp = "riskBenefitSum"),
-              prior(normal(-3, 1),  coef = "Gender1", resp = "riskBenefitSum"),
-              prior(normal(3, 1),  coef = "dominanceSum", resp = "riskBenefitSum"),
-              prior(normal(-2, 1),  coef = "leadershipSum", resp = "riskBenefitSum"),
-              prior(normal(0, 1),  coef = "prestigeSum", resp = "riskBenefitSum")), save_all_pars = T, iter = 6500, cores = 6, warmup = 500)
+              prior(normal(0, 1), class = "Intercept", resp = "leadershipSum"),
+              prior(normal(0, 1), class = "sigma", resp = "leadershipSum"),
+              prior(normal(-3, 1),  coef = "Age", resp = "leadershipSum"),
+              prior(normal(-3, 1),  coef = "Gender", resp = "leadershipSum"),
+              prior(normal(3, 1),  resp = "leadershipSum", coef = "riskSum"),
+              prior(normal(-2, 1),  resp = "leadershipSum", coef = "riskPerceptionSum"),
+              prior(normal(0, 1),  resp = "leadershipSum", coef = "riskBenefitSum")), save_all_pars = T, iter = 6500, cores = 6, warmup = 500)
               
 summary(m4) 
 
@@ -502,38 +502,39 @@ m5 <-  brm(mvbind(riskSum, riskPerceptionSum, riskBenefitSum) ~ dominanceSum*Gen
           prior = c(prior(normal(0, 1), class = "Intercept", resp = "riskSum"), 
               prior(normal(0, 1), class = "sigma", resp = "riskSum"), 
               prior(normal(-3, 1), coef = "Age", resp = "riskSum"),
-              prior(normal(-3, 1), coef = "Gender1", resp = "riskSum"),
+              prior(normal(-3, 1), coef = "GenderMale", resp = "riskSum"),
               prior(normal(3, 1), coef = "dominanceSum", resp = "riskSum"),
               prior(normal(-2, 1), coef = "leadershipSum", resp = "riskSum"),
               prior(normal(0, 1), coef = "prestigeSum", resp = "riskSum"),
-              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskSum"),
-              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskSum"),
-              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "dominanceSum:GenderMale", resp = "riskSum"),
+              prior(normal(0, 1), coef = "GenderMale:prestigeSum", resp = "riskSum"),
+              prior(normal(0, 1), coef = "GenderMale:leadershipSum", resp = "riskSum"),
               #----
               prior(normal(0, 1), class = "Intercept", resp = "riskPerceptionSum"),
               prior(normal(0, 1), class = "sigma", resp = "riskPerceptionSum"), 
               prior(normal(3, 1), coef = "Age", resp = "riskPerceptionSum"),
-              prior(normal(3, 1), coef = "Gender1", resp = "riskPerceptionSum"),
+              prior(normal(3, 1), coef = "GenderMale", resp = "riskPerceptionSum"),
               prior(normal(-3, 1), coef = "dominanceSum", resp = "riskPerceptionSum"),
               prior(normal(2, 1), coef = "leadershipSum", resp = "riskPerceptionSum"),
               prior(normal(0, 1), coef = "prestigeSum", resp = "riskPerceptionSum"),
-              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskPerceptionSum"),
-              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskPerceptionSum"),
-              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "dominanceSum:GenderMale", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "GenderMale:prestigeSum", resp = "riskPerceptionSum"),
+              prior(normal(0, 1), coef = "GenderMale:leadershipSum", resp = "riskPerceptionSum"),
               #----
               prior(normal(0, 1), class = "Intercept", resp = "riskBenefitSum"),
               prior(normal(0, 1), class = "sigma", resp = "riskBenefitSum"),
               prior(normal(-3, 1), coef = "Age", resp = "riskBenefitSum"),
-              prior(normal(-3, 1), coef = "Gender1", resp = "riskBenefitSum"),
+              prior(normal(-3, 1), coef = "GenderMale", resp = "riskBenefitSum"),
               prior(normal(3, 1), coef = "dominanceSum", resp = "riskBenefitSum"),
               prior(normal(-2, 1), coef = "leadershipSum", resp = "riskBenefitSum"),
               prior(normal(0, 1), coef = "prestigeSum", resp = "riskBenefitSum"),
-              prior(normal(0, 1), coef = "dominanceSum:Gender1", resp = "riskBenefitSum"),
-              prior(normal(0, 1), coef = "Gender1:prestigeSum", resp = "riskBenefitSum"),
-              prior(normal(0, 1), coef = "Gender1:leadershipSum", resp = "riskBenefitSum")), save_all_pars = T)
+              prior(normal(0, 1), coef = "dominanceSum:GenderMale", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "GenderMale:prestigeSum", resp = "riskBenefitSum"),
+              prior(normal(0, 1), coef = "GenderMale:leadershipSum", resp = "riskBenefitSum")), save_all_pars = T)
 
 summary(m5) 
 
+kable(summary(m5))
 
 ## HDI and model comparisons
 
@@ -856,7 +857,9 @@ m5_benefitRisk_Age <- brm(mvbind(ethicalQuestionsBenefitSum, financialQuestionsB
               prior(normal(-3, 1),  coef = "Age:leadershipSum", resp = "socialQuestionsBenefitSum"),
               prior(normal(-3, 1),  coef = "Age:prestigeSum", resp = "socialQuestionsBenefitSum"),
               prior(normal(0, 1), class = "Intercept", resp = "socialQuestionsBenefitSum")), 
-              save_all_pars = T)summary(m5_benefitRisk_Age)
+              save_all_pars = T)
+              
+              summary(m5_benefitRisk_Age)
 
 
 ## HDI

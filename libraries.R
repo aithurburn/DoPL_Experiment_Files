@@ -40,7 +40,7 @@ library(psych)
 library(BayesFactor)
 library(bayesplot)
 library(kableExtra)
-library(tidyverse)
+library(tidyverse) 
 options(mc.corrs = parallel::detectCores(), brms.backend = "cmdstanr") # can run chains in parallel with each other
 rstan_options(auto_write = TRUE)
 
