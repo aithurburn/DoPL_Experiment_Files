@@ -99,7 +99,7 @@ m1 <- brm(generalRiskPreference ~ dominanceSum + prestigeSum + leadershipSum + G
                      prior(normal(3, 1), class = "b", coef = "dominanceSum"),
                      prior(normal(0, 1), class = "b", coef = "prestigeSum"), 
                      prior(normal(-2, 1), class = "b", coef = "leadershipSum"),
-                     prior(normal(-3, 1), class = "b", coef = "Gender1"), 
+                     prior(normal(-3, 1), class = "b", coef = "Gender"), 
                      prior(normal(-3, 1), class = "b", coef = "Age")), save_all_pars = T, iter = 4000)
 
 summary(m1)
@@ -344,7 +344,7 @@ m3 <- brm(mvbind(ethicalPreference, financialPreference, socialPreference, healt
               prior(normal(0, 1), coef = "Gender:leadershipSum", resp = "socialPreference"),
               prior(normal(0, 1), class = "Intercept", resp = "socialPreference"), 
               prior(normal(0, 1), class = "sigma", resp = "socialPreference")), 
-save_all_pars = T, iter = 6000, warmup = 500) 
+save_all_pars = T, iter = 10000, warmup = 1000) 
 
 summary(m3)
 
