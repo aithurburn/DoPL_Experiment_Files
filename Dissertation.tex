@@ -3,7 +3,6 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  english,
   donotrepeattitle,doc, 12pt, a4paper,floatsintext]{apa7}
 
 \usepackage{graphicx}
@@ -55,6 +54,15 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -110,7 +118,15 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{DoPL and DOSPERT}
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
 \keywords{keywords\newline\indent Word count: 2004}
 \usepackage{lineno}
 
@@ -132,21 +148,11 @@
 \fancyhead[RO,LE]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \interfootnotelinepenalty=10000
-\usepackage{setspace}
 \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
 \let\cleardoublepage=\clearpage
 \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
 \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
-\ifXeTeX
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
+\doublespacing
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -155,6 +161,8 @@
 \author{Ithurburn, Andrew\textsuperscript{1}}
 \date{}
 
+
+\shorttitle{RISK AND POWER}
 
 \authornote{
 
@@ -579,7 +587,7 @@ Horberg, E. J., Oveis, C., Keltner, D., \& Cohen, A. B. (2009). Disgust and the 
 Ison, C. A., \& Alexander, S. (2011). Antimicrobial resistance in neisseria gonorrhoeae in the UK: surveillance and management. \emph{Expert Review of Anti-Infective Therapy}, \emph{9}(10), 867--876. \url{https://doi.org/10.1586/eri.11.103}
 
 \leavevmode\vadjust pre{\hypertarget{ref-kahneman1972}{}}%
-Kahneman, D., \& Tversky, A. (1972). Subjective probability: A judgment of representativeness. \emph{Cognitive Psychology}, \emph{3}(3), 430--454. \url{https://doi.org/10.1016/0010-0285(72)90016-3}
+Kahneman, D., \& Tversky, A. (1972). Subjective probability: A judgment of representativeness. \emph{Cognitive Psychology}, \emph{3}(3), 430--454. \url{https://doi.org/cmf8m8}
 
 \leavevmode\vadjust pre{\hypertarget{ref-kilimnik2018}{}}%
 Kilimnik, C. D., Boyd, R. L., Stanton, A. M., \& Meston, C. M. (2018). Identification of nonconsensual sexual experiences and the sexual self-schemas of women: implications for sexual functioning. \emph{Archives of Sexual Behavior}, \emph{47}(6), 1633--1647. \url{https://doi.org/10.1007/s10508-018-1229-0}
@@ -627,7 +635,7 @@ Nationale (Paris), C. (1793). \emph{Collection générale des décrets rendus pa
 Papanek, H. (1972). Pathology of power striving and its treatment. \emph{Journal of Individual Psychology; Chicago, Ill.}, \emph{28}(1), 25--32. \url{http://search.proquest.com/docview/1303447697/citation/C0139F0ECA044577PQ/1}
 
 \leavevmode\vadjust pre{\hypertarget{ref-pewresearchcenter2019}{}}%
-Pew Research Center. (2019). \emph{Views on Race in America 2019}. Pew Research Center, Washinton, D.C. \url{https://www.pewresearch.org/social-trends/2019/04/09/race-in-america-2019/}
+Pew Research Center. (2019). \emph{Views on race in america 2019}. Pew Research Center, Washinton, D.C. \url{https://www.pewresearch.org/social-trends/2019/04/09/race-in-america-2019/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-pleck1993}{}}%
 Pleck, J., Sonenstein, F., \& Ku, L. (1993). Masculinity ideology: its impact on adolescent males' heterosexual relationships. \emph{Journal of Social Issues}, \emph{49}(3), 19. \url{https://doi.org/10.1111/j.1540-4560.1993.tb01166.x}

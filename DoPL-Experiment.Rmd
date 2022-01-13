@@ -1,5 +1,5 @@
 ---
-title             : "Power motivations and risk sensitivity and tolerance. Testing purposes"
+title             : "Power motivations and risk sensitivity and tolerance."
 shorttitle        : "DoPL and DOSPERT"
 
 author: 
@@ -277,7 +277,7 @@ gender_and_leadership  + scale_shape_prism() + scale_y_continuous(limits = c(0, 
 
 ```{r}
 fixed_effects_table <- fixef(m1)
-apa_table(fixed_effxects_table)
+apa_table(fixed_effects_table)
 ```
 
 ```{r}

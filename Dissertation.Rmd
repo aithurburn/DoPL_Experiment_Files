@@ -1,6 +1,6 @@
 ---
 title             : "The psychology of risk and power: Power desires and sexual choices."
-shorttitle        : "DoPL and DOSPERT"
+shorttitle        : "RISK AND POWER"
 
 author: 
   - name          : "Ithurburn, Andrew"
@@ -70,12 +70,11 @@ header-includes:
   - \fancyhead[RO,LE]{\small\thepage} 
   - \renewcommand{\headrulewidth}{0pt}
   - \interfootnotelinepenalty=10000
-  - \usepackage{setspace}
   - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
   - \let\cleardoublepage=\clearpage
   - \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
   - \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
-  
+  - \doublespacing
  
 documentclass     : "apa7"
 csl               : "apa7.csl"

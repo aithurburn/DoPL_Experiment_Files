@@ -145,7 +145,7 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
-\title{Power motivations and risk sensitivity and tolerance. Testing purposes}
+\title{Power motivations and risk sensitivity and tolerance.}
 \author{Ithurburn, Andrew\textsuperscript{1}, Pedersen M.E., Julie\textsuperscript{1}, \& Moore, Adam\textsuperscript{1}}
 \date{}
 
@@ -571,17 +571,18 @@ Age & -2.86 & 0.99 & -4.78 & -0.93\\
 \toprule
 Parameter & \multicolumn{1}{c}{CI} & \multicolumn{1}{c}{CI\_low} & \multicolumn{1}{c}{CI\_high}\\
 \midrule
-b\_ethicalPreference\_Intercept & 0.95 & 0.94 & 4.33\\
-b\_ethicalPreference\_dominanceSum & 0.95 & 0.56 & 1.56\\
-b\_financialPreference\_Intercept & 0.95 & 6.05 & 10.85\\
-b\_financialPreference\_dominanceSum & 0.95 & 0.20 & 1.59\\
-b\_socialPreference\_Intercept & 0.95 & 5.45 & 13.59\\
-b\_socialPreference\_dominanceSum & 0.95 & 0.31 & 2.49\\
-b\_healthAndSafetyPreference\_Intercept & 0.95 & 2.50 & 6.77\\
-b\_healthAndSafetyPreference\_dominanceSum & 0.95 & 0.63 & 1.85\\
-b\_recreationalPreference\_dominanceSum & 0.95 & 0.82 & 1.82\\
-b\_recreationalPreference\_Gender & 0.95 & 0.48 & 1.82\\
-b\_recreationalPreference\_Age & 0.95 & 0.00 & 0.11\\
+b\_ethicalPreference\_Intercept & 0.95 & 2.85 & 4.42\\
+b\_ethicalPreference\_dominanceSum & 0.95 & 0.61 & 1.71\\
+b\_financialPreference\_Intercept & 0.95 & 7.50 & 9.67\\
+b\_financialPreference\_dominanceSum & 0.95 & 0.14 & 1.59\\
+b\_socialPreference\_Intercept & 0.95 & 8.34 & 11.67\\
+b\_socialPreference\_dominanceSum & 0.95 & 0.60 & 2.87\\
+b\_healthAndSafetyPreference\_Intercept & 0.95 & 4.65 & 6.59\\
+b\_healthAndSafetyPreference\_dominanceSum & 0.95 & 0.41 & 1.77\\
+b\_recreationalPreference\_Intercept & 0.95 & 0.95 & 2.48\\
+b\_recreationalPreference\_dominanceSum & 0.95 & 0.66 & 1.74\\
+b\_recreationalPreference\_Gender1 & 0.95 & -1.83 & -0.47\\
+b\_recreationalPreference\_Age & 0.95 & 0.06 & 0.87\\
 \bottomrule
 \end{tabular}
 
@@ -589,246 +590,6 @@ b\_recreationalPreference\_Age & 0.95 & 0.00 & 0.11\\
 \end{center}
 
 \end{table}
-
-```\{=latex child = ``m3.tex'', include = FALSE, eval = FALSE\}
-
-~
-
-ethicalPreference
-
-financialPreference
-
-recreationalPreference
-
-socialPreference
-
-healthAndSafetyPreference
-
-Predictors
-
-Estimates
-
-CI (95\%)
-
-Estimates
-
-CI (95\%)
-
-Estimates
-
-CI (95\%)
-
-Estimates
-
-CI (95\%)
-
-Estimates
-
-CI (95\%)
-
-Intercept
-
-2.65
-
-0.89~--~4.28
-
-8.53
-
-6.04~--~10.83
-
-4.67
-
-2.45~--~6.72
-
--0.89
-
--2.59~--~0.72
-
-9.60
-
-5.39~--~13.55
-
-dominanceSum
-
-1.05
-
-0.56~--~1.56
-
-0.88
-
-0.21~--~1.59
-
-1.23
-
-0.63~--~1.86
-
-1.32
-
-0.83~--~1.83
-
-1.39
-
-0.31~--~2.49
-
-Gender
-
-0.10
-
--0.58~--~0.76
-
-0.14
-
--0.76~--~1.04
-
--0.02
-
--0.84~--~0.79
-
-1.15
-
-0.47~--~1.82
-
-0.56
-
--0.84~--~1.91
-
-prestigeSum
-
-0.10
-
--0.42~--~0.61
-
-0.37
-
--0.33~--~1.07
-
--0.10
-
--0.73~--~0.53
-
--0.07
-
--0.58~--~0.43
-
-0.35
-
--0.74~--~1.45
-
-leadershipSum
-
-0.08
-
--0.42~--~0.59
-
--0.11
-
--0.79~--~0.59
-
--0.15
-
--0.76~--~0.46
-
--0.22
-
--0.72~--~0.28
-
-0.20
-
--0.88~--~1.28
-
-Age
-
-0.03
-
--0.02~--~0.09
-
--0.00
-
--0.08~--~0.08
-
-0.04
-
--0.03~--~0.11
-
-0.05
-
--0.00~--~0.11
-
--0.01
-
--0.14~--~0.13
-
-dominanceSum:Gender
-
--0.06
-
--0.75~--~0.60
-
--0.25
-
--1.17~--~0.65
-
--0.35
-
--1.17~--~0.46
-
--0.26
-
--0.94~--~0.42
-
-0.19
-
--1.18~--~1.55
-
-Gender:prestigeSum
-
--0.30
-
--0.96~--~0.37
-
--0.30
-
--1.19~--~0.60
-
-0.24
-
--0.57~--~1.03
-
--0.44
-
--1.11~--~0.24
-
-0.29
-
--1.03~--~1.60
-
-Gender:leadershipSum
-
--0.01
-
--0.67~--~0.64
-
-0.16
-
--0.75~--~1.04
-
-0.20
-
--0.60~--~1.00
-
-0.28
-
--0.39~--~0.94
-
-0.01
-
--1.33~--~1.33
-
-Observations
-
-107
-
-```
 
 
 \end{document}

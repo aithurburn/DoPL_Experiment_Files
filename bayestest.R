@@ -31,7 +31,6 @@ lfunc <- function(dataset, to, from) {
 
 
 
-dRDS("co2.rds")
 m1 <- readRDS("./R-analysis/m1.rds")
 m2 <- readRDS("./R-analysis/m2.rds")
 m3 <- readRDS("./R-analysis/m3.rds")
@@ -55,14 +54,12 @@ m1_int_p <- readRDS("./R-analysis/m1_int_p.rds")
 m1_int_d_hdi <- readRDS("./R-analysis/m1_int_d_hdi.rds")
 m1_int_l_hdi <- readRDS("./R-analysis/m1_int_l_hdi.rds")
 m1_int_p_hdi <- readRDS("./R-analysis/m1_int_p_hdi.rds")
-demo_m1 <- readRDS("./R-analysis/demo_m1.rds")
 m7_DoPL_DOSPERT <- readRDS("./R-analysis/m7_DoPL_DOSPERT.rds")
 m4_perceivedRisk_Age <- readRDS("./R-analysis/m4_perceivedRisk_Age.rds")
 m5_generalRiskPreference <- readRDS("./R-analysis/m5_generalRiskPreference.rds")
 m5_benefitRisk_Age <- readRDS("./R-analysis/m5_benefitRisk_Age.rds")
 m4_perceivedRisk_Gender <- readRDS("./R-analysis/m4_perceivedRisk_Gender.rds")
 m5_benefitRisk_Gender <- readRDS("./R-analysis/m5_benefitRisk_Gender.rds")
-demo_m1_hdi <- readRDS("./R-analysis/demo_m1_hdi.rds")
 m7_DoPL_DOSPERT_hdi <- readRDS("./R-analysis/m7_DoPL_DOSPERT_hdi.rds")
 m4_perceivedRisk_Age_hdi <- readRDS("./R-analysis/m4_perceivedRisk_Age_hdi.rds")
 m5_generalRiskPreference_hdi <- readRDS("./R-analysis/m5_generalRiskPreference_hdi.rds")
