@@ -7,14 +7,14 @@
 \contentsline {subsection}{\numberline {1.2}The present study}{6}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Materials}{6}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}\emph {Demographic Questionnaire}}{6}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}\emph {Dominance, Prestige, and Leadership Orientation}}{6}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2}\emph {Dominance, Prestige, and Leadership Orientation}}{7}{subsubsection.1.3.2}%
 \contentsline {subsubsection}{\numberline {1.3.3}\emph {Domain Specific Risk-taking Scale}}{7}{subsubsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.4}Procedure}{7}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Data analysis}{8}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Results}{8}{subsection.1.6}%
 \contentsline {subsubsection}{\numberline {1.6.1}Preregistered Analyses}{8}{subsubsection.1.6.1}%
-\contentsline {subsubsection}{\numberline {1.6.2}\emph {Demographic and DoPL}}{8}{subsubsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.7}Domain-Specific Risk-Taking}{10}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.6.2}\emph {Demographic and DoPL}}{9}{subsubsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.7}Domain-Specific Risk-Taking}{9}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Interactions}{10}{subsection.1.8}%
 \contentsline {subsection}{\numberline {1.9}Discussion}{10}{subsection.1.9}%
 \contentsline {section}{\numberline {2}Experiment 2}{10}{section.2}%
@@ -31,5 +31,5 @@
 \contentsline {subsection}{\numberline {2.9}Discussion}{12}{subsection.2.9}%
 \contentsline {subsection}{\numberline {2.10}Limitations}{12}{subsection.2.10}%
 \contentsline {subsection}{\numberline {2.11}Future Implications}{12}{subsection.2.11}%
-\contentsline {section}{\numberline {3}References}{13}{section.3}%
-\contentsline {section}{\numberline {4}Figures and Tables}{16}{section.4}%
+\contentsline {section}{\numberline {3}Figures and Tables}{13}{section.3}%
+\contentsline {section}{\numberline {4}References}{14}{section.4}%
