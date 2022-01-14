@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title             : "Power motivations and risk sensitivity and tolerance."
 shorttitle        : "DoPL and DOSPERT"
@@ -286,3 +287,87 @@ apa_table(m3_hdi[sign(m3_hdi$CI_low) == sign(m3_hdi$CI_high),
       c('Parameter', 'CI','CI_low', 'CI_high')])
 ```
 
+=======
+---
+title             : "Power motivations and risk sensitivity and tolerance."
+shorttitle        : "DoPL and DOSPERT"
+
+author: 
+  - name          : "Ithurburn, Andrew"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "7 George Square, Edinburgh, EH8 9JZ"
+    email         : "a.ithurburn@sms.ed.ac.uk"
+    role:         ""
+
+  - name          : "Pedersen M.E., Julie"
+    affiliation   : "1"
+  - name          : "Moore, Adam"
+    affiliation   : "1"
+    role:
+      - Writing - Review & Editing
+      - Supervision
+
+affiliation:
+  - id            : "1"
+    institution   : "The University of Edinburgh"
+
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any  discipline.
+  
+keywords          : "keywords"
+wordcount         :  !expr wordcountaddin::word_count("Chapter2.Rmd")
+
+bibliography      : ["references.json"]
+
+floatsintext      : yes
+numbersections    : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+mainfont          : "Times New Roman"
+geometry          :  a4paper, left = 4cm, right = 2.5cm, top = 2cm, bottom = 4cm
+always_allow_html: true
+header-includes:
+  - \setcounter{tocdepth}{3}
+  - \linespread{1.2}
+  - \interfootnotelinepenalty=10000
+  - \usepackage{setspace}
+  - \newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+  - \raggedbottom
+  
+documentclass     : "apa7"
+csl               : "apa7.csl"
+class             : doc, 12pt, a4paper
+classoption       : "donotrepeattitle"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+source("libraries.R")
+
+```
+
+```{r child = "front.Rmd", include = FALSE, eval = FALSE}
+
+```
+
+```{r child = "Chapter2.Rmd"}
+```
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
+
+\newpage
+>>>>>>> master

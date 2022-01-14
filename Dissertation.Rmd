@@ -105,7 +105,8 @@ source("libraries.R")
 ```{r child = "Chapter2.Rmd"}
 ```
 
-
+```{r child = "Chapter3.Rmd"}
+```
 
 \newpage
 

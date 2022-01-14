@@ -1,18 +1,48 @@
-\contentsline {section}{\numberline {1}Chapter 1:}{4}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Literature Review}{4}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}General Introduction}{4}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Who is at risk?}{5}{subsubsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.2}Risky Sexual Behaviors and STIs}{8}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Moral Judgment and Decision-Making}{12}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Power}{17}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Cognition}{24}{subsection.1.5}%
-\contentsline {subsubsection}{\numberline {1.5.1}Aggression and Cognition}{28}{subsubsection.1.5.1}%
-\contentsline {section}{\numberline {2}Chapter 2:}{32}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Exploratory Experiment 1}{32}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Experiment 1 Review}{32}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Methodology}{36}{subsection.2.3}%
-\contentsline {paragraph}{\numberline {2.3.0.1}Methods}{36}{paragraph.2.3.0.1}%
-\contentsline {paragraph}{\numberline {2.3.0.2}Materials:}{37}{paragraph.2.3.0.2}%
-\contentsline {paragraph}{\numberline {2.3.0.3}Data Analysis:}{40}{paragraph.2.3.0.3}%
-\contentsline {subsection}{\numberline {2.4}Discussion:}{41}{subsection.2.4}%
-\contentsline {section}{\numberline {3}References}{42}{section.3}%
+\contentsline {section}{\numberline {1}Chapter 1:}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Literature Review}{5}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}General Introduction}{5}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Who is at risk?}{6}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}Risky Sexual Behaviors and STIs}{9}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Moral Judgment and Decision-Making}{13}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Power}{18}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Cognition}{25}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Aggression and Cognition}{29}{subsubsection.1.5.1}%
+\contentsline {section}{\numberline {2}Introduction}{33}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dominance, Prestige, and Leadership orientation}{33}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}\emph {Dominance}}{34}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}\emph {Prestige}}{34}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}\emph {Leadership}}{35}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}The present study}{37}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Materials}{38}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}\emph {Demographic Questionnaire}}{38}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}\emph {Dominance, Prestige, and Leadership Orientation}}{38}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}\emph {Domain Specific Risk-taking Scale}}{38}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Procedure}{39}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Data analysis}{40}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Results}{40}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Preregistered Analyses}{41}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}\emph {Demographic and DoPL}}{41}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Domain-Specific Risk-Taking}{42}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Interactions}{42}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Discussion}{42}{subsection.2.9}%
+\contentsline {section}{\numberline {3}Experiment 2}{42}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Methods}{42}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Materials}{43}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}\emph {Brief-Pathological Narcissism Inventory}}{43}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Procedure}{44}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Data analysis}{44}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Results}{45}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Preregistered Analyses}{45}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}\emph {Demographic and DoPL}}{45}{subsubsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.7}Domain-Specific Risk-Taking}{45}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Interactions}{45}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Discussion}{45}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Limitations}{45}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Future Implications}{45}{subsection.3.11}%
+\contentsline {section}{\numberline {4}Figures and Tables}{46}{section.4}%
+\contentsline {section}{\numberline {5}Chapter 3:}{48}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Experiment 1:}{48}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Experiment 1 Review}{48}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Narcissism}{49}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}The present Experiments}{49}{subsection.5.4}%
+\contentsline {section}{\numberline {6}References}{50}{section.6}%

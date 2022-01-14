@@ -208,5 +208,7 @@
 "rstan",
 "shorttitle"
 ],
-"cmake.configureOnOpen": true
+"customizeUI.stylesheet": {
+  ".monaco-workbench .activitybar > .content :not(.monaco-menu) > .monaco-action-bar .action-item .action-label": "margin: 0 auto;"
+}
 }
