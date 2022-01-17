@@ -1,73 +1,76 @@
-# Introduction
+## Introduction
 
-Throughout political history, tyrants, and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Kim Jong-Un, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence [@bernstein2020; @2018; @kirby2021]. How this power is wielded is often different for each individual. Some individuals such as Duterte and Bolsonaro wielded their power more dramatically than the likes of Trump. Individuals wielding power need not be tyrants such as the former. Individuals like Angela Merkel used her position and leadership skills to be a world leader in most negotiations. While individuals more well known for their status demonstrated their power through prestige motives. To better understand how individuals such as world leaders or opinion makers gain and wield their power over others. Research in this field is often difficult to research yet strides have been made to understand power, namely through research in moral judgment and decision-making such as power orientation. 
+Throughout political history, tyrants, and despots have influenced great power over large swaths of land and communities. One common thread amongst these individuals is how they wield their great power, often through dominant tactics such as threats and political subversion. Recent history has shown with individuals like Donald Trump, Kim Jong-Un, and Rodrigo Duterte who display authoritarian traits often wield their power through fear and threats of violence [@bernstein2020; @2018; @kirby2021]. How this power is wielded is often different for each individual. Some individuals such as Duterte and Bolsonaro wielded their power more dramatically than the likes of Trump. Individuals wielding power need not be tyrants such as the former. Individuals like Angela Merkel used their position and leadership skills to be a world leaders in most negotiations. While individuals more well known for their status demonstrated their power through prestige motives. To better understand how individuals such as world leaders or opinion makers gain and wield their power over others. Research in this field is often difficult to research yet strides have been made to understand power, namely through research in moral judgment and decision-making such as power orientation. 
 
-## Dominance, Prestige, and Leadership orientation
+### Dominance, Prestige, and Leadership orientation
 
 Research in power desire motives has focused on three subdomains: dominance, leadership, and prestige [@suessenbach2019]. Each of these three different power motives is explained as to different ways or methods that individuals in power sought power or were bestowed upon them. Often these dominant individuals will wield their power with force and potentially cause risk to themselves to hold onto that power. 
 
-### *Dominance*
+#### *Dominance*
 
 The dominance motive is one of the more researched methods and well-depicted power motives. Individuals with a dominant orientation display the more primal of human behavior. These individuals will seek power through direct methods such as asserting dominance, control over resources, or physically assaulting someone [@johnson2012; @winter1993]. Early research in dominance motives has shown that acts of dominance ranging from asserting physical dominance over another to physical displays of violence has been shown in many mammalian species, including humans [@petersen2018; @rosenthal2012]. 
 
 Individuals high in dominance are often high in Machiavellianism, narcissism, and often are prone to risky behavior (discussion further in the next section). Continued research has hinted at a possible tendency for males to display these dominant seeking traits more than females [@sidanius2000; @bareket2020]. When high dominance individuals assert themselves they are doing so to increase their sense of power [@anderson2012; @bierstedt1950]. Asserting one's sense of dominance over another can be a dangerous task. In the animal kingdom, it can often lead to injury. While, in humans asserting dominance can take a multitude of actions such as leering behaviors, physical distance, or other non-verbal methods to display dominance [@petersen2018; @witkower2020]. Power from a dominant perspective is not always bestowed upon someone. Often, high dominance individuals will take control and hold onto it. 
 
-### *Prestige*
+#### *Prestige*
 
 Contrary to the dominant motivation of using intimidation and aggression to gain more power, a prestige motivation or prestige, in general, is bestowed upon an individual from others in the community [@maner2016; @suessenbach2019]. Different from the dominance motivation, a prestige motivation is generally unique to the human species [@maner2016]. Due in part to ancestral human groups being smaller hunter-gatherer societies, individuals that displayed and used important behaviors beneficial to the larger group were often valued and admired by the group. Therein, the social group bestows the authority onto the individual. Generally, this type of behavior can be passively achieved by the prestigious individual. However, this does not remove the intent of the actor in that they too can see prestige from the group, but the method of achieving that social status greatly differs from that of dominance-seeking individuals.\
 
 Apart from dominance-motivated individuals that continually have to fight for their right to have power over others, individuals that seek or were given power through a prestige motivation are not generally challenged in the same sense as dominant individuals. Displaying behaviors that the community would see as beneficial would endear them into the community making the survival of the community as a whole better [@maner2016]. Evolutionarily this would increase the viability of the prestigious individual and their genes. Similar to the dominance perspective, the prestige perspective overall increases the power and future survivability of the individual. However, due to the natural difference between prestige and dominance, dominance-seeking individuals are challenged more often resulting in more danger to their position [@johnson2012]. 
 
-### *Leadership*
+#### *Leadership*
 
 With a shared goal a leader is someone that takes initiative and attracts followers for that shared goal [@vanvugt2006]. Leadership is an interesting aspect of behavior in that it is almost exclusive to human interaction. Discussions by evolutionary psychologists point to the formation of early human hunter-gatherer groups where the close interconnectedness created a breeding ground for leadership roles. As early humans began to evolve it would become advantageous for individuals to work together for a common goal [@king2009]. Often, individuals with more knowledge of a given problem would demonstrate leadership and take charge or be given power.  Multiple explanations of the evolution of leadership exist such as coordination strategies, safety, along with evidence for growth in social intelligence in humans [@vanvugt2006; @king2009].\
 
 An interesting aspect of leadership motivation is the verification of the qualities of the leader by the communities. Individuals that are often put into leadership roles or take a leadership role often display the necessary goals, qualities, and knowledge to accomplish the shared/stated goal. However, this is not always the case especially for those charismatic leaders where they could stay on as a leader longer than the stated goal requires [@vugt2014]. Traditionally, leadership was thought to be fluid in that those with the necessary knowledge at the time would be judged and appointed as the leader. However, these charismatic leaders use their charisma, uniqueness, nerve, and talent to hold onto their status.  <!-- This sentence is weird and should be changed. --> 
-## Risk
+
+### Risk
 
 Every time people leave the relative safety of their home, every decision they make they are taking some form of risk. Financial risk is often discussed in the media usually concerning the stock market. However, the risk is not just present in finances but also in social interactions such as social risk, sexual risk, health and safety risk, recreational, and ethical risks [@weber2002; @shearer2005; @breakwell2007; @kuhberger2009]. Each individual is different in their likelihood and perception of participating in those risks. Some will be more inclined to be more financially risky while others would risk their health and safety.\
 
 Whether to engage in a risky situation is very complex depending on a cost-benefit analysis [@johnson2015a]. Do the positives outweigh the negatives? In practice, not all individuals will do a cost-benefit analysis of a risky situation. Often, the timing of an event makes such an analysis disadvantageous. The benefits are often relative to the individual decision-maker. Differences emerge in the general likelihood to engage in risky behavior such that males tend to be more likely to engage in risky behaviors than their female counterparts [@desiderato1995; @chen2021]. Women tended to avoid risky situations except for social risks. 
 
-## The present study 
+### The present study 
 
 The present study sought to further our understanding of dominance, prestige, and leadership motivations in human decision-making. Furthering this, we seek to bridge the connection between risk-taking behaviors, from diverse domains, and the dominance, prestige, and leadership orientations. Following the literature, we predicted that participants that were high in dominance orientation would be more likely to not only engage in risky behaviors but praise the benefits of participating in those behaviors. Individuals with prestige or leadership orientation.  
-# Experiment 1
-## Methods
+
+## Experiment 1
+
+### Methods
 
 Participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/1]. The present study was pre-registered along with a copy of anonymized data along with a copy of the R code and supplemental materials are available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
 
-## Materials
+### Materials
 
-### *Demographic Questionnaire*
+#### *Demographic Questionnaire*
 
 In a demographic questionnaire administered prior to the main survey, participants were invited to respond to a series of questions about their self-identified demographic characteristics such as age, gender, ethnicity, and ethnic origin.
 
-### *Dominance, Prestige, and Leadership Orientation*
+#### *Dominance, Prestige, and Leadership Orientation*
 
 The 18-item Dominance, Prestige, and Leadership scale, DoPL [@suessenbach2019], is used to measure dominance, prestige, and leadership orientation. Each question corresponds to one of the three domains. Each domain is scored across six unique items related to those domains (e.g., "I relish opportunities in which I can lead others" for leadership) rated on a scale from 0 (Strongly disagree) to 5 (Strongly agree). Inlucded in this scale are 15 masking questions obtained from the unified motives scale [@] consistency reliability for the current sample is $\alpha$ = `r psych::alpha(experiment_1_Dataset[,DoPLQuestions])$total$std.alpha`.
 
-### *Domain Specific Risk-taking Scale*
+#### *Domain Specific Risk-taking Scale*
 
 The 40-item Domain-Specific Risk-taking Scale, DOSPERT [@weber2002] is a scale assessing individuals' likelihood of engaging in risky behaviors within 5 domain-specific risky situations: financial ("Gambling a week's income at a casino."), social ("Admitting that your tastes are different from those of your friends"), recreational ("Trying out bungee jumping at least once"), health and safety ("Engaging in unprotected sex"), and ethical ("Cheating on an exam") situations. Each risky situation is then rated on a five-point Likert scale (1 being very unlikely and 5 being very likely). Two additional five-point Likert scales assess risk perception and expected benefits (1 being not at all risky and 5 being extremely risky; 1 being no benefits at all and 5 being great benefits) respectively. Example risky situations are "Admitting that your tastes are different from those of a friend" and "Drinking heavily at a social function." Internal consistency reliability for the current samples for the 3 sub-domains are $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskPerceptionQuestions], check.keys = TRUE)$total$std.alpha`, $\alpha$ = `r psych::alpha(experiment_1_Dataset[,riskBenefitQuestions], check.keys = TRUE)$total$std.alpha` respectively.
 
-## Procedure
+### Procedure
 
 Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants [@prolificacademic2018]. The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey (Qualtrics, Inc; Provo, UT) where they were shown a brief message on study consent.
 
 Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. The two scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic.
 
-## Data analysis
+### Data analysis
 
 Demographic characteristics were analyzed using multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@rcoreteam2021] along with [@burkner2017] package.
 
 The use of bayesian statistics has a multitude of benefits to statistical analysis and research design. One important benefit is through the use of prior data in future analyses. Termed as priors, is the use of prior distributions for future analysis. This allows for the separation of how the data might have been collected or what the intention was. In essence, the data is the data without the interpretation of the scientist. 
 
-All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja [@makowski2019; @aust2020; @standevelopmentteam2020]. 
+All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, cmdstanr, and papaja [@makowski2019; @gabry2021; @aust2020]. 
 
-## Results
+### Results
 
-One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (*SD* = 10M 43s). 
+One hundred and eleven individuals completed the main survey. Of these individuals, 111 completed all sections without incomplete data and were therefore retained in most data analyses. In later analyses to account for outliers, two participants had to be excluded from the dataset. Table 1 shows the demographic information for the participants. The average completion time for participants was 20M 58s (*SD* = 10M 43s). 
 
 
 ```{r}
@@ -77,11 +80,11 @@ apa_table(
 
 ```
 
-### Preregistered Analyses
+#### Preregistered Analyses
 
 We first investigated DoPL orientation on general risk preference (Figure 1). General risk preference was anecdotally explained by dominance orientation, participant gender, and participant age (see table 2).
 
-### *Demographic and DoPL*
+#### *Demographic and DoPL*
 
 All participants completed the dominance, leadership, and prestige scale [@suessenbach2019]. Empirically, men have generally been more dominance-oriented in their behavior [@rosenthal2012]. Following the literature, men tended to be more dominance orientated than women. The marginal posterior distribution of each parameter is summarized in Table #. Interestingly, older individuals tended to be more dominance-oriented than younger individuals. 
 
@@ -91,41 +94,46 @@ hdi_table <- m1_hdi[sign(m1_hdi$CI_low) == sign(m1_hdi$CI_high),
 apa_table(hdi_table)
 ```
 
-## Domain-Specific Risk-Taking
+### Domain-Specific Risk-Taking
 
 As predicted individuals that identified as male were more likely 
 
-## Interactions  
+### Interactions  
 
 When investigating dominance, prestige, and leadership motivations with domain-specific risk-taking findings supported the common expectations in the literature. Table 5 shows the interactions with like CI values. Dominance overall explained the relationship of DoPL orientation and preference, specifically for ethical, financial, social, health and safety, and recreational preference. Participant age and gender also appeared to affect recreational preference.
 
 Following these findings, we investigated the effect of DoPL on general risk preference and found that dominance overall affected risk preference along with gender and age of the participant (Table 5). 
 
-## Discussion
+### Discussion
 
-# Experiment 2
+## Experiment 2
 
-## Methods
+## Narcissism
+
+Narcissism is a personality trait that originally was seen as a method or mechanism to shield the individual from feelings of low self-worth [@yakeley2018]. The understanding of what narcissism soon shifted with a focus on empirical understandings of the individual. Researchers such as Jeffrey Young, who expanded on the work of Aaron Beck, theorized that the core beliefs of an individual along with negative self-schemas influence the individual to seek out or act in ways in line with a narcissitic personality [@young2006]. Conceptualizations of narcissism would soon entail it to be an understanding of grandiose sense of self, fantastical beliefs of success and general superiority, along with a general lack of empathy [@americanpsychiatricassociation2013; @yakeley2018; @okada2010]./
+The earliest understandings of narcissism were through Sigmund Freud. However, the term was first coined by Havelock Ellis who used the eponymous Narcissus myth in the explanation of narcissism. Freud would then publish the text *On Narcissism* to further our understanding of narcissism. Future understandings of narcissism would develop from a social congitive framework of the individual in relation to their environment. Such as Kernberg's assestment that narcissism stems from an aggressive and conflict filled childhood affecting the childs development and later aggression and envy towards others [@russell1985a]. 
+
+### Methods
 
 Materials remain the same in terms of the (1) Demographic Questionnaire, (2) Dominance, Prestige, and Leadership Questionnaire, and (3) DOSPERT Questionnaire. However, we added the Brief-Pathological Narcissism Inventory to assess possible interactions of dominance and narcissism in risky decision-making. Materials and methods were approved by the University of 
-## Participants
+### Participants
 
 Following experiment 1, participants were a convenience sample of 111 individuals from Prolific Academic's crowdsourcing platform (www.prolific.io). Prolific Academic is an online crowdsourcing service that provides participants access to studies hosted on third-party websites. Participants were required to be 18 years of age or older and be able to read and understand English. Participants received £4.00, which is above the current minimum wage pro-rata in the United Kingdom, as compensation for completing the survey. The Psychology Research Ethics Committee at the University of Edinburgh approved all study procedures [ref: 212-2021/2]. The present study was pre-registered along with a copy of anonymized data and a copy of the R code is available at ([https://osf.io/s4j7y](https://osf.io/s4j7y)).
 
-## Materials
+### Materials
 
 
-### *Brief-Pathological Narcissism Inventory* 
+#### *Brief-Pathological Narcissism Inventory* 
 
 The 28 item Brief Pathological Narcissism Inventory (B-PNI; Schoenleber et al., 2015) is a modified scale of the original 52-item Pathological Narcissism Inventory (PNI; Pincus et al., 2009). Like the PNI the B-PNI is a scale measuring individuals' pathological narcissism. Items in the B-PNI retained all 7 pathological narcissism facets from the original PNI (e.g., exploitativeness, self-sacrificing self-enhancement, grandiose fantasy, contingent self-esteem, hiding the self, devaluing, and entitlement rage). Each item is rated on a 5 point Likert scale ranging from 1 (not at all like me) to 5 (very much like me). Example items include "I find it easy to manipulate people" and "I can read people like a book." 
 
-## Procedure
+### Procedure
 
 Participants were recruited via a study landing page on Prolific's website or via a direct e-mail to eligible participants [@prolificacademic2018]. The study landing page included a brief description of the study including any risks and benefits along with expected compensation for successful completion. Participants accepted participation in the experiment and were directed to the main survey on pavlovia.org (an online JavaScript hosting website similar to Qualtrics) where they were shown a brief message on study consent.
 
 Once participants consented to participate in the experiment they answered a series of demographic questions. Once completed, participants completed the Dominance, Prestige, and Leadership Scale and the Domain Specific Risk-taking scale. An additional survey was added (the novel aspect of experiment 2) where participants, in addition to the two previous surveys, were asked to complete the brief-pathological narcissism inventory. The three scales were counterbalanced to account for order effects. After completion of the main survey, participants were shown a debriefing statement that briefly mentions the purpose of the experiment along with the contact information of the main researcher (AI). Participants were compensated £4.00 via Prolific Academic. 
 
-## Data analysis
+### Data analysis
 
 Demographic characteristics were analyzed using multiple regression for continuous variables (age) and Chi-square tests for categorical variables (gender, race, ethnicity, ethnic origin, and education). Means and standard deviations were calculated for the relevant scales (i.e., DoPL and DOSPERT). All analyses were done using [@rcoreteam2021] along with [@burkner2017] package.
 
@@ -133,32 +141,32 @@ The use of bayesian statistics has a multitude of benefits to statistical analys
 
 All relevant analyses were conducted in a Bayesian framework using the brms package [@burkner2018] along with the cmdstanr packages notes [@gabry2021]. In addition to the aforementioned packages, we used bayestestR, rstan, and papaja for analysis along with the creation of this manuscript [@makowski2019; @aust2020; @standevelopmentteam2020].
 
-## Results
+### Results
 
 
-## Preregistered Analyses
-
-
-
-### *Demographic and DoPL*
+### Preregistered Analyses
 
 
 
-## Domain-Specific Risk-Taking
-
-## Interactions
+#### *Demographic and DoPL*
 
 
-## Discussion
-## Limitations
 
-## Future Implications
+### Domain-Specific Risk-Taking
+
+### Interactions
+
+
+### Discussion
+### Limitations
+
+### Future Implications
 
 \newpage
 
 
 
-# Figures and Tables
+## Figures and Tables
 
 
 ```{r}
