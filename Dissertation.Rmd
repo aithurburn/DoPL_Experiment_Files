@@ -40,8 +40,8 @@ abstract: |
   
   <!-- https://tinyurl.com/ybremelq -->
   
-keywords          : "keywords"
-wordcount         :  "2004"
+keywords          : ""
+wordcount         :  !expr wordcountaddin::word_count("Dissertation.Rmd")
 
 bibliography      : ["references.json"]
 
@@ -102,8 +102,12 @@ source("libraries.R")
 ```{r child = "Introduction.Rmd"}
 ```
 
+# Chapter 2: Domain Specific Risk-taking and Decision-making
+
 ```{r child = "Chapter2.Rmd"}
 ```
+
+# Chapter 3: Narcissism and Decision-Making
 
 ```{r child = "Chapter3.Rmd"}
 ```
