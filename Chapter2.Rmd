@@ -103,7 +103,7 @@ Following these findings, we investigated the effect of DoPL on general risk pre
 
 ## Discussion
 
-# Experiment 2
+## Experiment 2
 
 ## Methods
 

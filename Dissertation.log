@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.1.10)  17 JAN 2022 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.1.10)  17 JAN 2022 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -791,7 +791,7 @@ LaTeX Info: Completed page discarded.
 [2{/Users/andrew/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [3
 
 ]
-<EdUniCrest.jpg, id=214, 501.875pt x 507.8975pt>
+<EdUniCrest.jpg, id=334, 501.875pt x 507.8975pt>
 File: EdUniCrest.jpg Graphic file (type jpg)
 <use EdUniCrest.jpg>
 Package pdftex.def Info: EdUniCrest.jpg  used on input line 217.
@@ -807,35 +807,32 @@ l.230 \mbox{}\thispagestyle{empty}\clearpage
 ] (./Dissertation.tocpdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.27 ...rline {2.9}Discussion}{42}{subsection.2.9}
+l.28 ...line {1.14}Materials}{41}{subsection.1.14}
                                                   % [3
 
-])
+] [4])
 \tf@toc=\write5
 \openout5 = `Dissertation.toc'.
 
-[4] [5]
+[5] [6]
 Underfull \vbox (badness 1062) has occurred while \output is active []
-
-[6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[8] [9]
+[8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[10]
+[9] [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[12] [13]
+[12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[14]
+[13] [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [15]
@@ -844,10 +841,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[17] [18]
+[17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[19]
+[18] [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [20]
@@ -862,192 +859,206 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[24] [25]
+[24]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[26]
+[25] [26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[28] [29]
+[28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[30]
+[29] [30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[31] [32]
-Underfull \vbox (badness 6559) has occurred while \output is active []
+[31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
-
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 390--391
-
- []
+[32] [33] [34]
+Underfull \vbox (badness 2005) has occurred while \output is active []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
+Underfull \hbox (badness 3735) in paragraph at lines 408--409
+[]\T1/lmr/m/n/12 Following Wor-ley and Samp in their 2014 pa-per on us-ing vi-
+ []
+
+[36] [37]
+Underfull \vbox (badness 3291) has occurred while \output is active []
+
+[38] [39] [40] [41]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[42] [43] [44]
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
 
  []
 
 
+Underfull \vbox (badness 8094) has occurred while \output is active []
+
+[45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[36] [37] [38]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
 
-[39]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 651--652
+
+ []
+
+[47] [48]
+Underfull \vbox (badness 1983) has occurred while \output is active []
+
+[49] [50] [51]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 456.
+(Font)              <10.95> on input line 712.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[40]
-Underfull \hbox (badness 1052) in paragraph at lines 501--502
+Underfull \hbox (badness 1052) in paragraph at lines 757--758
 []\T1/lmr/m/n/12 All par-tic-i-pants com-pleted the dom-i-nance, lead-er-ship, and pres-tige
  []
 
-[41] [42]
-Underfull \vbox (badness 5359) has occurred while \output is active []
+[52]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[43] [44] [45]
-<Dissertation_files/figure-latex/unnamed-chunk-7-1.pdf, id=506, 469.755pt x 325.215pt>
-File: Dissertation_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
-<use Dissertation_files/figure-latex/unnamed-chunk-7-1.pdf>
-Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-7-1.pdf  used on input line 606.
+[53] [54] [55] [56]
+<Dissertation_files/figure-latex/unnamed-chunk-9-1.pdf, id=745, 469.755pt x 325.215pt>
+File: Dissertation_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use Dissertation_files/figure-latex/unnamed-chunk-9-1.pdf>
+Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-9-1.pdf  used on input line 862.
 (pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
 
-Overfull \hbox (36.1314pt too wide) in paragraph at lines 606--607
+Overfull \hbox (36.1314pt too wide) in paragraph at lines 862--863
 [][] 
  []
 
-<Dissertation_files/figure-latex/unnamed-chunk-8-1.pdf, id=507, 469.755pt x 325.215pt>
-File: Dissertation_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
-<use Dissertation_files/figure-latex/unnamed-chunk-8-1.pdf>
-Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-8-1.pdf  used on input line 608.
+<Dissertation_files/figure-latex/unnamed-chunk-10-1.pdf, id=746, 469.755pt x 325.215pt>
+File: Dissertation_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use Dissertation_files/figure-latex/unnamed-chunk-10-1.pdf>
+Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-10-1.pdf  used on input line 864.
 (pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
-<Dissertation_files/figure-latex/unnamed-chunk-8-2.pdf, id=508, 469.755pt x 325.215pt>
-File: Dissertation_files/figure-latex/unnamed-chunk-8-2.pdf Graphic file (type pdf)
-<use Dissertation_files/figure-latex/unnamed-chunk-8-2.pdf>
-Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-8-2.pdf  used on input line 608.
+<Dissertation_files/figure-latex/unnamed-chunk-10-2.pdf, id=747, 469.755pt x 325.215pt>
+File: Dissertation_files/figure-latex/unnamed-chunk-10-2.pdf Graphic file (type pdf)
+<use Dissertation_files/figure-latex/unnamed-chunk-10-2.pdf>
+Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-10-2.pdf  used on input line 864.
 (pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
-<Dissertation_files/figure-latex/unnamed-chunk-8-3.pdf, id=509, 469.755pt x 325.215pt>
-File: Dissertation_files/figure-latex/unnamed-chunk-8-3.pdf Graphic file (type pdf)
-<use Dissertation_files/figure-latex/unnamed-chunk-8-3.pdf>
-Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-8-3.pdf  used on input line 608.
+<Dissertation_files/figure-latex/unnamed-chunk-10-3.pdf, id=748, 469.755pt x 325.215pt>
+File: Dissertation_files/figure-latex/unnamed-chunk-10-3.pdf Graphic file (type pdf)
+<use Dissertation_files/figure-latex/unnamed-chunk-10-3.pdf>
+Package pdftex.def Info: Dissertation_files/figure-latex/unnamed-chunk-10-3.pdf  used on input line 864.
 (pdftex.def)             Requested size: 412.56137pt x 285.6194pt.
 
-Overfull \hbox (36.1314pt too wide) in paragraph at lines 608--609
+Overfull \hbox (36.1314pt too wide) in paragraph at lines 864--865
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 608--609
+Underfull \hbox (badness 10000) in paragraph at lines 864--865
 []
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[46 <./Dissertation_files/figure-latex/unnamed-chunk-7-1.pdf> <./Dissertation_files/figure-latex/unnamed-chunk-8-1.pdf>]
+[57 <./Dissertation_files/figure-latex/unnamed-chunk-9-1.pdf> <./Dissertation_files/figure-latex/unnamed-chunk-10-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[47 <./Dissertation_files/figure-latex/unnamed-chunk-8-2.pdf> <./Dissertation_files/figure-latex/unnamed-chunk-8-3.pdf>] [48] [49] [50]
+[58 <./Dissertation_files/figure-latex/unnamed-chunk-10-2.pdf> <./Dissertation_files/figure-latex/unnamed-chunk-10-3.pdf>] [59] [60] [61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[51]
+[62]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[52]
+[63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[53]
-Underfull \hbox (badness 1033) in paragraph at lines 810--812
+[64]
+Underfull \hbox (badness 1033) in paragraph at lines 1066--1068
  \T1/lmr/m/it/12 cho-log-i-cal Sci-ence\T1/lmr/m/n/12 , \T1/lmr/m/it/12 22\T1/lmr/m/n/12 (3), 295--299. []$\T1/lmtt/m/n/12 https : / / doi . org / 10 . 1177 /$
  []
 
 
-Underfull \hbox (badness 6396) in paragraph at lines 816--818
+Underfull \hbox (badness 6396) in paragraph at lines 1072--1074
  []\T1/lmr/m/n/12 Finucane, M. L., Al-hakami, A., Slovic, P., & John-son, S.
  []
 
 
-Underfull \hbox (badness 2884) in paragraph at lines 816--818
+Underfull \hbox (badness 2884) in paragraph at lines 1072--1074
  \T1/lmr/m/n/12 M. (2000). The af-fect heuris-tic in judg-ments of risks and
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 816--818
+Underfull \hbox (badness 2922) in paragraph at lines 1072--1074
  \T1/lmr/m/n/12 ben-e-fits. \T1/lmr/m/it/12 Jour-nal of Be-hav-ioral De-ci-sion Mak-ing\T1/lmr/m/n/12 , \T1/lmr/m/it/12 13\T1/lmr/m/n/12 (1), 1--
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[54]
+[65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[55]
+[66]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[56]
+[67]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[57]
+[68]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[58]
-Underfull \hbox (badness 8075) in paragraph at lines 927--929
+[69]
+Underfull \hbox (badness 8075) in paragraph at lines 1186--1188
  []\T1/lmr/m/n/12 Papanek, H. (1972). Pathol-ogy of power striv-ing and its
  []
 
 
-Underfull \hbox (badness 4569) in paragraph at lines 927--929
+Underfull \hbox (badness 4569) in paragraph at lines 1186--1188
  \T1/lmr/m/n/12 treat-ment. \T1/lmr/m/it/12 Jour-nal of In-di-vid-ual Psy-chol-ogy; Chicago, Ill.\T1/lmr/m/n/12 ,
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[59]
-Underfull \hbox (badness 10000) in paragraph at lines 939--941
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 1198--1200
  []$\T1/lmtt/m/n/12 https : / / researcher -[] help . prolific . co / hc / en -[] gb / articles /$
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[60]
+[71]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[61]
+[72]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[62]
+[73]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[63] [64] (./Dissertation.aux)
+[74] [75] (./Dissertation.aux)
 Package rerunfilecheck Info: File `Dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: 8569CDD0002726FE9EFD2B70C82C70DF;7086.
+(rerunfilecheck)             Checksum: 9913F9F607A0139D4289C38CB94745F7;11870.
  ) 
 Here is how much of TeX's memory you used:
- 25291 strings out of 480313
- 479961 string characters out of 5896367
- 769094 words of memory out of 5000000
- 42384 multiletter control sequences out of 15000+600000
- 502759 words of font info for 99 fonts, out of 8000000 for 9000
+ 25437 strings out of 480313
+ 482617 string characters out of 5896367
+ 770014 words of memory out of 5000000
+ 42448 multiletter control sequences out of 15000+600000
+ 507023 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,11n,103p,2720b,635s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/Users/andrew/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/andrew/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Dissertation.pdf (66 pages, 457313 bytes).
+ 99i,11n,103p,2720b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/Users/andrew/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/andrew/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/andrew/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on Dissertation.pdf (77 pages, 499436 bytes).
 PDF statistics:
- 1080 PDF objects out of 1200 (max. 8388607)
- 975 compressed objects within 10 object streams
- 285 named destinations out of 1000 (max. 500000)
- 422 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1350 PDF objects out of 1440 (max. 8388607)
+ 1229 compressed objects within 13 object streams
+ 366 named destinations out of 1000 (max. 500000)
+ 662 words of extra memory for PDF output out of 10000 (max. 10000000)
 
