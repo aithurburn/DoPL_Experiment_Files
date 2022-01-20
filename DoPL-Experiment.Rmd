@@ -25,7 +25,7 @@ affiliation:
 
 
 abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any  discipline.
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any  discipline. 
   
 keywords          : "keywords"
 wordcount         :  !expr wordcountaddin::word_count("DoPL-Experiment.Rmd")
