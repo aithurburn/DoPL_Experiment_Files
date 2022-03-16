@@ -1,7 +1,0 @@
-PWD c:\Users\s1932788\OneDrive\Documents\1_UoE\Research\PhD\Experiments\DoPL_DOSPERT\R-analysis
-INPUT C:\Users\s1932788\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\s1932788\OneDrive\Documents\1_UoE\Research\PhD\Experiments\DoPL_DOSPERT\R-analysis\front.tex
-OUTPUT front.log
-INPUT C:\Users\s1932788\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
-OUTPUT front.pdf
-INPUT C:\Users\s1932788\AppData\Local\MiKTeX\pdftex\config\pdftex.map

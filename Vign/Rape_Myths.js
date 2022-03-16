@@ -1,0 +1,3 @@
+var vign_myth_1 = "Corrina and Joe were having a party at their home to  welcome some close family frineds into the city. Corrina was so happy to finally have friends and family over at her house. Many of which live in the next country over. She moved to be with her husband and his family because of a new job and didn't have many friends. The job has been extremely demanding on Joe and to where he is never home and when he is he just sleeps. Recently she has been making plans to leave her husband and one of her few that she has confided to was at the party. In the kitchen he would constantly touch her back and put his hand on her sholder. ";
+
+var vign_myth_2 = "";

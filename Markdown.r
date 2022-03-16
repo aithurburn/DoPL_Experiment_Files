@@ -2,7 +2,6 @@
 library(DT)
 library(ggplot2)
 library(ggthemes)
-library(tidyverse)
 library(brms)
 library(cmdstanr)
 library(rstan)
@@ -12,7 +11,7 @@ library(psych)
 library(BayesFactor)
 library(bayesplot)
 library(kableExtra)
-library(tidyverse)
+library(tidyselect)
 options(mc.corrs = parallel::detectCores(), brms.backend = "cmdstanr") # can run chains in parallel with each other
 rstan_options(auto_write = TRUE)
 experiment_1_Dataset <- read.csv("DoPL_DOSPERT.csv", stringsAsFactors = FALSE)
@@ -1963,30 +1962,51 @@ priorTest <- c(prior(normal(0, 1), class = "b",resp = "ethicalPreference"),
 # Risk preferences predicting dopl motivation
 
 
-m7_DoPL_DOSPERT <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ ethicalPreference + financialPreference + socialPreference + healthAndSafetyPreference + recreationalPreference, data = experiment_dataset_analysis,
+m7_DoPL_DOSPERT_Gender <- brm(mvbind(dominanceSum, prestigeSum, leadershipSum) ~ ethicalPreference*Gender + financialPreference*Gender + socialPreference*Gender + healthAndSafetyPreference*Gender + recreationalPreference*Gender, data = experiment_dataset_analysis,
                        iter = 6500, warmup = 500,
                      prior = c(prior(normal(0, 1), class = "Intercept"),
                                prior(normal(0, 1), class = "sigma", resp = "dominanceSum"),
                                prior(normal(0, 1), class = "sigma", resp = "prestigeSum"),
                                prior(normal(0, 1), class = "sigma", resp = "leadershipSum"),
+                               ### Dominance
                                prior(normal(0, 1), coef = "ethicalPreference", resp = "dominanceSum"),
                                prior(normal(0, 1), coef = "financialPreference", resp = "dominanceSum"),
                                prior(normal(0, 1), coef = "healthAndSafetyPreference", resp = "dominanceSum"), 
                                prior(normal(0, 1), coef = "recreationalPreference", resp = "dominanceSum"), 
                                prior(normal(0, 1), coef = "socialPreference", resp = "dominanceSum"),
+                               prior(normal(0, 1), coef = "ethicalPreference:Gender", resp = "dominanceSum"),
+                               prior(normal(0, 1), coef = "Gender:financialPreference", resp = "dominanceSum"),
+                               prior(normal(0, 1), coef = "Gender:healthAndSafetyPreference", resp = "dominanceSum"), 
+                               prior(normal(0, 1), coef = "Gender:recreationalPreference", resp = "dominanceSum"), 
+                               prior(normal(0, 1), coef = "Gender:socialPreference", resp = "dominanceSum"),
+                               ### Prestige
                                prior(normal(0, 1), coef = "ethicalPreference", resp = "prestigeSum"),
                                prior(normal(0, 1), coef = "financialPreference", resp = "prestigeSum"),
                                prior(normal(0, 1), coef = "healthAndSafetyPreference", resp = "prestigeSum"), 
                                prior(normal(0, 1), coef = "recreationalPreference", resp = "prestigeSum"), 
                                prior(normal(0, 1), coef = "socialPreference", resp = "prestigeSum"),
+                               prior(normal(0, 1), coef = "ethicalPreference:Gender", resp = "prestigeSum"),
+                               prior(normal(0, 1), coef = "Gender:financialPreference", resp = "prestigeSum"),
+                               prior(normal(0, 1), coef = "Gender:healthAndSafetyPreference", resp = "prestigeSum"), 
+                               prior(normal(0, 1), coef = "Gender:recreationalPreference", resp = "prestigeSum"), 
+                               prior(normal(0, 1), coef = "Gender:socialPreference", resp = "prestigeSum"),
+                               ### Leadership
                                prior(normal(0, 1), coef = "ethicalPreference", resp = "leadershipSum"),
                                prior(normal(0, 1), coef = "financialPreference", resp = "leadershipSum"),
                                prior(normal(0, 1), coef = "healthAndSafetyPreference", resp = "leadershipSum"), 
                                prior(normal(0, 1), coef = "recreationalPreference", resp = "leadershipSum"), 
-                               prior(normal(0, 1), coef = "socialPreference", resp = "leadershipSum")),
+                               prior(normal(0, 1), coef = "socialPreference", resp = "leadershipSum"),
+                               prior(normal(0, 1), coef = "ethicalPreference:Gender", resp = "leadershipSum"),
+                               prior(normal(0, 1), coef = "Gender:financialPreference", resp = "leadershipSum"),
+                               prior(normal(0, 1), coef = "Gender:healthAndSafetyPreference", resp = "leadershipSum"), 
+                               prior(normal(0, 1), coef = "Gender:recreationalPreference", resp = "leadershipSum"), 
+                               prior(normal(0, 1), coef = "Gender:socialPreference", resp = "leadershipSum")),
                                save_all_pars = T)
 
-summary(m7_DoPL_DOSPERT)
+summary(m7_DoPL_DOSPERT_Gender)
 
 
 
+m7_DoPL_DOSPERT_HDI <- hdi(m7_DoPL_DOSPERT, effects = "fixed", component = "conditional", ci = .95)
+m7_DoPL_DOSPERT_HDI[sign(m7_DoPL_DOSPERT_HDI$CI_low) == sign(m7_DoPL_DOSPERT_HDI$CI_high),
+            c('Parameter', 'CI','CI_low', 'CI_high')]
